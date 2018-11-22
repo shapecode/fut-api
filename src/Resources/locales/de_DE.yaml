@@ -1,0 +1,7 @@
+login:
+    incorrect_credentials: "'successfulLogin': false"
+    redirect_uri: "var redirectUri"
+    login_verification: "Anmeldungsüberprüfung"
+    security_code: "Bitte gib deinen Sicherheitscode ein"
+    incorrect_code_1: "Incorrect code entered"
+    incorrect_code_2: "Please enter a valid security code"

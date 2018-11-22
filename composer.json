@@ -1,0 +1,59 @@
+{
+    "name": "shapecode/fut-api",
+    "description": "FIFA WebApp API",
+    "keywords": [
+        "fut",
+        "fifa",
+        "api",
+        "fifa19"
+    ],
+    "type": "library",
+    "license": "GPL-3.0",
+    "homepage": "https://github.com/shapecode/fut-api",
+    "support": {
+        "email": "git@shapecode.de",
+        "issues": "https://github.com/shapecode/fut-api/issues",
+        "source": "https://github.com/shapecode/fut-api/releases",
+        "wiki": "https://github.com/shapecode/fut-api/wiki"
+    },
+    "authors": [
+        {
+            "name": "Shapecode",
+            "homepage": "https://shapecode.de",
+            "email": "git@shapecode.de"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "ext-json": "*",
+
+        "guzzlehttp/guzzle": "^6.3",
+
+        "symfony/property-access": "^2.8|^3.0|^4.0",
+        "symfony/yaml": "^2.8|^3.0|^4.0",
+        "symfony/translation": "^2.8|^3.0|^4.0",
+
+        "shapecode/anticaptcha": "^1.0",
+
+        "psr/http-message": "^1.0",
+        "php-http/client-implementation": "^1.0",
+        "php-http/discovery": "^1.4",
+        "php-http/client-common": "^1.7",
+        "php-http/message": "^1.7",
+        "php-http/httplug": "^1.0",
+        "php-http/message-factory": "^1.0",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shapecode\\FUT\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "19.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
