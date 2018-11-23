@@ -2,8 +2,6 @@
 
 namespace Shapecode\FUT\Client\Config;
 
-use Http\Client\Common\Plugin;
-
 /**
  * Interface ConfigInterface
  *
@@ -14,20 +12,9 @@ interface ConfigInterface
 {
 
     /**
-     * @param $key
-     * @param $value
-     */
-    public function setValue($key, $value);
-
-    /**
      * @return bool
      */
     public function isDelay();
-
-    /**
-     * @param bool $delay
-     */
-    public function setDelay($delay);
 
     /**
      * @return int
@@ -35,19 +22,9 @@ interface ConfigInterface
     public function getDelayMinTime();
 
     /**
-     * @param int $delayMinTime
-     */
-    public function setDelayMinTime($delayMinTime);
-
-    /**
      * @return int
      */
     public function getDelayMaxTime();
-
-    /**
-     * @param int $delayMaxTime
-     */
-    public function setDelayMaxTime($delayMaxTime);
 
     /**
      * @param int|null $min
@@ -63,17 +40,15 @@ interface ConfigInterface
     public function getHttpClientOptions();
 
     /**
-     * @param array $httpClientOptions
+     * @param $name
+     *
+     * @return mixed
      */
-    public function setHttpClientOptions(array $httpClientOptions);
+    public function getOption($name);
 
     /**
-     * @return Plugin[]
+     * @param $name
+     * @param $value
      */
-    public function getHttpClientPlugins();
-
-    /**
-     * @param Plugin[] $httpClientPlugins
-     */
-    public function setHttpClientPlugins(array $httpClientPlugins);
+    public function setOption($name, $value);
 }

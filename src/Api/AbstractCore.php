@@ -1144,7 +1144,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function setConfig($name, $value)
     {
-        $this->config->setValue($name, $value);
+        $this->config->setOption($name, $value);
     }
 
 }

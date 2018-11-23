@@ -2,9 +2,7 @@
 
 namespace Shapecode\FUT\Client\Config;
 
-use Http\Client\Common\Plugin;
-use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class Config
@@ -15,52 +13,24 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 class Config implements ConfigInterface
 {
 
-    /** @var bool */
-    protected $delay = true;
-
-    /** @var int */
-    protected $delayMinTime = 1000;
-
-    /** @var int */
-    protected $delayMaxTime = 1500;
+    /** @var string */
+    protected $futConfigUrl;
 
     /** @var array */
-    protected $httpClientOptions = [];
-
-    /** @var Plugin[] */
-    protected $httpClientPlugins = [];
-
-    /** @var PropertyAccessor */
-    protected $pa;
+    protected $options;
 
     /**
      * @param array $options
+     * @param null  $futConfigUrl
      */
-    public function __construct(array $options = [])
+    public function __construct(array $options = [], $futConfigUrl = null)
     {
-        $this->pa = PropertyAccess::createPropertyAccessor();
-
-        if (isset($options['pa'])) {
-            unset($options['pa']);
+        if ($futConfigUrl === null) {
+            $futConfigUrl = 'https://www.easports.com/fifa/ultimate-team/web-app/config/config.json';
         }
 
-        foreach ($options as $key => $value) {
-            $this->setValue($key, $value);
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setValue($key, $value)
-    {
-        if ($key === 'pa') {
-            return;
-        }
-
-        if ($this->pa->isWritable($this, $key)) {
-            $this->pa->setValue($this, $key, $value);
-        }
+        $this->futConfigUrl = $futConfigUrl;
+        $this->resolveOptions($options);
     }
 
     /**
@@ -68,15 +38,7 @@ class Config implements ConfigInterface
      */
     public function isDelay()
     {
-        return $this->delay;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setDelay($delay)
-    {
-        $this->delay = $delay;
+        return $this->getOption('delay');
     }
 
     /**
@@ -84,15 +46,7 @@ class Config implements ConfigInterface
      */
     public function getDelayMinTime()
     {
-        return $this->delayMinTime;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setDelayMinTime($delayMinTime)
-    {
-        $this->delayMinTime = $delayMinTime;
+        return $this->getOption('delay_min_time');
     }
 
     /**
@@ -100,15 +54,7 @@ class Config implements ConfigInterface
      */
     public function getDelayMaxTime()
     {
-        return $this->delayMaxTime;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setDelayMaxTime($delayMaxTime)
-    {
-        $this->delayMaxTime = $delayMaxTime;
+        return $this->getOption('delay_max_time');
     }
 
     /**
@@ -134,30 +80,56 @@ class Config implements ConfigInterface
      */
     public function getHttpClientOptions()
     {
-        return $this->httpClientOptions;
+        return $this->getOption('http_client_options');
     }
 
     /**
-     * @inheritdoc
+     * @param $name
+     *
+     * @return mixed
      */
-    public function setHttpClientOptions(array $httpClientOptions)
+    public function getOption($name)
     {
-        $this->httpClientOptions = $httpClientOptions;
+        return $this->options[$name];
     }
 
     /**
-     * @inheritdoc
+     * @param $name
+     * @param $value
      */
-    public function getHttpClientPlugins()
+    public function setOption($name, $value)
     {
-        return $this->httpClientPlugins;
+        $this->options[$name] = $value;
     }
 
     /**
-     * @inheritdoc
+     * @return OptionsResolver
      */
-    public function setHttpClientPlugins(array $httpClientPlugins)
+    protected function getResolver()
     {
-        $this->httpClientPlugins = $httpClientPlugins;
+        $resolver = new OptionsResolver();
+
+        $url = $this->futConfigUrl;
+        $content = file_get_contents($url);
+        $futConfig = json_decode($content, true);
+
+        $defaults = array_merge($futConfig, [
+            'delay'               => true,
+            'delay_min_time'      => 1000,
+            'delay_max_time'      => 1500,
+            'http_client_options' => [],
+        ]);
+
+        $resolver->setDefaults($defaults);
+
+        return $resolver;
+    }
+
+    /**
+     * @param array $options
+     */
+    protected function resolveOptions(array $options)
+    {
+        $this->options = $this->getResolver()->resolve($options);
     }
 }
