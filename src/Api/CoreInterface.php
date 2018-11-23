@@ -1,11 +1,11 @@
 <?php
 
-namespace Shapecode\FUT\Api;
+namespace Shapecode\FUT\Client\Api;
 
 /**
  * Interface CoreInterface
  *
- * @package Shapecode\FUT\Api
+ * @package Shapecode\FUT\Client\Api
  * @author  Shapecode
  */
 interface CoreInterface

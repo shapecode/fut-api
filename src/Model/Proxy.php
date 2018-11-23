@@ -1,11 +1,11 @@
 <?php
 
-namespace Shapecode\FUT\Model;
+namespace Shapecode\FUT\Client\Model;
 
 /**
  * Class Proxy
  *
- * @package Shapecode\FUT\Model
+ * @package Shapecode\FUT\Client\Model
  * @author  Shapecode
  */
 class Proxy implements ProxyInterface

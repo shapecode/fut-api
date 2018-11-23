@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Exception;
+namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class PermissionDeniedException
  *
- * @package Shapecode\FUT\Exception
+ * @package Shapecode\FUT\Client\Exception
  * @author  Shapecode
  */
 class PermissionDeniedException extends FutResponseException

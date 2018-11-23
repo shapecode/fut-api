@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Util;
+namespace Shapecode\FUT\Client\Util;
 
-use Shapecode\FUT\Exception\FutException;
+use Shapecode\FUT\Client\Exception\FutException;
 
 /**
  * Class FutUtil
  *
- * @package Shapecode\FUT\Util
+ * @package Shapecode\FUT\Client\Util
  * @author  Shapecode
  */
 class FutUtil

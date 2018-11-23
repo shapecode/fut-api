@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Authentication;
+namespace Shapecode\FUT\Client\Authentication;
 
-use Shapecode\FUT\Exception\FutException;
+use Shapecode\FUT\Client\Exception\FutException;
 
 /**
  * Class Credentials
  *
- * @package Shapecode\FUT\Authentication
+ * @package Shapecode\FUT\Client\Authentication
  * @author  Shapecode
  */
 class Credentials implements CredentialsInterface

@@ -1,6 +1,6 @@
 <?php
 
-namespace Shapecode\FUT\Locale;
+namespace Shapecode\FUT\Client\Locale;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Translation\Translator;
@@ -8,7 +8,7 @@ use Symfony\Component\Translation\Translator;
 /**
  * Class Locale
  *
- * @package Shapecode\FUT\Locale
+ * @package Shapecode\FUT\Client\Locale
  * @author  Shapecode
  */
 class Locale

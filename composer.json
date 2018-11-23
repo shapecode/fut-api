@@ -46,8 +46,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Shapecode\\FUT\\": "src"
-        }
+            "Shapecode\\FUT\\Client\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
     },
     "extra": {
         "branch-alias": {

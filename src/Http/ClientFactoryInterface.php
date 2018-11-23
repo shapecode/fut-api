@@ -1,8 +1,8 @@
 <?php
 
-namespace Shapecode\FUT\Http;
+namespace Shapecode\FUT\Client\Http;
 
-use Shapecode\FUT\Authentication\AccountInterface;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Interface ClientFactoryInterface
  *
- * @package Shapecode\FUT\Http
+ * @package Shapecode\FUT\Client\Http
  * @author  Shapecode
  */
 interface ClientFactoryInterface

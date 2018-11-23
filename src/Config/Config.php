@@ -1,6 +1,6 @@
 <?php
 
-namespace Shapecode\FUT\Config;
+namespace Shapecode\FUT\Client\Config;
 
 use Http\Client\Common\Plugin;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -9,7 +9,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 /**
  * Class Config
  *
- * @package Shapecode\FUT\Config
+ * @package Shapecode\FUT\Client\Config
  * @author  Shapecode
  */
 class Config implements ConfigInterface

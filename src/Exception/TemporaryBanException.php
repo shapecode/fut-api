@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Exception;
+namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class TemporaryBanException
  *
- * @package Shapecode\FUT\Exception
+ * @package Shapecode\FUT\Client\Exception
  * @author  Shapecode
  */
 class TemporaryBanException extends PermissionDeniedException

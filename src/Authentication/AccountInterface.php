@@ -1,14 +1,14 @@
 <?php
 
-namespace Shapecode\FUT\Authentication;
+namespace Shapecode\FUT\Client\Authentication;
 
-use Shapecode\FUT\Model\ProxyInterface;
+use Shapecode\FUT\Client\Model\ProxyInterface;
 use GuzzleHttp\Cookie\CookieJarInterface;
 
 /**
  * Interface AccountInterface
  *
- * @package Shapecode\FUT\Authentication
+ * @package Shapecode\FUT\Client\Authentication
  * @author  Shapecode
  */
 interface AccountInterface

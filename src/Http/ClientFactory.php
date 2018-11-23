@@ -1,10 +1,10 @@
 <?php
 
-namespace Shapecode\FUT\Http;
+namespace Shapecode\FUT\Client\Http;
 
-use Shapecode\FUT\Api\CoreInterface;
-use Shapecode\FUT\Authentication\AccountInterface;
-use Shapecode\FUT\Config\ConfigInterface;
+use Shapecode\FUT\Client\Api\CoreInterface;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
+use Shapecode\FUT\Client\Config\ConfigInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -19,7 +19,7 @@ use Http\Message\RequestFactory;
 /**
  * Class ClientFactory
  *
- * @package Shapecode\FUT\Http
+ * @package Shapecode\FUT\Client\Http
  * @author  Shapecode
  */
 class ClientFactory implements ClientFactoryInterface

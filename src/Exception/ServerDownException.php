@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Exception;
+namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class ServerDownException
  *
- * @package Shapecode\FUT\Exception
+ * @package Shapecode\FUT\Client\Exception
  * @author  Shapecode
  */
 class ServerDownException extends FutResponseException

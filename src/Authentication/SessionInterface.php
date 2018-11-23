@@ -1,11 +1,11 @@
 <?php
 
-namespace Shapecode\FUT\Authentication;
+namespace Shapecode\FUT\Client\Authentication;
 
 /**
  * Interface SessionInterface
  *
- * @package Shapecode\FUT\Authentication
+ * @package Shapecode\FUT\Client\Authentication
  * @author  Shapecode
  */
 interface SessionInterface

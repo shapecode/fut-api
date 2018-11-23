@@ -1,11 +1,11 @@
 <?php
 
-namespace Shapecode\FUT\Exception;
+namespace Shapecode\FUT\Client\Exception;
 
 /**
  * Class FutError
  *
- * @package Shapecode\FUT\Exception
+ * @package Shapecode\FUT\Client\Exception
  * @author  Shapecode
  *
  * @deprecated

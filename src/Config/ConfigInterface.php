@@ -1,13 +1,13 @@
 <?php
 
-namespace Shapecode\FUT\Config;
+namespace Shapecode\FUT\Client\Config;
 
 use Http\Client\Common\Plugin;
 
 /**
  * Interface ConfigInterface
  *
- * @package Shapecode\FUT\Config
+ * @package Shapecode\FUT\Client\Config
  * @author  Shapecode
  */
 interface ConfigInterface

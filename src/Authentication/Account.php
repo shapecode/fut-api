@@ -1,8 +1,8 @@
 <?php
 
-namespace Shapecode\FUT\Authentication;
+namespace Shapecode\FUT\Client\Authentication;
 
-use Shapecode\FUT\Model\ProxyInterface;
+use Shapecode\FUT\Client\Model\ProxyInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Cookie\CookieJarInterface;
 use GuzzleHttp\Cookie\FileCookieJar;
@@ -10,7 +10,7 @@ use GuzzleHttp\Cookie\FileCookieJar;
 /**
  * Class Account
  *
- * @package Shapecode\FUT\Authentication
+ * @package Shapecode\FUT\Client\Authentication
  * @author  Shapecode
  */
 class Account implements AccountInterface

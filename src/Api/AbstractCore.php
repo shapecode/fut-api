@@ -1,31 +1,31 @@
 <?php
 
-namespace Shapecode\FUT\Api;
+namespace Shapecode\FUT\Client\Api;
 
-use Shapecode\FUT\Authentication\AccountInterface;
-use Shapecode\FUT\Authentication\Session;
-use Shapecode\FUT\Config\Config;
-use Shapecode\FUT\Config\ConfigInterface;
-use Shapecode\FUT\Exception\AuthFailedException;
-use Shapecode\FUT\Exception\CaptchaException;
-use Shapecode\FUT\Exception\FutResponseException;
-use Shapecode\FUT\Exception\IncorrectCredentialsException;
-use Shapecode\FUT\Exception\IncorrectSecurityCodeException;
-use Shapecode\FUT\Exception\MaxSessionsException;
-use Shapecode\FUT\Exception\NoPersonaException;
-use Shapecode\FUT\Exception\NoSessionException;
-use Shapecode\FUT\Exception\PermissionDeniedException;
-use Shapecode\FUT\Exception\ProvideSecurityCodeException;
-use Shapecode\FUT\Exception\ServerDownException;
-use Shapecode\FUT\Exception\SessionExpiredException;
-use Shapecode\FUT\Exception\TemporaryBanException;
-use Shapecode\FUT\Exception\ToManyRequestsException;
-use Shapecode\FUT\Exception\TransferMarketDisabledException;
-use Shapecode\FUT\Exception\UserExpiredException;
-use Shapecode\FUT\Http\ClientFactory;
-use Shapecode\FUT\Http\ClientFactoryInterface;
-use Shapecode\FUT\Locale\Locale;
-use Shapecode\FUT\Util\FutUtil;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
+use Shapecode\FUT\Client\Authentication\Session;
+use Shapecode\FUT\Client\Config\Config;
+use Shapecode\FUT\Client\Config\ConfigInterface;
+use Shapecode\FUT\Client\Exception\AuthFailedException;
+use Shapecode\FUT\Client\Exception\CaptchaException;
+use Shapecode\FUT\Client\Exception\FutResponseException;
+use Shapecode\FUT\Client\Exception\IncorrectCredentialsException;
+use Shapecode\FUT\Client\Exception\IncorrectSecurityCodeException;
+use Shapecode\FUT\Client\Exception\MaxSessionsException;
+use Shapecode\FUT\Client\Exception\NoPersonaException;
+use Shapecode\FUT\Client\Exception\NoSessionException;
+use Shapecode\FUT\Client\Exception\PermissionDeniedException;
+use Shapecode\FUT\Client\Exception\ProvideSecurityCodeException;
+use Shapecode\FUT\Client\Exception\ServerDownException;
+use Shapecode\FUT\Client\Exception\SessionExpiredException;
+use Shapecode\FUT\Client\Exception\TemporaryBanException;
+use Shapecode\FUT\Client\Exception\ToManyRequestsException;
+use Shapecode\FUT\Client\Exception\TransferMarketDisabledException;
+use Shapecode\FUT\Client\Exception\UserExpiredException;
+use Shapecode\FUT\Client\Http\ClientFactory;
+use Shapecode\FUT\Client\Http\ClientFactoryInterface;
+use Shapecode\FUT\Client\Locale\Locale;
+use Shapecode\FUT\Client\Util\FutUtil;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\TransferStats;
@@ -35,7 +35,7 @@ use Psr\Http\Message\UriInterface;
 /**
  * Class AbstractCore
  *
- * @package Shapecode\FUT\Api
+ * @package Shapecode\FUT\Client\Api
  * @author  Shapecode
  */
 abstract class AbstractCore implements CoreInterface

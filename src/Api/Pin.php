@@ -1,15 +1,15 @@
 <?php
 
-namespace Shapecode\FUT\Api;
+namespace Shapecode\FUT\Client\Api;
 
-use Shapecode\FUT\Authentication\AccountInterface;
-use Shapecode\FUT\Exception\FutResponseException;
-use Shapecode\FUT\Http\ClientFactoryInterface;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
+use Shapecode\FUT\Client\Exception\FutResponseException;
+use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 
 /**
  * Class Pin
  *
- * @package Shapecode\FUT\Api
+ * @package Shapecode\FUT\Client\Api
  * @author  Shapecode
  */
 class Pin implements PinInterface
