@@ -113,6 +113,10 @@ class Config implements ConfigInterface
         $content = file_get_contents($url);
         $futConfig = json_decode($content, true);
 
+        if (!is_array($futConfig)) {
+            $futConfig = [];
+        }
+
         $defaults = array_merge($futConfig, [
             'delay'               => true,
             'delay_min_time'      => 1000,
