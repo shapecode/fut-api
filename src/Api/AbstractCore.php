@@ -2,6 +2,11 @@
 
 namespace Shapecode\FUT\Client\Api;
 
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\TransferStats;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UriInterface;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Authentication\Session;
 use Shapecode\FUT\Client\Config\Config;
@@ -26,11 +31,6 @@ use Shapecode\FUT\Client\Http\ClientFactory;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use Shapecode\FUT\Client\Locale\Locale;
 use Shapecode\FUT\Client\Util\FutUtil;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\TransferStats;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 
 /**
  * Class AbstractCore
@@ -1008,7 +1008,7 @@ abstract class AbstractCore implements CoreInterface
             $url = $this->getFifaApiUrl() . $url;
         }
 
-        if ($this->getConfig()->isDelay()) {
+        if ($this->getConfig()->isDelay() === true) {
             $this->sleep();
         }
 
