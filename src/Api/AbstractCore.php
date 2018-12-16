@@ -429,7 +429,9 @@ abstract class AbstractCore implements CoreInterface
             'count' => $count
         ];
 
-        return $this->request('GET', 'defid', [], $params);
+        $response = $this->request('GET', 'defid', [], $params);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -457,7 +459,7 @@ abstract class AbstractCore implements CoreInterface
             ]);
         }
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -474,7 +476,7 @@ abstract class AbstractCore implements CoreInterface
             $this->getPin()->event('boot_end', false, false, false, 'normal')
         ]);
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -482,7 +484,9 @@ abstract class AbstractCore implements CoreInterface
      */
     public function usermassInfo()
     {
-        return $this->request('GET', '/usermassinfo');
+        $response = $this->request('GET', '/usermassinfo');
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -490,7 +494,8 @@ abstract class AbstractCore implements CoreInterface
      */
     public function credits()
     {
-        $data = $this->request('GET', '/user/credits');
+        $response = $this->request('GET', '/user/credits');
+        $data = $this->getResponseContent($response);
 
         if (isset($data['credits'])) {
             return $data['credits'];
@@ -521,6 +526,7 @@ abstract class AbstractCore implements CoreInterface
         }
 
         $response = $this->request('GET', '/club', [], $params);
+
         if ($params['start'] === 0) {
             switch ($params['type']) {
                 case 'player':
@@ -544,7 +550,7 @@ abstract class AbstractCore implements CoreInterface
             }
         }
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -612,7 +618,9 @@ abstract class AbstractCore implements CoreInterface
      */
     public function clubStaff()
     {
-        return $this->request('GET', '/club/stats/staff');
+        $response = $this->request('GET', '/club/stats/staff');
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -626,7 +634,7 @@ abstract class AbstractCore implements CoreInterface
         $this->getPin()->sendEvent('page_view', 'Club - Consumables');
         $this->getPin()->sendEvent('page_view', 'Club - Consumables - List View');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -641,7 +649,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'Squads - Squad Overview');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -649,9 +657,11 @@ abstract class AbstractCore implements CoreInterface
      */
     public function tradeStatus($tradeId)
     {
-        return $this->request('GET', '/trade/status', null, [
+        $response = $this->request('GET', '/trade/status', null, [
             'tradeIds' => $tradeId
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -663,7 +673,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'Transfer List - List View');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -675,7 +685,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'Transfer Targets - List View');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -687,7 +697,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'Unassigned Items - List View');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -706,9 +716,11 @@ abstract class AbstractCore implements CoreInterface
 
         $response = $this->request('POST', '/auctionhouse', $options);
 
+        $data = $this->getResponseContent($response);
+
         $this->sleep(250, 750);
 
-        $tradeStatus = $this->tradeStatus($response['id']);
+        $tradeStatus = $this->tradeStatus($data['id']);
 
         return $tradeStatus['auctionInfo'][0];
     }
@@ -718,9 +730,11 @@ abstract class AbstractCore implements CoreInterface
      */
     public function quickSell($itemId)
     {
-        return $this->request('DELETE', '/item', null, [
+        $response = $this->request('DELETE', '/item', null, [
             'itemIds' => $itemId
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -728,7 +742,9 @@ abstract class AbstractCore implements CoreInterface
      */
     public function removeSold($tradeId)
     {
-        return $this->request('DELETE', '/trade/' . $tradeId);
+        $response = $this->request('DELETE', '/trade/' . $tradeId);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -740,9 +756,11 @@ abstract class AbstractCore implements CoreInterface
             $tradeId = implode(',', $tradeId);
         }
 
-        return $this->request('DELETE', '/watchlist', null, [
+        $response = $this->request('DELETE', '/watchlist', null, [
             'tradeId' => $tradeId
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -766,13 +784,15 @@ abstract class AbstractCore implements CoreInterface
      */
     public function sendToWatchList($tradeId)
     {
-        return $this->request('PUT', '/watchlist', [
+        $response = $this->request('PUT', '/watchlist', [
             'auctionInfo' => [
                 [
                     'id' => $tradeId
                 ]
             ]
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -784,7 +804,9 @@ abstract class AbstractCore implements CoreInterface
             $definitionId = implode(',', $definitionId);
         }
 
-        return $this->request('POST', '/marketdata/pricelimits?defId=' . $definitionId);
+        $response = $this->request('POST', '/marketdata/pricelimits?defId=' . $definitionId);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -792,7 +814,9 @@ abstract class AbstractCore implements CoreInterface
      */
     public function relist()
     {
-        return $this->request('PUT', '/auctionhouse/relist');
+        $response = $this->request('PUT', '/auctionhouse/relist');
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -800,13 +824,15 @@ abstract class AbstractCore implements CoreInterface
      */
     public function applyConsumable($itemId, $resourceId)
     {
-        return $this->request('POST', '/item/resource/' . $resourceId, [
+        $response = $this->request('POST', '/item/resource/' . $resourceId, [
             'apply' => [
                 [
                     'id' => $itemId
                 ]
             ]
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -838,10 +864,12 @@ abstract class AbstractCore implements CoreInterface
     {
         $this->getPin()->sendEvent('page_view', 'Hub - Store');
 
-        return $this->request('POST', '/purchased/items', [
+        $response = $this->request('POST', '/purchased/items', [
             'packId'   => $packId,
             'currency' => $currency
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -849,11 +877,13 @@ abstract class AbstractCore implements CoreInterface
      */
     public function openPack($packId)
     {
-        return $this->request('POST', '/purchased/items', [
+        $response = $this->request('POST', '/purchased/items', [
             'packId'      => $packId,
             'currency'    => 0,
             'usePreOrder' => true
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -865,7 +895,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'Hub - SBC');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -877,7 +907,7 @@ abstract class AbstractCore implements CoreInterface
 
         $this->getPin()->sendEvent('page_view', 'SBC - Challenges');
 
-        return $response;
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -885,7 +915,9 @@ abstract class AbstractCore implements CoreInterface
      */
     public function objectives($scope = 'all')
     {
-        return $this->request('GET', '/user/dynamicobjectives', null, ['scope' => $scope]);
+        $response = $this->request('GET', '/user/dynamicobjectives', null, ['scope' => $scope]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
@@ -893,7 +925,7 @@ abstract class AbstractCore implements CoreInterface
      */
     protected function sendToPile($pile, $item_id = null)
     {
-        return $this->request('PUT', '/item', [
+        $response = $this->request('PUT', '/item', [
             'itemData' => [
                 [
                     'id'   => $item_id,
@@ -901,20 +933,24 @@ abstract class AbstractCore implements CoreInterface
                 ]
             ]
         ]);
+
+        return $this->getResponseContent($response);
     }
 
     /**
      * @inheritdoc
      */
-    protected function getCaptchaData()
+    public function getCaptchaData()
     {
-        return $this->request('GET', '/captcha/fun/data');
+        $response = $this->request('GET', '/captcha/fun/data');
+
+        return $this->getResponseContent($response);
     }
 
     /**
      * @inheritdoc
      */
-    protected function validateCaptcha($token)
+    public function validateCaptcha($token)
     {
         return $this->request('POST', '/captcha/fun/validate', [
             'funCaptchaToken' => $token
@@ -1048,6 +1084,16 @@ abstract class AbstractCore implements CoreInterface
 
         $this->handleInvalidResponse($response);
 
+        return $response;
+    }
+
+    /**
+     * @param ResponseInterface $response
+     *
+     * @return mixed|string
+     */
+    protected function getResponseContent(ResponseInterface $response)
+    {
         $content = $response->getBody()->getContents();
 
         if ($content !== '') {
@@ -1093,7 +1139,6 @@ abstract class AbstractCore implements CoreInterface
             case 458:
                 $this->captchaReceived();
                 $this->getPin()->sendEvent('error');
-                $this->logout();
 
                 throw new CaptchaException($response);
                 break;
