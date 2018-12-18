@@ -2,6 +2,8 @@
 
 namespace Shapecode\FUT\Client\Config;
 
+use Psr\Log\LoggerInterface;
+
 /**
  * Interface ConfigInterface
  *
@@ -38,6 +40,11 @@ interface ConfigInterface
      * @return array
      */
     public function getHttpClientOptions();
+
+    /**
+     * @return LoggerInterface
+     */
+    public function getLogger();
 
     /**
      * @param $name

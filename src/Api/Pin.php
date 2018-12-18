@@ -149,10 +149,11 @@ class Pin implements PinInterface
             'x-ea-taxv'         => $this->taxv
         ];
 
-        $response = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
+        $call = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
             'body'    => $body,
             'headers' => $headers
         ]);
+        $response = $call->getResponse();
 
         $content = json_decode($response->getBody()->getContents(), true);
 

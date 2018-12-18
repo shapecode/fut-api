@@ -2,9 +2,6 @@
 
 namespace Shapecode\FUT\Client\Http;
 
-use Shapecode\FUT\Client\Api\CoreInterface;
-use Shapecode\FUT\Client\Authentication\AccountInterface;
-use Shapecode\FUT\Client\Config\ConfigInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -13,8 +10,19 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request as Psr7Request;
 use GuzzleHttp\Psr7\Response as Psr7Response;
+use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
+use Http\Client\Common\Plugin\ContentLengthPlugin;
+use Http\Client\Common\Plugin\LoggerPlugin;
+use Http\Client\Common\Plugin\StopwatchPlugin;
+use Http\Client\Common\PluginClient;
+use Http\Client\HttpClient;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\RequestFactory;
+use Shapecode\FUT\Client\Api\CoreInterface;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
+use Shapecode\FUT\Client\Config\ConfigInterface;
+use Shapecode\FUT\Client\Http\Plugin\ClientCallPlugin;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 /**
  * Class ClientFactory
@@ -34,34 +42,27 @@ class ClientFactory implements ClientFactoryInterface
     const MAX_RETRIES = 4;
 
     /**
-     * @param RequestFactory $requestFactory
+     * @param ConfigInterface     $config
+     * @param RequestFactory|null $requestFactory
      */
-    public function __construct(RequestFactory $requestFactory = null)
+    public function __construct(ConfigInterface $config, RequestFactory $requestFactory = null)
     {
+        $this->config = $config;
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
     }
 
     /**
      * @inheritdoc
      */
-    public function createClient(array $options = [])
+    public function createPluginClient(HttpClient $client, array $plugins = [])
     {
-        if ($this->getConfig() !== null) {
-            $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
-        }
-
-        $stack = HandlerStack::create(new CurlHandler());
-        $stack->push(Middleware::retry($this->createRetryHandler()));
-
-        $options['stack'] = $stack;
-
-        return new Client($options);
+        return new PluginClient($client, $plugins);
     }
 
     /**
      * @inheritdoc
      */
-    public function createAccountClient(AccountInterface $account, array $options = [])
+    protected function createAccountClient(AccountInterface $account, array $options = [])
     {
         $options['http_errors'] = false;
         $options['timeout'] = 5;
@@ -76,7 +77,18 @@ class ClientFactory implements ClientFactoryInterface
             $options['cookies'] = $account->getCookieJar();
         }
 
-        return $this->createClient($options);
+        if ($this->getConfig() !== null) {
+            $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
+        }
+
+        $stack = HandlerStack::create(new CurlHandler());
+        $stack->push(Middleware::retry($this->createRetryHandler()));
+
+        $options['stack'] = $stack;
+
+        $guzzle = new Client($options);
+
+        return new GuzzleAdapter($guzzle);
     }
 
     /**
@@ -90,11 +102,31 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function request(AccountInterface $account, $method, $url, array $options = [])
+    public function request(AccountInterface $account, $method, $url, array $options = [], array $plugins = [])
     {
-        $client = $this->createAccountClient($account);
+        $headers = [];
 
-        return $client->request($method, $url, $options);
+        if (isset($options['headers'])) {
+            $headers = $options['headers'];
+            unset($options['headers']);
+        }
+
+        $call = new ClientCall();
+
+        $plugins[] = new ContentLengthPlugin();
+        $plugins[] = new LoggerPlugin($this->getConfig()->getLogger());
+        $stopwatch = new Stopwatch();
+        $plugins[] = new StopwatchPlugin($stopwatch);
+        $plugins[] = new ClientCallPlugin($call);
+
+        $guzzle = $this->createAccountClient($account, $options);
+        $client = $this->createPluginClient($guzzle, $plugins);
+
+        $request = $this->createRequest($method, $url, null, $headers);
+
+        $client->sendRequest($request);
+
+        return $call;
     }
 
     /**
@@ -103,14 +135,6 @@ class ClientFactory implements ClientFactoryInterface
     protected function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * @param ConfigInterface $config
-     */
-    public function setConfig(ConfigInterface $config)
-    {
-        $this->config = $config;
     }
 
     /**

@@ -27,6 +27,7 @@ use Shapecode\FUT\Client\Exception\TemporaryBanException;
 use Shapecode\FUT\Client\Exception\ToManyRequestsException;
 use Shapecode\FUT\Client\Exception\TransferMarketDisabledException;
 use Shapecode\FUT\Client\Exception\UserExpiredException;
+use Shapecode\FUT\Client\Http\ClientCall;
 use Shapecode\FUT\Client\Http\ClientFactory;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use Shapecode\FUT\Client\Locale\Locale;
@@ -71,9 +72,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $this->account = $account;
         $this->config = $config ?: new Config();
-
-        $this->clientFactory = $clientFactory ?: new ClientFactory();
-        $this->clientFactory->setConfig($this->config);
+        $this->clientFactory = $clientFactory ?: new ClientFactory($this->config);
 
         $this->locale = new Locale($account->getCredentials()->getLocale());
         $this->pin = new Pin($this->getAccount(), $this->getClientFactory());
@@ -101,7 +100,7 @@ abstract class AbstractCore implements CoreInterface
 
         $headers = [];
 
-        $response = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
+        $call = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'query'    => [
                 'prompt'        => 'login',
                 'accessToken'   => '',
@@ -121,7 +120,7 @@ abstract class AbstractCore implements CoreInterface
 
         if ($url !== 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html') {
             $headers['Referer'] = $url->__toString();
-            $response = $this->simpleRequest('POST', $url, [
+            $call = $this->simpleRequest('POST', $url, [
                 'form_params' => [
                     'email'              => $credentials->getEmail(),
                     'password'           => $credentials->getPassword(),
@@ -140,24 +139,24 @@ abstract class AbstractCore implements CoreInterface
                     $url = $stats->getEffectiveUri();
                 }
             ]);
-            $responseContent = $response->getBody()->getContents();
+            $responseContent = $call->getContent();
 
             if (strpos($responseContent, $locale->get('login.incorrect_credentials')) !== false) {
-                throw new IncorrectCredentialsException($response);
+                throw new IncorrectCredentialsException($call->getResponse());
             }
 
             if (strpos($responseContent, $locale->get('login.redirect_uri')) !== false) {
-                $response = $this->simpleRequest('GET', $url->__toString() . '&_eventId=end', [
+                $call = $this->simpleRequest('GET', $url->__toString() . '&_eventId=end', [
                     'headers'  => $headers,
                     'on_stats' => function (TransferStats $stats) use (&$url) {
                         $url = $stats->getEffectiveUri();
                     },
                 ]);
-                $responseContent = $response->getBody()->getContents();
+                $responseContent = $call->getContent();
             }
 
             if (strpos($responseContent, $locale->get('login.login_verification')) !== false) {
-                $response = $this->simpleRequest('POST', $url->__toString(), [
+                $call = $this->simpleRequest('POST', $url->__toString(), [
                     'headers'     => $headers,
                     'form_params' => [
                         'codeType' => 'EMAIL',
@@ -167,16 +166,16 @@ abstract class AbstractCore implements CoreInterface
                         $url = $stats->getEffectiveUri();
                     }
                 ]);
-                $responseContent = $response->getBody()->getContents();
+                $responseContent = $call->getContent();
             }
 
             if (strpos($responseContent, $locale->get('login.security_code')) !== false) {
                 if ($code === null) {
-                    throw new ProvideSecurityCodeException($response);
+                    throw new ProvideSecurityCodeException($call->getResponse());
                 }
 
                 $headers['Referer'] = $url->__toString();
-                $response = $this->simpleRequest('POST', str_replace('s3', 's4', $url->__toString()), [
+                $call = $this->simpleRequest('POST', str_replace('s3', 's4', $url->__toString()), [
                     'headers'     => $headers,
                     'form_params' => [
                         'oneTimeCode'      => $code,
@@ -188,31 +187,17 @@ abstract class AbstractCore implements CoreInterface
                         $url = $stats->getEffectiveUri();
                     }
                 ]);
-                $responseContent = $response->getBody()->getContents();
+                $responseContent = $call->getContent();
 
                 if (strpos($responseContent, $locale->get('login.incorrect_code_1')) !== false ||
                     strpos($responseContent, $locale->get('login.incorrect_code_2')) !== false) {
-                    throw new IncorrectSecurityCodeException($response);
+                    throw new IncorrectSecurityCodeException($call->getResponse());
                 }
-
-//                if (strpos($responseContent, 'Set Up an App Authenticator') !== false) {
-//                    $response = $account->request('POST', str_replace('s3', 's4', $url->__toString()), [
-//                        'form_params' => [
-//                            'appDevice' => 'IPHONE',
-//                            '_eventId'  => 'cancel'
-//                        ],
-//                        'headers'     => $headers,
-//                        'on_stats'    => function (TransferStats $stats) use (&$url) {
-//                            $url = $stats->getEffectiveUri();
-//                        }
-//                    ]);
-//                    $responseContent = $response->getBody()->getContents();
-//                }
             }
         }
 
         if (empty($url->getFragment())) {
-            throw new AuthFailedException($response);
+            throw new AuthFailedException($call->getResponse());
         }
 
         parse_str($url->getFragment(), $matches);
@@ -227,10 +212,10 @@ abstract class AbstractCore implements CoreInterface
         $headers['Accept'] = 'application/json';
         $headers['Authorization'] = $tokenType . ' ' . $accessToken;
 
-        $response = $this->simpleRequest('GET', 'https://gateway.ea.com/proxy/identity/pids/me', [
+        $call = $this->simpleRequest('GET', 'https://gateway.ea.com/proxy/identity/pids/me', [
             'headers' => $headers
         ]);
-        $responseContent = json_decode($response->getBody()->getContents(), true);
+        $responseContent = json_decode($call->getContent(), true);
 
         $nucleus_id = $responseContent['pid']['externalRefValue'];
         $dob = $responseContent['pid']['dob'];
@@ -241,17 +226,16 @@ abstract class AbstractCore implements CoreInterface
 
         //shards
         try {
-            $response = $this->simpleRequest('GET', 'https://' . self::AUTH_URL . '/ut/shards/v2', [
+            $this->simpleRequest('GET', 'https://' . self::AUTH_URL . '/ut/shards/v2', [
                 'headers' => $headers
             ]);
-            $responseContent = $response->getBody()->getContents();
         } catch (RequestException $e) {
             throw new ServerDownException($e->getResponse(), $e);
         }
 
         //personas
         try {
-            $response = $this->simpleRequest('GET', $this->getFifaApiUrl() . '/user/accountinfo', [
+            $call = $this->simpleRequest('GET', $this->getFifaApiUrl() . '/user/accountinfo', [
                 'headers' => $headers,
                 'query'   => [
                     'filterConsoleLogin'    => 'true',
@@ -259,13 +243,13 @@ abstract class AbstractCore implements CoreInterface
                     'returningUserGameYear' => '2019'
                 ]
             ]);
-            $responseContent = json_decode($response->getBody()->getContents(), true);
+            $responseContent = json_decode($call->getContent(), true);
         } catch (ConnectException $e) {
             throw new ServerDownException($e->getResponse(), $e);
         }
 
         if (!isset($responseContent['userAccountInfo']['personas'])) {
-            throw new NoPersonaException($response);
+            throw new NoPersonaException($call->getResponse());
         }
 
         $personasValues = array_values($responseContent['userAccountInfo']['personas']);
@@ -274,21 +258,19 @@ abstract class AbstractCore implements CoreInterface
 
         //validate persona found.
         if ($persona_id === null) {
-            throw new NoPersonaException($response);
+            throw new NoPersonaException($call->getResponse());
         }
 
         //validate user state
-        switch ($persona['userState']) {
-            case 'RETURNING_USER_EXPIRED':
-                throw new UserExpiredException($response);
-                break;
+        if ($persona['userState'] === 'RETURNING_USER_EXPIRED') {
+            throw new UserExpiredException($call->getResponse());
         }
 
         //authorization
         unset($headers['Easw-Session-Data-Nucleus-Id']);
         $headers['Origin'] = 'http://www.easports.com';
 
-        $response = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
+        $call = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'headers' => $headers,
             'query'   => [
                 'client_id'     => 'FOS-SERVER',
@@ -297,12 +279,12 @@ abstract class AbstractCore implements CoreInterface
                 'access_token'  => $accessToken
             ]
         ]);
-        $responseContent = json_decode($response->getBody()->getContents(), true);
+        $responseContent = json_decode($call->getContent(), true);
 
         $auth_code = $responseContent['code'];
 
         $headers['Content-Type'] = 'application/json';
-        $response = $this->simpleRequest('POST', $this->getFutAuthUrl(), [
+        $call = $this->simpleRequest('POST', $this->getFutAuthUrl(), [
             'headers' => $headers,
             'body'    => json_encode([
                 'isReadOnly'       => false,
@@ -320,26 +302,26 @@ abstract class AbstractCore implements CoreInterface
             ])
         ]);
 
-        if ($response->getStatusCode() === 401) {
-            throw new MaxSessionsException($response);
+        if ($call->getResponse()->getStatusCode() === 401) {
+            throw new MaxSessionsException($call->getResponse());
         }
 
-        if ($response->getStatusCode() === 500) {
-            throw new ServerDownException($response);
+        if ($call->getResponse()->getStatusCode() === 500) {
+            throw new ServerDownException($call->getResponse());
         }
 
-        $responseContent = json_decode($response->getBody()->getContents(), true);
+        $responseContent = json_decode($call->getContent(), true);
         if (isset($responseContent['reason'])) {
             switch ($responseContent['reason']) {
                 case 'multiple session':
                 case 'max sessions':
-                    throw new MaxSessionsException($response);
+                    throw new MaxSessionsException($call->getResponse());
                     break;
                 case 'doLogin: doLogin failed':
-                    throw new AuthFailedException($response);
+                    throw new AuthFailedException($call->getResponse());
                     break;
                 default:
-                    throw new FutResponseException($responseContent['reason'], $response);
+                    throw new FutResponseException($responseContent['reason'], $call->getResponse());
                     break;
             }
         }
@@ -1026,13 +1008,14 @@ abstract class AbstractCore implements CoreInterface
      * @param       $method
      * @param       $url
      * @param array $options
+     * @param array $plugins
      *
-     * @return mixed|ResponseInterface
+     * @return ClientCall
      * @throws \Http\Client\Exception
      */
-    protected function simpleRequest($method, $url, array $options = [])
+    protected function simpleRequest($method, $url, array $options = [], array $plugins = [])
     {
-        return $this->getClientFactory()->request($this->getAccount(), $method, $url, $options);
+        return $this->getClientFactory()->request($this->getAccount(), $method, $url, $options, $plugins);
     }
 
     /**
@@ -1061,10 +1044,8 @@ abstract class AbstractCore implements CoreInterface
         $headers['X-UT-SID'] = $session->getSession();
         $headers['X-UT-PHISHING-TOKEN'] = $session->getPhishing();
 
-        switch ($method) {
-            case 'GET':
-                $params['_'] = time();
-                break;
+        if ($method === 'GET') {
+            $params['_'] = time();
         }
 
         $options = [
@@ -1080,21 +1061,21 @@ abstract class AbstractCore implements CoreInterface
             $options['body'] = $body;
         }
 
-        $response = $this->simpleRequest($method, $url, $options);
+        $call = $this->simpleRequest($method, $url, $options);
 
-        $this->handleInvalidResponse($response);
+        $this->handleInvalidResponse($call->getResponse());
 
-        return $response;
+        return $call;
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param ClientCall $call
      *
      * @return mixed|string
      */
-    protected function getResponseContent(ResponseInterface $response)
+    protected function getResponseContent(ClientCall $call)
     {
-        $content = $response->getBody()->getContents();
+        $content = $call->getContent();
 
         if ($content !== '') {
             $content = json_decode($content, true);

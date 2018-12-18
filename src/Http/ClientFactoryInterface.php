@@ -2,10 +2,10 @@
 
 namespace Shapecode\FUT\Client\Http;
 
-use Shapecode\FUT\Client\Authentication\AccountInterface;
-use GuzzleHttp\ClientInterface;
+use Http\Client\Common\PluginClient;
+use Http\Client\HttpClient;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Shapecode\FUT\Client\Authentication\AccountInterface;
 
 /**
  * Interface ClientFactoryInterface
@@ -17,19 +17,12 @@ interface ClientFactoryInterface
 {
 
     /**
-     * @param array $options
+     * @param HttpClient $client
+     * @param array      $options
      *
-     * @return ClientInterface
+     * @return PluginClient
      */
-    public function createClient(array $options = []);
-
-    /**
-     * @param AccountInterface $account
-     * @param array            $options
-     *
-     * @return ClientInterface
-     */
-    public function createAccountClient(AccountInterface $account, array $options = []);
+    public function createPluginClient(HttpClient $client, array $options = []);
 
     /**
      * @param       $method
@@ -47,8 +40,7 @@ interface ClientFactoryInterface
      * @param                  $url
      * @param array            $options
      *
-     * @return mixed|ResponseInterface
-     * @throws \Http\Client\Exception
+     * @return ClientCall
      */
     public function request(AccountInterface $account, $method, $url, array $options = []);
 }

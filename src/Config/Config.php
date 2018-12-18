@@ -2,6 +2,8 @@
 
 namespace Shapecode\FUT\Client\Config;
 
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -84,6 +86,22 @@ class Config implements ConfigInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function getHttpClientPlugins()
+    {
+        return $this->getOption('http_client_plugins');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getLogger()
+    {
+        return $this->getOption('logger');
+    }
+
+    /**
      * @param $name
      *
      * @return mixed
@@ -118,13 +136,17 @@ class Config implements ConfigInterface
         }
 
         $defaults = array_merge($futConfig, [
+            'logger'              => new NullLogger(),
             'delay'               => true,
             'delay_min_time'      => 1000,
             'delay_max_time'      => 1500,
             'http_client_options' => [],
+            'http_client_plugins' => [],
         ]);
 
         $resolver->setDefaults($defaults);
+
+        $resolver->setAllowedTypes('logger', [LoggerInterface::class]);
 
         return $resolver;
     }
