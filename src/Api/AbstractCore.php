@@ -5,6 +5,8 @@ namespace Shapecode\FUT\Client\Api;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\TransferStats;
+use Http\Client\Common\Plugin\HeaderSetPlugin;
+use Http\Client\Common\Plugin\QueryDefaultsPlugin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
@@ -1040,18 +1042,22 @@ abstract class AbstractCore implements CoreInterface
         $account = $this->getAccount();
         $session = $account->getSession();
 
-        $headers['Easw-Session-Data-Nucleus-Id'] = $session->getNucleus();
-        $headers['X-UT-SID'] = $session->getSession();
-        $headers['X-UT-PHISHING-TOKEN'] = $session->getPhishing();
-
         if ($method === 'GET') {
             $params['_'] = time();
         }
 
         $options = [
             'headers' => $headers,
-            'query'   => $params,
         ];
+
+        $plugins = [];
+        $plugins[] = new HeaderSetPlugin($headers);
+        $plugins[] = new HeaderSetPlugin([
+            'Easw-Session-Data-Nucleus-Id' => $session->getNucleus(),
+            'X-UT-SID'                     => $session->getSession(),
+            'X-UT-PHISHING-TOKEN'          => $session->getPhishing(),
+        ]);
+        $plugins[] = new QueryDefaultsPlugin($params);
 
         if ($body !== null) {
             if (is_array($body)) {
@@ -1061,7 +1067,7 @@ abstract class AbstractCore implements CoreInterface
             $options['body'] = $body;
         }
 
-        $call = $this->simpleRequest($method, $url, $options);
+        $call = $this->simpleRequest($method, $url, $options, $plugins);
 
         $this->handleInvalidResponse($call->getResponse());
 

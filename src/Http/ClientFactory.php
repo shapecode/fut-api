@@ -12,7 +12,9 @@ use GuzzleHttp\Psr7\Request as Psr7Request;
 use GuzzleHttp\Psr7\Response as Psr7Response;
 use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Http\Client\Common\Plugin\ContentLengthPlugin;
+use Http\Client\Common\Plugin\HeaderSetPlugin;
 use Http\Client\Common\Plugin\LoggerPlugin;
+use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\Plugin\StopwatchPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
@@ -67,7 +69,6 @@ class ClientFactory implements ClientFactoryInterface
         $options['http_errors'] = false;
         $options['timeout'] = 5;
         $options['allow_redirects'] = true;
-        $options['headers'] = CoreInterface::REQUEST_HEADERS;
 
         if ($account->getProxy()) {
             $options['proxy'] = $account->getProxy()->getProxyProtocol();
@@ -113,16 +114,23 @@ class ClientFactory implements ClientFactoryInterface
 
         $call = new ClientCall();
 
+        $plugins[] = new HeaderSetPlugin(CoreInterface::REQUEST_HEADERS);
+
+        if (count($headers)) {
+            $plugins[] = new HeaderSetPlugin($headers);
+        }
+
         $plugins[] = new ContentLengthPlugin();
         $plugins[] = new LoggerPlugin($this->getConfig()->getLogger());
         $stopwatch = new Stopwatch();
         $plugins[] = new StopwatchPlugin($stopwatch);
         $plugins[] = new ClientCallPlugin($call);
+        $plugins[] = new RedirectPlugin();
 
         $guzzle = $this->createAccountClient($account, $options);
         $client = $this->createPluginClient($guzzle, $plugins);
 
-        $request = $this->createRequest($method, $url, null, $headers);
+        $request = $this->createRequest($method, $url);
 
         $client->sendRequest($request);
 
