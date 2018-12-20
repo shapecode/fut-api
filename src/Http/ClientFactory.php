@@ -115,6 +115,9 @@ class ClientFactory implements ClientFactoryInterface
         $call = new ClientCall();
 
         $plugins[] = new HeaderSetPlugin(CoreInterface::REQUEST_HEADERS);
+        $plugins[] = new HeaderSetPlugin([
+            'User-Agent' => $this->getConfig()->getUserAgent(),
+        ]);
 
         if (count($headers)) {
             $plugins[] = new HeaderSetPlugin($headers);

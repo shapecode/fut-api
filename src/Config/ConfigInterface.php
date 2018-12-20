@@ -47,6 +47,11 @@ interface ConfigInterface
     public function getLogger();
 
     /**
+     * @return string
+     */
+    public function getUserAgent();
+
+    /**
      * @param $name
      *
      * @return mixed

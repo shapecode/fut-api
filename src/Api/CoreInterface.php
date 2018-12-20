@@ -2,6 +2,8 @@
 
 namespace Shapecode\FUT\Client\Api;
 
+use Shapecode\FUT\Client\Http\ClientCall;
+
 /**
  * Interface CoreInterface
  *
@@ -25,7 +27,6 @@ interface CoreInterface
      *
      */
     const REQUEST_HEADERS = [
-        'User-Agent'      => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
         'Accept'          => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding' => 'gzip,deflate,sdch, br',
         'Accept-Language' => 'en-US,en;q=0.8',
@@ -315,4 +316,16 @@ interface CoreInterface
      * @return mixed
      */
     public function objectives($scope = 'all');
+
+    /**
+     * @return ClientCall
+     */
+    public function phishingQuestion();
+
+    /**
+     * @param $answer
+     *
+     * @return ClientCall
+     */
+    public function phishingValidate($answer);
 }

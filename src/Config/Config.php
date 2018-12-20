@@ -102,6 +102,14 @@ class Config implements ConfigInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function getUserAgent()
+    {
+        return $this->getOption('user_agent');
+    }
+
+    /**
      * @param $name
      *
      * @return mixed
@@ -137,6 +145,7 @@ class Config implements ConfigInterface
 
         $defaults = array_merge($futConfig, [
             'logger'              => new NullLogger(),
+            'user_agent'          => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
             'delay'               => true,
             'delay_min_time'      => 1000,
             'delay_max_time'      => 1500,

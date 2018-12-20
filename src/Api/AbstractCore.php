@@ -33,6 +33,7 @@ use Shapecode\FUT\Client\Http\ClientCall;
 use Shapecode\FUT\Client\Http\ClientFactory;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use Shapecode\FUT\Client\Locale\Locale;
+use Shapecode\FUT\Client\Util\EAHasher;
 use Shapecode\FUT\Client\Util\FutUtil;
 
 /**
@@ -939,6 +940,30 @@ abstract class AbstractCore implements CoreInterface
         return $this->request('POST', '/captcha/fun/validate', [
             'funCaptchaToken' => $token
         ]);
+    }
+
+    /**
+     * @return ClientCall
+     */
+    public function phishingQuestion()
+    {
+        return $this->request('POST', '/phishing/question');
+    }
+
+    /**
+     * @param $answer
+     *
+     * @return ClientCall
+     */
+    public function phishingValidate($answer)
+    {
+        $hash = EAHasher::getInstance()->getHash($answer);
+
+        $params = [
+            'answer' => $hash
+        ];
+
+        return $this->request('POST', '/phishing/validate', $params);
     }
 
     /**
