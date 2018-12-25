@@ -79,7 +79,7 @@ abstract class AbstractCore implements CoreInterface
         $this->config = $config ?: new Config();
         $this->clientFactory = $clientFactory ?: new ClientFactory($this->config);
 
-        $this->locale = new Locale($account->getCredentials()->getLocale());
+        $this->locale = new Locale('en_US');
         $this->pin = new Pin($this->getAccount(), $this->getClientFactory());
     }
 
@@ -112,7 +112,7 @@ abstract class AbstractCore implements CoreInterface
                 'client_id'     => self::CLIENT_ID,
                 'response_type' => 'token',
                 'display'       => 'web2/login',
-                'locale'        => $credentials->getLocale(),
+                'locale'        => 'en_US',
                 'release_type'  => 'prod',
                 'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
                 'scope'         => 'basic.identity offline signin'
@@ -129,7 +129,7 @@ abstract class AbstractCore implements CoreInterface
                 'form_params' => [
                     'email'              => $credentials->getEmail(),
                     'password'           => $credentials->getPassword(),
-                    'country'            => $credentials->getCountry(),
+                    'country'            => 'US',
                     'phoneNumber'        => '',
                     'passwordForPhone'   => '',
                     'gCaptchaResponse'   => '',
@@ -185,7 +185,6 @@ abstract class AbstractCore implements CoreInterface
                     'form_params' => [
                         'oneTimeCode'      => $code,
                         '_trustThisDevice' => 'on',
-                        'trustThisDevice'  => 'on',
                         '_eventId'         => 'submit'
                     ],
                     'on_stats'    => function (TransferStats $stats) use (&$url) {
@@ -194,8 +193,11 @@ abstract class AbstractCore implements CoreInterface
                 ]);
                 $responseContent = $call->getContent();
 
-                if (strpos($responseContent, $locale->get('login.incorrect_code_1')) !== false ||
-                    strpos($responseContent, $locale->get('login.incorrect_code_2')) !== false) {
+                if (strpos($responseContent, $locale->get('login.incorrect_code_1')) !== false) {
+                    throw new IncorrectSecurityCodeException($call->getResponse());
+                }
+
+                if (strpos($responseContent, $locale->get('login.incorrect_code_2')) !== false) {
                     throw new IncorrectSecurityCodeException($call->getResponse());
                 }
             }
