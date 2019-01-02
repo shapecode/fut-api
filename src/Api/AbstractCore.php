@@ -185,6 +185,7 @@ abstract class AbstractCore implements CoreInterface
                     'form_params' => [
                         'oneTimeCode'      => $code,
                         '_trustThisDevice' => 'on',
+                        'trustThisDevice'  => 'on',
                         '_eventId'         => 'submit'
                     ],
                     'on_stats'    => function (TransferStats $stats) use (&$url) {
