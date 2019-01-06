@@ -23,6 +23,14 @@ class SuperBase implements \ArrayAccess
     }
 
     /**
+     * @return array
+     */
+    public function getArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param $key
      *
      * @return mixed
