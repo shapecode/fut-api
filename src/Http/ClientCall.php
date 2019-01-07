@@ -20,6 +20,9 @@ class ClientCall
     /** @var ResponseInterface */
     protected $response;
 
+    /** @var mixed */
+    protected $contents;
+
     /**
      * @return RequestInterface
      */
@@ -53,10 +56,14 @@ class ClientCall
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getContent()
     {
-        return $this->getResponse()->getBody()->getContents();
+        if ($this->contents === null) {
+            $this->contents = $this->getResponse()->getBody()->getContents();
+        }
+
+        return $this->contents;
     }
 }

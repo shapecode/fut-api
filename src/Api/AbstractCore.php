@@ -516,53 +516,52 @@ abstract class AbstractCore implements CoreInterface
         }
 
         $response = $this->request('GET', '/club', [], $params);
+
         $data = $this->getResponseContent($response);
-        $itemData = $data['itemData'];
+        $itemData = $data['itemData'] ?? [];
         $result = [];
 
-        if ($params['start'] === 0) {
-            switch ($params['type']) {
-                case 'player':
-                    $this->getPin()->sendEvent('page_view', 'Club - Players - List View');
+        switch ($params['type']) {
+            case 'player':
+                $this->getPin()->sendEvent('page_view', 'Club - Players - List View');
 
-                    foreach ($itemData as $item) {
-                        $result[] = new Player($item);
-                    }
+                foreach ($itemData as $item) {
+                    $result[] = new Player($item);
+                }
 
-                    break;
-                case 'stadium':
-                    $this->getPin()->send([
-                        $this->getPin()->event('page_view', 'Club - Club Items - List View'),
-                        $this->getPin()->event('page_view', 'Item - Detail View'),
-                    ]);
+                break;
+            case 'stadium':
+                $this->getPin()->send([
+                    $this->getPin()->event('page_view', 'Club - Club Items - List View'),
+                    $this->getPin()->event('page_view', 'Item - Detail View'),
+                ]);
 
-                    foreach ($itemData as $item) {
-                        $result[] = new SuperBase($item);
-                    }
+                foreach ($itemData as $item) {
+                    $result[] = new SuperBase($item);
+                }
 
-                    break;
-                case 'staff':
-                    $this->getPin()->sendEvent('page_view', 'Club - Staff - List View');
+                break;
+            case 'staff':
+                $this->getPin()->sendEvent('page_view', 'Club - Staff - List View');
 
-                    foreach ($itemData as $item) {
-                        $result[] = new SuperBase($item);
-                    }
-                    break;
-                case 'item':
-                    $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
+                foreach ($itemData as $item) {
+                    $result[] = new SuperBase($item);
+                }
+                break;
+            case 'item':
+                $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
 
-                    foreach ($itemData as $item) {
-                        $result[] = new SuperBase($item);
-                    }
-                    break;
-                default:
-                    $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
+                foreach ($itemData as $item) {
+                    $result[] = new SuperBase($item);
+                }
+                break;
+            default:
+                $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
 
-                    foreach ($itemData as $item) {
-                        $result[] = new SuperBase($item);
-                    }
-                    break;
-            }
+                foreach ($itemData as $item) {
+                    $result[] = new SuperBase($item);
+                }
+                break;
         }
 
         return $result;
