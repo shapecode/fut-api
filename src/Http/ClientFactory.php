@@ -67,7 +67,6 @@ class ClientFactory implements ClientFactoryInterface
     protected function createAccountClient(AccountInterface $account, array $options = [])
     {
         $options['http_errors'] = false;
-        $options['timeout'] = 5;
         $options['allow_redirects'] = true;
 
         if ($account->getProxy()) {
@@ -176,10 +175,6 @@ class ClientFactory implements ClientFactoryInterface
             RequestException $exception = null
         ) {
             if ($retries >= self::MAX_RETRIES) {
-                return false;
-            }
-
-            if (!($this->isServerError($response) || $this->isConnectError($exception))) {
                 return false;
             }
 
