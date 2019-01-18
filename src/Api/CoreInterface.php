@@ -211,7 +211,6 @@ interface CoreInterface
      * @param      $bid
      * @param      $bin
      * @param int  $duration
-     * @param bool $fast
      *
      * @return mixed
      */
@@ -233,7 +232,6 @@ interface CoreInterface
 
     /**
      * @param      $itemId
-     * @param bool $safe
      *
      * @return mixed
      */
