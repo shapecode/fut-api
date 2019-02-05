@@ -948,7 +948,9 @@ abstract class AbstractCore implements CoreInterface
             ]
         ]);
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        return $content['itemData'][0];
     }
 
     /**
