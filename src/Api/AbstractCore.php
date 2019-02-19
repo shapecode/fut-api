@@ -115,12 +115,12 @@ abstract class AbstractCore implements CoreInterface
                 'locale'        => 'en_US',
                 'release_type'  => 'prod',
                 'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
-                'scope'         => 'basic.identity offline signin'
+                'scope'         => 'basic.identity offline signin',
             ],
             'headers'  => $headers,
             'on_stats' => function (TransferStats $stats) use (&$url) {
                 $url = $stats->getEffectiveUri();
-            }
+            },
         ]);
 
         if ($url !== 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html') {
@@ -137,12 +137,12 @@ abstract class AbstractCore implements CoreInterface
                     'isIncompletePhone'  => '',
                     '_rememberMe'        => 'on',
                     'rememberMe'         => 'on',
-                    '_eventId'           => 'submit'
+                    '_eventId'           => 'submit',
                 ],
                 'headers'     => $headers,
                 'on_stats'    => function (TransferStats $stats) use (&$url) {
                     $url = $stats->getEffectiveUri();
-                }
+                },
             ]);
             $responseContent = $call->getContent();
 
@@ -151,7 +151,7 @@ abstract class AbstractCore implements CoreInterface
             }
 
             if (strpos($responseContent, $locale->get('login.redirect_uri')) !== false) {
-                $call = $this->simpleRequest('GET', $url->__toString() . '&_eventId=end', [
+                $call = $this->simpleRequest('GET', $url->__toString().'&_eventId=end', [
                     'headers'  => $headers,
                     'on_stats' => function (TransferStats $stats) use (&$url) {
                         $url = $stats->getEffectiveUri();
@@ -165,11 +165,11 @@ abstract class AbstractCore implements CoreInterface
                     'headers'     => $headers,
                     'form_params' => [
                         'codeType' => 'EMAIL',
-                        '_eventId' => 'submit'
+                        '_eventId' => 'submit',
                     ],
                     'on_stats'    => function (TransferStats $stats) use (&$url) {
                         $url = $stats->getEffectiveUri();
-                    }
+                    },
                 ]);
                 $responseContent = $call->getContent();
             }
@@ -186,11 +186,11 @@ abstract class AbstractCore implements CoreInterface
                         'oneTimeCode'      => $code,
                         '_trustThisDevice' => 'on',
                         'trustThisDevice'  => 'on',
-                        '_eventId'         => 'submit'
+                        '_eventId'         => 'submit',
                     ],
                     'on_stats'    => function (TransferStats $stats) use (&$url) {
                         $url = $stats->getEffectiveUri();
-                    }
+                    },
                 ]);
                 $responseContent = $call->getContent();
 
@@ -212,16 +212,16 @@ abstract class AbstractCore implements CoreInterface
 
         $accessToken = $matches['access_token'];
         $tokenType = $matches['token_type'];
-        $expiresAt = new \DateTime('+' . $matches['expires_in'] . ' seconds');
+        $expiresAt = new \DateTime('+'.$matches['expires_in'].' seconds');
 
         $this->simpleRequest('GET', 'https://www.easports.com/fifa/ultimate-team/web-app/');
 
         $headers['Referer'] = 'https://www.easports.com/fifa/ultimate-team/web-app/';
         $headers['Accept'] = 'application/json';
-        $headers['Authorization'] = $tokenType . ' ' . $accessToken;
+        $headers['Authorization'] = $tokenType.' '.$accessToken;
 
         $call = $this->simpleRequest('GET', 'https://gateway.ea.com/proxy/identity/pids/me', [
-            'headers' => $headers
+            'headers' => $headers,
         ]);
         $responseContent = json_decode($call->getContent(), true);
 
@@ -234,8 +234,8 @@ abstract class AbstractCore implements CoreInterface
 
         //shards
         try {
-            $this->simpleRequest('GET', 'https://' . self::AUTH_URL . '/ut/shards/v2', [
-                'headers' => $headers
+            $this->simpleRequest('GET', 'https://'.self::AUTH_URL.'/ut/shards/v2', [
+                'headers' => $headers,
             ]);
         } catch (RequestException $e) {
             throw new ServerDownException($e->getResponse(), $e);
@@ -243,13 +243,13 @@ abstract class AbstractCore implements CoreInterface
 
         //personas
         try {
-            $call = $this->simpleRequest('GET', $this->getFifaApiUrl() . '/user/accountinfo', [
+            $call = $this->simpleRequest('GET', $this->getFifaApiUrl().'/user/accountinfo', [
                 'headers' => $headers,
                 'query'   => [
                     'filterConsoleLogin'    => 'true',
                     'sku'                   => $this->sku,
-                    'returningUserGameYear' => '2019'
-                ]
+                    'returningUserGameYear' => '2019',
+                ],
             ]);
             $responseContent = json_decode($call->getContent(), true);
         } catch (ConnectException $e) {
@@ -261,7 +261,7 @@ abstract class AbstractCore implements CoreInterface
         }
 
         $personasValues = array_values($responseContent['userAccountInfo']['personas']);
-        $persona = $personasValues[0];
+        $persona = array_pop($personasValues);
         $persona_id = $persona['personaId'] ?? null;
 
         //validate persona found.
@@ -284,8 +284,8 @@ abstract class AbstractCore implements CoreInterface
                 'client_id'     => 'FOS-SERVER',
                 'redirect_uri'  => 'nucleus:rest',
                 'response_type' => 'code',
-                'access_token'  => $accessToken
-            ]
+                'access_token'  => $accessToken,
+            ],
         ]);
         $responseContent = json_decode($call->getContent(), true);
 
@@ -305,9 +305,9 @@ abstract class AbstractCore implements CoreInterface
                 'priorityLevel'    => 4,
                 'identification'   => [
                     'authCode'    => $auth_code,
-                    'redirectUrl' => 'nucleus:rest'
-                ]
-            ])
+                    'redirectUrl' => 'nucleus:rest',
+                ],
+            ]),
         ]);
 
         if ($call->getResponse()->getStatusCode() === 401) {
@@ -343,7 +343,7 @@ abstract class AbstractCore implements CoreInterface
         $this->getPin()->sendEvent('page_view', 'Hub - Home');
         $this->getPin()->send([
             $this->getPin()->event('connection'),
-            $this->getPin()->event('boot_end', false, false, false, 'normal')
+            $this->getPin()->event('boot_end', false, false, false, 'normal'),
         ]);
 
         // return info
@@ -386,13 +386,13 @@ abstract class AbstractCore implements CoreInterface
         $this->request('GET', 'https://accounts.ea.com/connect/logout', null, [
             'client_id'    => self::CLIENT_ID,
             'redirect_uri' => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
-            'release_type' => 'prod'
+            'release_type' => 'prod',
         ]);
         $this->request('GET', 'https://www.easports.com/signout', null, [
-            'ct' => time()
+            'ct' => time(),
         ]);
         $this->request('GET', 'https://accounts.ea.com/connect/clearsid', null, [
-            'ct' => time()
+            'ct' => time(),
         ]);
 
         $this->resetSession();
@@ -416,7 +416,7 @@ abstract class AbstractCore implements CoreInterface
             'defId' => FutUtil::getBaseId($asset_id),
             'start' => $start,
             'type'  => 'player',
-            'count' => $count
+            'count' => $count,
         ];
 
         $response = $this->request('GET', 'defid', [], $params);
@@ -445,7 +445,7 @@ abstract class AbstractCore implements CoreInterface
         if ($start === 0) {
             $this->getPin()->send([
                 $this->getPin()->event('page_view', 'Transfer Market Results - List View'),
-                $this->getPin()->event('page_view', 'Item - Detail View')
+                $this->getPin()->event('page_view', 'Item - Detail View'),
             ]);
         }
 
@@ -457,13 +457,13 @@ abstract class AbstractCore implements CoreInterface
      */
     public function bid($tradeId, $price)
     {
-        $response = $this->request('PUT', '/trade/' . $tradeId . '/bid', [
-            'bid' => $price
+        $response = $this->request('PUT', '/trade/'.$tradeId.'/bid', [
+            'bid' => $price,
         ]);
 
         $this->getPin()->send([
             $this->getPin()->event('connection'),
-            $this->getPin()->event('boot_end', false, false, false, 'normal')
+            $this->getPin()->event('boot_end', false, false, false, 'normal'),
         ]);
 
         return $this->getResponseContent($response);
@@ -659,7 +659,7 @@ abstract class AbstractCore implements CoreInterface
         $this->getPin()->sendEvent('page_view', 'Hub - Squads');
 
         $personaId = $this->getAccount()->getSession()->getPersona();
-        $response = $this->request('GET', '/squad/' . $squadId . '/user/' . $personaId);
+        $response = $this->request('GET', '/squad/'.$squadId.'/user/'.$personaId);
 
         $this->getPin()->sendEvent('page_view', 'Squads - Squad Overview');
 
@@ -672,7 +672,7 @@ abstract class AbstractCore implements CoreInterface
     public function tradeStatus($tradeId)
     {
         $response = $this->request('GET', '/trade/status', null, [
-            'tradeIds' => $tradeId
+            'tradeIds' => $tradeId,
         ]);
 
         return $this->getResponseContent($response);
@@ -721,7 +721,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $options = [
             'itemData'    => [
-                'id' => (int)$itemId
+                'id' => (int)$itemId,
             ],
             'startingBid' => (int)$bid,
             'duration'    => $duration,
@@ -745,7 +745,7 @@ abstract class AbstractCore implements CoreInterface
     public function quickSell($itemId)
     {
         $response = $this->request('DELETE', '/item', null, [
-            'itemIds' => $itemId
+            'itemIds' => $itemId,
         ]);
 
         return $this->getResponseContent($response);
@@ -756,7 +756,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function removeSold($tradeId)
     {
-        $response = $this->request('DELETE', '/trade/' . $tradeId);
+        $response = $this->request('DELETE', '/trade/'.$tradeId);
 
         return $this->getResponseContent($response);
     }
@@ -771,7 +771,7 @@ abstract class AbstractCore implements CoreInterface
         }
 
         $response = $this->request('DELETE', '/watchlist', null, [
-            'tradeId' => $tradeId
+            'tradeId' => $tradeId,
         ]);
 
         return $this->getResponseContent($response);
@@ -801,9 +801,9 @@ abstract class AbstractCore implements CoreInterface
         $response = $this->request('PUT', '/watchlist', [
             'auctionInfo' => [
                 [
-                    'id' => $tradeId
-                ]
-            ]
+                    'id' => $tradeId,
+                ],
+            ],
         ]);
 
         return $this->getResponseContent($response);
@@ -818,7 +818,7 @@ abstract class AbstractCore implements CoreInterface
             $definitionId = implode(',', $definitionId);
         }
 
-        $response = $this->request('POST', '/marketdata/pricelimits?defId=' . $definitionId);
+        $response = $this->request('POST', '/marketdata/pricelimits?defId='.$definitionId);
 
         return $this->getResponseContent($response);
     }
@@ -838,12 +838,12 @@ abstract class AbstractCore implements CoreInterface
      */
     public function applyConsumable($itemId, $resourceId)
     {
-        $response = $this->request('POST', '/item/resource/' . $resourceId, [
+        $response = $this->request('POST', '/item/resource/'.$resourceId, [
             'apply' => [
                 [
-                    'id' => $itemId
-                ]
-            ]
+                    'id' => $itemId,
+                ],
+            ],
         ]);
 
         return $this->getResponseContent($response);
@@ -867,7 +867,7 @@ abstract class AbstractCore implements CoreInterface
 
         return [
             'tradepile' => $data[0]['value'],
-            'watchlist' => $data[2]['value']
+            'watchlist' => $data[2]['value'],
         ];
     }
 
@@ -880,7 +880,7 @@ abstract class AbstractCore implements CoreInterface
 
         $response = $this->request('POST', '/purchased/items', [
             'packId'   => $packId,
-            'currency' => $currency
+            'currency' => $currency,
         ]);
 
         return $this->getResponseContent($response);
@@ -894,7 +894,7 @@ abstract class AbstractCore implements CoreInterface
         $response = $this->request('POST', '/purchased/items', [
             'packId'      => $packId,
             'currency'    => 0,
-            'usePreOrder' => true
+            'usePreOrder' => true,
         ]);
 
         return $this->getResponseContent($response);
@@ -917,7 +917,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function squadBuildingChallenges($setId)
     {
-        $response = $this->request('GET', '/sbs/setId/' . $setId . '/challenges');
+        $response = $this->request('GET', '/sbs/setId/'.$setId.'/challenges');
 
         $this->getPin()->sendEvent('page_view', 'SBC - Challenges');
 
@@ -944,8 +944,8 @@ abstract class AbstractCore implements CoreInterface
                 [
                     'id'   => $item_id,
                     'pile' => $pile,
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $content = $this->getResponseContent($response);
@@ -969,7 +969,7 @@ abstract class AbstractCore implements CoreInterface
     public function validateCaptcha($token)
     {
         return $this->request('POST', '/captcha/fun/validate', [
-            'funCaptchaToken' => $token
+            'funCaptchaToken' => $token,
         ]);
     }
 
@@ -991,7 +991,7 @@ abstract class AbstractCore implements CoreInterface
         $hash = EAHasher::getInstance()->getHash($answer);
 
         $params = [
-            'answer' => $hash
+            'answer' => $hash,
         ];
 
         return $this->request('POST', '/phishing/validate', $params);
@@ -1018,7 +1018,7 @@ abstract class AbstractCore implements CoreInterface
      */
     protected function getFifaApiUrl()
     {
-        return $this->getFutApiUrl() . '/game/fifa19';
+        return $this->getFutApiUrl().'/game/fifa19';
     }
 
     /**
@@ -1026,7 +1026,7 @@ abstract class AbstractCore implements CoreInterface
      */
     protected function getFutAuthUrl()
     {
-        return $this->getFutApiUrl() . '/auth';
+        return $this->getFutApiUrl().'/auth';
     }
 
     /**
@@ -1039,7 +1039,7 @@ abstract class AbstractCore implements CoreInterface
 
             $host = self::FUT_HOSTS[$platform];
 
-            $this->ultimateApiUrl = 'https://' . $host . '/ut';
+            $this->ultimateApiUrl = 'https://'.$host.'/ut';
         }
 
         return $this->ultimateApiUrl;
@@ -1082,7 +1082,7 @@ abstract class AbstractCore implements CoreInterface
     protected function request($method, $url, $body = null, array $params = [], array $headers = [])
     {
         if (strpos($url, 'http') === false) {
-            $url = $this->getFifaApiUrl() . $url;
+            $url = $this->getFifaApiUrl().$url;
         }
 
         if ($this->getConfig()->isDelay() === true) {
