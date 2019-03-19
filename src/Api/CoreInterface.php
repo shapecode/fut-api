@@ -20,7 +20,7 @@ interface CoreInterface
         'pc'   => 'utas.external.s2.fut.ea.com:443',
         'ps3'  => 'utas.external.s2.fut.ea.com:443',
         'ps4'  => 'utas.external.s2.fut.ea.com:443',
-        'xbox' => 'utas.external.s3.fut.ea.com:443'
+        'xbox' => 'utas.external.s3.fut.ea.com:443',
     ];
 
     /**
@@ -31,6 +31,7 @@ interface CoreInterface
         'Accept-Encoding' => 'gzip,deflate,sdch, br',
         'Accept-Language' => 'en-US,en;q=0.8',
         'Referer'         => 'https://www.easports.com/fifa/ultimate-team/web-app/',
+        'Origin'          => 'https://www.easports.com',
         'DNT'             => '1',
     ];
 
