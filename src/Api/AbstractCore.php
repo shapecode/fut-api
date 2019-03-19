@@ -818,7 +818,7 @@ abstract class AbstractCore implements CoreInterface
             $definitionId = implode(',', $definitionId);
         }
 
-        $response = $this->request('POST', '/marketdata/pricelimits?defId='.$definitionId);
+        $response = $this->request('GET', '/marketdata/pricelimits?defId='.$definitionId);
 
         return $this->getResponseContent($response);
     }
