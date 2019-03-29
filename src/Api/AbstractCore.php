@@ -419,7 +419,7 @@ abstract class AbstractCore implements CoreInterface
             'count' => $count,
         ];
 
-        $response = $this->request('GET', 'defid', [], $params);
+        $response = $this->request('GET', '/defid', [], $params);
 
         return $this->getResponseContent($response);
     }
