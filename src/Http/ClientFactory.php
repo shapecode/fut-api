@@ -85,6 +85,7 @@ class ClientFactory implements ClientFactoryInterface
         $stack->push(Middleware::retry($this->createRetryHandler()));
 
         $options['stack'] = $stack;
+        $options['timeout'] = 5;
 
         $guzzle = new Client($options);
 
