@@ -108,14 +108,14 @@ abstract class AbstractCore implements CoreInterface
         $call = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'query'    => [
                 'prompt'        => 'login',
-                'accessToken'   => '',
+                'accessToken'   => 'null',
                 'client_id'     => self::CLIENT_ID,
                 'response_type' => 'token',
                 'display'       => 'web2/login',
                 'locale'        => 'en_US',
                 'release_type'  => 'prod',
                 'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
-                'scope'         => 'basic.identity offline signin',
+                'scope'         => 'basic.identity offline signin basic.entitlement',
             ],
             'headers'  => $headers,
             'on_stats' => function (TransferStats $stats) use (&$url) {
@@ -285,6 +285,7 @@ abstract class AbstractCore implements CoreInterface
                 'redirect_uri'  => 'nucleus:rest',
                 'response_type' => 'code',
                 'access_token'  => $accessToken,
+                'release_type' => 'prod'
             ],
         ]);
         $responseContent = json_decode($call->getContent(), true);
@@ -1026,7 +1027,7 @@ abstract class AbstractCore implements CoreInterface
      */
     protected function getFutAuthUrl()
     {
-        return $this->getFutApiUrl().'/auth';
+        return $this->getFutApiUrl().'/auth?client=webcomp';
     }
 
     /**
