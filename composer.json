@@ -36,8 +36,8 @@
 
         "psr/http-message": "^1.0",
         "psr/log": "^1.0",
-        "php-http/logger-plugin": "^2.0",
-        "php-http/stopwatch-plugin": "^2.0",
+        "php-http/logger-plugin": "^1.0",
+        "php-http/stopwatch-plugin": "^1.0",
         "php-http/discovery": "^1.4",
         "php-http/client-common": "^2.0",
         "php-http/message": "^1.7",
