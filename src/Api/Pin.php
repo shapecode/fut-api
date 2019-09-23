@@ -32,21 +32,21 @@ class Pin implements PinInterface
     {
         $this->account = $account;
         $this->clientFactory = $clientFactory;
-
-        //pinvars
-        $response = file_get_contents('https://www.easports.com/fifa/ultimate-team/web-app/js/compiled_1.js');
-
-        $this->taxv = $m[preg_match('/taxv:"(.+?)"/', $response, $m)];
-        $this->tidt = $m[preg_match('/tidt:"(.+?)"/', $response, $m)];
-
-        $this->sku = $m[preg_match('/enums.SKU.FUT="(.+?)"/', $response, $m)];
-        $this->rel = 'prod'; //REWRITE?
-        $this->gid = $m[preg_match('/gid:([0-9]+?)/', $response, $m)];
-        $this->plat = 'web'; //REWRITE?
-        $this->et = $m[preg_match('/et:"(.+?)"/', $response, $m)];
-        $this->pidt = $m[preg_match('/pidt:"(.+?)"/', $response, $m)];
-        $this->v = $m[preg_match('/APP_VERSION="(.+?)"/', $response, $m)];
-        $this->s = 2;
+//
+//        //pinvars
+//        $response = file_get_contents('https://www.easports.com/fifa/ultimate-team/web-app/js/compiled_1.js');
+//
+//        $this->taxv = $m[preg_match('/taxv:"(.+?)"/', $response, $m)];
+//        $this->tidt = $m[preg_match('/tidt:"(.+?)"/', $response, $m)];
+//
+//        $this->sku = $m[preg_match('/enums.SKU.FUT="(.+?)"/', $response, $m)];
+//        $this->rel = 'prod'; //REWRITE?
+//        $this->gid = $m[preg_match('/gid:([0-9]+?)/', $response, $m)];
+//        $this->plat = 'web'; //REWRITE?
+//        $this->et = $m[preg_match('/et:"(.+?)"/', $response, $m)];
+//        $this->pidt = $m[preg_match('/pidt:"(.+?)"/', $response, $m)];
+//        $this->v = $m[preg_match('/APP_VERSION="(.+?)"/', $response, $m)];
+//        $this->s = 2;
     }
 
     /**
@@ -123,16 +123,24 @@ class Pin implements PinInterface
         $platform = $account->getCredentials()->getPlatform();
 
         $body = json_encode([
-            'taxv'    => $this->taxv,
-            'tidt'    => $this->tidt,
-            'tid'     => $this->sku,
-            'rel'     => $this->rel,
-            'v'       => $this->v,
+//            'taxv'    => $this->taxv,
+//            'tidt'    => $this->tidt,
+//            'tid'     => $this->sku,
+//            'rel'     => $this->rel,
+//            'v'       => $this->v,
+//            'gid'     => $this->gid,
+//            'plat'    => $this->plat,
+//            'et'      => $this->et,
+            'taxv'    => '1.1',
+            'tidt'    => 'easku',
+            'tid'     => 'FUT20WEB',
+            'rel'     => 'prod',
+            'v'       => '20.0.0',
+            'gid'     => 0,
+            'plat'    => 'web',
+            'et'      => 'client',
             'ts_post' => $this->ts(),
             'sid'     => $session->getSession(),
-            'gid'     => $this->gid,
-            'plat'    => $this->plat,
-            'et'      => $this->et,
             'loc'     => $account->getCredentials()->getLocale(),
             'is_sess' => $session->getSession() !== null,
             'custom'  => [
@@ -140,13 +148,13 @@ class Pin implements PinInterface
                 'service_plat'  => substr($platform, 0, 3)
             ],
             'events'  => $events
-        ]);
+        ], JSON_THROW_ON_ERROR);
         $headers = [
             'Origin'            => 'https://www.easports.com',
             'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
-            'x-ea-game-id'      => $this->sku,
-            'x-ea-game-id-type' => $this->tidt,
-            'x-ea-taxv'         => $this->taxv
+            'x-ea-game-id'      => 'FUT20WEB',
+            'x-ea-game-id-type' => 'easku',
+            'x-ea-taxv'         => '1.1'
         ];
 
         $call = $this->clientFactory->request($account, 'POST', self::PIN_URL, [

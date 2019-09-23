@@ -16,17 +16,13 @@ interface CoreInterface
     /**
      *
      */
-    const FUT_HOSTS = [
+    public const FUT_HOSTS = [
         'pc'   => 'utas.external.s2.fut.ea.com:443',
         'ps3'  => 'utas.external.s2.fut.ea.com:443',
         'ps4'  => 'utas.external.s2.fut.ea.com:443',
         'xbox' => 'utas.external.s3.fut.ea.com:443',
     ];
-
-    /**
-     *
-     */
-    const REQUEST_HEADERS = [
+    public const REQUEST_HEADERS = [
         'Accept'          => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding' => 'gzip,deflate,sdch, br',
         'Accept-Language' => 'en-US,en;q=0.8',
@@ -34,21 +30,10 @@ interface CoreInterface
         'Origin'          => 'https://www.easports.com',
         'DNT'             => '1',
     ];
-
-    /**
-     *
-     */
-    const AUTH_URL = 'utas.mob.v4.fut.ea.com:443';
-
-    /**
-     *
-     */
-    const CLIENT_ID = 'FIFA-19-WEBCLIENT';
-
-    /**
-     *
-     */
-    const FUN_CAPTCHA_PUBLIC_KEY = 'A4EECF77-AC87-8C8D-5754-BF882F72063B';
+    public const AUTH_URL = 'utas.mob.v4.fut.ea.com:443';
+    public const CLIENT_ID = 'FIFA-20-WEBCLIENT';
+    public const FUN_CAPTCHA_PUBLIC_KEY = 'A4EECF77-AC87-8C8D-5754-BF882F72063B';
+    public const SKU = 'FUT20WEB';
 
     /**
      * @param null $code

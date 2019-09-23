@@ -16,49 +16,14 @@ class Player extends Item
         return $this->get('formation');
     }
 
-    public function isUntradeable()
-    {
-        return $this->get('untradeable');
-    }
-
     public function getAssetId()
     {
         return $this->get('assetId');
     }
 
-    public function getResourceId()
-    {
-        return $this->get('resourceId');
-    }
-
     public function getRating()
     {
         return $this->get('rating');
-    }
-
-    public function getOwners()
-    {
-        return $this->get('owners');
-    }
-
-    public function getDiscardValue()
-    {
-        return $this->get('discardValue');
-    }
-
-    public function getItemState()
-    {
-        return $this->get('itemState');
-    }
-
-    public function getCardSubTypeId()
-    {
-        return $this->get('cardsubtypeid');
-    }
-
-    public function getLastSalePrice()
-    {
-        return $this->get('lastSalePrice');
     }
 
     public function getMorale()
@@ -156,32 +121,37 @@ class Player extends Item
         return $this->get('loyaltyBonus');
     }
 
-    public function getPile()
-    {
-        return $this->get('pile');
-    }
-
     public function getNation()
     {
         return $this->get('nation');
     }
 
-    public function getMarketDataMinPrice()
+    public function getSkillMoves()
     {
-        return $this->get('marketDataMinPrice');
+        return $this->get('skillmoves');
     }
 
-    public function getMarketDataMaxPrice()
+    public function getWeakFootAbilityTypeCode()
     {
-        return $this->get('marketDataMaxPrice');
+        return $this->get('weakfootabilitytypecode');
     }
 
-    public function getResourceGameYear()
+    public function getAttackingWorkRate()
     {
-        return $this->get('resourceGameYear');
+        return $this->get('attackingworkrate');
     }
 
-    public function getItemType()
+    public function getDefensiveWorkRate()
+    {
+        return $this->get('defensiveworkrate');
+    }
+
+    public function getPreferredFoot()
+    {
+        return $this->get('preferredfoot');
+    }
+
+    public function getItemType(): string
     {
         return 'player';
     }

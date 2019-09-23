@@ -56,19 +56,19 @@ class FutUtil
     {
         switch ($platform) {
             case 'pc':
-                return 'FFA19PCC';
+                return 'FFA20PCC';
                 break;
             case 'xbox':
-                return 'FFA19XBO';
+                return 'FFA20XBO';
                 break;
             case 'xbox360':
-                return 'FFA19XBX';
+                return 'FFA20XBX';
                 break;
             case 'ps3':
-                return 'FFA19PS3';
+                return 'FFA20PS3';
                 break;
             case 'ps4':
-                return 'FFA19PS4';
+                return 'FFA20PS4';
                 break;
             default:
                 throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)');

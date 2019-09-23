@@ -34,7 +34,14 @@ use Shapecode\FUT\Client\Http\ClientFactory;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use Shapecode\FUT\Client\Items\Player;
 use Shapecode\FUT\Client\Items\SuperBase;
+use Shapecode\FUT\Client\Items\TradeItemInterface;
 use Shapecode\FUT\Client\Locale\Locale;
+use Shapecode\FUT\Client\Mapper\Mapper;
+use Shapecode\FUT\Client\Response\BidResponse;
+use Shapecode\FUT\Client\Response\MarketSearchResponse;
+use Shapecode\FUT\Client\Response\TradepileResponse;
+use Shapecode\FUT\Client\Response\UnassignedResponse;
+use Shapecode\FUT\Client\Response\WatchlistResponse;
 use Shapecode\FUT\Client\Util\EAHasher;
 use Shapecode\FUT\Client\Util\FutUtil;
 
@@ -47,7 +54,6 @@ use Shapecode\FUT\Client\Util\FutUtil;
 abstract class AbstractCore implements CoreInterface
 {
 
-    protected $sku = 'FUT19WEB';
     protected $clientVersion = 1;
 
     /** @var string */
@@ -61,6 +67,9 @@ abstract class AbstractCore implements CoreInterface
 
     /** @var Locale */
     protected $locale;
+
+    /** @var Mapper */
+    protected $mapper;
 
     /** @var Pin */
     protected $pin;
@@ -80,6 +89,7 @@ abstract class AbstractCore implements CoreInterface
         $this->clientFactory = $clientFactory ?: new ClientFactory($this->config);
 
         $this->locale = new Locale('en_US');
+        $this->mapper = new Mapper();
         $this->pin = new Pin($this->getAccount(), $this->getClientFactory());
     }
 
@@ -107,14 +117,15 @@ abstract class AbstractCore implements CoreInterface
 
         $call = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'query'    => [
-                'prompt'        => 'login',
-                'accessToken'   => 'null',
                 'client_id'     => self::CLIENT_ID,
                 'response_type' => 'token',
                 'display'       => 'web2/login',
                 'locale'        => 'en_US',
+                'prompt'        => 'login',
+                'accessToken'   => 'null',
                 'release_type'  => 'prod',
                 'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
+//                'redirect_uri'  => 'nucleus:rest',
                 'scope'         => 'basic.identity offline signin basic.entitlement',
             ],
             'headers'  => $headers,
@@ -247,7 +258,7 @@ abstract class AbstractCore implements CoreInterface
                 'headers' => $headers,
                 'query'   => [
                     'filterConsoleLogin'    => 'true',
-                    'sku'                   => $this->sku,
+                    'sku'                   => static::SKU,
                     'returningUserGameYear' => '2019',
                 ],
             ]);
@@ -285,7 +296,7 @@ abstract class AbstractCore implements CoreInterface
                 'redirect_uri'  => 'nucleus:rest',
                 'response_type' => 'code',
                 'access_token'  => $accessToken,
-                'release_type' => 'prod'
+                'release_type'  => 'prod',
             ],
         ]);
         $responseContent = json_decode($call->getContent(), true);
@@ -297,7 +308,7 @@ abstract class AbstractCore implements CoreInterface
             'headers' => $headers,
             'body'    => json_encode([
                 'isReadOnly'       => false,
-                'sku'              => $this->sku,
+                'sku'              => static::SKU,
                 'clientVersion'    => $this->clientVersion,
                 'nucleusPersonaId' => $persona_id,
                 'gameSku'          => $this->getGameSku(),
@@ -428,7 +439,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function search(array $params = [], $pageSize = 20, $start = 0)
+    public function search(array $params = [], $pageSize = 20, $start = 0): MarketSearchResponse
     {
         if ($start === 0) {
             $this->getPin()->sendEvent('page_view', 'Transfer Market Search');
@@ -450,13 +461,19 @@ abstract class AbstractCore implements CoreInterface
             ]);
         }
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        if (!is_array($content)) {
+            $content = [];
+        }
+
+        return $this->mapper->createTransferMarketSearch($content);
     }
 
     /**
      * @inheritdoc
      */
-    public function bid($tradeId, $price)
+    public function bid($tradeId, $price): BidResponse
     {
         $response = $this->request('PUT', '/trade/'.$tradeId.'/bid', [
             'bid' => $price,
@@ -467,7 +484,13 @@ abstract class AbstractCore implements CoreInterface
             $this->getPin()->event('boot_end', false, false, false, 'normal'),
         ]);
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        if (!is_array($content)) {
+            $content = [];
+        }
+
+        return $this->mapper->createBidResult($content);
     }
 
     /**
@@ -682,43 +705,49 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function tradepile()
+    public function tradepile(): TradepileResponse
     {
         $response = $this->request('GET', '/tradepile');
 
         $this->getPin()->sendEvent('page_view', 'Transfer List - List View');
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        return $this->mapper->createTradepileResponse($content);
     }
 
     /**
      * @inheritdoc
      */
-    public function watchlist()
+    public function watchlist(): WatchlistResponse
     {
         $response = $this->request('GET', '/watchlist');
 
         $this->getPin()->sendEvent('page_view', 'Transfer Targets - List View');
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        return $this->mapper->createWatchlistResponse($content);
     }
 
     /**
      * @inheritdoc
      */
-    public function unassigned()
+    public function unassigned(): UnassignedResponse
     {
         $response = $this->request('GET', '/purchased/items');
 
         $this->getPin()->sendEvent('page_view', 'Unassigned Items - List View');
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        return $this->mapper->createUnassignedResponse($content);
     }
 
     /**
      * @inheritdoc
      */
-    public function sell($itemId, $bid, $bin, $duration = 3600)
+    public function sell($itemId, $bid, $bin, $duration = 3600): TradeItemInterface
     {
         $options = [
             'itemData'    => [
@@ -737,7 +766,7 @@ abstract class AbstractCore implements CoreInterface
 
         $tradeStatus = $this->tradeStatus($data['id']);
 
-        return $tradeStatus['auctionInfo'][0];
+        return $this->mapper->createTradeItem($tradeStatus);
     }
 
     /**
@@ -1019,7 +1048,7 @@ abstract class AbstractCore implements CoreInterface
      */
     protected function getFifaApiUrl()
     {
-        return $this->getFutApiUrl().'/game/fifa19';
+        return $this->getFutApiUrl().'/game/fifa20';
     }
 
     /**
