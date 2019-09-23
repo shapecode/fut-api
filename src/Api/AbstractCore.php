@@ -40,6 +40,7 @@ use Shapecode\FUT\Client\Mapper\Mapper;
 use Shapecode\FUT\Client\Response\BidResponse;
 use Shapecode\FUT\Client\Response\MarketSearchResponse;
 use Shapecode\FUT\Client\Response\TradepileResponse;
+use Shapecode\FUT\Client\Response\TradeStatusResponse;
 use Shapecode\FUT\Client\Response\UnassignedResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 use Shapecode\FUT\Client\Util\EAHasher;
@@ -693,13 +694,15 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function tradeStatus($tradeId)
+    public function tradeStatus($tradeId): TradeStatusResponse
     {
         $response = $this->request('GET', '/trade/status', null, [
             'tradeIds' => $tradeId,
         ]);
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        return $this->mapper->createTradeStatusResponse($content);
     }
 
     /**
@@ -712,6 +715,8 @@ abstract class AbstractCore implements CoreInterface
         $this->getPin()->sendEvent('page_view', 'Transfer List - List View');
 
         $content = $this->getResponseContent($response);
+
+        $response = $this->mapper->createTradepileResponse($content);
 
         return $this->mapper->createTradepileResponse($content);
     }
@@ -766,7 +771,7 @@ abstract class AbstractCore implements CoreInterface
 
         $tradeStatus = $this->tradeStatus($data['id']);
 
-        return $this->mapper->createTradeItem($tradeStatus);
+        return $tradeStatus->getAuction(0);
     }
 
     /**

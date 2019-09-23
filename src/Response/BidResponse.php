@@ -3,6 +3,7 @@
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
+use Shapecode\FUT\Client\Items\TradeItemInterface;
 
 /**
  * Class BidResponse
@@ -43,6 +44,28 @@ class BidResponse
     public function hasAuctions(): bool
     {
         return count($this->auctions) > 0;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasAuction($index): bool
+    {
+        return isset($this->auctions[$index]);
+    }
+
+    /**
+     * @param $index
+     *
+     * @return TradeItemInterface|null
+     */
+    public function getAuction($index): ?TradeItemInterface
+    {
+        if (!$this->hasAuction($index)) {
+            return null;
+        }
+
+        return $this->auctions[$index];
     }
 
     /**

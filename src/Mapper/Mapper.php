@@ -3,6 +3,7 @@
 namespace Shapecode\FUT\Client\Mapper;
 
 use Shapecode\FUT\Client\Items\Contract;
+use Shapecode\FUT\Client\Items\CurrencyValue;
 use Shapecode\FUT\Client\Items\DuplicateItem;
 use Shapecode\FUT\Client\Items\Health;
 use Shapecode\FUT\Client\Items\Item;
@@ -12,6 +13,7 @@ use Shapecode\FUT\Client\Items\TradeItem;
 use Shapecode\FUT\Client\Response\BidResponse;
 use Shapecode\FUT\Client\Response\MarketSearchResponse;
 use Shapecode\FUT\Client\Response\TradepileResponse;
+use Shapecode\FUT\Client\Response\TradeStatusResponse;
 use Shapecode\FUT\Client\Response\UnassignedResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 
@@ -103,6 +105,28 @@ class Mapper
         return new TradepileResponse($credits, $auctions, $bidTokens);
     }
 
+    public function createTradeStatusResponse($data): TradeStatusResponse
+    {
+        $credits = $data['credits'] ?? null;
+        $as = $data['auctionInfo'] ?? [];
+        $bs = $search['bidTokens'] ?? [];
+        $cs = $search['currencies'] ?? [];
+
+        $auctions = [];
+        $bidTokens = [];
+        $currencies = [];
+
+        foreach ($as as $a) {
+            $auctions[] = $this->createTradeItem($a);
+        }
+
+        foreach ($cs as $a) {
+            $currencies[] = $this->createCurrencyValue($a);
+        }
+
+        return new TradeStatusResponse($credits, $auctions, $bidTokens, $currencies);
+    }
+
     public function createTradeItem($data): TradeItem
     {
         $item = $this->createItem($data['itemData']);
@@ -110,9 +134,14 @@ class Mapper
         return new TradeItem($data, $item);
     }
 
+    public function createCurrencyValue($data): CurrencyValue
+    {
+        return new CurrencyValue($data);
+    }
+
     public function createItem($data): Item
     {
-        $itemType = $data['itemType'];
+        $itemType = $data['itemType'] ?? null;
 
         if ($itemType === 'player') {
             return new Player($data);

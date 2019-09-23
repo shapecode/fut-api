@@ -38,6 +38,14 @@ class MarketSearchResponse
     }
 
     /**
+     * @return bool
+     */
+    public function hasAuctions(): bool
+    {
+        return count($this->auctions) > 0;
+    }
+
+    /**
      * @return array
      */
     public function getBidTokens(): array

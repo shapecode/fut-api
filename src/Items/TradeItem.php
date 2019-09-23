@@ -92,7 +92,7 @@ class TradeItem extends SuperBase implements TradeItemInterface
     public function getExpireDate(): ?\DateTime
     {
         if ($this->getExpires() > 0) {
-            new Carbon('+'.$this->getExpires().' seconds');
+            return new Carbon('+'.$this->getExpires().' seconds');
         }
 
         return null;
