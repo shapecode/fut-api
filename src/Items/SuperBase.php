@@ -8,7 +8,7 @@ namespace Shapecode\FUT\Client\Items;
  * @package Shapecode\FUT\Client\Items
  * @author  Nikita Loges
  */
-class SuperBase implements \ArrayAccess
+abstract class SuperBase implements \ArrayAccess
 {
 
     /** @var array */

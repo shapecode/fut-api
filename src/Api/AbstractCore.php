@@ -551,7 +551,7 @@ abstract class AbstractCore implements CoreInterface
                 $this->getPin()->sendEvent('page_view', 'Club - Players - List View');
 
                 foreach ($itemData as $item) {
-                    $result[] = new Player($item);
+                    $result[] = $this->mapper->createItem($item);
                 }
 
                 break;
@@ -562,7 +562,7 @@ abstract class AbstractCore implements CoreInterface
                 ]);
 
                 foreach ($itemData as $item) {
-                    $result[] = new SuperBase($item);
+                    $result[] = $this->mapper->createItem($item);
                 }
 
                 break;
@@ -570,21 +570,21 @@ abstract class AbstractCore implements CoreInterface
                 $this->getPin()->sendEvent('page_view', 'Club - Staff - List View');
 
                 foreach ($itemData as $item) {
-                    $result[] = new SuperBase($item);
+                    $result[] = $this->mapper->createItem($item);
                 }
                 break;
             case 'item':
                 $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
 
                 foreach ($itemData as $item) {
-                    $result[] = new SuperBase($item);
+                    $result[] = $this->mapper->createItem($item);
                 }
                 break;
             default:
                 $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
 
                 foreach ($itemData as $item) {
-                    $result[] = new SuperBase($item);
+                    $result[] = $this->mapper->createItem($item);
                 }
                 break;
         }
