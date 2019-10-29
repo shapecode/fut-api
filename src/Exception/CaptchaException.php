@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Exception;
 
-use Psr\Http\Message\ResponseInterface;
-use Throwable;
-
 class CaptchaException extends FutResponseException
 {
-    /**
-     * @param mixed[] $options
-     */
-    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
+    protected function getErrorMessage() : string
     {
-        $message = 'Account has received a captcha';
-        $reason  = 'captcha';
+        return 'Account has received a captcha';
+    }
 
-        parent::__construct($message, $response, $reason, $options, $previous);
+    protected function getErrorReason() : string
+    {
+        return 'captcha';
     }
 }

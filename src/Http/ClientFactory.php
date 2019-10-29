@@ -22,7 +22,7 @@ use Http\Client\Common\Plugin\StopwatchPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Message\RequestFactory;
+use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Shapecode\FUT\Client\Api\CoreInterface;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
@@ -34,7 +34,7 @@ use function count;
 
 class ClientFactory implements ClientFactoryInterface
 {
-    /** @var RequestFactory */
+    /** @var RequestFactoryInterface */
     protected $requestFactory;
 
     /** @var ConfigInterface */
@@ -42,7 +42,7 @@ class ClientFactory implements ClientFactoryInterface
 
     public const MAX_RETRIES = 4;
 
-    public function __construct(ConfigInterface $config, ?RequestFactory $requestFactory = null)
+    public function __construct(ConfigInterface $config, ?RequestFactoryInterface $requestFactory = null)
     {
         $this->config         = $config;
         $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
@@ -59,7 +59,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    protected function createAccountClient(AccountInterface $account, array $options = []): GuzzleAdapter
+    protected function createAccountClient(AccountInterface $account, array $options = []) : GuzzleAdapter
     {
         $options['http_errors']     = false;
         $options['allow_redirects'] = true;
@@ -88,7 +88,20 @@ class ClientFactory implements ClientFactoryInterface
      */
     public function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface
     {
-        return $this->requestFactory->createRequest($method, $uri, $headers, $body);
+        $request = $this->requestFactory->createRequest($method, $uri);
+
+        if ($body !== null) {
+            $stream  = Psr17FactoryDiscovery::findStreamFactory()->createStream($body);
+            $request = $request->withBody($stream);
+        }
+
+        if (count($headers) > 0) {
+            foreach ($headers as $name => $header) {
+                $request = $request->withHeader($name, $header);
+            }
+        }
+
+        return $request;
     }
 
     /**
@@ -135,16 +148,6 @@ class ClientFactory implements ClientFactoryInterface
     protected function getConfig() : ConfigInterface
     {
         return $this->config;
-    }
-
-    protected function getRequestFactory() : RequestFactory
-    {
-        return $this->requestFactory;
-    }
-
-    public function setRequestFactory(RequestFactory $requestFactory) : void
-    {
-        $this->requestFactory = $requestFactory;
     }
 
     protected function createRetryHandler() : Closure

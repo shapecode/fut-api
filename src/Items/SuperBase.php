@@ -40,10 +40,8 @@ abstract class SuperBase implements ArrayAccess
 
     /**
      * @param mixed $offset
-     *
-     * @return bool
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset) : bool
     {
         return isset($this->data[$offset]) || array_key_exists($offset, $this->data);
     }
@@ -62,7 +60,7 @@ abstract class SuperBase implements ArrayAccess
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value) : void
     {
         $this->data[$offset] = $value;
     }
@@ -70,7 +68,7 @@ abstract class SuperBase implements ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset) : void
     {
         if (! $this->offsetExists($offset)) {
             return;

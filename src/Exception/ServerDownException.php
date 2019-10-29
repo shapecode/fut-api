@@ -4,19 +4,15 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Exception;
 
-use Psr\Http\Message\ResponseInterface;
-use Throwable;
-
-class ServerDownException extends FutResponseException
+class ServerDownException extends FutFailedException
 {
-    /**
-     * @param mixed[] $options
-     */
-    public function __construct(?ResponseInterface $response = null, ?Throwable $previous = null, array $options = [])
+    protected function getErrorMessage() : string
     {
-        $message = 'Server down.';
-        $reason  = 'server_down';
+        return 'Server down.';
+    }
 
-        parent::__construct($message, $response, $reason, $options, $previous);
+    protected function getErrorReason() : string
+    {
+        return 'server_down';
     }
 }

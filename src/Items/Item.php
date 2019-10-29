@@ -82,7 +82,7 @@ class Item extends SuperBase implements ItemInterface
     {
         $date = new DateTime();
 
-        if($this->getTimestamp() !== null) {
+        if ($this->getTimestamp() !== null) {
             $date->setTimestamp($this->getTimestamp());
         }
 

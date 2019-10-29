@@ -59,7 +59,7 @@ class Pin implements PinInterface
         $account = $this->account;
         $session = $account->getSession();
 
-        $data = [
+        $data                = [
             'core' => [
                 's'        => $this->s,
                 'pidt'     => $this->pidt,

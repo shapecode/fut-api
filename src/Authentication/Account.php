@@ -7,6 +7,7 @@ namespace Shapecode\FUT\Client\Authentication;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Cookie\CookieJarInterface;
 use GuzzleHttp\Cookie\FileCookieJar;
+use RuntimeException;
 use Shapecode\FUT\Client\Model\ProxyInterface;
 use function sha1;
 use function sys_get_temp_dir;
@@ -49,8 +50,8 @@ class Account implements AccountInterface
      */
     public function getSession() : SessionInterface
     {
-        if($this->session === null) {
-            throw new \RuntimeException('session has to be set');
+        if ($this->session === null) {
+            throw new RuntimeException('session has to be set');
         }
 
         return $this->session;

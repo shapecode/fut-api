@@ -87,7 +87,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getHttpClientPlugins(): array
+    public function getHttpClientPlugins() : array
     {
         return $this->getOption('http_client_plugins');
     }
@@ -128,10 +128,10 @@ class Config implements ConfigInterface
     {
         $resolver = new OptionsResolver();
 
-        $url       = $this->futConfigUrl;
-        $content   = file_get_contents($url);
+        $url     = $this->futConfigUrl;
+        $content = file_get_contents($url);
 
-            $futConfig = ($content !== false)?json_decode($content, true):null;
+            $futConfig = $content !== false?json_decode($content, true):null;
 
         if (! is_array($futConfig)) {
             $futConfig = [];

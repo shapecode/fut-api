@@ -42,7 +42,7 @@ class FutResponseException extends FutException
         return $this->reason;
     }
 
-    public function getResponse() : ResponseInterface
+    public function getResponse() : ?ResponseInterface
     {
         return $this->response;
     }

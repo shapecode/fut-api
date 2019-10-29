@@ -126,7 +126,7 @@ class EAHasher
     {
         $x = $this->int32($x);
 
-        return (($x << $c) | $this->uRShift($x, 32 - $c));
+        return ($x << $c) | $this->uRShift($x, 32 - $c);
     }
 
     private function uRShift(int $number, int $shiftBits) : int

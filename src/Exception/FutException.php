@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Exception;
 
-class FutException extends \Exception
+use Exception;
+use Throwable;
+
+class FutException extends Exception
 {
     /** @var mixed[] */
     protected $options;
@@ -12,7 +15,7 @@ class FutException extends \Exception
     /**
      * @param mixed[] $options
      */
-    public function __construct(string $message, array $options = [], int $code = 0, ?\Throwable $previous = null)
+    public function __construct(string $message, array $options = [], int $code = 0, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
 
