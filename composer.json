@@ -26,6 +26,7 @@
     "require": {
         "php": "~7.3",
         "ext-json": "*",
+        "ext-mbstring": "*",
 
         "symfony/property-access": "^3.4|^4.0",
         "symfony/yaml": "^3.4|^4.0",
