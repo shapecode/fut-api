@@ -1,21 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Items;
 
-/**
- * Class SuperBase
- *
- * @package Shapecode\FUT\Client\Items
- * @author  Nikita Loges
- */
-abstract class SuperBase implements \ArrayAccess
-{
+use ArrayAccess;
+use function array_key_exists;
 
-    /** @var array */
+abstract class SuperBase implements ArrayAccess
+{
+    /** @var mixed[] */
     protected $data;
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      */
     public function __construct(array $data)
     {
@@ -23,15 +21,15 @@ abstract class SuperBase implements \ArrayAccess
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
-    public function getArray()
+    public function getArray() : array
     {
         return $this->data;
     }
 
     /**
-     * @param $key
+     * @param mixed $key
      *
      * @return mixed
      */
@@ -41,15 +39,19 @@ abstract class SuperBase implements \ArrayAccess
     }
 
     /**
-     * @inheritDoc
+     * @param mixed $offset
+     *
+     * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]) || array_key_exists($offset, $this->data);
     }
 
     /**
-     * @inheritDoc
+     * @param mixed $offset
+     *
+     * @return mixed
      */
     public function offsetGet($offset)
     {
@@ -57,23 +59,23 @@ abstract class SuperBase implements \ArrayAccess
     }
 
     /**
-     * @inheritDoc
+     * @param mixed $offset
+     * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->data[$offset] = $value;
     }
 
     /**
-     * @inheritDoc
+     * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
-        if (!$this->offsetExists($offset)) {
+        if (! $this->offsetExists($offset)) {
             return;
         }
 
         unset($this->data[$offset]);
     }
-
 }

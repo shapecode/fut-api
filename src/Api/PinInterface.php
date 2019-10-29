@@ -1,42 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Api;
 
 /**
  * Interface PinInterface
- *
- * @package Shapecode\FUT\Client\Api
- * @author  Shapecode
  */
 interface PinInterface
 {
-
-    const PIN_URL = 'https://pin-river.data.ea.com/pinEvents';
+    public const PIN_URL = 'https://pin-river.data.ea.com/pinEvents';
 
     /**
-     * @param      $en
-     * @param bool $pgid
-     * @param bool $status
-     * @param bool $source
-     * @param bool $end_reason
+     * @param mixed $en
      */
-    public function sendEvent($en, $pgid = false, $status = false, $source = false, $end_reason = false);
+    public function sendEvent($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : void;
 
     /**
-     * @param      $en
-     * @param bool $pgid
-     * @param bool $status
-     * @param bool $source
-     * @param bool $end_reason
+     * @param mixed $en
      *
-     * @return array
+     * @return mixed[]
      */
-    public function event($en, $pgid = false, $status = false, $source = false, $end_reason = false);
+    public function event($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : array;
 
     /**
-     * @param $events
-     *
-     * @return bool
+     * @param mixed[] $events
      */
-    public function send($events);
+    public function send(array $events) : bool;
 }

@@ -1,20 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Api;
 
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Exception\FutResponseException;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
+use const JSON_THROW_ON_ERROR;
+use function date;
+use function json_decode;
+use function json_encode;
+use function substr;
 
-/**
- * Class Pin
- *
- * @package Shapecode\FUT\Client\Api
- * @author  Shapecode
- */
 class Pin implements PinInterface
 {
-
     /** @var AccountInterface */
     protected $account;
 
@@ -22,37 +22,30 @@ class Pin implements PinInterface
     protected $clientFactory;
 
     /** @var mixed */
-    protected $taxv, $tidt, $sku, $rel, $gid, $plat, $et, $pidt, $v, $s;
+    protected $gid;
 
-    /**
-     * @param AccountInterface       $account
-     * @param ClientFactoryInterface $clientFactory
-     */
+    /** @var mixed */
+    protected $et;
+
+    /** @var mixed */
+    protected $pidt;
+
+    /** @var mixed */
+    protected $v;
+
+    /** @var mixed */
+    protected $s;
+
     public function __construct(AccountInterface $account, ClientFactoryInterface $clientFactory)
     {
-        $this->account = $account;
+        $this->account       = $account;
         $this->clientFactory = $clientFactory;
-//
-//        //pinvars
-//        $response = file_get_contents('https://www.easports.com/fifa/ultimate-team/web-app/js/compiled_1.js');
-//
-//        $this->taxv = $m[preg_match('/taxv:"(.+?)"/', $response, $m)];
-//        $this->tidt = $m[preg_match('/tidt:"(.+?)"/', $response, $m)];
-//
-//        $this->sku = $m[preg_match('/enums.SKU.FUT="(.+?)"/', $response, $m)];
-//        $this->rel = 'prod'; //REWRITE?
-//        $this->gid = $m[preg_match('/gid:([0-9]+?)/', $response, $m)];
-//        $this->plat = 'web'; //REWRITE?
-//        $this->et = $m[preg_match('/et:"(.+?)"/', $response, $m)];
-//        $this->pidt = $m[preg_match('/pidt:"(.+?)"/', $response, $m)];
-//        $this->v = $m[preg_match('/APP_VERSION="(.+?)"/', $response, $m)];
-//        $this->s = 2;
     }
 
     /**
      * @inheritdoc
      */
-    public function sendEvent($en, $pgid = false, $status = false, $source = false, $end_reason = false)
+    public function sendEvent($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : void
     {
         $event = $this->event($en, $pgid, $status, $source, $end_reason);
         $this->send([$event]);
@@ -61,7 +54,7 @@ class Pin implements PinInterface
     /**
      * @inheritdoc
      */
-    public function event($en, $pgid = false, $status = false, $source = false, $end_reason = false)
+    public function event($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : array
     {
         $account = $this->account;
         $session = $account->getSession();
@@ -72,18 +65,16 @@ class Pin implements PinInterface
                 'pidt'     => $this->pidt,
                 'pid'      => $session->getPersona(),
                 'pidm'     => [
-                    'nucleus' => $session->getNucleus()
+                    'nucleus' => $session->getNucleus(),
                 ],
                 'didm'     => [
-                    'uuid' => '0'
+                    'uuid' => '0',
                 ],
                 'ts_event' => $this->ts(),
-                'en'       => $en
-            ]
+                'en'       => $en,
+            ],
         ];
-        if ($session->getDob() !== null) {
-            $data['core']['dob'] = $session->getDob();
-        }
+        $data['core']['dob'] = $session->getDob();
         if ($pgid) {
             $data['pgid'] = $pgid;
         }
@@ -97,15 +88,15 @@ class Pin implements PinInterface
             $data['end_reason'] = $end_reason;
         }
         if ($en === 'login') {
-            $data['type'] = "utas";
+            $data['type']   = 'utas';
             $data['userid'] = $session->getPersona();
         } elseif ($en === 'page_view') {
-            $data['type'] = "menu";
+            $data['type'] = 'menu';
         } elseif ($en === 'error') {
             $data['server_type'] = 'utas';
-            $data['errid'] = 'server_error';
-            $data['type'] = 'disconnect';
-            $data['sid'] = $session->getSession();
+            $data['errid']       = 'server_error';
+            $data['type']        = 'disconnect';
+            $data['sid']         = $session->getSession();
         }
 
         $this->s++;
@@ -114,15 +105,15 @@ class Pin implements PinInterface
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
-    public function send($events)
+    public function send(array $events) : bool
     {
-        $account = $this->account;
-        $session = $account->getSession();
+        $account  = $this->account;
+        $session  = $account->getSession();
         $platform = $account->getCredentials()->getPlatform();
 
-        $body = json_encode([
+        $body    = json_encode([
 //            'taxv'    => $this->taxv,
 //            'tidt'    => $this->tidt,
 //            'tid'     => $this->sku,
@@ -142,24 +133,24 @@ class Pin implements PinInterface
             'ts_post' => $this->ts(),
             'sid'     => $session->getSession(),
             'loc'     => $account->getCredentials()->getLocale(),
-            'is_sess' => $session->getSession() !== null,
+            'is_sess' => 1,
             'custom'  => [
                 'networkAccess' => 'G',
-                'service_plat'  => substr($platform, 0, 3)
+                'service_plat'  => substr($platform, 0, 3),
             ],
-            'events'  => $events
+            'events'  => $events,
         ], JSON_THROW_ON_ERROR);
         $headers = [
             'Origin'            => 'https://www.easports.com',
             'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
             'x-ea-game-id'      => 'FUT20WEB',
             'x-ea-game-id-type' => 'easku',
-            'x-ea-taxv'         => '1.1'
+            'x-ea-taxv'         => '1.1',
         ];
 
-        $call = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
+        $call     = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
             'body'    => $body,
-            'headers' => $headers
+            'headers' => $headers,
         ]);
         $response = $call->getResponse();
 
@@ -172,12 +163,8 @@ class Pin implements PinInterface
         return true;
     }
 
-    /**
-     * @return string
-     */
-    private function ts()
+    private function ts() : string
     {
         return date('Y-m-dTH:i:s') . '.' . date('v') . 'Z';
     }
-
 }

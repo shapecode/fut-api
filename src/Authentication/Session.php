@@ -1,16 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Authentication;
 
-/**
- * Class Session
- *
- * @package Shapecode\FUT\Client\Authentication
- * @author  Shapecode
- */
+use DateTime;
+
 class Session implements SessionInterface
 {
-
     /** @var string */
     protected $persona;
 
@@ -29,111 +26,73 @@ class Session implements SessionInterface
     /** @var string */
     protected $accessToken;
 
-    /** @var string */
+    /** @var string|null */
     protected $tokenType;
 
-    /** @var \DateTime|null */
+    /** @var DateTime|null */
     protected $expiresAt;
 
-    /**
-     * @param string         $persona
-     * @param string         $nucleus
-     * @param string         $phishing
-     * @param string         $session
-     * @param string         $dob
-     * @param string         $accessToken
-     * @param string         $tokenType
-     * @param \DateTime|null $tokenType
-     */
-    public function __construct($persona, $nucleus, $phishing, $session, $dob, $accessToken, $tokenType, \DateTime $expiresAt = null)
+    public function __construct(string $persona, string $nucleus, string $phishing, string $session, string $dob, string $accessToken, ?string $tokenType, ?DateTime $expiresAt = null)
     {
-        $this->persona = $persona;
-        $this->nucleus = $nucleus;
-        $this->phishing = $phishing;
-        $this->session = $session;
-        $this->dob = $dob;
+        $this->persona     = $persona;
+        $this->nucleus     = $nucleus;
+        $this->phishing    = $phishing;
+        $this->session     = $session;
+        $this->dob         = $dob;
         $this->accessToken = $accessToken;
-        $this->tokenType = $tokenType;
-        $this->expiresAt = $expiresAt;
+        $this->tokenType   = $tokenType;
+        $this->expiresAt   = $expiresAt;
     }
 
-    /**
-     * @param           $persona
-     * @param           $nucleus
-     * @param           $phishing
-     * @param           $session
-     * @param           $dob
-     * @param           $accessToken
-     * @param           $tokenType
-     * @param \DateTime $expiresAt
-     *
-     * @return Session
-     */
-    public static function create($persona, $nucleus, $phishing, $session, $dob, $accessToken, $tokenType, \DateTime $expiresAt)
-    {
-        return new Session($persona, $nucleus, $phishing, $session, $dob, $accessToken, $tokenType, $expiresAt);
+    public static function create(
+        string $persona,
+        string $nucleus,
+        string $phishing,
+        string $session,
+        string $dob,
+        string $accessToken,
+        ?string $tokenType = null,
+        ?DateTime $expiresAt = null
+    ) : Session {
+        return new self($persona, $nucleus, $phishing, $session, $dob, $accessToken, $tokenType, $expiresAt);
     }
 
-    /**
-     * @return string
-     */
-    public function getPersona()
+    public function getPersona() : string
     {
         return $this->persona;
     }
 
-    /**
-     * @return string
-     */
-    public function getNucleus()
+    public function getNucleus() : string
     {
         return $this->nucleus;
     }
 
-    /**
-     * @return string
-     */
-    public function getPhishing()
+    public function getPhishing() : string
     {
         return $this->phishing;
     }
 
-    /**
-     * @return string
-     */
-    public function getSession()
+    public function getSession() : string
     {
         return $this->session;
     }
 
-    /**
-     * @return string
-     */
-    public function getDob()
+    public function getDob() : string
     {
         return $this->dob;
     }
 
-    /**
-     * @return string
-     */
-    public function getAccessToken()
+    public function getAccessToken() : string
     {
         return $this->accessToken;
     }
 
-    /**
-     * @return string
-     */
-    public function getTokenType()
+    public function getTokenType() : ?string
     {
         return $this->tokenType;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpiresAt()
+    public function getExpiresAt() : ?DateTime
     {
         return $this->expiresAt;
     }

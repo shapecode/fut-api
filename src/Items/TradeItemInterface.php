@@ -1,51 +1,47 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Items;
+
+use DateTime;
 
 /**
  * Interface TradeItemInterface
- *
- * @package Shapecode\FUT\Client\Items
- * @author  Nikita Loges
  */
 interface TradeItemInterface
 {
+    public function getTradeId() : int;
 
+    public function getItem() : ItemInterface;
 
-    public function getTradeId(): int;
+    public function getTradeState() : ?string;
 
-    public function getItem(): ItemInterface;
+    public function getBuyNowPrice() : int;
 
-    public function getTradeState(): ?string;
+    public function getBidValue() : int;
 
-    public function getBuyNowPrice(): int;
+    public function getCurrentBid() : int;
 
-    public function getBidValue(): int;
+    public function getOffers() : int;
 
-    public function getCurrentBid(): int;
+    public function isWatched() : bool;
 
-    public function getOffers(): int;
+    public function getBidState() : ?string;
 
-    public function isWatched(): bool;
+    public function getStartingBid() : int;
 
-    public function getBidState(): ?string;
+    public function getConfidenceValue() : int;
 
-    public function getStartingBid(): int;
+    public function getExpires() : ?int;
 
-    public function getConfidenceValue(): int;
+    public function getExpireDate() : ?DateTime;
 
-    public function getExpires(): ?int;
+    public function getSellerName() : ?string;
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpireDate(): ?\DateTime;
+    public function getSellerEstablished() : int;
 
-    public function getSellerName(): ?string;
+    public function getSellerId() : int;
 
-    public function getSellerEstablished(): int;
-
-    public function getSellerId(): int;
-
-    public function isTradeOwner(): ?bool;
+    public function isTradeOwner() : ?bool;
 }

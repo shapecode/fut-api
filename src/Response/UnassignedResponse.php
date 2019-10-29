@@ -1,19 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\DuplicateItem;
 use Shapecode\FUT\Client\Items\ItemInterface;
 
-/**
- * Class UnassignedResponse
- *
- * @package Shapecode\FUT\Client\Response
- * @author  Nikita Loges
- */
 class UnassignedResponse
 {
-
     /** @var ItemInterface[] */
     protected $items;
 
@@ -26,14 +21,14 @@ class UnassignedResponse
      */
     public function __construct(array $items, array $duplicateItemIdList)
     {
-        $this->items = $items;
+        $this->items               = $items;
         $this->duplicateItemIdList = $duplicateItemIdList;
     }
 
     /**
      * @return ItemInterface[]
      */
-    public function getItems(): array
+    public function getItems() : array
     {
         return $this->items;
     }
@@ -41,7 +36,7 @@ class UnassignedResponse
     /**
      * @return DuplicateItem[]
      */
-    public function getDuplicateItemIdList(): array
+    public function getDuplicateItemIdList() : array
     {
         return $this->duplicateItemIdList;
     }

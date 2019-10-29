@@ -1,28 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class UserExpiredException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class ProvideSecurityCodeException extends AuthFailedException
 {
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, \Exception $previous = null, $options = [])
+    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         $message = 'You must provide a backup code.';
-        $reason = 'security_code';
+        $reason  = 'security_code';
 
         FutResponseException::__construct($message, $response, $reason, $options, $previous);
     }
-
 }

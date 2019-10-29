@@ -1,28 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class NoPersonaException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class NoPersonaException extends AuthFailedException
 {
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, \Exception $previous = null, $options = [])
+    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         $message = 'Error during login process (no persona found).';
-        $reason = 'no_club';
+        $reason  = 'no_club';
 
         FutResponseException::__construct($message, $response, $reason, $options, $previous);
     }
-
 }

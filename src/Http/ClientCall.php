@@ -1,19 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Http;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-/**
- * Class ClientCall
- *
- * @package Shapecode\FUT\Client\Http
- * @author  Nikita Loges
- */
 class ClientCall
 {
-
     /** @var RequestInterface */
     protected $request;
 
@@ -23,34 +18,22 @@ class ClientCall
     /** @var mixed */
     protected $contents;
 
-    /**
-     * @return RequestInterface
-     */
-    public function getRequest()
+    public function getRequest() : RequestInterface
     {
         return $this->request;
     }
 
-    /**
-     * @param RequestInterface $request
-     */
-    public function setRequest(RequestInterface $request)
+    public function setRequest(RequestInterface $request) : void
     {
         $this->request = $request;
     }
 
-    /**
-     * @return ResponseInterface
-     */
-    public function getResponse()
+    public function getResponse() : ResponseInterface
     {
         return $this->response;
     }
 
-    /**
-     * @param ResponseInterface $response
-     */
-    public function setResponse(ResponseInterface $response)
+    public function setResponse(ResponseInterface $response) : void
     {
         $this->response = $response;
     }

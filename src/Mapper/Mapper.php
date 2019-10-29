@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Mapper;
 
 use Shapecode\FUT\Client\Items\Contract;
@@ -17,21 +19,17 @@ use Shapecode\FUT\Client\Response\TradeStatusResponse;
 use Shapecode\FUT\Client\Response\UnassignedResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 
-/**
- * Class Mapper
- *
- * @package Shapecode\FUT\Client\Mapper
- * @author  Nikita Loges
- */
 class Mapper
 {
-
-    public function createTransferMarketSearch($search): MarketSearchResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createTransferMarketSearch(array $data) : MarketSearchResponse
     {
-        $as = $search['auctionInfo'] ?? [];
-        $bs = $search['bidTokens'] ?? [];
+        $as = $data['auctionInfo'] ?? [];
+        $bs = $data['bidTokens'] ?? [];
 
-        $auctions = [];
+        $auctions  = [];
         $bidTokens = [];
 
         foreach ($as as $a) {
@@ -41,9 +39,12 @@ class Mapper
         return new MarketSearchResponse($auctions, $bidTokens);
     }
 
-    public function createBidResult($data): BidResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createBidResult(array $data) : BidResponse
     {
-        $as = $data['auctionInfo'] ?? [];
+        $as      = $data['auctionInfo'] ?? [];
         $credits = $data['credits'] ?? null;
 
         $auctions = [];
@@ -55,12 +56,15 @@ class Mapper
         return new BidResponse($auctions, $credits);
     }
 
-    public function createUnassignedResponse($data): UnassignedResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createUnassignedResponse(array $data) : UnassignedResponse
     {
-        $itemData = $data['itemData'] ?? [];
+        $itemData            = $data['itemData'] ?? [];
         $duplicateItemIdList = $data['duplicateItemIdList'] ?? [];
 
-        $items = [];
+        $items      = [];
         $duplicates = [];
 
         foreach ($itemData as $a) {
@@ -74,11 +78,14 @@ class Mapper
         return new UnassignedResponse($items, $duplicates);
     }
 
-    public function createWatchlistResponse($data): WatchlistResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createWatchlistResponse(array $data) : WatchlistResponse
     {
         $credits = $data['credits'] ?? null;
-        $total = $data['total'] ?? null;
-        $as = $data['auctionInfo'] ?? [];
+        $total   = $data['total'] ?? null;
+        $as      = $data['auctionInfo'] ?? [];
 
         $auctions = [];
 
@@ -89,13 +96,16 @@ class Mapper
         return new WatchlistResponse($total, $credits, $auctions);
     }
 
-    public function createTradepileResponse($data): TradepileResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createTradepileResponse(array $data) : TradepileResponse
     {
         $credits = $data['credits'] ?? null;
-        $as = $data['auctionInfo'] ?? [];
-        $bs = $search['bidTokens'] ?? [];
+        $as      = $data['auctionInfo'] ?? [];
+        $bs      = $search['bidTokens'] ?? [];
 
-        $auctions = [];
+        $auctions  = [];
         $bidTokens = [];
 
         foreach ($as as $a) {
@@ -105,15 +115,18 @@ class Mapper
         return new TradepileResponse($credits, $auctions, $bidTokens);
     }
 
-    public function createTradeStatusResponse($data): TradeStatusResponse
+    /**
+     * @param mixed[] $data
+     */
+    public function createTradeStatusResponse(array $data) : TradeStatusResponse
     {
         $credits = $data['credits'] ?? null;
-        $as = $data['auctionInfo'] ?? [];
-        $bs = $search['bidTokens'] ?? [];
-        $cs = $search['currencies'] ?? [];
+        $as      = $data['auctionInfo'] ?? [];
+        $bs      = $data['bidTokens'] ?? [];
+        $cs      = $data['currencies'] ?? [];
 
-        $auctions = [];
-        $bidTokens = [];
+        $auctions   = [];
+        $bidTokens  = [];
         $currencies = [];
 
         foreach ($as as $a) {
@@ -127,19 +140,28 @@ class Mapper
         return new TradeStatusResponse($credits, $auctions, $bidTokens, $currencies);
     }
 
-    public function createTradeItem($data): TradeItem
+    /**
+     * @param mixed[] $data
+     */
+    public function createTradeItem(array $data) : TradeItem
     {
         $item = $this->createItem($data['itemData']);
 
         return new TradeItem($data, $item);
     }
 
-    public function createCurrencyValue($data): CurrencyValue
+    /**
+     * @param mixed[] $data
+     */
+    public function createCurrencyValue(array $data) : CurrencyValue
     {
         return new CurrencyValue($data);
     }
 
-    public function createItem($data): Item
+    /**
+     * @param mixed[] $data
+     */
+    public function createItem(array $data) : Item
     {
         $itemType = $data['itemType'] ?? null;
 
@@ -162,7 +184,10 @@ class Mapper
         return new Item($data);
     }
 
-    public function createDuplicateItem($data): DuplicateItem
+    /**
+     * @param mixed[] $data
+     */
+    public function createDuplicateItem(array $data) : DuplicateItem
     {
         return new DuplicateItem($data['itemId'], $data['duplicateItemId']);
     }

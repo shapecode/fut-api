@@ -1,28 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Api;
 
 use Shapecode\FUT\Client\Http\ClientCall;
 
 /**
  * Interface CoreInterface
- *
- * @package Shapecode\FUT\Client\Api
- * @author  Shapecode
  */
 interface CoreInterface
 {
-
-    /**
-     *
-     */
-    public const FUT_HOSTS = [
+    public const FUT_HOSTS              = [
         'pc'   => 'utas.external.s2.fut.ea.com:443',
         'ps3'  => 'utas.external.s2.fut.ea.com:443',
         'ps4'  => 'utas.external.s2.fut.ea.com:443',
         'xbox' => 'utas.external.s3.fut.ea.com:443',
     ];
-    public const REQUEST_HEADERS = [
+    public const REQUEST_HEADERS        = [
         'Accept'          => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding' => 'gzip,deflate,sdch, br',
         'Accept-Language' => 'en-US,en;q=0.8',
@@ -30,17 +25,17 @@ interface CoreInterface
         'Origin'          => 'https://www.easports.com',
         'DNT'             => '1',
     ];
-    public const AUTH_URL = 'utas.mob.v4.fut.ea.com:443';
-    public const CLIENT_ID = 'FIFA-20-WEBCLIENT';
+    public const AUTH_URL               = 'utas.mob.v4.fut.ea.com:443';
+    public const CLIENT_ID              = 'FIFA-20-WEBCLIENT';
     public const FUN_CAPTCHA_PUBLIC_KEY = 'A4EECF77-AC87-8C8D-5754-BF882F72063B';
-    public const SKU = 'FUT20WEB';
+    public const SKU                    = 'FUT20WEB';
 
     /**
      * @param null $code
      *
-     * @return array
+     * @return mixed[]
      */
-    public function login($code = null);
+    public function login($code = null) : array;
 
     /**
      * @return mixed
@@ -48,18 +43,13 @@ interface CoreInterface
     public function logout();
 
     /**
-     * @param     $assetId
-     * @param int $start
-     * @param int $count
-     *
      * @return mixed
      */
-    public function searchDefinition($assetId, $start = 0, $count = 20);
+    public function searchDefinition(int $assetId, int $start = 0, int $count = 20);
 
     /**
-     * @param array $params
-     * @param int   $pageSize
-     * @param int   $start
+     * @param mixed[] $params
+     * @param int     $start
      *
      * lev: level
      * cat: category
@@ -78,7 +68,7 @@ interface CoreInterface
      *
      * @return array|mixed|string
      */
-    public function search(array $params = [], $pageSize = 20, $start = 0);
+    public function search(array $params = [], int $pageSize = 20, int $start = 0);
 
     /**
      * @param $tradeId
@@ -157,11 +147,9 @@ interface CoreInterface
     public function clubConsumables();
 
     /**
-     * @param int $squadId
-     *
      * @return mixed
      */
-    public function squad($squadId = 0);
+    public function squad(int $squadId = 0);
 
     /**
      * @param $tradeId
@@ -196,11 +184,10 @@ interface CoreInterface
      * @param      $id
      * @param      $bid
      * @param      $bin
-     * @param int  $duration
      *
      * @return mixed
      */
-    public function sell($id, $bid, $bin, $duration = 3600);
+    public function sell($id, $bid, $bin, int $duration = 3600);
 
     /**
      * @param $itemId
@@ -269,11 +256,10 @@ interface CoreInterface
 
     /**
      * @param        $packId
-     * @param string $currency
      *
      * @return mixed
      */
-    public function buyPack($packId, $currency = 'COINS');
+    public function buyPack($packId, string $currency = 'COINS');
 
     /**
      * @param $packId
@@ -295,21 +281,14 @@ interface CoreInterface
     public function squadBuildingChallenges($setId);
 
     /**
-     * @param string $scope
-     *
      * @return mixed
      */
-    public function objectives($scope = 'all');
+    public function objectives(string $scope = 'all');
+
+    public function phishingQuestion() : ClientCall;
 
     /**
-     * @return ClientCall
+     * @param mixed $answer
      */
-    public function phishingQuestion();
-
-    /**
-     * @param $answer
-     *
-     * @return ClientCall
-     */
-    public function phishingValidate($answer);
+    public function phishingValidate($answer) : ClientCall;
 }

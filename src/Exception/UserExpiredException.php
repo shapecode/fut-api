@@ -1,28 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class UserExpiredException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class UserExpiredException extends AuthFailedException
 {
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, \Exception $previous = null, $options = [])
+    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         $message = 'Appears your access has expired.';
-        $reason = 'user_expired';
+        $reason  = 'user_expired';
 
         FutResponseException::__construct($message, $response, $reason, $options, $previous);
     }
-
 }

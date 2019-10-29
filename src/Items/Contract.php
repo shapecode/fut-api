@@ -1,47 +1,42 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Items;
 
-/**
- * Class Contract
- *
- * @package Shapecode\FUT\Client\Items
- * @author  Nikita Loges
- */
 class Contract extends Item
 {
-
-    public function getRating()
+    public function getRating() : ?int
     {
         return $this->get('rating');
     }
 
-    public function getAssetId(): int
+    public function getAssetId() : ?int
     {
         return $this->get('assetId');
     }
 
-    public function getCardAssetId()
+    public function getCardAssetId() : ?int
     {
         return $this->get('cardassetid');
     }
 
-    public function getWeightRare()
+    public function getWeightRare() : ?int
     {
         return $this->get('weightrare');
     }
 
-    public function getBronze()
+    public function getBronze() : ?int
     {
         return $this->get('bronze');
     }
 
-    public function getSilver()
+    public function getSilver() : ?int
     {
         return $this->get('silver');
     }
 
-    public function getGold()
+    public function getGold() : ?int
     {
         return $this->get('gold');
     }

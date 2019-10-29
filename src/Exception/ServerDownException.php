@@ -1,27 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class ServerDownException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class ServerDownException extends FutResponseException
 {
-
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response = null, \Exception $previous = null, $options = [])
+    public function __construct(?ResponseInterface $response = null, ?Throwable $previous = null, array $options = [])
     {
         $message = 'Server down.';
-        $reason = 'server_down';
+        $reason  = 'server_down';
 
         parent::__construct($message, $response, $reason, $options, $previous);
     }

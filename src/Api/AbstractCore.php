@@ -105,7 +105,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function login($code = null)
+    public function login($code = null): array
     {
         $account = $this->getAccount();
         $credentials = $account->getCredentials();
@@ -1009,19 +1009,17 @@ abstract class AbstractCore implements CoreInterface
     }
 
     /**
-     * @return ClientCall
+     * @inheritdoc
      */
-    public function phishingQuestion()
+    public function phishingQuestion() : ClientCall
     {
         return $this->request('POST', '/phishing/question');
     }
 
     /**
-     * @param $answer
-     *
-     * @return ClientCall
+     * @inheritdoc
      */
-    public function phishingValidate($answer)
+    public function phishingValidate($answer) : ClientCall
     {
         $hash = EAHasher::getInstance()->getHash($answer);
 

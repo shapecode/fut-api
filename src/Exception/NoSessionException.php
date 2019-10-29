@@ -1,21 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
-/**
- * Class NoSessionException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
+use Throwable;
+
 class NoSessionException extends FutException
 {
-
     /**
-     * @param \Exception|null $previous
-     * @param array           $options
+     * @param mixed[] $options
      */
-    public function __construct(\Exception $previous = null, $options = [])
+    public function __construct(?Throwable $previous = null, array $options = [])
     {
         parent::__construct('User is not logged in.', $options, 0, $previous);
     }

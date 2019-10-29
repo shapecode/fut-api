@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Http;
 
 use Http\Client\Common\PluginClient;
@@ -9,38 +11,21 @@ use Shapecode\FUT\Client\Authentication\AccountInterface;
 
 /**
  * Interface ClientFactoryInterface
- *
- * @package Shapecode\FUT\Client\Http
- * @author  Shapecode
  */
 interface ClientFactoryInterface
 {
+    /**
+     * @param mixed[] $options
+     */
+    public function createPluginClient(HttpClient $client, array $options = []) : PluginClient;
 
     /**
-     * @param HttpClient $client
-     * @param array      $options
-     *
-     * @return PluginClient
+     * @param mixed[] $headers
      */
-    public function createPluginClient(HttpClient $client, array $options = []);
+    public function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface;
 
     /**
-     * @param       $method
-     * @param       $uri
-     * @param null  $body
-     * @param array $headers
-     *
-     * @return RequestInterface
+     * @param mixed[] $options
      */
-    public function createRequest($method, $uri, $body = null, array $headers = []);
-
-    /**
-     * @param AccountInterface $account
-     * @param                  $method
-     * @param                  $url
-     * @param array            $options
-     *
-     * @return ClientCall
-     */
-    public function request(AccountInterface $account, $method, $url, array $options = []);
+    public function request(AccountInterface $account, string $method, string $url, array $options = []) : ClientCall;
 }

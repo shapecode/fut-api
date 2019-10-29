@@ -1,29 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Locale;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Translation\Translator;
 
-/**
- * Class Locale
- *
- * @package Shapecode\FUT\Client\Locale
- * @author  Shapecode
- */
 class Locale
 {
-
     /** @var Translator */
     protected $translator;
 
-    /** @var array */
+    /** @var mixed[] */
     protected $value;
 
-    /**
-     * @param string $locale
-     */
-    public function __construct($locale)
+    public function __construct(string $locale)
     {
         $this->translator = new Translator($locale);
 
@@ -35,11 +27,9 @@ class Locale
     }
 
     /**
-     * @param $value
-     *
-     * @return string
+     * @param mixed $value
      */
-    public function get($value)
+    public function get($value) : string
     {
         return $this->translator->trans($value);
     }

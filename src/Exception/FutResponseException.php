@@ -1,34 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class FutException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class FutResponseException extends FutException
 {
-
-    /** @var string */
+    /** @var ?string */
     protected $reason;
 
-    /** @var ResponseInterface */
+    /** @var ?ResponseInterface */
     protected $response;
 
     /**
-     * @param                   $message
-     * @param ResponseInterface $response
-     * @param null              $reason
-     * @param array             $options
-     * @param \Exception|null   $previous
+     * @param mixed[] $options
      */
-    public function __construct($message, ResponseInterface $response = null, $reason = null, $options = [], \Exception $previous = null)
-    {
-        if ($response) {
+    public function __construct(
+        string $message,
+        ?ResponseInterface $response = null,
+        ?string $reason = null,
+        array $options = [],
+        ?Throwable $previous = null
+    ) {
+        if ($response !== null) {
             $code = $response->getStatusCode();
         } else {
             $code = 0;
@@ -37,21 +34,15 @@ class FutResponseException extends FutException
         parent::__construct($message, $options, $code, $previous);
 
         $this->response = $response;
-        $this->reason = $reason;
+        $this->reason   = $reason;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getReason()
+    public function getReason() : ?string
     {
         return $this->reason;
     }
 
-    /**
-     * @return ResponseInterface
-     */
-    public function getResponse()
+    public function getResponse() : ResponseInterface
     {
         return $this->response;
     }

@@ -1,18 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Authentication;
 
 use Shapecode\FUT\Client\Exception\FutException;
+use function in_array;
 
-/**
- * Class Credentials
- *
- * @package Shapecode\FUT\Client\Authentication
- * @author  Shapecode
- */
 class Credentials implements CredentialsInterface
 {
-
     /** @var string */
     protected $email;
 
@@ -31,21 +27,13 @@ class Credentials implements CredentialsInterface
     /** @var string */
     protected $country = 'US';
 
-    /**
-     * @param string $email
-     * @param string $password
-     * @param string $platform
-     * @param string $locale
-     * @param string $country
-     * @param string $emulate
-     */
-    public function __construct($email, $password, $platform, $locale = 'en_US', $country = 'US', $emulate = 'web')
+    public function __construct(string $email, string $password, string $platform, string $locale = 'en_US', string $country = 'US', string $emulate = 'web')
     {
-        $this->email = $email;
+        $this->email    = $email;
         $this->password = $password;
-        $this->locale = $locale;
-        $this->country = $country;
-        $this->emulate = $emulate;
+        $this->locale   = $locale;
+        $this->country  = $country;
+        $this->emulate  = $emulate;
 
         $this->setPlatform($platform);
     }
@@ -53,7 +41,7 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getEmail()
+    public function getEmail() : string
     {
         return $this->email;
     }
@@ -61,7 +49,7 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }
@@ -69,7 +57,7 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getPlatform()
+    public function getPlatform() : string
     {
         return $this->platform;
     }
@@ -77,7 +65,7 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getEmulate()
+    public function getEmulate() : string
     {
         return $this->emulate;
     }
@@ -85,7 +73,7 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getLocale()
+    public function getLocale() : string
     {
         return $this->locale;
     }
@@ -93,19 +81,16 @@ class Credentials implements CredentialsInterface
     /**
      * @inheritdoc
      */
-    public function getCountry()
+    public function getCountry() : string
     {
         return $this->country;
     }
 
-    /**
-     * @param $platform
-     */
-    protected function setPlatform($platform)
+    protected function setPlatform(string $platform) : void
     {
-        if (!in_array($platform, self::VALID_PLATFORMS, true)) {
-            throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)', 0, null, [
-                'reason' => 'invalid_platform'
+        if (! in_array($platform, self::VALID_PLATFORMS, true)) {
+            throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)', [
+                'reason' => 'invalid_platform',
             ]);
         }
 

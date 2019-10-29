@@ -1,27 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class AuthFailedException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class AuthFailedException extends FutResponseException
 {
-
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, \Exception $previous = null, $options = [])
+    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         $message = 'Account failed to auth.';
-        $reason = 'auth_failed';
+        $reason  = 'auth_failed';
 
         parent::__construct($message, $response, $reason, $options, $previous);
     }

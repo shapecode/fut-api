@@ -1,66 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Config;
 
 use Psr\Log\LoggerInterface;
 
 /**
  * Interface ConfigInterface
- *
- * @package Shapecode\FUT\Client\Config
- * @author  Shapecode
  */
 interface ConfigInterface
 {
+    public function isDelay() : bool;
+
+    public function getDelayMinTime() : int;
+
+    public function getDelayMaxTime() : int;
+
+    public function getRandomDelayTime(?int $min = null, ?int $max = null) : int;
 
     /**
-     * @return bool
+     * @return mixed[]
      */
-    public function isDelay();
+    public function getHttpClientOptions() : array;
+
+    public function getLogger() : LoggerInterface;
+
+    public function getUserAgent() : string;
 
     /**
-     * @return int
-     */
-    public function getDelayMinTime();
-
-    /**
-     * @return int
-     */
-    public function getDelayMaxTime();
-
-    /**
-     * @param int|null $min
-     * @param int|null $max
-     *
-     * @return float|int
-     */
-    public function getRandomDelayTime($min = null, $max = null);
-
-    /**
-     * @return array
-     */
-    public function getHttpClientOptions();
-
-    /**
-     * @return LoggerInterface
-     */
-    public function getLogger();
-
-    /**
-     * @return string
-     */
-    public function getUserAgent();
-
-    /**
-     * @param $name
-     *
      * @return mixed
      */
-    public function getOption($name);
+    public function getOption(string $name);
 
     /**
-     * @param $name
-     * @param $value
+     * @param mixed $value
      */
-    public function setOption($name, $value);
+    public function setOption(string $name, $value) : void;
 }

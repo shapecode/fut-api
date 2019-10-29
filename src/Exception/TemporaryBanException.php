@@ -1,27 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Exception;
 
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
-/**
- * Class TemporaryBanException
- *
- * @package Shapecode\FUT\Client\Exception
- * @author  Shapecode
- */
 class TemporaryBanException extends PermissionDeniedException
 {
-
     /**
-     * @param ResponseInterface $response
-     * @param \Exception|null   $previous
-     * @param array             $options
+     * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, \Exception $previous = null, $options = [])
+    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         $message = 'Temporary ban or just too many requests.';
-        $reason = 'temporary_ban';
+        $reason  = 'temporary_ban';
 
         FutResponseException::__construct($message, $response, $reason, $options, $previous);
     }

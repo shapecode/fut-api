@@ -1,43 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Model;
 
 /**
  * Interface ProxyInterface
- *
- * @package Shapecode\FUT\Client\Model
- * @author  Shapecode
  */
 interface ProxyInterface
 {
+    public function getProtocol() : string;
 
-    /**
-     * @return string
-     */
-    public function getProtocol();
+    public function getIp() : string;
 
-    /**
-     * @return string
-     */
-    public function getIp();
+    public function getPort() : string;
 
-    /**
-     * @return string
-     */
-    public function getPort();
+    public function getUsername() : ?string;
 
-    /**
-     * @return null|string
-     */
-    public function getUsername();
+    public function getPassword() : ?string;
 
-    /**
-     * @return null|string
-     */
-    public function getPassword();
-
-    /**
-     * @return string
-     */
-    public function getProxyProtocol();
+    public function getProxyProtocol() : string;
 }

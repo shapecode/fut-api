@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Http;
 
+use Closure;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -18,45 +21,37 @@ use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\Plugin\StopwatchPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Client\HttpClient;
-use Http\Discovery\MessageFactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\RequestFactory;
+use Psr\Http\Message\RequestInterface;
 use Shapecode\FUT\Client\Api\CoreInterface;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Config\ConfigInterface;
 use Shapecode\FUT\Client\Http\Plugin\ClientCallPlugin;
 use Symfony\Component\Stopwatch\Stopwatch;
+use function array_merge;
+use function count;
 
-/**
- * Class ClientFactory
- *
- * @package Shapecode\FUT\Client\Http
- * @author  Shapecode
- */
 class ClientFactory implements ClientFactoryInterface
 {
-
     /** @var RequestFactory */
     protected $requestFactory;
 
     /** @var ConfigInterface */
     protected $config;
 
-    const MAX_RETRIES = 4;
+    public const MAX_RETRIES = 4;
 
-    /**
-     * @param ConfigInterface     $config
-     * @param RequestFactory|null $requestFactory
-     */
-    public function __construct(ConfigInterface $config, RequestFactory $requestFactory = null)
+    public function __construct(ConfigInterface $config, ?RequestFactory $requestFactory = null)
     {
-        $this->config = $config;
-        $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
+        $this->config         = $config;
+        $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
     }
 
     /**
      * @inheritdoc
      */
-    public function createPluginClient(HttpClient $client, array $plugins = [])
+    public function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
     {
         return new PluginClient($client, $plugins);
     }
@@ -64,27 +59,23 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    protected function createAccountClient(AccountInterface $account, array $options = [])
+    protected function createAccountClient(AccountInterface $account, array $options = []): GuzzleAdapter
     {
-        $options['http_errors'] = false;
+        $options['http_errors']     = false;
         $options['allow_redirects'] = true;
 
-        if ($account->getProxy()) {
+        if ($account->getProxy() !== null) {
             $options['proxy'] = $account->getProxy()->getProxyProtocol();
         }
 
-        if ($account->getCookieJar()) {
-            $options['cookies'] = $account->getCookieJar();
-        }
+        $options['cookies'] = $account->getCookieJar();
 
-        if ($this->getConfig() !== null) {
-            $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
-        }
+        $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
 
         $stack = HandlerStack::create(new CurlHandler());
         $stack->push(Middleware::retry($this->createRetryHandler()));
 
-        $options['stack'] = $stack;
+        $options['stack']   = $stack;
         $options['timeout'] = 5;
 
         $guzzle = new Client($options);
@@ -95,7 +86,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function createRequest($method, $uri, $body = null, array $headers = [])
+    public function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface
     {
         return $this->requestFactory->createRequest($method, $uri, $headers, $body);
     }
@@ -103,11 +94,12 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function request(AccountInterface $account, $method, $url, array $options = [], array $plugins = [])
+    public function request(AccountInterface $account, string $method, string $url, array $options = [], array $plugins = []) : ClientCall
     {
         $headers = [];
 
         if (isset($options['headers'])) {
+            /** @var mixed[] $headers */
             $headers = $options['headers'];
             unset($options['headers']);
         }
@@ -119,7 +111,7 @@ class ClientFactory implements ClientFactoryInterface
             'User-Agent' => $this->getConfig()->getUserAgent(),
         ]);
 
-        if (count($headers)) {
+        if (count($headers) > 0) {
             $plugins[] = new HeaderSetPlugin($headers);
         }
 
@@ -140,65 +132,39 @@ class ClientFactory implements ClientFactoryInterface
         return $call;
     }
 
-    /**
-     * @return ConfigInterface
-     */
-    protected function getConfig()
+    protected function getConfig() : ConfigInterface
     {
         return $this->config;
     }
 
-    /**
-     * @return RequestFactory
-     */
-    protected function getRequestFactory()
+    protected function getRequestFactory() : RequestFactory
     {
         return $this->requestFactory;
     }
 
-    /**
-     * @param RequestFactory $requestFactory
-     */
-    public function setRequestFactory(RequestFactory $requestFactory)
+    public function setRequestFactory(RequestFactory $requestFactory) : void
     {
         $this->requestFactory = $requestFactory;
     }
 
-    /**
-     * @return \Closure
-     */
-    protected function createRetryHandler()
+    protected function createRetryHandler() : Closure
     {
-        return function (
+        return static function (
             $retries,
             Psr7Request $request,
-            Psr7Response $response = null,
-            RequestException $exception = null
+            ?Psr7Response $response = null,
+            ?RequestException $exception = null
         ) {
-            if ($retries >= self::MAX_RETRIES) {
-                return false;
-            }
-
-            return true;
+            return $retries < self::MAX_RETRIES;
         };
     }
 
-    /**
-     * @param Psr7Response $response
-     *
-     * @return bool
-     */
-    protected function isServerError(Psr7Response $response = null)
+    protected function isServerError(?Psr7Response $response = null) : bool
     {
-        return $response && $response->getStatusCode() >= 500;
+        return $response !== null && $response->getStatusCode() >= 500;
     }
 
-    /**
-     * @param RequestException $exception
-     *
-     * @return bool
-     */
-    protected function isConnectError(RequestException $exception = null)
+    protected function isConnectError(?RequestException $exception = null) : bool
     {
         return $exception instanceof ConnectException;
     }

@@ -1,16 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Model;
 
-/**
- * Class Proxy
- *
- * @package Shapecode\FUT\Client\Model
- * @author  Shapecode
- */
 class Proxy implements ProxyInterface
 {
-
     /** @var string */
     protected $protocol;
 
@@ -26,105 +21,68 @@ class Proxy implements ProxyInterface
     /** @var string|null */
     protected $password;
 
-    /**
-     * @param string      $protocol
-     * @param string      $ip
-     * @param string      $port
-     * @param null|string $username
-     * @param null|string $password
-     */
-    public function __construct($protocol, $ip, $port, $username = null, $password = null)
+    public function __construct(string $protocol, string $ip, string $port, ?string $username = null, ?string $password = null)
     {
         $this->protocol = $protocol;
-        $this->ip = $ip;
-        $this->port = $port;
+        $this->ip       = $ip;
+        $this->port     = $port;
         $this->username = $username;
         $this->password = $password;
     }
 
-    /**
-     * @return string
-     */
-    public function getProtocol()
+    public function getProtocol() : string
     {
         return $this->protocol;
     }
 
-    /**
-     * @return string
-     */
-    public function getIp()
+    public function getIp() : string
     {
         return $this->ip;
     }
 
-    /**
-     * @param string $ip
-     */
-    public function setIp($ip)
+    public function setIp(string $ip) : void
     {
         $this->ip = $ip;
     }
 
-    /**
-     * @return string
-     */
-    public function getPort()
+    public function getPort() : string
     {
         return $this->port;
     }
 
-    /**
-     * @param string $port
-     */
-    public function setPort($port)
+    public function setPort(string $port) : void
     {
         $this->port = $port;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getUsername()
+    public function getUsername() : ?string
     {
         return $this->username;
     }
 
-    /**
-     * @param null|string $username
-     */
-    public function setUsername($username)
+    public function setUsername(?string $username) : void
     {
         $this->username = $username;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPassword()
+    public function getPassword() : ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param null|string $password
-     */
-    public function setPassword($password)
+    public function setPassword(?string $password) : void
     {
         $this->password = $password;
     }
 
-    /**
-     * @return string
-     */
-    public function getProxyProtocol()
+    public function getProxyProtocol() : string
     {
         $auth = '';
 
-        if ($this->getUsername()) {
+        if ($this->getUsername() !== null) {
             $auth = $this->getUsername();
 
-            if ($this->getPassword()) {
+            if ($this->getPassword() !== null) {
                 $auth .= ':' . $this->getPassword();
             }
 

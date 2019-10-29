@@ -1,54 +1,47 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
+use function count;
 
-/**
- * Class MarketSearchResponse
- *
- * @package Shapecode\FUT\Client\Response
- * @author  Nikita Loges
- */
 class MarketSearchResponse
 {
-
     /** @var TradeItem[] */
     protected $auctions = [];
 
-    /** @var array */
+    /** @var mixed[] */
     protected $bidTokens = [];
 
     /**
-     * @param array $auctions
-     * @param array $bidTokens
+     * @param TradeItem[] $auctions
+     * @param mixed[]     $bidTokens
      */
     public function __construct(array $auctions, array $bidTokens)
     {
-        $this->auctions = $auctions;
+        $this->auctions  = $auctions;
         $this->bidTokens = $bidTokens;
     }
 
     /**
-     * @return array
+     * @return TradeItem[]
      */
-    public function getAuctions(): array
+    public function getAuctions() : array
     {
         return $this->auctions;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAuctions(): bool
+    public function hasAuctions() : bool
     {
         return count($this->auctions) > 0;
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
-    public function getBidTokens(): array
+    public function getBidTokens() : array
     {
         return $this->bidTokens;
     }

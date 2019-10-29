@@ -1,18 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
 
-/**
- * Class WatchlistResponse
- *
- * @package Shapecode\FUT\Client\Response
- * @author  Nikita Loges
- */
 class WatchlistResponse
 {
-
     /** @var int|null */
     protected $credits;
 
@@ -23,21 +18,16 @@ class WatchlistResponse
     protected $auctions = [];
 
     /**
-     * @param int|null $total
-     * @param int|null $credits
-     * @param array    $auctions
+     * @param TradeItem[] $auctions
      */
     public function __construct(?int $total, ?int $credits, array $auctions)
     {
-        $this->credits = $credits;
+        $this->credits  = $credits;
         $this->auctions = $auctions;
-        $this->total = $total;
+        $this->total    = $total;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getCredits(): ?int
+    public function getCredits() : ?int
     {
         return $this->credits;
     }
@@ -45,15 +35,12 @@ class WatchlistResponse
     /**
      * @return TradeItem[]
      */
-    public function getAuctions(): array
+    public function getAuctions() : array
     {
         return $this->auctions;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getTotal(): ?int
+    public function getTotal() : ?int
     {
         return $this->total;
     }

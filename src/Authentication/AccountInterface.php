@@ -1,51 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Authentication;
 
-use Shapecode\FUT\Client\Model\ProxyInterface;
 use GuzzleHttp\Cookie\CookieJarInterface;
+use Shapecode\FUT\Client\Model\ProxyInterface;
 
 /**
  * Interface AccountInterface
- *
- * @package Shapecode\FUT\Client\Authentication
- * @author  Shapecode
  */
 interface AccountInterface
 {
+    public function getCredentials() : CredentialsInterface;
 
-    /**
-     * @return CredentialsInterface
-     */
-    public function getCredentials();
+    public function getSession() : SessionInterface;
 
-    /**
-     * @return SessionInterface
-     */
-    public function getSession();
+    public function setSession(SessionInterface $session) : void;
 
-    /**
-     * @param SessionInterface $session
-     */
-    public function setSession(SessionInterface $session);
+    public function resetSession() : void;
 
-    /**
-     *
-     */
-    public function resetSession();
+    public function getProxy() : ?ProxyInterface;
 
-    /**
-     * @return ProxyInterface|null
-     */
-    public function getProxy();
+    public function getCookieJar() : CookieJarInterface;
 
-    /**
-     * @return CookieJarInterface
-     */
-    public function getCookieJar();
-
-    /**
-     * @param CookieJarInterface $cookieJar
-     */
-    public function setCookieJar(CookieJarInterface $cookieJar);
+    public function setCookieJar(CookieJarInterface $cookieJar) : void;
 }

@@ -1,53 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Authentication;
+
+use DateTime;
 
 /**
  * Interface SessionInterface
- *
- * @package Shapecode\FUT\Client\Authentication
- * @author  Shapecode
  */
 interface SessionInterface
 {
+    public function getPersona() : string;
 
-    /**
-     * @return string
-     */
-    public function getPersona();
+    public function getNucleus() : string;
 
-    /**
-     * @return string
-     */
-    public function getNucleus();
+    public function getPhishing() : string;
 
-    /**
-     * @return string
-     */
-    public function getPhishing();
+    public function getSession() : string;
 
-    /**
-     * @return string
-     */
-    public function getSession();
+    public function getDob() : string;
 
-    /**
-     * @return string
-     */
-    public function getDob();
+    public function getAccessToken() : string;
 
-    /**
-     * @return string
-     */
-    public function getAccessToken();
+    public function getTokenType() : ?string;
 
-    /**
-     * @return string
-     */
-    public function getTokenType();
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpiresAt();
+    public function getExpiresAt() : ?DateTime;
 }

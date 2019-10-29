@@ -1,19 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
 use Shapecode\FUT\Client\Items\TradeItemInterface;
+use function count;
 
-/**
- * Class BidResponse
- *
- * @package Shapecode\FUT\Client\Response
- * @author  Nikita Loges
- */
 class BidResponse
 {
-
     /** @var int|null */
     protected $credits;
 
@@ -21,57 +17,42 @@ class BidResponse
     protected $auctions = [];
 
     /**
-     * @param array    $auctions
-     * @param int|null $credits
+     * @param TradeItem[] $auctions
      */
     public function __construct(array $auctions, ?int $credits)
     {
         $this->auctions = $auctions;
-        $this->credits = $credits;
+        $this->credits  = $credits;
     }
 
     /**
      * @return TradeItem[]
      */
-    public function getAuctions(): array
+    public function getAuctions() : array
     {
         return $this->auctions;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAuctions(): bool
+    public function hasAuctions() : bool
     {
         return count($this->auctions) > 0;
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAuction($index): bool
+    public function hasAuction(int $index) : bool
     {
         return isset($this->auctions[$index]);
     }
 
-    /**
-     * @param $index
-     *
-     * @return TradeItemInterface|null
-     */
-    public function getAuction($index): ?TradeItemInterface
+    public function getAuction(int $index) : ?TradeItemInterface
     {
-        if (!$this->hasAuction($index)) {
+        if (! $this->hasAuction($index)) {
             return null;
         }
 
         return $this->auctions[$index];
     }
 
-    /**
-     * @return int|null
-     */
-    public function getCredits(): ?int
+    public function getCredits() : ?int
     {
         return $this->credits;
     }

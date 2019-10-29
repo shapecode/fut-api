@@ -1,17 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Authentication;
 
 /**
  * Interface CredentialsInterface
- *
- * @package Shapecode\FUT\Client\Authentication
- * @author  Shapecode
  */
 interface CredentialsInterface
 {
-
-    const VALID_PLATFORMS = [
+    public const VALID_PLATFORMS = [
         'pc',
         'xbox',
         'xbox360',
@@ -19,34 +17,15 @@ interface CredentialsInterface
         'ps4',
     ];
 
-    /**
-     * @return string
-     */
-    public function getEmail();
+    public function getEmail() : string;
 
-    /**
-     * @return string
-     */
-    public function getPassword();
+    public function getPassword() : string;
 
-    /**
-     * @return string
-     */
-    public function getPlatform();
+    public function getPlatform() : string;
 
-    /**
-     * @return string
-     */
-    public function getEmulate();
+    public function getEmulate() : string;
 
-    /**
-     * @return string
-     */
-    public function getLocale();
+    public function getLocale() : string;
 
-    /**
-     * @return string
-     */
-    public function getCountry();
-
+    public function getCountry() : string;
 }

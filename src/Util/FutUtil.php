@@ -1,33 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Util;
 
 use Shapecode\FUT\Client\Exception\FutException;
 
-/**
- * Class FutUtil
- *
- * @package Shapecode\FUT\Client\Util
- * @author  Shapecode
- */
 class FutUtil
 {
+    private const GAME_SKU = [
+        'pc'      => 'FFA20PCC',
+        'xbox'    => 'FFA20XBO',
+        'xbox360' => 'FFA20XBX',
+        'ps3'     => 'FFA20PS3',
+        'ps4'     => 'FFA20PS4',
+    ];
 
-    /**
-     */
     private function __construct()
     {
         // object not allowed
     }
 
-    /**
-     * @param $assetId
-     *
-     * @return int
-     */
-    public static function getBaseId($assetId)
+    public static function getBaseId(int $assetId) : int
     {
-        $version = 0;
+        $version  = 0;
         $assetId += 0xC4000000;
         while ($assetId > 0x01000000) {
             $version++;
@@ -46,33 +42,12 @@ class FutUtil
         return $assetId;
     }
 
-    /**
-     * @param $platform
-     *
-     * @return string
-     * @throws FutException
-     */
-    public static function getGameSku($platform)
+    public static function getGameSku(string $platform) : string
     {
-        switch ($platform) {
-            case 'pc':
-                return 'FFA20PCC';
-                break;
-            case 'xbox':
-                return 'FFA20XBO';
-                break;
-            case 'xbox360':
-                return 'FFA20XBX';
-                break;
-            case 'ps3':
-                return 'FFA20PS3';
-                break;
-            case 'ps4':
-                return 'FFA20PS4';
-                break;
-            default:
-                throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)');
-                break;
+        if (! isset(self::GAME_SKU[$platform])) {
+            throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)');
         }
+
+        return self::GAME_SKU[$platform];
     }
 }

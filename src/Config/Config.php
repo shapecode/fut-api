@@ -1,31 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Config;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function array_merge;
+use function file_get_contents;
+use function is_array;
+use function json_decode;
+use function random_int;
 
-/**
- * Class Config
- *
- * @package Shapecode\FUT\Client\Config
- * @author  Shapecode
- */
 class Config implements ConfigInterface
 {
-
     /** @var string */
     protected $futConfigUrl;
 
-    /** @var array */
+    /** @var mixed[] */
     protected $options;
 
     /**
-     * @param array $options
-     * @param null  $futConfigUrl
+     * @param mixed[] $options
      */
-    public function __construct(array $options = [], $futConfigUrl = null)
+    public function __construct(array $options = [], ?string $futConfigUrl = null)
     {
         if ($futConfigUrl === null) {
             $futConfigUrl = 'https://www.easports.com/fifa/ultimate-team/web-app/config/config.json';
@@ -38,7 +37,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function isDelay()
+    public function isDelay() : bool
     {
         return $this->getOption('delay');
     }
@@ -46,7 +45,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getDelayMinTime()
+    public function getDelayMinTime() : int
     {
         return $this->getOption('delay_min_time');
     }
@@ -54,7 +53,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getDelayMaxTime()
+    public function getDelayMaxTime() : int
     {
         return $this->getOption('delay_max_time');
     }
@@ -62,7 +61,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getRandomDelayTime($min = null, $max = null)
+    public function getRandomDelayTime(?int $min = null, ?int $max = null) : int
     {
         if ($min === null) {
             $min = $this->getDelayMinTime();
@@ -72,7 +71,7 @@ class Config implements ConfigInterface
             $max = $this->getDelayMaxTime();
         }
 
-        $delayMS = mt_rand($min, $max);
+        $delayMS = random_int($min, $max);
 
         return $delayMS * 1000;
     }
@@ -80,7 +79,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getHttpClientOptions()
+    public function getHttpClientOptions() : array
     {
         return $this->getOption('http_client_options');
     }
@@ -88,7 +87,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getHttpClientPlugins()
+    public function getHttpClientPlugins(): array
     {
         return $this->getOption('http_client_plugins');
     }
@@ -96,7 +95,7 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getLogger()
+    public function getLogger() : LoggerInterface
     {
         return $this->getOption('logger');
     }
@@ -104,42 +103,37 @@ class Config implements ConfigInterface
     /**
      * @inheritdoc
      */
-    public function getUserAgent()
+    public function getUserAgent() : string
     {
         return $this->getOption('user_agent');
     }
 
     /**
-     * @param $name
-     *
-     * @return mixed
+     * @inheritdoc
      */
-    public function getOption($name)
+    public function getOption(string $name)
     {
         return $this->options[$name];
     }
 
     /**
-     * @param $name
-     * @param $value
+     * @inheritdoc
      */
-    public function setOption($name, $value)
+    public function setOption(string $name, $value) : void
     {
         $this->options[$name] = $value;
     }
 
-    /**
-     * @return OptionsResolver
-     */
-    protected function getResolver()
+    protected function getResolver() : OptionsResolver
     {
         $resolver = new OptionsResolver();
 
-        $url = $this->futConfigUrl;
-        $content = file_get_contents($url);
-        $futConfig = json_decode($content, true);
+        $url       = $this->futConfigUrl;
+        $content   = file_get_contents($url);
 
-        if (!is_array($futConfig)) {
+            $futConfig = ($content !== false)?json_decode($content, true):null;
+
+        if (! is_array($futConfig)) {
             $futConfig = [];
         }
 
@@ -161,9 +155,9 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @param array $options
+     * @param mixed[] $options
      */
-    protected function resolveOptions(array $options)
+    protected function resolveOptions(array $options) : void
     {
         $this->options = $this->getResolver()->resolve($options);
     }
