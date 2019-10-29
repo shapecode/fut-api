@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Exception;
 
-class CaptchaException extends FutResponseException
+class CaptchaException extends FutFailedException
 {
     protected function getErrorMessage() : string
     {

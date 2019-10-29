@@ -11,13 +11,13 @@ use Shapecode\FUT\Client\Http\ClientCall;
  */
 interface CoreInterface
 {
-    public const FUT_HOSTS              = [
+    public const FUT_HOSTS       = [
         'pc'   => 'utas.external.s2.fut.ea.com:443',
         'ps3'  => 'utas.external.s2.fut.ea.com:443',
         'ps4'  => 'utas.external.s2.fut.ea.com:443',
         'xbox' => 'utas.external.s3.fut.ea.com:443',
     ];
-    public const REQUEST_HEADERS        = [
+    public const REQUEST_HEADERS = [
         'Accept'          => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding' => 'gzip,deflate,sdch, br',
         'Accept-Language' => 'en-US,en;q=0.8',
@@ -25,22 +25,18 @@ interface CoreInterface
         'Origin'          => 'https://www.easports.com',
         'DNT'             => '1',
     ];
-    public const AUTH_URL               = 'utas.mob.v4.fut.ea.com:443';
-    public const CLIENT_ID              = 'FIFA-20-WEBCLIENT';
-    public const FUN_CAPTCHA_PUBLIC_KEY = 'A4EECF77-AC87-8C8D-5754-BF882F72063B';
-    public const SKU                    = 'FUT20WEB';
+    public const AUTH_URL        = 'utas.mob.v4.fut.ea.com:443';
+    public const CLIENT_ID       = 'FIFA-20-WEBCLIENT';
+    public const SKU             = 'FUT20WEB';
 
     /**
-     * @param null $code
+     * @param mixed $code
      *
      * @return mixed[]
      */
     public function login($code = null) : array;
 
-    /**
-     * @return mixed
-     */
-    public function logout();
+    public function logout() : void;
 
     /**
      * @return mixed
@@ -49,7 +45,6 @@ interface CoreInterface
 
     /**
      * @param mixed[] $params
-     * @param int     $start
      *
      * lev: level
      * cat: category
@@ -66,13 +61,13 @@ interface CoreInterface
      * rare: rare type
      * playStyle: player style
      *
-     * @return array|mixed|string
+     * @return mixed
      */
     public function search(array $params = [], int $pageSize = 20, int $start = 0);
 
     /**
-     * @param $tradeId
-     * @param $price
+     * @param mixed $tradeId
+     * @param mixed $price
      *
      * @return mixed
      */
@@ -89,7 +84,7 @@ interface CoreInterface
     public function credits();
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      *
@@ -102,35 +97,35 @@ interface CoreInterface
     public function club(array $params = []);
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      */
     public function players(array $params = []);
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      */
     public function stadiums(array $params = []);
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      */
     public function kits(array $params = []);
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      */
     public function staffs(array $params = []);
 
     /**
-     * @param array $params
+     * @param mixed[] $params
      *
      * @return mixed
      */
@@ -152,7 +147,7 @@ interface CoreInterface
     public function squad(int $squadId = 0);
 
     /**
-     * @param $tradeId
+     * @param mixed $tradeId
      *
      * @return mixed
      */
@@ -169,7 +164,7 @@ interface CoreInterface
     public function watchlist();
 
     /**
-     * @param $tradeId
+     * @param mixed $tradeId
      *
      * @return mixed
      */
@@ -181,51 +176,51 @@ interface CoreInterface
     public function unassigned();
 
     /**
-     * @param      $id
-     * @param      $bid
-     * @param      $bin
+     * @param mixed $id
+     * @param mixed $bid
+     * @param mixed $bin
      *
      * @return mixed
      */
     public function sell($id, $bid, $bin, int $duration = 3600);
 
     /**
-     * @param $itemId
+     * @param mixed $itemId
      *
      * @return mixed
      */
     public function quickSell($itemId);
 
     /**
-     * @param $tradeId
+     * @param mixed $tradeId
      *
      * @return mixed
      */
     public function removeSold($tradeId);
 
     /**
-     * @param      $itemId
+     * @param mixed $itemId
      *
      * @return mixed
      */
     public function sendToTradepile($itemId);
 
     /**
-     * @param $itemId
+     * @param mixed $itemId
      *
      * @return mixed
      */
     public function sendToClub($itemId);
 
     /**
-     * @param $tradeId
+     * @param mixed $tradeId
      *
      * @return mixed
      */
     public function sendToWatchList($tradeId);
 
     /**
-     * @param $definitionId
+     * @param mixed $definitionId
      *
      * @return mixed
      */
@@ -237,8 +232,8 @@ interface CoreInterface
     public function relist();
 
     /**
-     * @param $itemId
-     * @param $resourceId
+     * @param mixed $itemId
+     * @param mixed $resourceId
      *
      * @return mixed
      */
@@ -255,14 +250,14 @@ interface CoreInterface
     public function pileSize();
 
     /**
-     * @param        $packId
+     * @param mixed $packId
      *
      * @return mixed
      */
     public function buyPack($packId, string $currency = 'COINS');
 
     /**
-     * @param $packId
+     * @param mixed $packId
      *
      * @return mixed
      */
@@ -274,7 +269,7 @@ interface CoreInterface
     public function squadBuildingSets();
 
     /**
-     * @param $setId
+     * @param mixed $setId
      *
      * @return mixed
      */

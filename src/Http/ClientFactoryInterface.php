@@ -26,6 +26,7 @@ interface ClientFactoryInterface
 
     /**
      * @param mixed[] $options
+     * @param mixed[] $plugins
      */
-    public function request(AccountInterface $account, string $method, string $url, array $options = []) : ClientCall;
+    public function request(AccountInterface $account, string $method, string $url, array $options = [], array $plugins = []) : ClientCall;
 }

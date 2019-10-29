@@ -45,7 +45,7 @@ class Pin implements PinInterface
     /**
      * @inheritdoc
      */
-    public function sendEvent($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : void
+    public function sendEvent(string $en, ?string $pgid = null, ?string $status = null, ?string $source = null, ?string $end_reason = null) : void
     {
         $event = $this->event($en, $pgid, $status, $source, $end_reason);
         $this->send([$event]);
@@ -54,7 +54,7 @@ class Pin implements PinInterface
     /**
      * @inheritdoc
      */
-    public function event($en, bool $pgid = false, bool $status = false, bool $source = false, bool $end_reason = false) : array
+    public function event(string $en, ?string $pgid = null, ?string $status = null, ?string $source = null, ?string $end_reason = null) : array
     {
         $account = $this->account;
         $session = $account->getSession();
@@ -75,16 +75,16 @@ class Pin implements PinInterface
             ],
         ];
         $data['core']['dob'] = $session->getDob();
-        if ($pgid) {
+        if ($pgid !== null) {
             $data['pgid'] = $pgid;
         }
-        if ($status) {
+        if ($status !== null) {
             $data['status'] = $status;
         }
-        if ($source) {
+        if ($source !== null) {
             $data['source'] = $source;
         }
-        if ($end_reason) {
+        if ($end_reason !== null) {
             $data['end_reason'] = $end_reason;
         }
         if ($en === 'login') {

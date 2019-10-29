@@ -12,7 +12,7 @@ abstract class FutFailedException extends FutResponseException
     /**
      * @param mixed[] $options
      */
-    public function __construct(ResponseInterface $response, ?Throwable $previous = null, array $options = [])
+    public function __construct(?ResponseInterface $response, ?Throwable $previous = null, array $options = [])
     {
         parent::__construct($this->getErrorMessage(), $response, $this->getErrorReason(), $options, $previous);
     }
