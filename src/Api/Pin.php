@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Api;
 
 use Shapecode\FUT\Client\Authentication\AccountInterface;
-use Shapecode\FUT\Client\Exception\FutResponseException;
+use Shapecode\FUT\Client\Exception\PinErrorException;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use const JSON_THROW_ON_ERROR;
 use function date;
@@ -13,28 +13,18 @@ use function json_decode;
 use function json_encode;
 use function substr;
 
-class Pin implements PinInterface
+final class Pin
 {
+    public const PIN_URL = 'https://pin-river.data.ea.com/pinEvents';
+
     /** @var AccountInterface */
-    protected $account;
+    private $account;
 
     /** @var ClientFactoryInterface */
-    protected $clientFactory;
+    private $clientFactory;
 
-    /** @var mixed */
-    protected $gid;
-
-    /** @var mixed */
-    protected $et;
-
-    /** @var mixed */
-    protected $pidt;
-
-    /** @var mixed */
-    protected $v;
-
-    /** @var mixed */
-    protected $s;
+    /** @var int */
+    private $s = 2;
 
     public function __construct(AccountInterface $account, ClientFactoryInterface $clientFactory)
     {
@@ -45,24 +35,34 @@ class Pin implements PinInterface
     /**
      * @inheritdoc
      */
-    public function sendEvent(string $en, ?string $pgid = null, ?string $status = null, ?string $source = null, ?string $end_reason = null) : void
-    {
+    public function sendEvent(
+        string $en,
+        ?string $pgid = null,
+        ?string $status = null,
+        ?string $source = null,
+        ?string $end_reason = null
+    ) : void {
         $event = $this->event($en, $pgid, $status, $source, $end_reason);
         $this->send([$event]);
     }
 
     /**
-     * @inheritdoc
+     * @return mixed[]
      */
-    public function event(string $en, ?string $pgid = null, ?string $status = null, ?string $source = null, ?string $end_reason = null) : array
-    {
+    public function event(
+        string $en,
+        ?string $pgid = null,
+        ?string $status = null,
+        ?string $source = null,
+        ?string $end_reason = null
+    ) : array {
         $account = $this->account;
         $session = $account->getSession();
 
         $data                = [
             'core' => [
                 's'        => $this->s,
-                'pidt'     => $this->pidt,
+                'pidt'     => 'persona',
                 'pid'      => $session->getPersona(),
                 'pidm'     => [
                     'nucleus' => $session->getNucleus(),
@@ -70,7 +70,7 @@ class Pin implements PinInterface
                 'didm'     => [
                     'uuid' => '0',
                 ],
-                'ts_event' => $this->ts(),
+                'ts_event' => $this->timestamp(),
                 'en'       => $en,
             ],
         ];
@@ -105,7 +105,7 @@ class Pin implements PinInterface
     }
 
     /**
-     * @inheritDoc
+     * @param mixed[] $events
      */
     public function send(array $events) : bool
     {
@@ -113,15 +113,7 @@ class Pin implements PinInterface
         $session  = $account->getSession();
         $platform = $account->getCredentials()->getPlatform();
 
-        $body    = json_encode([
-//            'taxv'    => $this->taxv,
-//            'tidt'    => $this->tidt,
-//            'tid'     => $this->sku,
-//            'rel'     => $this->rel,
-//            'v'       => $this->v,
-//            'gid'     => $this->gid,
-//            'plat'    => $this->plat,
-//            'et'      => $this->et,
+        $body = json_encode([
             'taxv'    => '1.1',
             'tidt'    => 'easku',
             'tid'     => 'FUT20WEB',
@@ -130,7 +122,7 @@ class Pin implements PinInterface
             'gid'     => 0,
             'plat'    => 'web',
             'et'      => 'client',
-            'ts_post' => $this->ts(),
+            'ts_post' => $this->timestamp(),
             'sid'     => $session->getSession(),
             'loc'     => $account->getCredentials()->getLocale(),
             'is_sess' => 1,
@@ -140,6 +132,7 @@ class Pin implements PinInterface
             ],
             'events'  => $events,
         ], JSON_THROW_ON_ERROR);
+
         $headers = [
             'Origin'            => 'https://www.easports.com',
             'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
@@ -148,22 +141,21 @@ class Pin implements PinInterface
             'x-ea-taxv'         => '1.1',
         ];
 
-        $call     = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
+        $call = $this->clientFactory->request($account, 'POST', self::PIN_URL, [
             'body'    => $body,
             'headers' => $headers,
         ]);
-        $response = $call->getResponse();
 
-        $content = json_decode($response->getBody()->getContents(), true);
+        $content = json_decode($call->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
         if ($content['status'] !== 'ok') {
-            throw new FutResponseException('PinEvent is NOT OK, probably they changed something.', $response, 'pin_event');
+            throw new PinErrorException($call->getResponse());
         }
 
         return true;
     }
 
-    private function ts() : string
+    private function timestamp() : string
     {
         return date('Y-m-dTH:i:s') . '.' . date('v') . 'Z';
     }

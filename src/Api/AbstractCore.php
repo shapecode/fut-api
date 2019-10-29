@@ -81,7 +81,7 @@ abstract class AbstractCore implements CoreInterface
     /** @var Mapper */
     protected $mapper;
 
-    /** @var Pin|null */
+    /** @var Pin */
     protected $pin;
 
     /** @var ClientFactoryInterface */
@@ -350,11 +350,11 @@ abstract class AbstractCore implements CoreInterface
 
         $this->setSessionData((string) $persona_id, $nucleus_id, $phishingToken, $sid, $dob, $accessToken, $tokenType, $expiresAt);
 
-        $this->getPin()->sendEvent('login', 'success');
-        $this->getPin()->sendEvent('page_view', 'Hub - Home');
-        $this->getPin()->send([
-            $this->getPin()->event('connection'),
-            $this->getPin()->event('boot_end', null, null, null, 'normal'),
+        $this->pin->sendEvent('login', 'success');
+        $this->pin->sendEvent('page_view', 'Hub - Home');
+        $this->pin->send([
+            $this->pin->event('connection'),
+            $this->pin->event('boot_end', null, null, null, 'normal'),
         ]);
 
         // return info
@@ -390,7 +390,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function logout() : void
     {
-        $this->getPin()->sendEvent('page_view', 'Settings');
+        $this->pin->sendEvent('page_view', 'Settings');
 
         $this->request('GET', 'https://accounts.ea.com/connect/logout', null, [
             'client_id'    => self::CLIENT_ID,
@@ -410,7 +410,6 @@ abstract class AbstractCore implements CoreInterface
     protected function resetSession() : void
     {
         $this->getAccount()->resetSession();
-        $this->pin = null;
     }
 
     /**
@@ -436,7 +435,7 @@ abstract class AbstractCore implements CoreInterface
     public function search(array $params = [], int $pageSize = 20, int $start = 0) : MarketSearchResponse
     {
         if ($start === 0) {
-            $this->getPin()->sendEvent('page_view', 'Transfer Market Search');
+            $this->pin->sendEvent('page_view', 'Transfer Market Search');
         }
 
         $params['start'] = $start;
@@ -449,9 +448,9 @@ abstract class AbstractCore implements CoreInterface
         $response = $this->request('GET', '/transfermarket', [], $params);
 
         if ($start === 0) {
-            $this->getPin()->send([
-                $this->getPin()->event('page_view', 'Transfer Market Results - List View'),
-                $this->getPin()->event('page_view', 'Item - Detail View'),
+            $this->pin->send([
+                $this->pin->event('page_view', 'Transfer Market Results - List View'),
+                $this->pin->event('page_view', 'Item - Detail View'),
             ]);
         }
 
@@ -473,9 +472,9 @@ abstract class AbstractCore implements CoreInterface
             'bid' => $price,
         ]);
 
-        $this->getPin()->send([
-            $this->getPin()->event('connection'),
-            $this->getPin()->event('boot_end', null, null, null, 'normal'),
+        $this->pin->send([
+            $this->pin->event('connection'),
+            $this->pin->event('boot_end', null, null, null, 'normal'),
         ]);
 
         $content = $this->getResponseContent($response);
@@ -539,7 +538,7 @@ abstract class AbstractCore implements CoreInterface
 
         switch ($params['type']) {
             case 'player':
-                $this->getPin()->sendEvent('page_view', 'Club - Players - List View');
+                $this->pin->sendEvent('page_view', 'Club - Players - List View');
 
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
@@ -547,9 +546,9 @@ abstract class AbstractCore implements CoreInterface
 
                 break;
             case 'stadium':
-                $this->getPin()->send([
-                    $this->getPin()->event('page_view', 'Club - Club Items - List View'),
-                    $this->getPin()->event('page_view', 'Item - Detail View'),
+                $this->pin->send([
+                    $this->pin->event('page_view', 'Club - Club Items - List View'),
+                    $this->pin->event('page_view', 'Item - Detail View'),
                 ]);
 
                 foreach ($itemData as $item) {
@@ -558,14 +557,14 @@ abstract class AbstractCore implements CoreInterface
 
                 break;
             case 'staff':
-                $this->getPin()->sendEvent('page_view', 'Club - Staff - List View');
+                $this->pin->sendEvent('page_view', 'Club - Staff - List View');
 
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
                 }
                 break;
             default:
-                $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
+                $this->pin->sendEvent('page_view', 'Club - Club Items - List View');
 
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
@@ -665,9 +664,9 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/club/consumables/development');
 
-        $this->getPin()->sendEvent('page_view', 'Hub - Club');
-        $this->getPin()->sendEvent('page_view', 'Club - Consumables');
-        $this->getPin()->sendEvent('page_view', 'Club - Consumables - List View');
+        $this->pin->sendEvent('page_view', 'Hub - Club');
+        $this->pin->sendEvent('page_view', 'Club - Consumables');
+        $this->pin->sendEvent('page_view', 'Club - Consumables - List View');
 
         return $this->getResponseContent($response);
     }
@@ -677,12 +676,12 @@ abstract class AbstractCore implements CoreInterface
      */
     public function squad(int $squadId = 0)
     {
-        $this->getPin()->sendEvent('page_view', 'Hub - Squads');
+        $this->pin->sendEvent('page_view', 'Hub - Squads');
 
         $personaId = $this->getAccount()->getSession()->getPersona();
         $response  = $this->request('GET', '/squad/' . $squadId . '/user/' . $personaId);
 
-        $this->getPin()->sendEvent('page_view', 'Squads - Squad Overview');
+        $this->pin->sendEvent('page_view', 'Squads - Squad Overview');
 
         return $this->getResponseContent($response);
     }
@@ -708,7 +707,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/tradepile');
 
-        $this->getPin()->sendEvent('page_view', 'Transfer List - List View');
+        $this->pin->sendEvent('page_view', 'Transfer List - List View');
 
         $content = $this->getResponseContent($response);
 
@@ -722,7 +721,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/watchlist');
 
-        $this->getPin()->sendEvent('page_view', 'Transfer Targets - List View');
+        $this->pin->sendEvent('page_view', 'Transfer Targets - List View');
 
         $content = $this->getResponseContent($response);
 
@@ -736,7 +735,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/purchased/items');
 
-        $this->getPin()->sendEvent('page_view', 'Unassigned Items - List View');
+        $this->pin->sendEvent('page_view', 'Unassigned Items - List View');
 
         $content = $this->getResponseContent($response);
 
@@ -909,7 +908,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function buyPack($packId, string $currency = 'COINS')
     {
-        $this->getPin()->sendEvent('page_view', 'Hub - Store');
+        $this->pin->sendEvent('page_view', 'Hub - Store');
 
         $response = $this->request('POST', '/purchased/items', [
             'packId'   => $packId,
@@ -940,7 +939,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/sbs/sets');
 
-        $this->getPin()->sendEvent('page_view', 'Hub - SBC');
+        $this->pin->sendEvent('page_view', 'Hub - SBC');
 
         return $this->getResponseContent($response);
     }
@@ -952,7 +951,7 @@ abstract class AbstractCore implements CoreInterface
     {
         $response = $this->request('GET', '/sbs/setId/' . $setId . '/challenges');
 
-        $this->getPin()->sendEvent('page_view', 'SBC - Challenges');
+        $this->pin->sendEvent('page_view', 'SBC - Challenges');
 
         return $this->getResponseContent($response);
     }
@@ -1033,12 +1032,8 @@ abstract class AbstractCore implements CoreInterface
         return $this->account;
     }
 
-    protected function getPin() : PinInterface
+    protected function getPin() : Pin
     {
-        if ($this->pin === null) {
-            throw new RuntimeException('no pin set');
-        }
-
         return $this->pin;
     }
 
@@ -1184,7 +1179,7 @@ abstract class AbstractCore implements CoreInterface
             // captcha
             case 458:
                 $this->captchaReceived();
-                $this->getPin()->sendEvent('error');
+                $this->pin->sendEvent('error');
 
                 throw new CaptchaException($response);
 
