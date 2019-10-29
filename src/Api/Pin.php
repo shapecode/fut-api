@@ -11,6 +11,7 @@ use const JSON_THROW_ON_ERROR;
 use function date;
 use function json_decode;
 use function json_encode;
+use function mb_strlen;
 use function substr;
 
 final class Pin
@@ -143,8 +144,21 @@ final class Pin
         ], JSON_THROW_ON_ERROR);
 
         $headers = [
+            'Accept'            => '*/*',
+            'Accept-Encoding'   => 'gzip, deflate, br',
+            'Accept-Language'   => 'en-US,de;q=0.9,en-US;q=0.8,en;q=0.7,lb;q=0.6',
+            'Cache-Control'     => 'no-cache',
+            'Connection'        => 'kkeep-alive',
+            'Content-Length'    => mb_strlen($body),
+            'Content-Type'      => 'application/json',
+            'DNT'               => '1',
+            'Host'              => 'pin-river.data.ea.com',
             'Origin'            => 'https://www.easports.com',
+            'Pragma'            => 'no-cache',
             'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
+            'Sec-Fetch-Mode'    => 'cors',
+            'Sec-Fetch-Site'    => 'cross-site',
+            'User-Agent'        => '',
             'x-ea-game-id'      => 'FUT20WEB',
             'x-ea-game-id-type' => 'easku',
             'x-ea-taxv'         => '1.1',

@@ -1105,9 +1105,10 @@ abstract class AbstractCore implements CoreInterface
         $plugins   = [];
         $plugins[] = new HeaderSetPlugin($headers);
         $plugins[] = new HeaderSetPlugin([
-            'Easw-Session-Data-Nucleus-Id' => $session->getNucleus(),
             'X-UT-SID'                     => $session->getSession(),
-            'X-UT-PHISHING-TOKEN'          => $session->getPhishing(),
+            'Host'                         => self::FUT_HOSTS[$account->getCredentials()->getPlatform()],
+//            'Easw-Session-Data-Nucleus-Id' => $session->getNucleus(),
+//            'X-UT-PHISHING-TOKEN'          => $session->getPhishing(),
         ]);
         $plugins[] = new QueryDefaultsPlugin($params);
 

@@ -18,12 +18,18 @@ interface CoreInterface
         'xbox' => 'utas.external.s3.fut.ea.com:443',
     ];
     public const REQUEST_HEADERS = [
-        'Accept'          => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding' => 'gzip,deflate,sdch, br',
-        'Accept-Language' => 'en-US,en;q=0.8',
-        'Referer'         => 'https://www.easports.com/fifa/ultimate-team/web-app/',
-        'Origin'          => 'https://www.easports.com',
-        'DNT'             => '1',
+        'Accept'            => '*/*',
+        'Accept-Encoding'   => 'gzip, deflate, br',
+        'Accept-Language'   => 'en-US,de;q=0.9,en-US;q=0.8,en;q=0.7,lb;q=0.6',
+        'Cache-Control'     => 'no-cache',
+        'Connection'        => 'keep-alive',
+        'Content-Type'      => 'application/json',
+        'DNT'               => '1',
+        'Origin'            => 'https://www.easports.com',
+        'Pragma'            => 'no-cache',
+        'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
+        'Sec-Fetch-Mode'    => 'cors',
+        'Sec-Fetch-Site'    => 'cross-site',
     ];
     public const AUTH_URL        = 'utas.mob.v4.fut.ea.com:443';
     public const CLIENT_ID       = 'FIFA-20-WEBCLIENT';

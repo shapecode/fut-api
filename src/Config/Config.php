@@ -131,7 +131,7 @@ class Config implements ConfigInterface
         $url     = $this->futConfigUrl;
         $content = file_get_contents($url);
 
-            $futConfig = $content !== false?json_decode($content, true):null;
+        $futConfig = $content !== false? json_decode($content, true, 512, JSON_THROW_ON_ERROR) :null;
 
         if (! is_array($futConfig)) {
             $futConfig = [];
