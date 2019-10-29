@@ -59,44 +59,53 @@ final class Pin
         $account = $this->account;
         $session = $account->getSession();
 
-        $data                = [
+        $data = [
             'core' => [
-                's'        => $this->s,
-                'pidt'     => 'persona',
+                'dob'      => $session->getDob(),
+                'en'       => $en,
                 'pid'      => $session->getPersona(),
                 'pidm'     => [
                     'nucleus' => $session->getNucleus(),
                 ],
-                'didm'     => [
-                    'uuid' => '0',
-                ],
+                'pidt'     => 'persona',
+                's'        => $this->s,
+//                'didm'     => [
+//                    'uuid' => '0',
+//                ],
                 'ts_event' => $this->timestamp(),
-                'en'       => $en,
             ],
         ];
-        $data['core']['dob'] = $session->getDob();
+
         if ($pgid !== null) {
             $data['pgid'] = $pgid;
         }
+
         if ($status !== null) {
             $data['status'] = $status;
         }
+
         if ($source !== null) {
             $data['source'] = $source;
         }
+
         if ($end_reason !== null) {
             $data['end_reason'] = $end_reason;
         }
-        if ($en === 'login') {
-            $data['type']   = 'utas';
-            $data['userid'] = $session->getPersona();
-        } elseif ($en === 'page_view') {
-            $data['type'] = 'menu';
-        } elseif ($en === 'error') {
-            $data['server_type'] = 'utas';
-            $data['errid']       = 'server_error';
-            $data['type']        = 'disconnect';
-            $data['sid']         = $session->getSession();
+
+        switch ($en) {
+            case 'login':
+                $data['type']   = 'utas';
+                $data['userid'] = $session->getPersona();
+                break;
+            case 'page_view':
+                $data['type'] = 'menu';
+                break;
+            case 'error':
+                $data['server_type'] = 'utas';
+                $data['errid']       = 'server_error';
+                $data['type']        = 'disconnect';
+                $data['sid']         = $session->getSession();
+                break;
         }
 
         $this->s++;
@@ -114,23 +123,23 @@ final class Pin
         $platform = $account->getCredentials()->getPlatform();
 
         $body = json_encode([
-            'taxv'    => '1.1',
-            'tidt'    => 'easku',
-            'tid'     => 'FUT20WEB',
-            'rel'     => 'prod',
-            'v'       => '20.0.0',
-            'gid'     => 0,
-            'plat'    => 'web',
-            'et'      => 'client',
-            'ts_post' => $this->timestamp(),
-            'sid'     => $session->getSession(),
-            'loc'     => $account->getCredentials()->getLocale(),
-            'is_sess' => 1,
             'custom'  => [
                 'networkAccess' => 'G',
                 'service_plat'  => substr($platform, 0, 3),
             ],
+            'et'      => 'client',
             'events'  => $events,
+            'gid'     => 0,
+            'is_sess' => true,
+            'loc'     => 'en_US',
+            'plat'    => 'web',
+            'rel'     => 'prod',
+            'sid'     => $session->getSession(),
+            'taxv'    => '1.1',
+            'tid'     => 'FUT20WEB',
+            'tidt'    => 'easku',
+            'ts_post' => $this->timestamp(),
+            'v'       => '20.1.0',
         ], JSON_THROW_ON_ERROR);
 
         $headers = [

@@ -12,7 +12,6 @@ use Http\Client\Common\Plugin\HeaderSetPlugin;
 use Http\Client\Common\Plugin\QueryDefaultsPlugin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Authentication\Session;
 use Shapecode\FUT\Client\Config\Config;
@@ -352,10 +351,6 @@ abstract class AbstractCore implements CoreInterface
 
         $this->pin->sendEvent('login', 'success');
         $this->pin->sendEvent('page_view', 'Hub - Home');
-        $this->pin->send([
-            $this->pin->event('connection'),
-            $this->pin->event('boot_end', null, null, null, 'normal'),
-        ]);
 
         // return info
         return [
