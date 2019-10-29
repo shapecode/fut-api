@@ -7,6 +7,7 @@ namespace Shapecode\FUT\Client\Config;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use const JSON_THROW_ON_ERROR;
 use function array_merge;
 use function file_get_contents;
 use function is_array;

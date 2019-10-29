@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Api;
 
+use Carbon\Carbon;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Exception\PinErrorException;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use const JSON_THROW_ON_ERROR;
-use function date;
 use function json_decode;
 use function json_encode;
 use function mb_strlen;
@@ -16,7 +16,8 @@ use function substr;
 
 final class Pin
 {
-    public const PIN_URL = 'https://pin-river.data.ea.com/pinEvents';
+    private const PIN_URL         = 'https://pin-river.data.ea.com/pinEvents';
+    private const DATETIME_FORMAT = 'Y-m-d\TH:i:s.v\Z';
 
     /** @var AccountInterface */
     private $account;
@@ -158,7 +159,6 @@ final class Pin
             'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
             'Sec-Fetch-Mode'    => 'cors',
             'Sec-Fetch-Site'    => 'cross-site',
-            'User-Agent'        => '',
             'x-ea-game-id'      => 'FUT20WEB',
             'x-ea-game-id-type' => 'easku',
             'x-ea-taxv'         => '1.1',
@@ -180,6 +180,6 @@ final class Pin
 
     private function timestamp() : string
     {
-        return date('Y-m-dTH:i:s') . '.' . date('v') . 'Z';
+        return Carbon::now()->format(self::DATETIME_FORMAT);
     }
 }
