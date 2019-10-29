@@ -12,6 +12,7 @@ use Http\Client\Common\Plugin\HeaderSetPlugin;
 use Http\Client\Common\Plugin\QueryDefaultsPlugin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Authentication\Session;
 use Shapecode\FUT\Client\Config\Config;
@@ -45,6 +46,8 @@ use Shapecode\FUT\Client\Response\UnassignedResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 use Shapecode\FUT\Client\Util\EAHasher;
 use Shapecode\FUT\Client\Util\FutUtil;
+use Throwable;
+use const JSON_THROW_ON_ERROR;
 use function array_pop;
 use function array_values;
 use function implode;
@@ -54,8 +57,9 @@ use function json_encode;
 use function parse_str;
 use function str_replace;
 use function strpos;
+use function strtoupper;
 use function time;
-use RuntimeException;
+use function usleep;
 
 abstract class AbstractCore implements CoreInterface
 {
@@ -132,7 +136,7 @@ abstract class AbstractCore implements CoreInterface
             },
         ]);
 
-        if ($url->__toString() !== 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html') {
+        if ((string) $url !== 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html') {
             $headers['Referer'] = (string) $url;
             $call               = $this->simpleRequest('POST', (string) $url, [
                 'form_params' => [
@@ -160,7 +164,7 @@ abstract class AbstractCore implements CoreInterface
             }
 
             if (strpos($responseContent, $locale->get('login.redirect_uri')) !== false) {
-                $call            = $this->simpleRequest('GET', $url->__toString() . '&_eventId=end', [
+                $call            = $this->simpleRequest('GET', $url . '&_eventId=end', [
                     'headers'  => $headers,
                     'on_stats' => static function (TransferStats $stats) use (&$url) : void {
                         $url = $stats->getEffectiveUri();
@@ -170,7 +174,7 @@ abstract class AbstractCore implements CoreInterface
             }
 
             if (strpos($responseContent, $locale->get('login.login_verification')) !== false) {
-                $call            = $this->simpleRequest('POST', $url->__toString(), [
+                $call            = $this->simpleRequest('POST', (string) $url, [
                     'headers'     => $headers,
                     'form_params' => [
                         'codeType' => 'EMAIL',
@@ -232,7 +236,7 @@ abstract class AbstractCore implements CoreInterface
         $call            = $this->simpleRequest('GET', 'https://gateway.ea.com/proxy/identity/pids/me', [
             'headers' => $headers,
         ]);
-        $responseContent = json_decode($call->getContent(), true);
+        $responseContent = json_decode($call->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
         $nucleus_id = $responseContent['pid']['externalRefValue'];
         $dob        = $responseContent['pid']['dob'];
@@ -317,7 +321,7 @@ abstract class AbstractCore implements CoreInterface
                     'authCode'    => $auth_code,
                     'redirectUrl' => 'nucleus:rest',
                 ],
-            ]),
+            ], JSON_THROW_ON_ERROR),
         ]);
 
         if ($call->getResponse()->getStatusCode() === 401) {
@@ -328,7 +332,7 @@ abstract class AbstractCore implements CoreInterface
             throw new ServerDownException($call->getResponse());
         }
 
-        $responseContent = json_decode($call->getContent(), true);
+        $responseContent = json_decode($call->getContent(), true, 512, JSON_THROW_ON_ERROR);
         if (isset($responseContent['reason'])) {
             switch ($responseContent['reason']) {
                 case 'multiple session':
@@ -344,7 +348,7 @@ abstract class AbstractCore implements CoreInterface
         $phishingToken = $responseContent['phishingToken'];
         $sid           = $responseContent['sid'];
 
-        $this->setSessionData($persona_id, $nucleus_id, $phishingToken, $sid, $dob, $accessToken, $tokenType, $expiresAt);
+        $this->setSessionData((string) $persona_id, $nucleus_id, $phishingToken, $sid, $dob, $accessToken, $tokenType, $expiresAt);
 
         $this->getPin()->sendEvent('login', 'success');
         $this->getPin()->sendEvent('page_view', 'Hub - Home');
@@ -409,6 +413,9 @@ abstract class AbstractCore implements CoreInterface
         $this->pin = null;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function searchDefinition(int $asset_id, int $start = 0, int $count = 20)
     {
         $params = [
@@ -498,11 +505,7 @@ abstract class AbstractCore implements CoreInterface
         $response = $this->request('GET', '/user/credits');
         $data     = $this->getResponseContent($response);
 
-        if (isset($data['credits'])) {
-            return $data['credits'];
-        }
-
-        return 0;
+        return $data['credits'] ?? 0;
     }
 
     /**
@@ -556,13 +559,6 @@ abstract class AbstractCore implements CoreInterface
                 break;
             case 'staff':
                 $this->getPin()->sendEvent('page_view', 'Club - Staff - List View');
-
-                foreach ($itemData as $item) {
-                    $result[] = $this->mapper->createItem($item);
-                }
-                break;
-            case 'item':
-                $this->getPin()->sendEvent('page_view', 'Club - Club Items - List View');
 
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
@@ -715,8 +711,6 @@ abstract class AbstractCore implements CoreInterface
         $this->getPin()->sendEvent('page_view', 'Transfer List - List View');
 
         $content = $this->getResponseContent($response);
-
-        $response = $this->mapper->createTradepileResponse($content);
 
         return $this->mapper->createTradepileResponse($content);
     }
@@ -1084,8 +1078,6 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @param mixed[] $options
      * @param mixed[] $plugins
-     *
-     * @throws \Http\Client\Exception
      */
     protected function simpleRequest(string $method, string $url, array $options = [], array $plugins = []) : ClientCall
     {
@@ -1131,7 +1123,7 @@ abstract class AbstractCore implements CoreInterface
 
         if ($body !== null) {
             if (is_array($body)) {
-                $body = json_encode($body);
+                $body = json_encode($body, JSON_THROW_ON_ERROR);
             }
 
             $options['body'] = $body;
@@ -1152,7 +1144,11 @@ abstract class AbstractCore implements CoreInterface
         $content = $call->getContent();
 
         if ($content !== '') {
-            $content = json_decode($content, true);
+            try {
+                $content = json_decode($content, true, 512, JSON_THROW_ON_ERROR);
+            } catch (Throwable $exception) {
+                $content = null;
+            }
         }
 
         return $content;

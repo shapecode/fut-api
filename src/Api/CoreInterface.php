@@ -99,37 +99,44 @@ interface CoreInterface
     /**
      * @param mixed[] $params
      *
-     * @return mixed
+     * @return mixed[]
      */
-    public function players(array $params = []);
+    public function players(array $params = []) : array;
 
     /**
      * @param mixed[] $params
      *
-     * @return mixed
+     * @return mixed[]
      */
-    public function stadiums(array $params = []);
+    public function stadiums(array $params = []) : array;
 
     /**
      * @param mixed[] $params
      *
-     * @return mixed
+     * @return mixed[]
      */
-    public function kits(array $params = []);
+    public function kits(array $params = []) : array;
 
     /**
      * @param mixed[] $params
      *
-     * @return mixed
+     * @return mixed[]
      */
-    public function staffs(array $params = []);
+    public function staffs(array $params = []) : array;
 
     /**
      * @param mixed[] $params
      *
-     * @return mixed
+     * @return mixed[]
      */
-    public function badges(array $params = []);
+    public function badges(array $params = []) : array;
+
+    /**
+     * @param mixed[] $params
+     *
+     * @return mixed[]
+     */
+    public function balls(array $params = []) : array;
 
     /**
      * @return mixed
@@ -279,6 +286,13 @@ interface CoreInterface
      * @return mixed
      */
     public function objectives(string $scope = 'all');
+
+    /**
+     * @return mixed|string
+     */
+    public function getCaptchaData();
+
+    public function validateCaptcha(string $token) : ClientCall;
 
     public function phishingQuestion() : ClientCall;
 
