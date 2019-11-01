@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Mapper;
 
+use Shapecode\FUT\Client\Items\Config;
 use Shapecode\FUT\Client\Items\Contract;
 use Shapecode\FUT\Client\Items\CurrencyValue;
 use Shapecode\FUT\Client\Items\DuplicateItem;
@@ -11,12 +12,14 @@ use Shapecode\FUT\Client\Items\Health;
 use Shapecode\FUT\Client\Items\Item;
 use Shapecode\FUT\Client\Items\Kit;
 use Shapecode\FUT\Client\Items\Player;
+use Shapecode\FUT\Client\Items\Settings;
 use Shapecode\FUT\Client\Items\TradeItem;
 use Shapecode\FUT\Client\Response\BidResponse;
 use Shapecode\FUT\Client\Response\MarketSearchResponse;
 use Shapecode\FUT\Client\Response\TradepileResponse;
 use Shapecode\FUT\Client\Response\TradeStatusResponse;
 use Shapecode\FUT\Client\Response\UnassignedResponse;
+use Shapecode\FUT\Client\Response\UsermassInfoResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 
 class Mapper
@@ -194,5 +197,44 @@ class Mapper
     public function createDuplicateItem(array $data) : DuplicateItem
     {
         return new DuplicateItem($data['itemId'], $data['duplicateItemId']);
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function createConfig(array $data) : Config
+    {
+        return new Config($data['type'], $data['value']);
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function createSettings(array $data) : Settings
+    {
+        $configs = [];
+
+        foreach ($data['configs'] as $c) {
+            $configs[] = $this->createConfig($c);
+        }
+
+        return new Settings(
+            $configs
+        );
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    public function createUserMassInfoResponse(array $data) : UsermassInfoResponse
+    {
+        $settings = $this->createSettings($data['settings']);
+
+        return new UsermassInfoResponse(
+            $data,
+            $settings,
+            (bool) $data['isHighTierReturningUser'],
+            (bool) $data['isPlayerPicksTemporaryStorageNotEmpty']
+        );
     }
 }

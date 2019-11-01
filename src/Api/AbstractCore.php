@@ -42,6 +42,7 @@ use Shapecode\FUT\Client\Response\MarketSearchResponse;
 use Shapecode\FUT\Client\Response\TradepileResponse;
 use Shapecode\FUT\Client\Response\TradeStatusResponse;
 use Shapecode\FUT\Client\Response\UnassignedResponse;
+use Shapecode\FUT\Client\Response\UsermassInfoResponse;
 use Shapecode\FUT\Client\Response\WatchlistResponse;
 use Shapecode\FUT\Client\Util\EAHasher;
 use Shapecode\FUT\Client\Util\FutUtil;
@@ -484,11 +485,17 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function usermassInfo()
+    public function usermassInfo() : ?UsermassInfoResponse
     {
         $response = $this->request('GET', '/usermassinfo');
 
-        return $this->getResponseContent($response);
+        $content = $this->getResponseContent($response);
+
+        if (! is_array($content)) {
+            return null;
+        }
+
+        return $this->mapper->createUserMassInfoResponse($content);
     }
 
     /**
