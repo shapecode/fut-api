@@ -11,10 +11,10 @@ use function count;
 class BidResponse
 {
     /** @var int|null */
-    protected $credits;
+    private $credits;
 
     /** @var TradeItem[] */
-    protected $auctions = [];
+    private $auctions = [];
 
     /**
      * @param TradeItem[] $auctions

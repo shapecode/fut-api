@@ -9,13 +9,13 @@ use Shapecode\FUT\Client\Items\TradeItem;
 class WatchlistResponse
 {
     /** @var int|null */
-    protected $credits;
+    private $credits;
 
     /** @var int|null */
-    protected $total;
+    private $total;
 
     /** @var TradeItem[] */
-    protected $auctions = [];
+    private $auctions = [];
 
     /**
      * @param TradeItem[] $auctions

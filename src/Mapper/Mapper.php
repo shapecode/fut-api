@@ -36,7 +36,11 @@ class Mapper
             $auctions[] = $this->createTradeItem($a);
         }
 
-        return new MarketSearchResponse($auctions, $bidTokens);
+        return new MarketSearchResponse(
+            $data,
+            $auctions,
+            $bidTokens
+        );
     }
 
     /**

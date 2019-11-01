@@ -12,16 +12,16 @@ use function count;
 class TradeStatusResponse
 {
     /** @var int|null */
-    protected $credits;
+    private $credits;
 
     /** @var TradeItemInterface[] */
-    protected $auctions;
+    private $auctions;
 
     /** @var mixed[] */
-    protected $bidTokens;
+    private $bidTokens;
 
     /** @var CurrencyValue[] */
-    protected $currencies;
+    private $currencies;
 
     /**
      * @param TradeItemInterface[] $auctions

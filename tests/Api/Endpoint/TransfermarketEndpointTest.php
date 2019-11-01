@@ -17,6 +17,7 @@ class TransfermarketEndpointTest extends EndpointTestCase
 
         self::assertCount(21, $result->getAuctions());
         self::assertCount(0, $result->getBidTokens());
+        self::assertNotEmpty($result->getRawBody());
         self::assertContainsOnlyInstancesOf(TradeItem::class, $result->getAuctions());
     }
 }

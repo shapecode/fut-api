@@ -9,13 +9,13 @@ use Shapecode\FUT\Client\Items\TradeItem;
 class TradepileResponse
 {
     /** @var int|null */
-    protected $credits;
+    private $credits;
 
     /** @var TradeItem[] */
-    protected $auctions = [];
+    private $auctions = [];
 
     /** @var mixed[]  */
-    protected $bidTokens = [];
+    private $bidTokens = [];
 
     /**
      * @param TradeItem[] $auctions

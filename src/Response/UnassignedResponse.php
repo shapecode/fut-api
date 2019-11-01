@@ -10,10 +10,10 @@ use Shapecode\FUT\Client\Items\ItemInterface;
 class UnassignedResponse
 {
     /** @var ItemInterface[] */
-    protected $items;
+    private $items;
 
     /** @var DuplicateItem[] */
-    protected $duplicateItemIdList;
+    private $duplicateItemIdList;
 
     /**
      * @param ItemInterface[] $items

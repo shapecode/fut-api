@@ -5,22 +5,31 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
+use Webmozart\Assert\Assert;
 use function count;
 
-class MarketSearchResponse
+class MarketSearchResponse extends AbstractResponse
 {
     /** @var TradeItem[] */
-    protected $auctions = [];
+    private $auctions = [];
 
     /** @var mixed[] */
-    protected $bidTokens = [];
+    private $bidTokens = [];
 
     /**
+     * @param mixed[]     $rawBody
      * @param TradeItem[] $auctions
      * @param mixed[]     $bidTokens
      */
-    public function __construct(array $auctions, array $bidTokens)
-    {
+    public function __construct(
+        array $rawBody,
+        array $auctions,
+        array $bidTokens
+    ) {
+        parent::__construct($rawBody);
+
+        Assert::allIsInstanceOf($auctions, TradeItem::class);
+
         $this->auctions  = $auctions;
         $this->bidTokens = $bidTokens;
     }
