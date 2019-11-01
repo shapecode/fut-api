@@ -1,0 +1,66 @@
+{
+    "itemData": [
+        {
+            "id": 369798564985,
+            "timestamp": 1572616187,
+            "formation": "f5212",
+            "untradeable": false,
+            "assetId": 244791,
+            "rating": 77,
+            "itemType": "player",
+            "resourceId": 244791,
+            "owners": 3,
+            "discardValue": 308,
+            "itemState": "free",
+            "cardsubtypeid": 2,
+            "lastSalePrice": 400,
+            "fitness": 99,
+            "injuryType": "none",
+            "injuryGames": 0,
+            "preferredPosition": "CM",
+            "training": 0,
+            "contract": 7,
+            "teamid": 673,
+            "rareflag": 0,
+            "playStyle": 250,
+            "leagueId": 4,
+            "assists": 0,
+            "lifetimeAssists": 0,
+            "loyaltyBonus": 0,
+            "pile": 6,
+            "nation": 43,
+            "marketDataMinPrice": 350,
+            "marketDataMaxPrice": 10000,
+            "resourceGameYear": 2020,
+            "attributeArray": [
+                71,
+                68,
+                76,
+                76,
+                70,
+                68
+            ],
+            "statsArray": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "lifetimeStatsArray": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "skillmoves": 2,
+            "weakfootabilitytypecode": 3,
+            "attackingworkrate": 2,
+            "defensiveworkrate": 2,
+            "trait1": 3072,
+            "trait2": 0,
+            "preferredfoot": 1
+        }
+    ]
+}

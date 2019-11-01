@@ -1,0 +1,3928 @@
+{
+    "championEvents": [
+        {
+            "id": 47327,
+            "localizedName": "FUT CHAMPIONS WEEKEND LEAGUE",
+            "state": 1,
+            "startTime": 1572591600,
+            "endTime": 1572850800,
+            "type": 1,
+            "currentTime": 1572615101,
+            "matchParams": "controls=any,halfLength=6",
+            "maxMatches": 30,
+            "minMatchesToRank": 5,
+            "eligibilities": [
+                {
+                    "rule": [
+                        {
+                            "elegibilityId": 1,
+                            "type": "scope",
+                            "data": 2,
+                            "tournamentId": 47327
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerCount",
+                            "data": 0,
+                            "tournamentId": 47327
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerAttrBoostLevel",
+                            "data": 0,
+                            "tournamentId": 47327
+                        }
+                    ]
+                }
+            ],
+            "elgOperation": "AND",
+            "qualifierTournaments": [],
+            "prizeTiers": [
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 1,
+                    "tierStart": 1,
+                    "tierEnd": 1,
+                    "awardSetId": 120529,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190901,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 250000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190902,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190903,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190904,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190905,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 2,
+                    "tierStart": 2,
+                    "tierEnd": 10,
+                    "awardSetId": 120530,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190906,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 200000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190907,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190908,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190909,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190910,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 11,
+                    "tierStart": 11,
+                    "tierEnd": 25,
+                    "awardSetId": 120531,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190911,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190912,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190913,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190914,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190915,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 26,
+                    "tierStart": 26,
+                    "tierEnd": 50,
+                    "awardSetId": 120532,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190916,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190917,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190918,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190919,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190920,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 51,
+                    "tierStart": 51,
+                    "tierEnd": 75,
+                    "awardSetId": 120533,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190921,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190922,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190923,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190924,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190925,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 76,
+                    "tierStart": 76,
+                    "tierEnd": 100,
+                    "awardSetId": 120534,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190926,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190927,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190928,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190929,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190930,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 1,
+                    "tierStart": 27,
+                    "tierEnd": 31,
+                    "awardSetId": 120535,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190931,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190932,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190933,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190934,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190935,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 2,
+                    "tierStart": 25,
+                    "tierEnd": 26,
+                    "awardSetId": 120536,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190936,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 100000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190937,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190938,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190939,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190940,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 3,
+                    "tierStart": 23,
+                    "tierEnd": 24,
+                    "awardSetId": 120537,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190941,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 70000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190942,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190943,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190944,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004094,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004094,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4219,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190945,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 4,
+                    "tierStart": 20,
+                    "tierEnd": 22,
+                    "awardSetId": 120538,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190946,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 50000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190947,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190948,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004093,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004093,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4218,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190949,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 5,
+                    "tierStart": 17,
+                    "tierEnd": 19,
+                    "awardSetId": 120539,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190950,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 45000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190951,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190952,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 404,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190953,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004093,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004093,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4218,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190954,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 6,
+                    "tierStart": 14,
+                    "tierEnd": 16,
+                    "awardSetId": 120540,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190955,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 30000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190956,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190957,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 401,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190958,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004092,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004092,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4217,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190959,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 7,
+                    "tierStart": 11,
+                    "tierEnd": 13,
+                    "awardSetId": 120541,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190960,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 20000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190961,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 309,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190962,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190963,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004092,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004092,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4217,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190964,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 8,
+                    "tierStart": 8,
+                    "tierEnd": 10,
+                    "awardSetId": 120542,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190965,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 15000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190966,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190967,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190968,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004091,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004091,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4216,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190969,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 9,
+                    "tierStart": 6,
+                    "tierEnd": 7,
+                    "awardSetId": 120543,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190970,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 10000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190971,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190972,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 303,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190973,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004091,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004091,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4216,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190974,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 10,
+                    "tierStart": 4,
+                    "tierEnd": 5,
+                    "awardSetId": 31880,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033249,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 7500,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033250,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033251,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 11,
+                    "tierStart": 2,
+                    "tierEnd": 3,
+                    "awardSetId": 31881,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033252,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 3000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033253,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 301,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033254,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47327,
+                    "tierLevel": 12,
+                    "tierStart": 0,
+                    "tierEnd": 1,
+                    "awardSetId": 31882,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033255,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033256,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 300,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033257,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 250,
+                            "awardCount": 1
+                        }
+                    ]
+                }
+            ],
+            "matchParamsKeyValues": {
+                "halfLength": 6,
+                "controls": "any"
+            }
+        },
+        {
+            "id": 47495,
+            "localizedName": "FUT CHAMPIONS WEEKEND LEAGUE",
+            "state": 1,
+            "startTime": 1573196400,
+            "endTime": 1573455600,
+            "type": 1,
+            "currentTime": 1572615101,
+            "matchParams": "controls=any,halfLength=6",
+            "maxMatches": 30,
+            "minMatchesToRank": 5,
+            "eligibilities": [
+                {
+                    "rule": [
+                        {
+                            "elegibilityId": 1,
+                            "type": "scope",
+                            "data": 2,
+                            "tournamentId": 47495
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerCount",
+                            "data": 0,
+                            "tournamentId": 47495
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerAttrBoostLevel",
+                            "data": 0,
+                            "tournamentId": 47495
+                        }
+                    ]
+                }
+            ],
+            "elgOperation": "AND",
+            "qualifierTournaments": [],
+            "prizeTiers": [
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 1,
+                    "tierStart": 1,
+                    "tierEnd": 1,
+                    "awardSetId": 120544,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190975,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 250000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190976,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190977,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190978,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190979,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 2,
+                    "tierStart": 2,
+                    "tierEnd": 10,
+                    "awardSetId": 120545,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190980,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 200000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190981,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190982,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190983,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190984,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 11,
+                    "tierStart": 11,
+                    "tierEnd": 25,
+                    "awardSetId": 120546,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190985,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190986,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190987,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190988,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190989,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 26,
+                    "tierStart": 26,
+                    "tierEnd": 50,
+                    "awardSetId": 120547,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190990,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190991,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190992,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190993,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190994,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 51,
+                    "tierStart": 51,
+                    "tierEnd": 75,
+                    "awardSetId": 120548,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200190995,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190996,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190997,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200190998,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200190999,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 76,
+                    "tierStart": 76,
+                    "tierEnd": 100,
+                    "awardSetId": 120549,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191000,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191001,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191002,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191003,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191004,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 1,
+                    "tierStart": 27,
+                    "tierEnd": 31,
+                    "awardSetId": 120550,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191005,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191006,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191007,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191008,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191009,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 2,
+                    "tierStart": 25,
+                    "tierEnd": 26,
+                    "awardSetId": 120551,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191010,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 100000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191011,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191012,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191013,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191014,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 3,
+                    "tierStart": 23,
+                    "tierEnd": 24,
+                    "awardSetId": 120552,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191015,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 70000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191016,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191017,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191018,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004098,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004098,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4223,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191019,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 4,
+                    "tierStart": 20,
+                    "tierEnd": 22,
+                    "awardSetId": 120553,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191020,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 50000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191021,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191022,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004097,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004097,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4222,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191023,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 5,
+                    "tierStart": 17,
+                    "tierEnd": 19,
+                    "awardSetId": 120554,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191024,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 45000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191025,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191026,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 404,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191027,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004097,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004097,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4222,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191028,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 6,
+                    "tierStart": 14,
+                    "tierEnd": 16,
+                    "awardSetId": 120555,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191029,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 30000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191030,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191031,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 401,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191032,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004096,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004096,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4221,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191033,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 7,
+                    "tierStart": 11,
+                    "tierEnd": 13,
+                    "awardSetId": 120556,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191034,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 20000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191035,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 309,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191036,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191037,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004096,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004096,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4221,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191038,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 8,
+                    "tierStart": 8,
+                    "tierEnd": 10,
+                    "awardSetId": 120557,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191039,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 15000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191040,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191041,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191042,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004095,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004095,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4220,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191043,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 9,
+                    "tierStart": 6,
+                    "tierEnd": 7,
+                    "awardSetId": 120558,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191044,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 10000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191045,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191046,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 303,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191047,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004095,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004095,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4220,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191048,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 10,
+                    "tierStart": 4,
+                    "tierEnd": 5,
+                    "awardSetId": 31880,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033249,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 7500,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033250,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033251,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 11,
+                    "tierStart": 2,
+                    "tierEnd": 3,
+                    "awardSetId": 31881,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033252,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 3000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033253,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 301,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033254,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47495,
+                    "tierLevel": 12,
+                    "tierStart": 0,
+                    "tierEnd": 1,
+                    "awardSetId": 31882,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033255,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033256,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 300,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033257,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 250,
+                            "awardCount": 1
+                        }
+                    ]
+                }
+            ],
+            "matchParamsKeyValues": {
+                "halfLength": 6,
+                "controls": "any"
+            }
+        },
+        {
+            "id": 47663,
+            "localizedName": "FUT CHAMPIONS WEEKEND LEAGUE",
+            "state": 1,
+            "startTime": 1573801200,
+            "endTime": 1574060400,
+            "type": 1,
+            "currentTime": 1572615101,
+            "matchParams": "controls=any,halfLength=6",
+            "maxMatches": 30,
+            "minMatchesToRank": 5,
+            "eligibilities": [
+                {
+                    "rule": [
+                        {
+                            "elegibilityId": 1,
+                            "type": "scope",
+                            "data": 2,
+                            "tournamentId": 47663
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerCount",
+                            "data": 0,
+                            "tournamentId": 47663
+                        },
+                        {
+                            "elegibilityId": 1,
+                            "type": "playerAttrBoostLevel",
+                            "data": 0,
+                            "tournamentId": 47663
+                        }
+                    ]
+                }
+            ],
+            "elgOperation": "AND",
+            "qualifierTournaments": [],
+            "prizeTiers": [
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 1,
+                    "tierStart": 1,
+                    "tierEnd": 1,
+                    "awardSetId": 120559,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191049,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 250000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191050,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191051,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191052,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191053,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 2,
+                    "tierStart": 2,
+                    "tierEnd": 10,
+                    "awardSetId": 120560,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191054,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 200000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191055,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191056,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191057,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191058,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 11,
+                    "tierStart": 11,
+                    "tierEnd": 25,
+                    "awardSetId": 120561,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191059,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191060,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191061,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 4
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191062,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191063,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 26,
+                    "tierStart": 26,
+                    "tierEnd": 50,
+                    "awardSetId": 120562,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191064,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 150000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191065,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191066,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191067,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 5,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191068,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 51,
+                    "tierStart": 51,
+                    "tierEnd": 75,
+                    "awardSetId": 120563,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191069,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191070,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191071,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 3
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191072,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191073,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "LB_RANKING_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 76,
+                    "tierStart": 76,
+                    "tierEnd": 100,
+                    "awardSetId": 120564,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191074,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191075,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 901,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191076,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191077,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 4,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191078,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 1,
+                    "tierStart": 27,
+                    "tierEnd": 31,
+                    "awardSetId": 120565,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191079,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 125000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191080,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191081,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191082,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191083,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 2,
+                    "tierStart": 25,
+                    "tierEnd": 26,
+                    "awardSetId": 120566,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191084,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 100000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191085,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191086,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191087,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191088,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 3,
+                    "tierStart": 23,
+                    "tierEnd": 24,
+                    "awardSetId": 120567,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191089,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 70000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191090,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 900,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191091,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191092,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004102,
+                            "awardCount": 3,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004102,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName27",
+                                "weightrare": 0,
+                                "amount": 4227,
+                                "description": "1 von 5 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc27"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191093,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 4,
+                    "tierStart": 20,
+                    "tierEnd": 22,
+                    "awardSetId": 120568,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191094,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 50000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191095,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 402,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191096,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004101,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004101,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4226,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191097,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 5,
+                    "tierStart": 17,
+                    "tierEnd": 19,
+                    "awardSetId": 120569,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191098,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 45000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191099,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191100,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 404,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191101,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004101,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004101,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName26",
+                                "weightrare": 0,
+                                "amount": 4226,
+                                "description": "1 von 4 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc26"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191102,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 6,
+                    "tierStart": 14,
+                    "tierEnd": 16,
+                    "awardSetId": 120570,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191103,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 30000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191104,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191105,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 401,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191106,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004100,
+                            "awardCount": 2,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004100,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4225,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191107,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 7,
+                    "tierStart": 11,
+                    "tierEnd": 13,
+                    "awardSetId": 120571,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191108,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 20000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191109,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 309,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191110,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191111,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004100,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004100,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName25",
+                                "weightrare": 0,
+                                "amount": 4225,
+                                "description": "1 von 3 FUT Champions-Spielern",
+                                "detaildescription": "PlayerPickItemDetailDesc25"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191112,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 2000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 8,
+                    "tierStart": 8,
+                    "tierEnd": 10,
+                    "awardSetId": 120572,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191113,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 15000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191114,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 403,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191115,
+                            "halId": 4,
+                            "awardType": "pack",
+                            "awardValue": 400,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191116,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004099,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004099,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4224,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191117,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 9,
+                    "tierStart": 6,
+                    "tierEnd": 7,
+                    "awardSetId": 120573,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200191118,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 10000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191119,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191120,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 303,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": true,
+                            "awardId": 200191121,
+                            "halId": 37,
+                            "awardType": "item",
+                            "awardValue": 5004099,
+                            "awardCount": 1,
+                            "loan": 0,
+                            "itemData": {
+                                "id": 0,
+                                "timestamp": 0,
+                                "formation": "f433",
+                                "untradeable": true,
+                                "assetId": 0,
+                                "rating": 99,
+                                "itemType": "misc",
+                                "resourceId": 5004099,
+                                "owners": 0,
+                                "discardValue": 0,
+                                "cardsubtypeid": 237,
+                                "lastSalePrice": 0,
+                                "statsList": [],
+                                "lifetimeStats": [],
+                                "attributeList": [],
+                                "teamid": 0,
+                                "rareflag": 1,
+                                "leagueId": 0,
+                                "pile": 0,
+                                "cardassetid": 44,
+                                "name": "PlayerPickItemName24",
+                                "weightrare": 0,
+                                "amount": 4224,
+                                "description": "1 von 2 FUT Champions (max. 84)",
+                                "detaildescription": "PlayerPickItemDetailDesc24"
+                            }
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200191122,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 10,
+                    "tierStart": 4,
+                    "tierEnd": 5,
+                    "awardSetId": 31880,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033249,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 7500,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033250,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 305,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033251,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 11,
+                    "tierStart": 2,
+                    "tierEnd": 3,
+                    "awardSetId": 31881,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033252,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 3000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033253,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 301,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033254,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 500,
+                            "awardCount": 1
+                        }
+                    ]
+                },
+                {
+                    "tierType": "NUMBER_OF_WINS_TYPE",
+                    "competitionId": 47663,
+                    "tierLevel": 12,
+                    "tierStart": 0,
+                    "tierEnd": 1,
+                    "awardSetId": 31882,
+                    "awards": [
+                        {
+                            "untradeable": false,
+                            "awardId": 200033255,
+                            "halId": 0,
+                            "awardType": "coin",
+                            "awardValue": 1000,
+                            "awardCount": 1
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033256,
+                            "halId": 3,
+                            "awardType": "pack",
+                            "awardValue": 300,
+                            "awardCount": 2
+                        },
+                        {
+                            "untradeable": false,
+                            "awardId": 200033257,
+                            "halId": 0,
+                            "awardType": "champions_qualification_points",
+                            "awardValue": 250,
+                            "awardCount": 1
+                        }
+                    ]
+                }
+            ],
+            "matchParamsKeyValues": {
+                "halfLength": 6,
+                "controls": "any"
+            }
+        }
+    ]
+}

@@ -1,0 +1,500 @@
+{
+    "configs": [
+        {
+            "value": 1,
+            "type": "enableSeasonalCampaigns"
+        },
+        {
+            "value": 0,
+            "type": "tokenRedemptionEnabled"
+        },
+        {
+            "value": 1,
+            "type": "tradingEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableEntitlementsVerificationInPromoMessages"
+        },
+        {
+            "value": 1,
+            "type": "newChemistry"
+        },
+        {
+            "value": 1,
+            "type": "enableSpectatorMode"
+        },
+        {
+            "value": 1,
+            "type": "coinEnabled_JP"
+        },
+        {
+            "value": 20200101,
+            "type": "transferFifaPointsFromLastYearEndDate"
+        },
+        {
+            "value": 5,
+            "type": "kitSelectCountdownTimerLengthInSeconds"
+        },
+        {
+            "value": 1,
+            "type": "coinEnabled"
+        },
+        {
+            "value": 10,
+            "type": "onlineEndSeasonDivision"
+        },
+        {
+            "value": 15,
+            "type": "deleteOperationTimeoutSec"
+        },
+        {
+            "value": 20190101,
+            "type": "transferFifaPointsFromLastYearStartDate"
+        },
+        {
+            "value": 0,
+            "type": "friendlySeasonsEnabled"
+        },
+        {
+            "value": 1,
+            "type": "storeEnabled_JP"
+        },
+        {
+            "value": 1,
+            "type": "enableSinglePlayerDraftMode"
+        },
+        {
+            "value": 3,
+            "type": "numEndMatchRetriesAllowed"
+        },
+        {
+            "value": 0,
+            "type": "enableBatchedTrades"
+        },
+        {
+            "value": 1,
+            "type": "checkServerDbVersion"
+        },
+        {
+            "value": 1,
+            "type": "allowGracePeriodForSquadBuildingSets"
+        },
+        {
+            "value": 5,
+            "type": "clubCreateThreshold"
+        },
+        {
+            "value": 1,
+            "type": "draftEntryPackStoreEnabled"
+        },
+        {
+            "value": 1,
+            "type": "immediateRecoveryAttempt"
+        },
+        {
+            "value": 0,
+            "type": "userProgressionDWLoggingEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableLiveMessaging"
+        },
+        {
+            "value": 1,
+            "type": "mtxEnabled"
+        },
+        {
+            "value": 300,
+            "type": "tFAResendIntervalSecs"
+        },
+        {
+            "value": 1,
+            "type": "packOddsLowPercentageLocalizationThreshold"
+        },
+        {
+            "value": 0,
+            "type": "enableLegacyYearInfoInItemResourceId"
+        },
+        {
+            "value": 1,
+            "type": "enablePlayerPicks"
+        },
+        {
+            "value": 0,
+            "type": "enableAbuseReporting"
+        },
+        {
+            "value": 5000,
+            "type": "deactivateUsersTimeoutMS"
+        },
+        {
+            "value": 100,
+            "type": "transferListSize"
+        },
+        {
+            "value": 0,
+            "type": "deviceTemporalScoresEnabled"
+        },
+        {
+            "value": 2,
+            "type": "immediateRecoveryAttemptDelay"
+        },
+        {
+            "value": 1,
+            "type": "processingStateEnabled"
+        },
+        {
+            "value": 0,
+            "type": "enableSavingRegionOnSession"
+        },
+        {
+            "value": 0,
+            "type": "tFAEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableGrantLoaner"
+        },
+        {
+            "value": 1,
+            "type": "pointsPackStoreEnabled"
+        },
+        {
+            "value": 1,
+            "type": "cardPackStoreEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableHouseRules"
+        },
+        {
+            "value": 1,
+            "type": "maxPTPSOptimization"
+        },
+        {
+            "value": 840,
+            "type": "rivalsInitialSkillPointsInPlacement"
+        },
+        {
+            "value": 0,
+            "type": "enableSCMPAutoClaimOnFUTHub"
+        },
+        {
+            "value": 0,
+            "type": "allowRemoveFifaPointsOnDeactivateUser"
+        },
+        {
+            "value": 15,
+            "type": "houseRulesFriendsListPageSize"
+        },
+        {
+            "value": 1,
+            "type": "enableLegendPlayers"
+        },
+        {
+            "value": 50,
+            "type": "transferTargetListSize"
+        },
+        {
+            "value": 7200,
+            "type": "extendGameSessionTimerSec"
+        },
+        {
+            "value": 1140,
+            "type": "clientKeepAliveResetTimeoutSec"
+        },
+        {
+            "value": 0,
+            "type": "enableEntitlementDraftEntry"
+        },
+        {
+            "value": 1,
+            "type": "fifaPointsEnabled"
+        },
+        {
+            "value": 1,
+            "type": "tradeProcessConfidenceValueEnabled"
+        },
+        {
+            "value": 15,
+            "type": "postOperationTimeoutSec"
+        },
+        {
+            "value": 1,
+            "type": "enableDraftTokenAccountCreation"
+        },
+        {
+            "value": 15,
+            "type": "houseRulesCouchPlayMaxMiniSquadCategoriesRetrieved"
+        },
+        {
+            "value": 1,
+            "type": "totwHistoryEnabled"
+        },
+        {
+            "value": 50,
+            "type": "tradeProcessConfidenceValue"
+        },
+        {
+            "value": 0,
+            "type": "enablePackOddsCalculatingDueToManualAction"
+        },
+        {
+            "value": 0,
+            "type": "enableTifoInGame"
+        },
+        {
+            "value": 1000,
+            "type": "championsGlickoRatingMultiplier"
+        },
+        {
+            "value": 1,
+            "type": "returningUserRewardsScreenEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableSquadBuildingSetsFeature"
+        },
+        {
+            "value": 1,
+            "type": "enableDraftMode"
+        },
+        {
+            "value": 1,
+            "type": "TS2Enabled"
+        },
+        {
+            "value": 0,
+            "type": "ps3ConsumableTxnB2B"
+        },
+        {
+            "value": 10,
+            "type": "auctionSearchResultsCacheSize"
+        },
+        {
+            "value": 1,
+            "type": "enableRivals"
+        },
+        {
+            "value": 217874930400755712,
+            "type": "auctionExpiryData"
+        },
+        {
+            "value": 0,
+            "type": "enableSimMatch"
+        },
+        {
+            "value": 1,
+            "type": "dreamSquadEnabled"
+        },
+        {
+            "value": 0,
+            "type": "spectatorModeChampionsEventIdOverride"
+        },
+        {
+            "value": 20160,
+            "type": "championsScheduleViewPeriodInMinutes"
+        },
+        {
+            "value": 1,
+            "type": "enableItemDataRarityGroupsInfo"
+        },
+        {
+            "value": 20000,
+            "type": "ps3B2BAuthCodeTimeout"
+        },
+        {
+            "value": 1,
+            "type": "seasonTicketStoreEnabled"
+        },
+        {
+            "value": 0,
+            "type": "charityPlayerDbID"
+        },
+        {
+            "value": 1,
+            "type": "mtxEnabled_JP"
+        },
+        {
+            "value": 1800,
+            "type": "rivalsEventEndTimeInSec"
+        },
+        {
+            "value": 15,
+            "type": "getOperationTimeoutSec"
+        },
+        {
+            "value": 1,
+            "type": "enableFloatPointSquadRating"
+        },
+        {
+            "value": 240,
+            "type": "rivalsPlacementRFactor"
+        },
+        {
+            "value": 0,
+            "type": "enableBannerInGame"
+        },
+        {
+            "value": 24,
+            "type": "gracePeriodWeekendLeagueInHours"
+        },
+        {
+            "value": 0,
+            "type": "enableV4CompanionCommerce"
+        },
+        {
+            "value": 1,
+            "type": "allowBrokeringSkuToRequestTargetSku"
+        },
+        {
+            "value": 0,
+            "type": "enablePackOddsCalculatingDueToCacheflush"
+        },
+        {
+            "value": 1,
+            "type": "enableMatchHistoryLogging"
+        },
+        {
+            "value": 4,
+            "type": "firstPartyCommerceFlowVersion"
+        },
+        {
+            "value": 0,
+            "type": "rewardProviderEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableLeaderboards"
+        },
+        {
+            "value": 10,
+            "type": "offlineEndSeasonDivision"
+        },
+        {
+            "value": 1,
+            "type": "allowUntradeableForSquadBuildingSets"
+        },
+        {
+            "value": 1,
+            "type": "TS2ForBrokeringEnabled"
+        },
+        {
+            "value": 1,
+            "type": "pickPackRulesFixEnabled"
+        },
+        {
+            "value": 0,
+            "type": "enableRegionalKillSwitchFramework"
+        },
+        {
+            "value": 1,
+            "type": "userTemporalScoresEnabled"
+        },
+        {
+            "value": 0,
+            "type": "enableUntradeableQueryParameterForSearchClubApi"
+        },
+        {
+            "value": 1,
+            "type": "sendSimEvents"
+        },
+        {
+            "value": 10,
+            "type": "houseRulesCouchPlayMaxSquadsRetrieved"
+        },
+        {
+            "value": 0,
+            "type": "enableLoyaltyBonusForConceptPlayers"
+        },
+        {
+            "value": 1,
+            "type": "tournamentQuitEnabled"
+        },
+        {
+            "value": 1,
+            "type": "enableShowPackOdds"
+        },
+        {
+            "value": 0,
+            "type": "tradeOffersEnabled"
+        },
+        {
+            "value": 15,
+            "type": "putOperationTimeoutSec"
+        },
+        {
+            "value": 0,
+            "type": "rivalsSkillPointsCapValue"
+        },
+        {
+            "value": 1,
+            "type": "loanPlayerPurchaseFeatureEnable"
+        },
+        {
+            "value": 1209600,
+            "type": "SecurityScoreResetExternalScoreApplyTillSecs"
+        },
+        {
+            "value": 0,
+            "type": "enableSpecificErrorForBannedUserLogin"
+        },
+        {
+            "value": 1,
+            "type": "tokenPackStoreEnabled"
+        },
+        {
+            "value": 30,
+            "type": "squadSlots"
+        },
+        {
+            "value": 5,
+            "type": "scmpMaxNumberOfRequestedGroups"
+        },
+        {
+            "value": 1,
+            "type": "enableDefIdSearch"
+        },
+        {
+            "value": 1,
+            "type": "fifaPointsEnabled_JP"
+        },
+        {
+            "value": 1,
+            "type": "enableFUTChampions"
+        },
+        {
+            "value": 1,
+            "type": "tournamentEnabled"
+        },
+        {
+            "value": 1,
+            "type": "cardPackStoreEnabled_JP"
+        },
+        {
+            "value": 0,
+            "type": "phishingEnabled"
+        },
+        {
+            "value": 0,
+            "type": "enableCelebrationInGame"
+        },
+        {
+            "value": 1,
+            "type": "enableDynamicObjectives"
+        },
+        {
+            "value": 60,
+            "type": "squadBuildingSetsGracePeriodMinutes"
+        },
+        {
+            "value": 1,
+            "type": "enablePointsDraftEntry"
+        },
+        {
+            "value": 1,
+            "type": "storeEnabled"
+        }
+    ]
+}

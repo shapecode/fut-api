@@ -1,0 +1,151 @@
+{
+    "credits": 22194,
+    "auctionInfo": [
+        {
+            "tradeId": 261547766667,
+            "itemData": {
+                "id": 369465564985,
+                "timestamp": 1572616187,
+                "formation": "f5212",
+                "untradeable": false,
+                "assetId": 244791,
+                "rating": 77,
+                "itemType": "player",
+                "resourceId": 244791,
+                "owners": 3,
+                "discardValue": 308,
+                "itemState": "free",
+                "cardsubtypeid": 2,
+                "lastSalePrice": 400,
+                "fitness": 99,
+                "injuryType": "none",
+                "injuryGames": 0,
+                "preferredPosition": "CM",
+                "training": 0,
+                "contract": 7,
+                "teamid": 673,
+                "rareflag": 0,
+                "playStyle": 250,
+                "leagueId": 4,
+                "assists": 0,
+                "lifetimeAssists": 0,
+                "loyaltyBonus": 0,
+                "pile": 6,
+                "nation": 43,
+                "resourceGameYear": 2020,
+                "attributeArray": [
+                    71,
+                    68,
+                    76,
+                    76,
+                    70,
+                    68
+                ],
+                "statsArray": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "lifetimeStatsArray": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "skillmoves": 2,
+                "weakfootabilitytypecode": 3,
+                "attackingworkrate": 2,
+                "defensiveworkrate": 2,
+                "trait1": 3072,
+                "trait2": 0,
+                "preferredfoot": 1
+            },
+            "tradeState": "closed",
+            "buyNowPrice": 400,
+            "currentBid": 400,
+            "offers": 0,
+            "watched": false,
+            "bidState": "buyNow",
+            "startingBid": 350,
+            "confidenceValue": 100,
+            "expires": -1,
+            "sellerName": "FIFA UT",
+            "sellerEstablished": 0,
+            "sellerId": 0,
+            "tradeOwner": false,
+            "coinsProcessed": 1,
+            "tradeIdStr": "261547766667"
+        }
+    ],
+    "bidTokens": {},
+    "currencies": [
+        {
+            "name": "COINS",
+            "funds": 22194,
+            "finalFunds": 22194
+        },
+        {
+            "name": "POINTS",
+            "funds": 0,
+            "finalFunds": 0
+        },
+        {
+            "name": "DRAFT_TOKEN",
+            "funds": 0,
+            "finalFunds": 0
+        }
+    ],
+    "dynamicObjectivesUpdates": {
+        "needsGroupsRefresh": true,
+        "scmpCategoryProgressList": [
+            {
+                "categoryId": 1,
+                "scmpGroupProgressList": [
+                    {
+                        "groupId": 136,
+                        "state": 1,
+                        "objectiveProgressList": [
+                            {
+                                "objectiveId": 22041,
+                                "state": 1,
+                                "progressCount": 29
+                            }
+                        ]
+                    },
+                    {
+                        "groupId": 235,
+                        "state": 1,
+                        "objectiveProgressList": [
+                            {
+                                "objectiveId": 22557,
+                                "state": 3,
+                                "progressCount": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "categoryId": 1,
+                "scmpGroupProgressList": [
+                    {
+                        "groupId": 192,
+                        "state": 1,
+                        "objectiveProgressList": [
+                            {
+                                "objectiveId": 22385,
+                                "state": 3,
+                                "progressCount": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "autoRedeemedXp": 450,
+        "needsAutoClaim": false
+    }
+}

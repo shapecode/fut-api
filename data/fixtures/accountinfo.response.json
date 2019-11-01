@@ -1,0 +1,60 @@
+{
+    "userAccountInfo": {
+        "personas": [
+            {
+                "personaId": 6540058052,
+                "personaName": "PersonaName",
+                "returningUser": 1,
+                "onlineAccess": true,
+                "trial": false,
+                "userState": null,
+                "userClubList": [
+                    {
+                        "year": "2019",
+                        "assetId": 160,
+                        "teamId": 160,
+                        "lastAccessTime": 1569537415,
+                        "platform": "ps3",
+                        "clubName": "clubName1",
+                        "clubAbbr": "clubAbbr1",
+                        "established": 1546179266,
+                        "divisionOnline": 1,
+                        "badgeId": 6000160,
+                        "skuAccessList": {
+                            "FFA19PS4": 1569537654
+                        }
+                    },
+                    {
+                        "year": "2020",
+                        "assetId": 114029,
+                        "teamId": 114029,
+                        "lastAccessTime": 1572615098,
+                        "platform": "ps3",
+                        "clubName": "clubName2",
+                        "clubAbbr": "clubAbbr2",
+                        "established": 1546179266,
+                        "divisionOnline": 1,
+                        "badgeId": 6114029,
+                        "skuAccessList": {
+                            "FFA20PS4": 1572615654
+                        }
+                    },
+                    {
+                        "year": "2019",
+                        "assetId": 160,
+                        "teamId": 160,
+                        "lastAccessTime": 1566051349,
+                        "platform": "ps3",
+                        "clubName": "clubName3",
+                        "clubAbbr": "clubAbbr2",
+                        "established": 1546179654,
+                        "divisionOnline": 0,
+                        "badgeId": 6000160,
+                        "skuAccessList": null
+                    }
+                ],
+                "trialFree": false
+            }
+        ]
+    }
+}

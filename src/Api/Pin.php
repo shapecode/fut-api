@@ -14,7 +14,7 @@ use function json_encode;
 use function mb_strlen;
 use function substr;
 
-final class Pin
+class Pin
 {
     private const PIN_URL         = 'https://pin-river.data.ea.com/pinEvents';
     private const DATETIME_FORMAT = 'Y-m-d\TH:i:s.v\Z';

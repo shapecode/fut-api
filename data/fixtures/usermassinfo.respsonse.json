@@ -1,0 +1,4446 @@
+{
+    "errors": {},
+    "settings": {
+        "configs": [
+            {
+                "value": 1,
+                "type": "enableSeasonalCampaigns"
+            },
+            {
+                "value": 0,
+                "type": "tokenRedemptionEnabled"
+            },
+            {
+                "value": 1,
+                "type": "tradingEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableEntitlementsVerificationInPromoMessages"
+            },
+            {
+                "value": 1,
+                "type": "newChemistry"
+            },
+            {
+                "value": 1,
+                "type": "enableSpectatorMode"
+            },
+            {
+                "value": 1,
+                "type": "coinEnabled_JP"
+            },
+            {
+                "value": 20200101,
+                "type": "transferFifaPointsFromLastYearEndDate"
+            },
+            {
+                "value": 5,
+                "type": "kitSelectCountdownTimerLengthInSeconds"
+            },
+            {
+                "value": 1,
+                "type": "coinEnabled"
+            },
+            {
+                "value": 10,
+                "type": "onlineEndSeasonDivision"
+            },
+            {
+                "value": 15,
+                "type": "deleteOperationTimeoutSec"
+            },
+            {
+                "value": 20190101,
+                "type": "transferFifaPointsFromLastYearStartDate"
+            },
+            {
+                "value": 0,
+                "type": "friendlySeasonsEnabled"
+            },
+            {
+                "value": 1,
+                "type": "storeEnabled_JP"
+            },
+            {
+                "value": 1,
+                "type": "enableSinglePlayerDraftMode"
+            },
+            {
+                "value": 3,
+                "type": "numEndMatchRetriesAllowed"
+            },
+            {
+                "value": 0,
+                "type": "enableBatchedTrades"
+            },
+            {
+                "value": 1,
+                "type": "checkServerDbVersion"
+            },
+            {
+                "value": 1,
+                "type": "allowGracePeriodForSquadBuildingSets"
+            },
+            {
+                "value": 5,
+                "type": "clubCreateThreshold"
+            },
+            {
+                "value": 1,
+                "type": "draftEntryPackStoreEnabled"
+            },
+            {
+                "value": 1,
+                "type": "immediateRecoveryAttempt"
+            },
+            {
+                "value": 0,
+                "type": "userProgressionDWLoggingEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableLiveMessaging"
+            },
+            {
+                "value": 1,
+                "type": "mtxEnabled"
+            },
+            {
+                "value": 300,
+                "type": "tFAResendIntervalSecs"
+            },
+            {
+                "value": 1,
+                "type": "packOddsLowPercentageLocalizationThreshold"
+            },
+            {
+                "value": 0,
+                "type": "enableLegacyYearInfoInItemResourceId"
+            },
+            {
+                "value": 1,
+                "type": "enablePlayerPicks"
+            },
+            {
+                "value": 0,
+                "type": "enableAbuseReporting"
+            },
+            {
+                "value": 5000,
+                "type": "deactivateUsersTimeoutMS"
+            },
+            {
+                "value": 100,
+                "type": "transferListSize"
+            },
+            {
+                "value": 0,
+                "type": "deviceTemporalScoresEnabled"
+            },
+            {
+                "value": 2,
+                "type": "immediateRecoveryAttemptDelay"
+            },
+            {
+                "value": 1,
+                "type": "processingStateEnabled"
+            },
+            {
+                "value": 0,
+                "type": "enableSavingRegionOnSession"
+            },
+            {
+                "value": 0,
+                "type": "tFAEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableGrantLoaner"
+            },
+            {
+                "value": 1,
+                "type": "pointsPackStoreEnabled"
+            },
+            {
+                "value": 1,
+                "type": "cardPackStoreEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableHouseRules"
+            },
+            {
+                "value": 1,
+                "type": "maxPTPSOptimization"
+            },
+            {
+                "value": 840,
+                "type": "rivalsInitialSkillPointsInPlacement"
+            },
+            {
+                "value": 0,
+                "type": "enableSCMPAutoClaimOnFUTHub"
+            },
+            {
+                "value": 0,
+                "type": "allowRemoveFifaPointsOnDeactivateUser"
+            },
+            {
+                "value": 15,
+                "type": "houseRulesFriendsListPageSize"
+            },
+            {
+                "value": 1,
+                "type": "enableLegendPlayers"
+            },
+            {
+                "value": 50,
+                "type": "transferTargetListSize"
+            },
+            {
+                "value": 7200,
+                "type": "extendGameSessionTimerSec"
+            },
+            {
+                "value": 1140,
+                "type": "clientKeepAliveResetTimeoutSec"
+            },
+            {
+                "value": 0,
+                "type": "enableEntitlementDraftEntry"
+            },
+            {
+                "value": 1,
+                "type": "fifaPointsEnabled"
+            },
+            {
+                "value": 1,
+                "type": "tradeProcessConfidenceValueEnabled"
+            },
+            {
+                "value": 15,
+                "type": "postOperationTimeoutSec"
+            },
+            {
+                "value": 1,
+                "type": "enableDraftTokenAccountCreation"
+            },
+            {
+                "value": 15,
+                "type": "houseRulesCouchPlayMaxMiniSquadCategoriesRetrieved"
+            },
+            {
+                "value": 1,
+                "type": "totwHistoryEnabled"
+            },
+            {
+                "value": 50,
+                "type": "tradeProcessConfidenceValue"
+            },
+            {
+                "value": 0,
+                "type": "enablePackOddsCalculatingDueToManualAction"
+            },
+            {
+                "value": 0,
+                "type": "enableTifoInGame"
+            },
+            {
+                "value": 1000,
+                "type": "championsGlickoRatingMultiplier"
+            },
+            {
+                "value": 1,
+                "type": "returningUserRewardsScreenEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableSquadBuildingSetsFeature"
+            },
+            {
+                "value": 1,
+                "type": "enableDraftMode"
+            },
+            {
+                "value": 1,
+                "type": "TS2Enabled"
+            },
+            {
+                "value": 0,
+                "type": "ps3ConsumableTxnB2B"
+            },
+            {
+                "value": 10,
+                "type": "auctionSearchResultsCacheSize"
+            },
+            {
+                "value": 1,
+                "type": "enableRivals"
+            },
+            {
+                "value": 217874930400755712,
+                "type": "auctionExpiryData"
+            },
+            {
+                "value": 0,
+                "type": "enableSimMatch"
+            },
+            {
+                "value": 1,
+                "type": "dreamSquadEnabled"
+            },
+            {
+                "value": 0,
+                "type": "spectatorModeChampionsEventIdOverride"
+            },
+            {
+                "value": 20160,
+                "type": "championsScheduleViewPeriodInMinutes"
+            },
+            {
+                "value": 1,
+                "type": "enableItemDataRarityGroupsInfo"
+            },
+            {
+                "value": 20000,
+                "type": "ps3B2BAuthCodeTimeout"
+            },
+            {
+                "value": 1,
+                "type": "seasonTicketStoreEnabled"
+            },
+            {
+                "value": 0,
+                "type": "charityPlayerDbID"
+            },
+            {
+                "value": 1,
+                "type": "mtxEnabled_JP"
+            },
+            {
+                "value": 1800,
+                "type": "rivalsEventEndTimeInSec"
+            },
+            {
+                "value": 15,
+                "type": "getOperationTimeoutSec"
+            },
+            {
+                "value": 1,
+                "type": "enableFloatPointSquadRating"
+            },
+            {
+                "value": 240,
+                "type": "rivalsPlacementRFactor"
+            },
+            {
+                "value": 0,
+                "type": "enableBannerInGame"
+            },
+            {
+                "value": 24,
+                "type": "gracePeriodWeekendLeagueInHours"
+            },
+            {
+                "value": 0,
+                "type": "enableV4CompanionCommerce"
+            },
+            {
+                "value": 1,
+                "type": "allowBrokeringSkuToRequestTargetSku"
+            },
+            {
+                "value": 0,
+                "type": "enablePackOddsCalculatingDueToCacheflush"
+            },
+            {
+                "value": 1,
+                "type": "enableMatchHistoryLogging"
+            },
+            {
+                "value": 4,
+                "type": "firstPartyCommerceFlowVersion"
+            },
+            {
+                "value": 0,
+                "type": "rewardProviderEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableLeaderboards"
+            },
+            {
+                "value": 10,
+                "type": "offlineEndSeasonDivision"
+            },
+            {
+                "value": 1,
+                "type": "allowUntradeableForSquadBuildingSets"
+            },
+            {
+                "value": 1,
+                "type": "TS2ForBrokeringEnabled"
+            },
+            {
+                "value": 1,
+                "type": "pickPackRulesFixEnabled"
+            },
+            {
+                "value": 0,
+                "type": "enableRegionalKillSwitchFramework"
+            },
+            {
+                "value": 1,
+                "type": "userTemporalScoresEnabled"
+            },
+            {
+                "value": 0,
+                "type": "enableUntradeableQueryParameterForSearchClubApi"
+            },
+            {
+                "value": 1,
+                "type": "sendSimEvents"
+            },
+            {
+                "value": 10,
+                "type": "houseRulesCouchPlayMaxSquadsRetrieved"
+            },
+            {
+                "value": 0,
+                "type": "enableLoyaltyBonusForConceptPlayers"
+            },
+            {
+                "value": 1,
+                "type": "tournamentQuitEnabled"
+            },
+            {
+                "value": 1,
+                "type": "enableShowPackOdds"
+            },
+            {
+                "value": 0,
+                "type": "tradeOffersEnabled"
+            },
+            {
+                "value": 15,
+                "type": "putOperationTimeoutSec"
+            },
+            {
+                "value": 0,
+                "type": "rivalsSkillPointsCapValue"
+            },
+            {
+                "value": 1,
+                "type": "loanPlayerPurchaseFeatureEnable"
+            },
+            {
+                "value": 1209600,
+                "type": "SecurityScoreResetExternalScoreApplyTillSecs"
+            },
+            {
+                "value": 0,
+                "type": "enableSpecificErrorForBannedUserLogin"
+            },
+            {
+                "value": 1,
+                "type": "tokenPackStoreEnabled"
+            },
+            {
+                "value": 30,
+                "type": "squadSlots"
+            },
+            {
+                "value": 5,
+                "type": "scmpMaxNumberOfRequestedGroups"
+            },
+            {
+                "value": 1,
+                "type": "enableDefIdSearch"
+            },
+            {
+                "value": 1,
+                "type": "fifaPointsEnabled_JP"
+            },
+            {
+                "value": 1,
+                "type": "enableFUTChampions"
+            },
+            {
+                "value": 1,
+                "type": "tournamentEnabled"
+            },
+            {
+                "value": 1,
+                "type": "cardPackStoreEnabled_JP"
+            },
+            {
+                "value": 0,
+                "type": "phishingEnabled"
+            },
+            {
+                "value": 0,
+                "type": "enableCelebrationInGame"
+            },
+            {
+                "value": 1,
+                "type": "enableDynamicObjectives"
+            },
+            {
+                "value": 60,
+                "type": "squadBuildingSetsGracePeriodMinutes"
+            },
+            {
+                "value": 1,
+                "type": "enablePointsDraftEntry"
+            },
+            {
+                "value": 1,
+                "type": "storeEnabled"
+            }
+        ]
+    },
+    "userInfo": {
+        "personaId": 6848468484,
+        "clubName": "ClubName",
+        "clubAbbr": "ClubAbbr",
+        "draw": 1,
+        "loss": 3,
+        "credits": 54045,
+        "bidTokens": {},
+        "currencies": [
+            {
+                "name": "COINS",
+                "funds": 54045,
+                "finalFunds": 54045
+            },
+            {
+                "name": "POINTS",
+                "funds": 0,
+                "finalFunds": 0
+            },
+            {
+                "name": "DRAFT_TOKEN",
+                "funds": 0,
+                "finalFunds": 0
+            }
+        ],
+        "trophies": 0,
+        "won": 11,
+        "actives": [
+            {
+                "id": 8468468151684,
+                "timestamp": 1568826562,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 6500125,
+                "rating": 80,
+                "itemType": "tifo",
+                "resourceId": 6500125,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeTifo",
+                "cardsubtypeid": 13,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 65,
+                "value": 80,
+                "name": "FUT_TifoName_125",
+                "description": "FUT 20 Theme",
+                "resourceGameYear": 2020,
+                "authenticity": false
+            },
+            {
+                "id": 5432453354356,
+                "timestamp": 1569599835,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 6600003,
+                "rating": 70,
+                "itemType": "banner",
+                "resourceId": 6600003,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBanner",
+                "cardsubtypeid": 14,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 66,
+                "value": 70,
+                "name": "FUT_BannerName_3",
+                "description": "Panther",
+                "resourceGameYear": 2020,
+                "primaryTextColor": 16777215,
+                "secondaryTextColor": 16777215,
+                "authenticity": false,
+                "baseColor": 3816056
+            },
+            {
+                "id": 3640964657052,
+                "timestamp": 1570365913,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 219,
+                "rating": 90,
+                "itemType": "ball",
+                "resourceId": 8120219,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBall",
+                "cardsubtypeid": 30,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 37,
+                "value": 90,
+                "category": 1,
+                "manufacturer": "ManufacturerGeneric",
+                "name": "BallName_219",
+                "resourceGameYear": 2020,
+                "authenticity": false
+            },
+            {
+                "id": 3546874519457,
+                "timestamp": 1568826643,
+                "formation": "f433",
+                "untradeable": false,
+                "assetId": 15,
+                "rating": 80,
+                "itemType": "kit",
+                "resourceId": 6401377,
+                "owners": 1,
+                "discardValue": 56,
+                "itemState": "activeAwayKit",
+                "cardsubtypeid": 9,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 21,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "category": 3,
+                "name": "TeamName_Abbr15_21",
+                "year": 0,
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 361547214333,
+                "timestamp": 1569597210,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 31,
+                "rating": 70,
+                "itemType": "celebration",
+                "resourceId": 6750031,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeCelebration",
+                "cardsubtypeid": 15,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 68,
+                "value": 70,
+                "name": "ucc_oldman",
+                "description": "Old Man",
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 3640966545523,
+                "timestamp": 1570365937,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 114029,
+                "rating": 99,
+                "itemType": "custom",
+                "resourceId": 6114029,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBadge",
+                "cardsubtypeid": 11,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 114029,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 39,
+                "value": 99,
+                "category": 1,
+                "name": "TeamName_Abbr15_114029",
+                "weightrare": 0,
+                "description": "TeamName_Abbr15_114029",
+                "header": "Badge",
+                "biodescription": "FUT Custom Team 2",
+                "chantsCount": 0,
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 360809654708,
+                "timestamp": 1569536045,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 172,
+                "rating": 80,
+                "itemType": "stadium",
+                "resourceId": 6200172,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeStadium",
+                "cardsubtypeid": 10,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 36,
+                "category": 4,
+                "name": "_FeWC Stadium",
+                "description": "StadiumDesc_172",
+                "biodescription": "StadiumDetailDesc",
+                "stadiumid": 172,
+                "capacity": 51273,
+                "resourceGameYear": 2020,
+                "tifoSupportType": 1,
+                "tifoRestricted": false,
+                "bannerRestricted": false,
+                "ballRestricted": false,
+                "preferredTime1": 1200,
+                "preferredTime2": 2200,
+                "preferredWeather": 0
+            },
+            {
+                "id": 356541976529,
+                "timestamp": 1568826562,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 14,
+                "rating": 99,
+                "itemType": "kit",
+                "resourceId": 6308433,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeHomeKit",
+                "cardsubtypeid": 9,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 113696,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "category": 2,
+                "name": "TeamName_Abbr15_113696",
+                "year": 0,
+                "resourceGameYear": 2020
+            }
+        ],
+        "established": "1546179266",
+        "divisionOffline": 1,
+        "divisionOnline": 1,
+        "personaName": "PersonaName",
+        "squadList": {
+            "squad": [
+                {
+                    "id": 0,
+                    "valid": true,
+                    "personaId": null,
+                    "formation": "f4411a",
+                    "rating": 82,
+                    "chemistry": 100,
+                    "manager": [],
+                    "players": [],
+                    "dreamSquad": null,
+                    "changed": null,
+                    "squadName": "SquadName",
+                    "starRating": 82,
+                    "captain": null,
+                    "kicktakers": [],
+                    "actives": [],
+                    "newSquad": null,
+                    "squadType": "REGULAR_SQUAD",
+                    "custom": null,
+                    "tactics": [
+                        {
+                            "squadId": 0,
+                            "tactic": "ULTRA_DEFENSIVE",
+                            "lastUpdateTime": 1570294721,
+                            "formation": "f4411a",
+                            "positions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 9
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 10
+                                }
+                            ],
+                            "instructions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 24
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 24
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 1329152
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 134219776
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 134220032
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 1329152
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 11,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 12,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 13,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 14,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 15,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 16,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 17,
+                                    "value": 8328
+                                },
+                                {
+                                    "index": 18,
+                                    "value": 136
+                                },
+                                {
+                                    "index": 19,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 20,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 21,
+                                    "value": 0
+                                }
+                            ],
+                            "styles": [
+                                {
+                                    "index": 0,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "squadId": 0,
+                            "tactic": "DEFENSIVE",
+                            "lastUpdateTime": 1570363479,
+                            "formation": "f4231",
+                            "positions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 9
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 10
+                                }
+                            ],
+                            "instructions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 264
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 264
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 64
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 320
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 134252544
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 11,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 12,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 13,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 14,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 15,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 16,
+                                    "value": 8328
+                                },
+                                {
+                                    "index": 17,
+                                    "value": 136
+                                },
+                                {
+                                    "index": 18,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 19,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 20,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 21,
+                                    "value": 0
+                                }
+                            ],
+                            "styles": [
+                                {
+                                    "index": 0,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 3
+                                }
+                            ]
+                        },
+                        {
+                            "squadId": 0,
+                            "tactic": "BALANCED",
+                            "lastUpdateTime": 1570363182,
+                            "formation": "f4411a",
+                            "positions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 9
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 10
+                                }
+                            ],
+                            "instructions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 11,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 12,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 13,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 14,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 15,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 16,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 17,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 18,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 19,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 20,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 21,
+                                    "value": 0
+                                }
+                            ],
+                            "styles": [
+                                {
+                                    "index": 0,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 3
+                                }
+                            ]
+                        },
+                        {
+                            "squadId": 0,
+                            "tactic": "ATTACKING",
+                            "lastUpdateTime": 1570363479,
+                            "formation": "f4321",
+                            "positions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 9
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 10
+                                }
+                            ],
+                            "instructions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 264
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 264
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 134219776
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 134220032
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 1376256
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 1376256
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 67436544
+                                },
+                                {
+                                    "index": 11,
+                                    "value": 4352
+                                },
+                                {
+                                    "index": 12,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 13,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 14,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 15,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 16,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 17,
+                                    "value": 8264
+                                },
+                                {
+                                    "index": 18,
+                                    "value": 72
+                                },
+                                {
+                                    "index": 19,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 20,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 21,
+                                    "value": 8
+                                }
+                            ],
+                            "styles": [
+                                {
+                                    "index": 0,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 4
+                                }
+                            ]
+                        },
+                        {
+                            "squadId": 0,
+                            "tactic": "ULTRA_ATTACKING",
+                            "lastUpdateTime": 1570275012,
+                            "formation": "f352",
+                            "positions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 3
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 6
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 9
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 10
+                                }
+                            ],
+                            "instructions": [
+                                {
+                                    "index": 0,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 576
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 80
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 2655232
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 2655232
+                                },
+                                {
+                                    "index": 8,
+                                    "value": 134285312
+                                },
+                                {
+                                    "index": 9,
+                                    "value": 33619976
+                                },
+                                {
+                                    "index": 10,
+                                    "value": 33619976
+                                },
+                                {
+                                    "index": 11,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 12,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 13,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 14,
+                                    "value": 0
+                                },
+                                {
+                                    "index": 15,
+                                    "value": 136
+                                },
+                                {
+                                    "index": 16,
+                                    "value": 136
+                                },
+                                {
+                                    "index": 17,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 18,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 19,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 20,
+                                    "value": 8
+                                },
+                                {
+                                    "index": 21,
+                                    "value": 8
+                                }
+                            ],
+                            "styles": [
+                                {
+                                    "index": 0,
+                                    "value": 1
+                                },
+                                {
+                                    "index": 1,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 2,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 3,
+                                    "value": 4
+                                },
+                                {
+                                    "index": 4,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 5,
+                                    "value": 7
+                                },
+                                {
+                                    "index": 6,
+                                    "value": 5
+                                },
+                                {
+                                    "index": 7,
+                                    "value": 5
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "activeSquadId": 0
+        },
+        "unopenedPacks": {
+            "preOrderPacks": 0,
+            "recoveredPacks": 0
+        },
+        "purchased": false,
+        "reliability": {
+            "reliability": 125,
+            "startedMatches": 15,
+            "finishedMatches": 15,
+            "matchUnfinishedTime": 0
+        },
+        "seasonTicket": false,
+        "accountCreatedPlatformName": "PS3",
+        "fifaPointsFromLastYear": 0,
+        "fifaPointsTransferredStatus": 0,
+        "unassignedPileSize": 0,
+        "feature": {
+            "trade": 2,
+            "rivals": 0
+        },
+        "sessionCoinsBankBalance": 54045
+    },
+    "purchasedItems": {
+        "itemData": []
+    },
+    "loanPlayerClientData": {
+        "entries": [
+            {
+                "value": 213345,
+                "key": 0
+            }
+        ]
+    },
+    "squad": {
+        "id": 0,
+        "valid": true,
+        "personaId": 5404598796,
+        "formation": "f4411a",
+        "rating": null,
+        "chemistry": 100,
+        "manager": [
+            {
+                "id": 363796542272,
+                "timestamp": 1570265079,
+                "formation": "f433",
+                "untradeable": false,
+                "assetId": 1250469,
+                "rating": 50,
+                "itemType": "manager",
+                "resourceId": 1250469,
+                "owners": 2,
+                "discardValue": 10,
+                "itemState": "free",
+                "cardsubtypeid": 4,
+                "lastSalePrice": 350,
+                "statsList": [],
+                "lifetimeStats": [],
+                "contract": 1,
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 19,
+                "pile": 7,
+                "nation": 21,
+                "firstName": "Sebastian",
+                "lastName": "Blechmüller",
+                "negotiation": 0,
+                "resourceGameYear": 2020
+            }
+        ],
+        "players": [
+            {
+                "index": 0,
+                "itemData": {
+                    "id": 359719654435,
+                    "timestamp": 1570363673,
+                    "formation": "f343",
+                    "untradeable": false,
+                    "assetId": 185122,
+                    "rating": 85,
+                    "itemType": "player",
+                    "resourceId": 185122,
+                    "owners": 7,
+                    "discardValue": 680,
+                    "itemState": "free",
+                    "cardsubtypeid": 0,
+                    "lastSalePrice": 7300,
+                    "fitness": 91,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "GK",
+                    "training": 0,
+                    "contract": 7,
+                    "teamid": 112172,
+                    "rareflag": 1,
+                    "playStyle": 271,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 23,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        84,
+                        86,
+                        81,
+                        86,
+                        43,
+                        84
+                    ],
+                    "statsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        74,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 0,
+                    "weakfootabilitytypecode": 2,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 0,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 21
+            },
+            {
+                "index": 1,
+                "itemData": {
+                    "id": 360865496167,
+                    "timestamp": 1569566703,
+                    "formation": "f532",
+                    "untradeable": false,
+                    "assetId": 202429,
+                    "rating": 79,
+                    "itemType": "player",
+                    "resourceId": 202429,
+                    "owners": 2,
+                    "discardValue": 632,
+                    "itemState": "free",
+                    "cardsubtypeid": 1,
+                    "lastSalePrice": 1200,
+                    "fitness": 95,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "RB",
+                    "training": 0,
+                    "contract": 21,
+                    "teamid": 1824,
+                    "rareflag": 1,
+                    "playStyle": 265,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        81,
+                        50,
+                        70,
+                        72,
+                        76,
+                        81
+                    ],
+                    "statsArray": [
+                        14,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        14,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 2,
+                    "trait1": 0,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 2
+            },
+            {
+                "index": 2,
+                "itemData": {
+                    "id": 359691654228,
+                    "timestamp": 1570190451,
+                    "formation": "f343",
+                    "untradeable": false,
+                    "assetId": 183907,
+                    "rating": 84,
+                    "itemType": "player",
+                    "resourceId": 183907,
+                    "owners": 9,
+                    "discardValue": 672,
+                    "itemState": "free",
+                    "cardsubtypeid": 1,
+                    "lastSalePrice": 10250,
+                    "fitness": 94,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CB",
+                    "training": 0,
+                    "contract": 14,
+                    "teamid": 21,
+                    "rareflag": 1,
+                    "playStyle": 268,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        66,
+                        50,
+                        72,
+                        66,
+                        84,
+                        82
+                    ],
+                    "statsArray": [
+                        6,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        56,
+                        0,
+                        3,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 1,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 1029,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 24
+            },
+            {
+                "index": 3,
+                "itemData": {
+                    "id": 365497057781,
+                    "timestamp": 1570190580,
+                    "formation": "f5212",
+                    "untradeable": false,
+                    "assetId": 213331,
+                    "rating": 83,
+                    "itemType": "player",
+                    "resourceId": 213331,
+                    "owners": 6,
+                    "discardValue": 664,
+                    "itemState": "free",
+                    "cardsubtypeid": 1,
+                    "lastSalePrice": 6900,
+                    "fitness": 95,
+                    "injuryType": "shoulder",
+                    "injuryGames": 0,
+                    "preferredPosition": "CB",
+                    "training": 0,
+                    "contract": 24,
+                    "teamid": 32,
+                    "rareflag": 1,
+                    "playStyle": 267,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        71,
+                        27,
+                        59,
+                        58,
+                        83,
+                        81
+                    ],
+                    "statsArray": [
+                        6,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        58,
+                        0,
+                        6,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 1,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 0,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 22
+            },
+            {
+                "index": 4,
+                "itemData": {
+                    "id": 358856306542,
+                    "timestamp": 1569567077,
+                    "formation": "f4411",
+                    "untradeable": false,
+                    "assetId": 210665,
+                    "rating": 80,
+                    "itemType": "player",
+                    "resourceId": 210665,
+                    "owners": 6,
+                    "discardValue": 640,
+                    "itemState": "free",
+                    "cardsubtypeid": 1,
+                    "lastSalePrice": 1300,
+                    "fitness": 94,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LB",
+                    "training": 0,
+                    "contract": 14,
+                    "teamid": 112172,
+                    "rareflag": 1,
+                    "playStyle": 265,
+                    "leagueId": 19,
+                    "assists": 2,
+                    "lifetimeAssists": 2,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        69,
+                        66,
+                        72,
+                        72,
+                        80,
+                        80
+                    ],
+                    "statsArray": [
+                        14,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        19,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 0,
+                    "trait1": 2048,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 5
+            },
+            {
+                "index": 5,
+                "itemData": {
+                    "id": 360465409377,
+                    "timestamp": 1569602164,
+                    "formation": "f433",
+                    "untradeable": false,
+                    "assetId": 202857,
+                    "rating": 82,
+                    "itemType": "player",
+                    "resourceId": 202857,
+                    "owners": 3,
+                    "discardValue": 656,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 7800,
+                    "fitness": 94,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "RM",
+                    "training": 0,
+                    "contract": 28,
+                    "teamid": 32,
+                    "rareflag": 1,
+                    "playStyle": 256,
+                    "leagueId": 19,
+                    "assists": 1,
+                    "lifetimeAssists": 1,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        92,
+                        76,
+                        74,
+                        84,
+                        34,
+                        71
+                    ],
+                    "statsArray": [
+                        5,
+                        1,
+                        1,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        5,
+                        1,
+                        1,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 0,
+                    "trait1": 133632,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 16
+            },
+            {
+                "index": 6,
+                "itemData": {
+                    "id": 363566546286,
+                    "timestamp": 1570190715,
+                    "formation": "f5221",
+                    "untradeable": false,
+                    "assetId": 193283,
+                    "rating": 82,
+                    "itemType": "player",
+                    "resourceId": 193283,
+                    "owners": 3,
+                    "discardValue": 656,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 1500,
+                    "fitness": 96,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CM",
+                    "training": 0,
+                    "contract": 14,
+                    "teamid": 22,
+                    "rareflag": 1,
+                    "playStyle": 260,
+                    "leagueId": 19,
+                    "assists": 1,
+                    "lifetimeAssists": 1,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 13,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        77,
+                        73,
+                        74,
+                        75,
+                        83,
+                        82
+                    ],
+                    "statsArray": [
+                        6,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        6,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 2,
+                    "trait1": 2128,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 9
+            },
+            {
+                "index": 7,
+                "itemData": {
+                    "id": 360567654616,
+                    "timestamp": 1569575755,
+                    "formation": "f4231",
+                    "untradeable": false,
+                    "assetId": 204923,
+                    "rating": 81,
+                    "itemType": "player",
+                    "resourceId": 204923,
+                    "owners": 2,
+                    "discardValue": 648,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 850,
+                    "fitness": 95,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CM",
+                    "training": 0,
+                    "contract": 23,
+                    "teamid": 112172,
+                    "rareflag": 1,
+                    "playStyle": 256,
+                    "leagueId": 19,
+                    "assists": 5,
+                    "lifetimeAssists": 5,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 4,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        74,
+                        80,
+                        76,
+                        79,
+                        57,
+                        77
+                    ],
+                    "statsArray": [
+                        12,
+                        5,
+                        3,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        12,
+                        5,
+                        3,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 2,
+                    "trait1": 133124,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 7
+            },
+            {
+                "index": 8,
+                "itemData": {
+                    "id": 366542743394,
+                    "timestamp": 1569602024,
+                    "formation": "f433",
+                    "untradeable": false,
+                    "assetId": 229906,
+                    "rating": 82,
+                    "itemType": "player",
+                    "resourceId": 229906,
+                    "owners": 6,
+                    "discardValue": 656,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 6300,
+                    "fitness": 94,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LM",
+                    "training": 0,
+                    "contract": 34,
+                    "teamid": 32,
+                    "rareflag": 1,
+                    "playStyle": 252,
+                    "leagueId": 19,
+                    "assists": 1,
+                    "lifetimeAssists": 6,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 82,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        91,
+                        77,
+                        75,
+                        84,
+                        33,
+                        64
+                    ],
+                    "statsArray": [
+                        6,
+                        2,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        32,
+                        11,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 67246592,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 17
+            },
+            {
+                "index": 9,
+                "itemData": {
+                    "id": 360236549390,
+                    "timestamp": 1569567290,
+                    "formation": "f41212",
+                    "untradeable": false,
+                    "assetId": 208448,
+                    "rating": 82,
+                    "itemType": "player",
+                    "resourceId": 208448,
+                    "owners": 3,
+                    "discardValue": 656,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 1000,
+                    "fitness": 95,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CAM",
+                    "training": 0,
+                    "contract": 28,
+                    "teamid": 112172,
+                    "rareflag": 1,
+                    "playStyle": 259,
+                    "leagueId": 19,
+                    "assists": 12,
+                    "lifetimeAssists": 13,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 46,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        70,
+                        71,
+                        81,
+                        83,
+                        33,
+                        62
+                    ],
+                    "statsArray": [
+                        14,
+                        7,
+                        3,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        20,
+                        7,
+                        4,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 67240452,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 13
+            },
+            {
+                "index": 10,
+                "itemData": {
+                    "id": 360525065479,
+                    "timestamp": 1570122564,
+                    "formation": "f532",
+                    "untradeable": false,
+                    "assetId": 200454,
+                    "rating": 83,
+                    "itemType": "player",
+                    "resourceId": 200454,
+                    "owners": 4,
+                    "discardValue": 664,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 4900,
+                    "fitness": 94,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "ST",
+                    "training": 0,
+                    "contract": 14,
+                    "teamid": 22,
+                    "rareflag": 1,
+                    "playStyle": 266,
+                    "leagueId": 19,
+                    "assists": 4,
+                    "lifetimeAssists": 13,
+                    "loyaltyBonus": 0,
+                    "pile": 7,
+                    "nation": 45,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        79,
+                        84,
+                        68,
+                        81,
+                        36,
+                        63
+                    ],
+                    "statsArray": [
+                        6,
+                        10,
+                        1,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        34,
+                        27,
+                        1,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 1,
+                    "trait1": 33688068,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 0,
+                "kitNumber": 10
+            },
+            {
+                "index": 11,
+                "itemData": {
+                    "id": 358581965471,
+                    "timestamp": 1568826562,
+                    "formation": "f4312",
+                    "untradeable": true,
+                    "assetId": 150418,
+                    "rating": 76,
+                    "itemType": "player",
+                    "resourceId": 150418,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "ST",
+                    "training": 0,
+                    "contract": 45,
+                    "teamid": 36,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 20,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        58,
+                        75,
+                        59,
+                        67,
+                        35,
+                        75
+                    ],
+                    "statsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 0,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 3
+            },
+            {
+                "index": 12,
+                "itemData": {
+                    "id": 358600865470,
+                    "timestamp": 1568827153,
+                    "formation": "f433",
+                    "untradeable": true,
+                    "assetId": 230142,
+                    "rating": 82,
+                    "itemType": "player",
+                    "resourceId": 230142,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LW",
+                    "training": 0,
+                    "contract": 4,
+                    "teamid": 457,
+                    "rareflag": 1,
+                    "playStyle": 250,
+                    "leagueId": 53,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 45,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        75,
+                        82,
+                        79,
+                        82,
+                        39,
+                        61
+                    ],
+                    "statsArray": [
+                        3,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        3,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 0,
+                    "trait1": 4096,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 14
+            },
+            {
+                "index": 13,
+                "itemData": {
+                    "id": 358586546583,
+                    "timestamp": 1568826729,
+                    "formation": "f4222",
+                    "untradeable": false,
+                    "assetId": 143001,
+                    "rating": 78,
+                    "itemType": "player",
+                    "resourceId": 143001,
+                    "owners": 1,
+                    "discardValue": 312,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 0,
+                    "fitness": 98,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CAM",
+                    "training": 0,
+                    "contract": 29,
+                    "teamid": 114149,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 353,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 52,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        68,
+                        77,
+                        74,
+                        78,
+                        45,
+                        71
+                    ],
+                    "statsArray": [
+                        7,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        7,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 1,
+                    "trait1": 16910592,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 15
+            },
+            {
+                "index": 14,
+                "itemData": {
+                    "id": 361051654432,
+                    "timestamp": 1569601016,
+                    "formation": "f352",
+                    "untradeable": true,
+                    "assetId": 183277,
+                    "rating": 91,
+                    "itemType": "player",
+                    "resourceId": 183277,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LW",
+                    "training": 0,
+                    "contract": 8,
+                    "teamid": 243,
+                    "rareflag": 1,
+                    "playStyle": 250,
+                    "leagueId": 53,
+                    "assists": 1,
+                    "lifetimeAssists": 1,
+                    "loans": 9,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 7,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        91,
+                        83,
+                        86,
+                        94,
+                        35,
+                        66
+                    ],
+                    "statsArray": [
+                        1,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        1,
+                        1,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 0,
+                    "trait1": 139264,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 18
+            },
+            {
+                "index": 15,
+                "itemData": {
+                    "id": 358596549635,
+                    "timestamp": 1568826806,
+                    "formation": "f4321",
+                    "untradeable": true,
+                    "assetId": 238794,
+                    "rating": 79,
+                    "itemType": "player",
+                    "resourceId": 238794,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LW",
+                    "training": 0,
+                    "contract": 7,
+                    "teamid": 243,
+                    "rareflag": 1,
+                    "playStyle": 250,
+                    "leagueId": 53,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loans": 7,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 54,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        93,
+                        70,
+                        71,
+                        84,
+                        29,
+                        63
+                    ],
+                    "statsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 4,
+                    "weakfootabilitytypecode": 4,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 0,
+                    "trait1": 67244544,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 20
+            },
+            {
+                "index": 16,
+                "itemData": {
+                    "id": 356540149634,
+                    "timestamp": 1568826806,
+                    "formation": "f343",
+                    "untradeable": true,
+                    "assetId": 203376,
+                    "rating": 90,
+                    "itemType": "player",
+                    "resourceId": 203376,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 1,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CB",
+                    "training": 0,
+                    "contract": 7,
+                    "teamid": 9,
+                    "rareflag": 1,
+                    "playStyle": 250,
+                    "leagueId": 13,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loans": 7,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 34,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        77,
+                        60,
+                        70,
+                        72,
+                        90,
+                        86
+                    ],
+                    "statsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 1,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 33792,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 23
+            },
+            {
+                "index": 17,
+                "itemData": {
+                    "id": 358587565480,
+                    "timestamp": 1568826729,
+                    "formation": "f4411",
+                    "untradeable": false,
+                    "assetId": 216820,
+                    "rating": 75,
+                    "itemType": "player",
+                    "resourceId": 216820,
+                    "owners": 1,
+                    "discardValue": 600,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "LM",
+                    "training": 0,
+                    "contract": 5,
+                    "teamid": 71,
+                    "rareflag": 1,
+                    "playStyle": 250,
+                    "leagueId": 16,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 133,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        92,
+                        70,
+                        64,
+                        80,
+                        36,
+                        63
+                    ],
+                    "statsArray": [
+                        2,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        2,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 3,
+                    "weakfootabilitytypecode": 5,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 4096,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 19
+            },
+            {
+                "index": 18,
+                "itemData": {
+                    "id": 362654269705,
+                    "timestamp": 1569856264,
+                    "formation": "f4222",
+                    "untradeable": false,
+                    "assetId": 198617,
+                    "rating": 75,
+                    "itemType": "player",
+                    "resourceId": 198617,
+                    "owners": 1,
+                    "discardValue": 300,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CAM",
+                    "training": 0,
+                    "contract": 7,
+                    "teamid": 31,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        75,
+                        63,
+                        72,
+                        77,
+                        40,
+                        57
+                    ],
+                    "statsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 2,
+                    "trait1": 67117056,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 11
+            },
+            {
+                "index": 19,
+                "itemData": {
+                    "id": 36086036540,
+                    "timestamp": 1569567644,
+                    "formation": "f3421",
+                    "untradeable": false,
+                    "assetId": 192984,
+                    "rating": 83,
+                    "itemType": "player",
+                    "resourceId": 192984,
+                    "owners": 2,
+                    "discardValue": 664,
+                    "itemState": "free",
+                    "cardsubtypeid": 0,
+                    "lastSalePrice": 1900,
+                    "fitness": 98,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "GK",
+                    "training": 0,
+                    "contract": 9,
+                    "teamid": 175,
+                    "rareflag": 1,
+                    "playStyle": 271,
+                    "leagueId": 19,
+                    "assists": 0,
+                    "lifetimeAssists": 0,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 7,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        83,
+                        79,
+                        79,
+                        83,
+                        45,
+                        82
+                    ],
+                    "statsArray": [
+                        14,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        14,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 0,
+                    "weakfootabilitytypecode": 2,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 536870912,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 1
+            },
+            {
+                "index": 20,
+                "itemData": {
+                    "id": 358612226543,
+                    "timestamp": 1568827611,
+                    "formation": "f5212",
+                    "untradeable": true,
+                    "assetId": 200318,
+                    "rating": 78,
+                    "itemType": "player",
+                    "resourceId": 200318,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 3,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "ST",
+                    "training": 0,
+                    "contract": 11,
+                    "teamid": 34,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 19,
+                    "assists": 10,
+                    "lifetimeAssists": 10,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        76,
+                        80,
+                        69,
+                        77,
+                        40,
+                        68
+                    ],
+                    "statsArray": [
+                        9,
+                        8,
+                        0,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        9,
+                        8,
+                        0,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 2,
+                    "trait1": 0,
+                    "trait2": 0,
+                    "preferredfoot": 2
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 4
+            },
+            {
+                "index": 21,
+                "itemData": {
+                    "id": 358665408087,
+                    "timestamp": 1568827623,
+                    "formation": "f5221",
+                    "untradeable": true,
+                    "assetId": 203483,
+                    "rating": 80,
+                    "itemType": "player",
+                    "resourceId": 203483,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CM",
+                    "training": 0,
+                    "contract": 11,
+                    "teamid": 38,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 19,
+                    "assists": 2,
+                    "lifetimeAssists": 2,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 34,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        65,
+                        78,
+                        74,
+                        76,
+                        70,
+                        75
+                    ],
+                    "statsArray": [
+                        9,
+                        3,
+                        1,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        9,
+                        3,
+                        1,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 3,
+                    "attackingworkrate": 2,
+                    "defensiveworkrate": 2,
+                    "trait1": 131088,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 6
+            },
+            {
+                "index": 22,
+                "itemData": {
+                    "id": 358581986546,
+                    "timestamp": 1568826562,
+                    "formation": "f451",
+                    "untradeable": true,
+                    "assetId": 211818,
+                    "rating": 75,
+                    "itemType": "player",
+                    "resourceId": 211818,
+                    "owners": 1,
+                    "discardValue": 0,
+                    "itemState": "free",
+                    "cardsubtypeid": 2,
+                    "lastSalePrice": 0,
+                    "fitness": 99,
+                    "injuryType": "none",
+                    "injuryGames": 0,
+                    "preferredPosition": "CM",
+                    "training": 0,
+                    "contract": 42,
+                    "teamid": 38,
+                    "rareflag": 0,
+                    "playStyle": 250,
+                    "leagueId": 19,
+                    "assists": 1,
+                    "lifetimeAssists": 1,
+                    "loyaltyBonus": 1,
+                    "pile": 7,
+                    "nation": 21,
+                    "resourceGameYear": 2020,
+                    "attributeArray": [
+                        59,
+                        70,
+                        76,
+                        74,
+                        61,
+                        67
+                    ],
+                    "statsArray": [
+                        3,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "lifetimeStatsArray": [
+                        3,
+                        0,
+                        1,
+                        0,
+                        0
+                    ],
+                    "skillmoves": 2,
+                    "weakfootabilitytypecode": 2,
+                    "attackingworkrate": 0,
+                    "defensiveworkrate": 0,
+                    "trait1": 2058,
+                    "trait2": 0,
+                    "preferredfoot": 1
+                },
+                "loyaltyBonus": 1,
+                "kitNumber": 8
+            }
+        ],
+        "dreamSquad": null,
+        "changed": 0,
+        "squadName": "SquadName",
+        "starRating": 82,
+        "captain": 359691865428,
+        "kicktakers": [
+            {
+                "id": 360265479390,
+                "index": 0
+            },
+            {
+                "id": 360239979654,
+                "index": 1
+            },
+            {
+                "id": 654532743394,
+                "index": 2
+            },
+            {
+                "id": 360525654779,
+                "index": 3
+            },
+            {
+                "id": 358865400682,
+                "index": 4
+            }
+        ],
+        "actives": [
+            {
+                "id": 358586544596,
+                "timestamp": 1568826562,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 6500125,
+                "rating": 80,
+                "itemType": "tifo",
+                "resourceId": 6500125,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeTifo",
+                "cardsubtypeid": 13,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 65,
+                "value": 80,
+                "name": "FUT_TifoName_125",
+                "description": "FUT 20 Theme",
+                "resourceGameYear": 2020,
+                "authenticity": false
+            },
+            {
+                "id": 361065478576,
+                "timestamp": 1569599835,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 6600003,
+                "rating": 70,
+                "itemType": "banner",
+                "resourceId": 6600003,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBanner",
+                "cardsubtypeid": 14,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 66,
+                "value": 70,
+                "name": "FUT_BannerName_3",
+                "description": "Panther",
+                "resourceGameYear": 2020,
+                "primaryTextColor": 16777215,
+                "secondaryTextColor": 16777215,
+                "authenticity": false,
+                "baseColor": 3816056
+            },
+            {
+                "id": 364096465452,
+                "timestamp": 1570365913,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 219,
+                "rating": 90,
+                "itemType": "ball",
+                "resourceId": 8120219,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBall",
+                "cardsubtypeid": 30,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 37,
+                "value": 90,
+                "category": 1,
+                "manufacturer": "ManufacturerGeneric",
+                "name": "BallName_219",
+                "resourceGameYear": 2020,
+                "authenticity": false
+            },
+            {
+                "id": 356544519457,
+                "timestamp": 1568826643,
+                "formation": "f433",
+                "untradeable": false,
+                "assetId": 15,
+                "rating": 80,
+                "itemType": "kit",
+                "resourceId": 6401377,
+                "owners": 1,
+                "discardValue": 56,
+                "itemState": "activeAwayKit",
+                "cardsubtypeid": 9,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 21,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "category": 3,
+                "name": "TeamName_Abbr15_21",
+                "year": 0,
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 361020265433,
+                "timestamp": 1569597210,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 31,
+                "rating": 70,
+                "itemType": "celebration",
+                "resourceId": 6750031,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeCelebration",
+                "cardsubtypeid": 15,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 0,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 68,
+                "value": 70,
+                "name": "ucc_oldman",
+                "description": "Old Man",
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 364096546523,
+                "timestamp": 1570365937,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 114029,
+                "rating": 99,
+                "itemType": "custom",
+                "resourceId": 6114029,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeBadge",
+                "cardsubtypeid": 11,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 114029,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 39,
+                "value": 99,
+                "category": 1,
+                "name": "TeamName_Abbr15_114029",
+                "weightrare": 0,
+                "description": "TeamName_Abbr15_114029",
+                "header": "Badge",
+                "biodescription": "FUT Custom Team 2",
+                "chantsCount": 0,
+                "resourceGameYear": 2020
+            },
+            {
+                "id": 360865495708,
+                "timestamp": 1569536045,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 172,
+                "rating": 80,
+                "itemType": "stadium",
+                "resourceId": 6200172,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeStadium",
+                "cardsubtypeid": 10,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 0,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "cardassetid": 36,
+                "category": 4,
+                "name": "_FeWC Stadium",
+                "description": "StadiumDesc_172",
+                "biodescription": "StadiumDetailDesc",
+                "stadiumid": 172,
+                "capacity": 51273,
+                "resourceGameYear": 2020,
+                "tifoSupportType": 1,
+                "tifoRestricted": false,
+                "bannerRestricted": false,
+                "ballRestricted": false,
+                "preferredTime1": 1200,
+                "preferredTime2": 2200,
+                "preferredWeather": 0
+            },
+            {
+                "id": 358565476529,
+                "timestamp": 1568826562,
+                "formation": "f433",
+                "untradeable": true,
+                "assetId": 14,
+                "rating": 99,
+                "itemType": "kit",
+                "resourceId": 6308433,
+                "owners": 1,
+                "discardValue": 0,
+                "itemState": "activeHomeKit",
+                "cardsubtypeid": 9,
+                "lastSalePrice": 0,
+                "statsList": [],
+                "lifetimeStats": [],
+                "attributeList": [],
+                "teamid": 113696,
+                "rareflag": 1,
+                "leagueId": 0,
+                "pile": 7,
+                "category": 2,
+                "name": "TeamName_Abbr15_113696",
+                "year": 0,
+                "resourceGameYear": 2020
+            }
+        ],
+        "newSquad": null,
+        "squadType": "REGULAR_SQUAD",
+        "custom": null,
+        "tactics": [
+            {
+                "squadId": 0,
+                "tactic": "ULTRA_DEFENSIVE",
+                "lastUpdateTime": 1570294721,
+                "formation": "f4411a",
+                "positions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 1
+                    },
+                    {
+                        "index": 2,
+                        "value": 2
+                    },
+                    {
+                        "index": 3,
+                        "value": 3
+                    },
+                    {
+                        "index": 4,
+                        "value": 4
+                    },
+                    {
+                        "index": 5,
+                        "value": 5
+                    },
+                    {
+                        "index": 6,
+                        "value": 6
+                    },
+                    {
+                        "index": 7,
+                        "value": 7
+                    },
+                    {
+                        "index": 8,
+                        "value": 8
+                    },
+                    {
+                        "index": 9,
+                        "value": 9
+                    },
+                    {
+                        "index": 10,
+                        "value": 10
+                    }
+                ],
+                "instructions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 24
+                    },
+                    {
+                        "index": 2,
+                        "value": 0
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 24
+                    },
+                    {
+                        "index": 5,
+                        "value": 1329152
+                    },
+                    {
+                        "index": 6,
+                        "value": 134219776
+                    },
+                    {
+                        "index": 7,
+                        "value": 134220032
+                    },
+                    {
+                        "index": 8,
+                        "value": 1329152
+                    },
+                    {
+                        "index": 9,
+                        "value": 0
+                    },
+                    {
+                        "index": 10,
+                        "value": 0
+                    },
+                    {
+                        "index": 11,
+                        "value": 0
+                    },
+                    {
+                        "index": 12,
+                        "value": 8
+                    },
+                    {
+                        "index": 13,
+                        "value": 0
+                    },
+                    {
+                        "index": 14,
+                        "value": 0
+                    },
+                    {
+                        "index": 15,
+                        "value": 8
+                    },
+                    {
+                        "index": 16,
+                        "value": 8
+                    },
+                    {
+                        "index": 17,
+                        "value": 8328
+                    },
+                    {
+                        "index": 18,
+                        "value": 136
+                    },
+                    {
+                        "index": 19,
+                        "value": 8
+                    },
+                    {
+                        "index": 20,
+                        "value": 0
+                    },
+                    {
+                        "index": 21,
+                        "value": 0
+                    }
+                ],
+                "styles": [
+                    {
+                        "index": 0,
+                        "value": 3
+                    },
+                    {
+                        "index": 1,
+                        "value": 5
+                    },
+                    {
+                        "index": 2,
+                        "value": 3
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 5
+                    },
+                    {
+                        "index": 5,
+                        "value": 5
+                    },
+                    {
+                        "index": 6,
+                        "value": 1
+                    },
+                    {
+                        "index": 7,
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "squadId": 0,
+                "tactic": "DEFENSIVE",
+                "lastUpdateTime": 1570363479,
+                "formation": "f4231",
+                "positions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 1
+                    },
+                    {
+                        "index": 2,
+                        "value": 2
+                    },
+                    {
+                        "index": 3,
+                        "value": 3
+                    },
+                    {
+                        "index": 4,
+                        "value": 4
+                    },
+                    {
+                        "index": 5,
+                        "value": 6
+                    },
+                    {
+                        "index": 6,
+                        "value": 7
+                    },
+                    {
+                        "index": 7,
+                        "value": 5
+                    },
+                    {
+                        "index": 8,
+                        "value": 9
+                    },
+                    {
+                        "index": 9,
+                        "value": 8
+                    },
+                    {
+                        "index": 10,
+                        "value": 10
+                    }
+                ],
+                "instructions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 264
+                    },
+                    {
+                        "index": 2,
+                        "value": 0
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 264
+                    },
+                    {
+                        "index": 5,
+                        "value": 64
+                    },
+                    {
+                        "index": 6,
+                        "value": 320
+                    },
+                    {
+                        "index": 7,
+                        "value": 134252544
+                    },
+                    {
+                        "index": 8,
+                        "value": 0
+                    },
+                    {
+                        "index": 9,
+                        "value": 0
+                    },
+                    {
+                        "index": 10,
+                        "value": 0
+                    },
+                    {
+                        "index": 11,
+                        "value": 0
+                    },
+                    {
+                        "index": 12,
+                        "value": 8
+                    },
+                    {
+                        "index": 13,
+                        "value": 0
+                    },
+                    {
+                        "index": 14,
+                        "value": 0
+                    },
+                    {
+                        "index": 15,
+                        "value": 8
+                    },
+                    {
+                        "index": 16,
+                        "value": 8328
+                    },
+                    {
+                        "index": 17,
+                        "value": 136
+                    },
+                    {
+                        "index": 18,
+                        "value": 8
+                    },
+                    {
+                        "index": 19,
+                        "value": 0
+                    },
+                    {
+                        "index": 20,
+                        "value": 0
+                    },
+                    {
+                        "index": 21,
+                        "value": 0
+                    }
+                ],
+                "styles": [
+                    {
+                        "index": 0,
+                        "value": 1
+                    },
+                    {
+                        "index": 1,
+                        "value": 5
+                    },
+                    {
+                        "index": 2,
+                        "value": 5
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 7
+                    },
+                    {
+                        "index": 5,
+                        "value": 5
+                    },
+                    {
+                        "index": 6,
+                        "value": 3
+                    },
+                    {
+                        "index": 7,
+                        "value": 3
+                    }
+                ]
+            },
+            {
+                "squadId": 0,
+                "tactic": "BALANCED",
+                "lastUpdateTime": 1570363182,
+                "formation": "f4411a",
+                "positions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 1
+                    },
+                    {
+                        "index": 2,
+                        "value": 2
+                    },
+                    {
+                        "index": 3,
+                        "value": 3
+                    },
+                    {
+                        "index": 4,
+                        "value": 4
+                    },
+                    {
+                        "index": 5,
+                        "value": 5
+                    },
+                    {
+                        "index": 6,
+                        "value": 6
+                    },
+                    {
+                        "index": 7,
+                        "value": 7
+                    },
+                    {
+                        "index": 8,
+                        "value": 8
+                    },
+                    {
+                        "index": 9,
+                        "value": 9
+                    },
+                    {
+                        "index": 10,
+                        "value": 10
+                    }
+                ],
+                "instructions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 0
+                    },
+                    {
+                        "index": 2,
+                        "value": 0
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 0
+                    },
+                    {
+                        "index": 5,
+                        "value": 0
+                    },
+                    {
+                        "index": 6,
+                        "value": 0
+                    },
+                    {
+                        "index": 7,
+                        "value": 0
+                    },
+                    {
+                        "index": 8,
+                        "value": 0
+                    },
+                    {
+                        "index": 9,
+                        "value": 0
+                    },
+                    {
+                        "index": 10,
+                        "value": 0
+                    },
+                    {
+                        "index": 11,
+                        "value": 0
+                    },
+                    {
+                        "index": 12,
+                        "value": 0
+                    },
+                    {
+                        "index": 13,
+                        "value": 0
+                    },
+                    {
+                        "index": 14,
+                        "value": 0
+                    },
+                    {
+                        "index": 15,
+                        "value": 0
+                    },
+                    {
+                        "index": 16,
+                        "value": 0
+                    },
+                    {
+                        "index": 17,
+                        "value": 0
+                    },
+                    {
+                        "index": 18,
+                        "value": 0
+                    },
+                    {
+                        "index": 19,
+                        "value": 0
+                    },
+                    {
+                        "index": 20,
+                        "value": 0
+                    },
+                    {
+                        "index": 21,
+                        "value": 0
+                    }
+                ],
+                "styles": [
+                    {
+                        "index": 0,
+                        "value": 1
+                    },
+                    {
+                        "index": 1,
+                        "value": 5
+                    },
+                    {
+                        "index": 2,
+                        "value": 5
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 6
+                    },
+                    {
+                        "index": 5,
+                        "value": 5
+                    },
+                    {
+                        "index": 6,
+                        "value": 3
+                    },
+                    {
+                        "index": 7,
+                        "value": 3
+                    }
+                ]
+            },
+            {
+                "squadId": 0,
+                "tactic": "ATTACKING",
+                "lastUpdateTime": 1570363479,
+                "formation": "f4321",
+                "positions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 1
+                    },
+                    {
+                        "index": 2,
+                        "value": 2
+                    },
+                    {
+                        "index": 3,
+                        "value": 3
+                    },
+                    {
+                        "index": 4,
+                        "value": 4
+                    },
+                    {
+                        "index": 5,
+                        "value": 9
+                    },
+                    {
+                        "index": 6,
+                        "value": 6
+                    },
+                    {
+                        "index": 7,
+                        "value": 7
+                    },
+                    {
+                        "index": 8,
+                        "value": 5
+                    },
+                    {
+                        "index": 9,
+                        "value": 8
+                    },
+                    {
+                        "index": 10,
+                        "value": 10
+                    }
+                ],
+                "instructions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 264
+                    },
+                    {
+                        "index": 2,
+                        "value": 0
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 264
+                    },
+                    {
+                        "index": 5,
+                        "value": 0
+                    },
+                    {
+                        "index": 6,
+                        "value": 134219776
+                    },
+                    {
+                        "index": 7,
+                        "value": 134220032
+                    },
+                    {
+                        "index": 8,
+                        "value": 1376256
+                    },
+                    {
+                        "index": 9,
+                        "value": 1376256
+                    },
+                    {
+                        "index": 10,
+                        "value": 67436544
+                    },
+                    {
+                        "index": 11,
+                        "value": 4352
+                    },
+                    {
+                        "index": 12,
+                        "value": 8
+                    },
+                    {
+                        "index": 13,
+                        "value": 0
+                    },
+                    {
+                        "index": 14,
+                        "value": 0
+                    },
+                    {
+                        "index": 15,
+                        "value": 8
+                    },
+                    {
+                        "index": 16,
+                        "value": 0
+                    },
+                    {
+                        "index": 17,
+                        "value": 8264
+                    },
+                    {
+                        "index": 18,
+                        "value": 72
+                    },
+                    {
+                        "index": 19,
+                        "value": 8
+                    },
+                    {
+                        "index": 20,
+                        "value": 8
+                    },
+                    {
+                        "index": 21,
+                        "value": 8
+                    }
+                ],
+                "styles": [
+                    {
+                        "index": 0,
+                        "value": 1
+                    },
+                    {
+                        "index": 1,
+                        "value": 6
+                    },
+                    {
+                        "index": 2,
+                        "value": 6
+                    },
+                    {
+                        "index": 3,
+                        "value": 1
+                    },
+                    {
+                        "index": 4,
+                        "value": 6
+                    },
+                    {
+                        "index": 5,
+                        "value": 6
+                    },
+                    {
+                        "index": 6,
+                        "value": 4
+                    },
+                    {
+                        "index": 7,
+                        "value": 4
+                    }
+                ]
+            },
+            {
+                "squadId": 0,
+                "tactic": "ULTRA_ATTACKING",
+                "lastUpdateTime": 1570275012,
+                "formation": "f352",
+                "positions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 1
+                    },
+                    {
+                        "index": 2,
+                        "value": 2
+                    },
+                    {
+                        "index": 3,
+                        "value": 3
+                    },
+                    {
+                        "index": 4,
+                        "value": 6
+                    },
+                    {
+                        "index": 5,
+                        "value": 4
+                    },
+                    {
+                        "index": 6,
+                        "value": 5
+                    },
+                    {
+                        "index": 7,
+                        "value": 8
+                    },
+                    {
+                        "index": 8,
+                        "value": 7
+                    },
+                    {
+                        "index": 9,
+                        "value": 9
+                    },
+                    {
+                        "index": 10,
+                        "value": 10
+                    }
+                ],
+                "instructions": [
+                    {
+                        "index": 0,
+                        "value": 0
+                    },
+                    {
+                        "index": 1,
+                        "value": 0
+                    },
+                    {
+                        "index": 2,
+                        "value": 0
+                    },
+                    {
+                        "index": 3,
+                        "value": 0
+                    },
+                    {
+                        "index": 4,
+                        "value": 576
+                    },
+                    {
+                        "index": 5,
+                        "value": 80
+                    },
+                    {
+                        "index": 6,
+                        "value": 2655232
+                    },
+                    {
+                        "index": 7,
+                        "value": 2655232
+                    },
+                    {
+                        "index": 8,
+                        "value": 134285312
+                    },
+                    {
+                        "index": 9,
+                        "value": 33619976
+                    },
+                    {
+                        "index": 10,
+                        "value": 33619976
+                    },
+                    {
+                        "index": 11,
+                        "value": 0
+                    },
+                    {
+                        "index": 12,
+                        "value": 0
+                    },
+                    {
+                        "index": 13,
+                        "value": 0
+                    },
+                    {
+                        "index": 14,
+                        "value": 0
+                    },
+                    {
+                        "index": 15,
+                        "value": 136
+                    },
+                    {
+                        "index": 16,
+                        "value": 136
+                    },
+                    {
+                        "index": 17,
+                        "value": 8
+                    },
+                    {
+                        "index": 18,
+                        "value": 8
+                    },
+                    {
+                        "index": 19,
+                        "value": 8
+                    },
+                    {
+                        "index": 20,
+                        "value": 8
+                    },
+                    {
+                        "index": 21,
+                        "value": 8
+                    }
+                ],
+                "styles": [
+                    {
+                        "index": 0,
+                        "value": 1
+                    },
+                    {
+                        "index": 1,
+                        "value": 7
+                    },
+                    {
+                        "index": 2,
+                        "value": 7
+                    },
+                    {
+                        "index": 3,
+                        "value": 4
+                    },
+                    {
+                        "index": 4,
+                        "value": 5
+                    },
+                    {
+                        "index": 5,
+                        "value": 7
+                    },
+                    {
+                        "index": 6,
+                        "value": 5
+                    },
+                    {
+                        "index": 7,
+                        "value": 5
+                    }
+                ]
+            }
+        ]
+    },
+    "clubUser": {
+        "user": [
+            {
+                "personaId": 1005002525902,
+                "persona": "FUT20TOTW1",
+                "public": true
+            },
+            {
+                "personaId": 1306541745,
+                "persona": "Friend1"
+            },
+            {
+                "personaId": 246654585,
+                "persona": "Friend2"
+            }
+        ]
+    },
+    "activeMessages": {
+        "activeMessage": []
+    },
+    "onboardingClientData": {
+        "entries": [
+            {
+                "value": 0,
+                "key": 0
+            },
+            {
+                "value": 2165433888,
+                "key": 1
+            },
+            {
+                "value": 2102233654,
+                "key": 2
+            },
+            {
+                "value": 2102654680,
+                "key": 3
+            },
+            {
+                "value": 5,
+                "key": 4
+            }
+        ]
+    },
+    "isHighTierReturningUser": true,
+    "isPlayerPicksTemporaryStorageNotEmpty": false
+}

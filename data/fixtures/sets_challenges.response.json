@@ -1,0 +1,76 @@
+{
+    "challenges": [
+        {
+            "name": "Hexenkessel",
+            "priority": 0,
+            "status": "NOT_STARTED",
+            "setId": 100,
+            "description": "Wähle die richtigen Zutaten, um die Challenge abzuschließen!",
+            "challengeId": 212,
+            "endTime": 15376,
+            "repeatable": false,
+            "formation": "f4411",
+            "timesCompleted": 0,
+            "elgReq": [
+                {
+                    "type": "SAME_NATION_COUNT",
+                    "eligibilitySlot": 1,
+                    "eligibilityKey": 4,
+                    "eligibilityValue": 3
+                },
+                {
+                    "type": "SCOPE",
+                    "eligibilitySlot": 1,
+                    "eligibilityKey": 13,
+                    "eligibilityValue": 1
+                },
+                {
+                    "type": "SAME_LEAGUE_COUNT",
+                    "eligibilitySlot": 2,
+                    "eligibilityKey": 5,
+                    "eligibilityValue": 4
+                },
+                {
+                    "type": "SCOPE",
+                    "eligibilitySlot": 2,
+                    "eligibilityKey": 13,
+                    "eligibilityValue": 1
+                },
+                {
+                    "type": "PLAYER_COUNT",
+                    "eligibilitySlot": 3,
+                    "eligibilityKey": 2,
+                    "eligibilityValue": 3
+                },
+                {
+                    "type": "SCOPE",
+                    "eligibilitySlot": 3,
+                    "eligibilityKey": 13,
+                    "eligibilityValue": 2
+                },
+                {
+                    "type": "PLAYER_LEVEL",
+                    "eligibilitySlot": 3,
+                    "eligibilityKey": 17,
+                    "eligibilityValue": 3
+                },
+                {
+                    "type": "TEAM_CHEMISTRY",
+                    "eligibilitySlot": 4,
+                    "eligibilityKey": 1,
+                    "eligibilityValue": 60
+                },
+                {
+                    "type": "SCOPE",
+                    "eligibilitySlot": 4,
+                    "eligibilityKey": 13,
+                    "eligibilityValue": 0
+                }
+            ],
+            "elgOperation": "AND",
+            "tutorial": 0,
+            "type": "BRICK_CHALLENGE",
+            "challengeImageId": "100006-2dcb22ad-3800"
+        }
+    ]
+}

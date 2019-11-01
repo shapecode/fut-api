@@ -1,0 +1,64 @@
+{
+    "bonus": [
+        {
+            "type": "defending",
+            "value": 15
+        },
+        {
+            "type": "dribbling",
+            "value": 10
+        },
+        {
+            "type": "pace",
+            "value": 20
+        },
+        {
+            "type": "heading",
+            "value": 5
+        },
+        {
+            "type": "passing",
+            "value": 10
+        },
+        {
+            "type": "fitness",
+            "value": 18
+        },
+        {
+            "type": "gkReflexes",
+            "value": 5
+        },
+        {
+            "type": "gkHandling",
+            "value": 5
+        },
+        {
+            "type": "gkOneOnOne",
+            "value": 5
+        },
+        {
+            "type": "gkPositioning",
+            "value": 10
+        },
+        {
+            "type": "contract",
+            "value": 7
+        },
+        {
+            "type": "managerTalk",
+            "value": 0
+        },
+        {
+            "type": "physioLeg",
+            "value": 25
+        },
+        {
+            "type": "physioBack",
+            "value": 15
+        },
+        {
+            "type": "physioHip",
+            "value": 5
+        }
+    ]
+}
