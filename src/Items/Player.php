@@ -59,7 +59,7 @@ class Player extends Item
      */
     public function getLifetimeStats() : array
     {
-        return $this->get('lifetimeStats');
+        return $this->get('lifetimeStats') ?? [];
     }
 
     public function getTraining() : ?int
@@ -82,7 +82,7 @@ class Player extends Item
      */
     public function getAttributeList() : array
     {
-        return $this->get('attributeList');
+        return $this->get('attributeList') ?? [];
     }
 
     public function getTeamid() : ?int
