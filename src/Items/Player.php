@@ -51,7 +51,7 @@ class Player extends Item
      */
     public function getStatsList() : array
     {
-        return $this->get('statsList');
+        return $this->get('statsList') ?? [];
     }
 
     /**
@@ -122,7 +122,7 @@ class Player extends Item
 
     public function getLoyaltyBonus() : ?bool
     {
-        return $this->get('loyaltyBonus');
+        return (bool) $this->get('loyaltyBonus');
     }
 
     public function getNation() : ?int
