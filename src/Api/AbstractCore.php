@@ -141,9 +141,10 @@ abstract class AbstractCore implements CoreInterface
                 'form_params' => [
                     'email'              => $credentials->getEmail(),
                     'password'           => $credentials->getPassword(),
+                    'pn_text'        => '',
+                    'passwordForPhone'   => '',
                     'country'            => 'US',
                     'phoneNumber'        => '',
-                    'passwordForPhone'   => '',
                     'gCaptchaResponse'   => '',
                     'isPhoneNumberLogin' => 'false',
                     'isIncompletePhone'  => '',

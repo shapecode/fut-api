@@ -23,7 +23,6 @@ interface CoreInterface
         'Accept-Language'   => 'en-US,de;q=0.9,en-US;q=0.8,en;q=0.7,lb;q=0.6',
         'Cache-Control'     => 'no-cache',
         'Connection'        => 'keep-alive',
-        'Content-Type'      => 'application/json',
         'DNT'               => '1',
         'Origin'            => 'https://www.easports.com',
         'Pragma'            => 'no-cache',
