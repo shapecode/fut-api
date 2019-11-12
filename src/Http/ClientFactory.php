@@ -51,7 +51,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
+    protected function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
     {
         return new PluginClient($client, $plugins);
     }
@@ -86,7 +86,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface
+    protected function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface
     {
         $request = $this->requestFactory->createRequest($method, $uri);
 

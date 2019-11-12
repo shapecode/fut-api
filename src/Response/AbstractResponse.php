@@ -1,13 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shapecode\FUT\Client\Response;
 
-/**
- * Class AbstractResponse
- */
 class AbstractResponse
 {
-
     /** @var mixed[] */
     private $rawBody = [];
 
@@ -22,7 +20,7 @@ class AbstractResponse
     /**
      * @return mixed[]
      */
-    public function getRawBody(): array
+    public function getRawBody() : array
     {
         return $this->rawBody;
     }
