@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Authentication;
 
 use Shapecode\FUT\Client\Exception\FutException;
+use Webmozart\Assert\Assert;
 use function in_array;
 
 class Credentials implements CredentialsInterface
@@ -27,8 +28,20 @@ class Credentials implements CredentialsInterface
     /** @var string */
     protected $country = 'US';
 
-    public function __construct(string $email, string $password, string $platform, string $locale = 'en_US', string $country = 'US', string $emulate = 'web')
-    {
+    public function __construct(
+        string $email,
+        string $password,
+        string $platform,
+        string $locale = 'en_US',
+        string $country = 'US',
+        string $emulate = 'web'
+    ) {
+        Assert::email($email);
+        Assert::notEmpty($password);
+        Assert::notEmpty($locale);
+        Assert::notEmpty($country);
+        Assert::notEmpty($emulate);
+
         $this->email    = $email;
         $this->password = $password;
         $this->locale   = $locale;
@@ -38,49 +51,31 @@ class Credentials implements CredentialsInterface
         $this->setPlatform($platform);
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getEmail() : string
     {
         return $this->email;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getPassword() : string
     {
         return $this->password;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getPlatform() : string
     {
         return $this->platform;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getEmulate() : string
     {
         return $this->emulate;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getLocale() : string
     {
         return $this->locale;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getCountry() : string
     {
         return $this->country;
