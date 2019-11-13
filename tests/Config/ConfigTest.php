@@ -6,8 +6,6 @@ namespace Shapecode\FUT\Client\Tests\Config;
 
 use PHPStan\Testing\TestCase;
 use Shapecode\FUT\Client\Config\Config;
-use function array_keys;
-use function dd;
 
 class ConfigTest extends TestCase
 {
@@ -51,7 +49,7 @@ class ConfigTest extends TestCase
 
         self::assertCount(29, $options);
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             self::assertArrayHasKey($key, $options);
         }
     }
