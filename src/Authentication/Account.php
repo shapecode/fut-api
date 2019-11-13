@@ -32,17 +32,11 @@ class Account implements AccountInterface
         $this->session     = $session;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getCredentials() : CredentialsInterface
     {
         return $this->credentials;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getSession() : SessionInterface
     {
         if ($this->session === null) {
@@ -52,25 +46,16 @@ class Account implements AccountInterface
         return $this->session;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function setSession(SessionInterface $session) : void
     {
         $this->session = $session;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function resetSession() : void
     {
         $this->session = null;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getProxy() : ?ProxyInterface
     {
         return $this->proxy;

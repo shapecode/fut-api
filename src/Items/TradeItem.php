@@ -82,9 +82,6 @@ class TradeItem extends SuperBase implements TradeItemInterface
         return $this->get('expires');
     }
 
-    /**
-     * @inheritDoc
-     */
     public function getExpireDate() : ?DateTime
     {
         if ($this->getExpires() > 0) {

@@ -34,9 +34,6 @@ class Pin
         $this->clientFactory = $clientFactory;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function sendEvent(
         string $en,
         ?string $pgid = null,

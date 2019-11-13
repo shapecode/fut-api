@@ -21,9 +21,6 @@ class ClientCallPlugin implements Plugin
         $this->call = $call;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function handleRequest(RequestInterface $request, callable $next, callable $first) : Promise
     {
         $this->call->setRequest($request);

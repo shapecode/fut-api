@@ -39,33 +39,21 @@ class Config implements ConfigInterface
         $this->resolveOptions($options);
     }
 
-    /**
-     * @inheritdoc
-     */
     public function isDelay() : bool
     {
         return $this->getOption('delay');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getDelayMinTime() : int
     {
         return $this->getOption('delay_min_time');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getDelayMaxTime() : int
     {
         return $this->getOption('delay_max_time');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getRandomDelayTime(?int $min = null, ?int $max = null) : int
     {
         if ($min === null) {
@@ -82,7 +70,7 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getHttpClientOptions() : array
     {
@@ -90,31 +78,25 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getHttpClientPlugins() : array
     {
         return $this->getOption('http_client_plugins');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getLogger() : LoggerInterface
     {
         return $this->getOption('logger');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getUserAgent() : string
     {
         return $this->getOption('user_agent');
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getOption(string $name)
     {
@@ -122,7 +104,7 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function setOption(string $name, $value) : void
     {
