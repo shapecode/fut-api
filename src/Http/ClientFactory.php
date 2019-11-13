@@ -24,6 +24,8 @@ use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Shapecode\FUT\Client\Api\CoreInterface;
@@ -38,6 +40,12 @@ class ClientFactory implements ClientFactoryInterface
     /** @var RequestFactoryInterface */
     protected $requestFactory;
 
+    /** @var StreamFactoryInterface */
+    protected $streamFactory;
+
+    /** @var UriFactoryInterface */
+    protected $urlFactory;
+
     /** @var ConfigInterface */
     protected $config;
 
@@ -51,74 +59,19 @@ class ClientFactory implements ClientFactoryInterface
 
     public function __construct(
         ConfigInterface $config,
-        ?RequestFactoryInterface $requestFactory = null,
         ?CookieJarBuilderInterface $cookieJarBuilder = null,
-        ?LoggerInterface $logger = null
+        ?LoggerInterface $logger = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null,
+        ?UriFactoryInterface $urlFactory = null
     ) {
         $this->config           = $config;
-        $this->requestFactory   = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->cookieJarBuilder = $cookieJarBuilder ?: new CookieJarBuilder();
         $this->logger           = $logger ?: new NullLogger();
-    }
 
-    /**
-     * @inheritdoc
-     */
-    protected function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
-    {
-        return new PluginClient($client, $plugins);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function createAccountClient(
-        AccountInterface $account,
-        array $options = []
-    ) : GuzzleAdapter {
-        $options['http_errors']     = false;
-        $options['allow_redirects'] = true;
-
-        if ($account->getProxy() !== null) {
-            $options['proxy'] = $account->getProxy()->getProxyProtocol();
-        }
-
-        $options['cookies'] = $this->cookieJarBuilder->createCookieJar($account);
-
-        $stack = HandlerStack::create(new CurlHandler());
-        $stack->push(Middleware::retry($this->createRetryHandler()));
-
-        $options['stack']   = $stack;
-        $options['timeout'] = 5;
-
-        $guzzle = new Client($options);
-
-        return new GuzzleAdapter($guzzle);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function createRequest(
-        string $method,
-        string $uri,
-        ?string $body = null,
-        array $headers = []
-    ) : RequestInterface {
-        $request = $this->requestFactory->createRequest($method, $uri);
-
-        if ($body !== null) {
-            $stream  = Psr17FactoryDiscovery::findStreamFactory()->createStream($body);
-            $request = $request->withBody($stream);
-        }
-
-        if (count($headers) > 0) {
-            foreach ($headers as $name => $header) {
-                $request = $request->withHeader($name, $header);
-            }
-        }
-
-        return $request;
+        $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
+        $this->streamFactory  = $streamFactory ?: Psr17FactoryDiscovery::findStreamFactory();
+        $this->urlFactory     = $urlFactory ?: Psr17FactoryDiscovery::findUrlFactory();
     }
 
     /**
@@ -165,6 +118,67 @@ class ClientFactory implements ClientFactoryInterface
         $client->sendRequest($request);
 
         return $call;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
+    {
+        return new PluginClient($client, $plugins);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function createAccountClient(
+        AccountInterface $account,
+        array $options = []
+    ) : GuzzleAdapter {
+        $options['http_errors']     = false;
+        $options['allow_redirects'] = true;
+
+        if ($account->getProxy() !== null) {
+            $options['proxy'] = $account->getProxy()->getProxyProtocol();
+        }
+
+        $options['cookies'] = $this->cookieJarBuilder->createCookieJar($account);
+
+        $stack = HandlerStack::create(new CurlHandler());
+        $stack->push(Middleware::retry($this->createRetryHandler()));
+
+        $options['stack']   = $stack;
+        $options['timeout'] = 5;
+
+        $guzzle = new Client($options);
+
+        return new GuzzleAdapter($guzzle);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function createRequest(
+        string $method,
+        string $uri,
+        ?string $body = null,
+        array $headers = []
+    ) : RequestInterface {
+        $url     = $this->urlFactory->createUri($uri);
+        $request = $this->requestFactory->createRequest($method, $url);
+
+        if ($body !== null) {
+            $stream  = $this->streamFactory->createStream($body);
+            $request = $request->withBody($stream);
+        }
+
+        if (count($headers) > 0) {
+            foreach ($headers as $name => $header) {
+                $request = $request->withHeader($name, $header);
+            }
+        }
+
+        return $request;
     }
 
     protected function getConfig() : ConfigInterface
