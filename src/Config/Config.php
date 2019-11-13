@@ -46,12 +46,12 @@ class Config implements ConfigInterface
 
     public function getDelayMinTime() : int
     {
-        return $this->getOption('delay_min_time');
+        return $this->getOption('delayMinTime');
     }
 
     public function getDelayMaxTime() : int
     {
-        return $this->getOption('delay_max_time');
+        return $this->getOption('delayMaxTime');
     }
 
     public function getRandomDelayTime(?int $min = null, ?int $max = null) : int
@@ -74,7 +74,7 @@ class Config implements ConfigInterface
      */
     public function getHttpClientOptions() : array
     {
-        return $this->getOption('http_client_options');
+        return $this->getOption('httpClientOptions');
     }
 
     /**
@@ -82,7 +82,7 @@ class Config implements ConfigInterface
      */
     public function getHttpClientPlugins() : array
     {
-        return $this->getOption('http_client_plugins');
+        return $this->getOption('httpClientPlugins');
     }
 
     public function getLogger() : LoggerInterface
@@ -92,7 +92,7 @@ class Config implements ConfigInterface
 
     public function getUserAgent() : string
     {
-        return $this->getOption('user_agent');
+        return $this->getOption('userAgent');
     }
 
     /**
@@ -125,13 +125,13 @@ class Config implements ConfigInterface
         }
 
         $defaults = array_merge($futConfig, [
-            'logger'              => new NullLogger(),
-            'user_agent'          => self::USER_AGENT,
-            'delay'               => true,
-            'delay_min_time'      => 1000,
-            'delay_max_time'      => 1500,
-            'http_client_options' => [],
-            'http_client_plugins' => [],
+            'logger'            => new NullLogger(),
+            'userAgent'         => self::USER_AGENT,
+            'delay'             => true,
+            'delayMinTime'      => 1000,
+            'delayMaxTime'      => 1500,
+            'httpClientOptions' => [],
+            'httpClientPlugins' => [],
         ]);
 
         $resolver->setDefaults($defaults);
