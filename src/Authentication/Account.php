@@ -5,12 +5,8 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Authentication;
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Cookie\CookieJarInterface;
-use GuzzleHttp\Cookie\FileCookieJar;
 use RuntimeException;
 use Shapecode\FUT\Client\Model\ProxyInterface;
-use function sha1;
-use function sys_get_temp_dir;
 
 class Account implements AccountInterface
 {
@@ -20,20 +16,19 @@ class Account implements AccountInterface
     /** @var SessionInterface|null */
     protected $session;
 
-    /** @var CookieJarInterface|null */
-    protected $cookieJar;
-
     /** @var ProxyInterface|null */
     protected $proxy;
 
     /** @var ClientInterface */
     protected $client;
 
-    public function __construct(CredentialsInterface $credentials, ?SessionInterface $session = null, ?ProxyInterface $proxy = null, ?CookieJarInterface $cookieJar = null)
-    {
+    public function __construct(
+        CredentialsInterface $credentials,
+        ?SessionInterface $session = null,
+        ?ProxyInterface $proxy = null
+    ) {
         $this->credentials = $credentials;
         $this->proxy       = $proxy;
-        $this->cookieJar   = $cookieJar;
         $this->session     = $session;
     }
 
@@ -79,37 +74,5 @@ class Account implements AccountInterface
     public function getProxy() : ?ProxyInterface
     {
         return $this->proxy;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getCookieJar() : CookieJarInterface
-    {
-        if ($this->cookieJar === null) {
-            $this->cookieJar = $this->createFileCookieJarByTemp();
-        }
-
-        return $this->cookieJar;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function setCookieJar(CookieJarInterface $cookieJar) : void
-    {
-        $this->cookieJar = $cookieJar;
-    }
-
-    public function createFileCookieJarByTemp() : CookieJarInterface
-    {
-        $filename = sys_get_temp_dir() . '/' . sha1($this->getCredentials()->getEmail());
-
-        return $this->createFileCookieJarByFilename($filename);
-    }
-
-    public function createFileCookieJarByFilename(string $filename) : CookieJarInterface
-    {
-        return new FileCookieJar($filename, true);
     }
 }

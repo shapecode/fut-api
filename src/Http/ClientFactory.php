@@ -40,12 +40,19 @@ class ClientFactory implements ClientFactoryInterface
     /** @var ConfigInterface */
     protected $config;
 
+    /** @var CookieJarBuilderInterface */
+    protected $cookieJarBuilder;
+
     public const MAX_RETRIES = 4;
 
-    public function __construct(ConfigInterface $config, ?RequestFactoryInterface $requestFactory = null)
-    {
-        $this->config         = $config;
-        $this->requestFactory = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
+    public function __construct(
+        ConfigInterface $config,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?CookieJarBuilderInterface $cookieJarBuilder = null
+    ) {
+        $this->config           = $config;
+        $this->requestFactory   = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
+        $this->cookieJarBuilder = $cookieJarBuilder ?: new CookieJarBuilder();
     }
 
     /**
@@ -68,7 +75,7 @@ class ClientFactory implements ClientFactoryInterface
             $options['proxy'] = $account->getProxy()->getProxyProtocol();
         }
 
-        $options['cookies'] = $account->getCookieJar();
+        $options['cookies'] = $this->cookieJarBuilder->createCookieJar($account);
 
         $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
 
