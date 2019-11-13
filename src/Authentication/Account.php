@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Authentication;
 
 use GuzzleHttp\ClientInterface;
-use RuntimeException;
 use Shapecode\FUT\Client\Model\ProxyInterface;
 
 class Account implements AccountInterface
@@ -37,12 +36,8 @@ class Account implements AccountInterface
         return $this->credentials;
     }
 
-    public function getSession() : SessionInterface
+    public function getSession() : ?SessionInterface
     {
-        if ($this->session === null) {
-            throw new RuntimeException('session has to be set');
-        }
-
         return $this->session;
     }
 

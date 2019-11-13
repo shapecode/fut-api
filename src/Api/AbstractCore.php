@@ -12,6 +12,7 @@ use Http\Client\Common\Plugin\HeaderSetPlugin;
 use Http\Client\Common\Plugin\QueryDefaultsPlugin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Authentication\Session;
 use Shapecode\FUT\Client\Config\Config;
@@ -694,9 +695,14 @@ abstract class AbstractCore implements CoreInterface
      */
     public function squad(int $squadId = 0)
     {
+        $session = $this->getAccount()->getSession();
+        if ($session === null) {
+            throw new RuntimeException('session has to be set');
+        }
+
         $this->pin->sendEvent('page_view', 'Hub - Squads');
 
-        $personaId = $this->getAccount()->getSession()->getPersona();
+        $personaId = $session->getPersona();
         $response  = $this->request('GET', '/squad/' . $squadId . '/user/' . $personaId);
 
         $this->pin->sendEvent('page_view', 'Squads - Squad Overview');
@@ -1121,6 +1127,10 @@ abstract class AbstractCore implements CoreInterface
 
         $account = $this->getAccount();
         $session = $account->getSession();
+
+        if ($session === null) {
+            throw new RuntimeException('session has to be set');
+        }
 
         if ($method === 'GET') {
             $params['_'] = time();

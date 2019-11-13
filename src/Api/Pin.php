@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Api;
 
 use Carbon\Carbon;
+use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Exception\PinErrorException;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
@@ -57,6 +58,10 @@ class Pin
     ) : array {
         $account = $this->account;
         $session = $account->getSession();
+
+        if ($session === null) {
+            throw new RuntimeException('session has to be set');
+        }
 
         $data = [
             'core' => [
@@ -120,6 +125,10 @@ class Pin
         $account  = $this->account;
         $session  = $account->getSession();
         $platform = $account->getCredentials()->getPlatform();
+
+        if ($session === null) {
+            throw new RuntimeException('session has to be set');
+        }
 
         $body = json_encode([
             'custom'  => [
