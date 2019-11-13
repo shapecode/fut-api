@@ -28,13 +28,10 @@
         "ext-json": "*",
         "ext-mbstring": "*",
 
-        "symfony/property-access": "^3.4|^4.0",
         "symfony/yaml": "^3.4|^4.0",
         "symfony/translation": "^3.4|^4.0",
         "symfony/stopwatch": "^3.4|^4.0",
         "symfony/options-resolver": "^3.4|^4.0",
-
-        "shapecode/anticaptcha": "^1.0",
 
         "webmozart/assert": "^1.5",
         "nesbot/carbon": "^2.25",
@@ -66,7 +63,8 @@
         "maglnet/composer-require-checker": "^2.0",
         "phpunit/phpunit": "^8.4",
         "symfony/var-dumper": "^4.3",
-        "symfony/dotenv": "^4.3"
+        "symfony/dotenv": "^4.3",
+        "icanhazstring/composer-unused": "^0.6.2"
     },
     "autoload": {
         "psr-4": {
@@ -88,6 +86,11 @@
             "@cs-check",
             "@phpstan"
         ],
+        "check-build": [
+            "@crc",
+            "@cs-check",
+            "@phpstan"
+        ],
         "phpstan": "./vendor/bin/phpstan analyse ./src",
         "crc": "./vendor/bin/composer-require-checker --config-file=./composer-require-checker.json",
         "phpunit": "./vendor/bin/phpunit",
@@ -97,7 +100,10 @@
     "extra": {
         "branch-alias": {
             "dev-master": "20.0-dev"
-        }
+        },
+        "unused": [
+            "nyholm/psr7"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true

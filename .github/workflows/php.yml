@@ -22,14 +22,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run CRC
-      run: composer crc
+    - name: Copy env
+      run: cp .env.dist .env
 
-    - name: Run PHPCS
-      run: composer cs-check
-
-    - name: Run PHPSTAN
-      run: composer phpstan
-
-    - name: Run PHPUNIT
-      run: composer phpunit
+    - name: Run Check
+      run: composer check-deploy
