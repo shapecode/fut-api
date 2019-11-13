@@ -1,0 +1,35 @@
+name: PHP Composer
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run CRC
+      run: composer crc
+
+    - name: Run PHPCS
+      run: composer cs-check
+
+    - name: Run PHPSTAN
+      run: composer phpstan
+
+    - name: Run PHPUNIT
+      run: composer phpunit
