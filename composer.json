@@ -8,7 +8,7 @@
         "fifa20"
     ],
     "type": "library",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "homepage": "https://github.com/shapecode/fut-api",
     "support": {
         "email": "git@shapecode.de",
