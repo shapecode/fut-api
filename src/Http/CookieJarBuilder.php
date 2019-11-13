@@ -14,7 +14,7 @@ use function sys_get_temp_dir;
 class CookieJarBuilder implements CookieJarBuilderInterface
 {
     /** @var CookieJarInterface[] */
-    protected $jars;
+    protected $jars = [];
 
     public function createCookieJar(AccountInterface $account) : CookieJarInterface
     {

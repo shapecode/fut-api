@@ -86,8 +86,11 @@ abstract class AbstractCore implements CoreInterface
     /** @var ClientFactoryInterface */
     protected $clientFactory;
 
-    public function __construct(AccountInterface $account, ?ConfigInterface $config = null, ?ClientFactoryInterface $clientFactory = null)
-    {
+    public function __construct(
+        AccountInterface $account,
+        ?ConfigInterface $config = null,
+        ?ClientFactoryInterface $clientFactory = null
+    ) {
         $this->account       = $account;
         $this->config        = $config ?: new Config();
         $this->clientFactory = $clientFactory ?: new ClientFactory($this->config);
@@ -105,7 +108,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function login($code = null) : array
+    public function login(?string $code = null) : array
     {
         $account     = $this->getAccount();
         $credentials = $account->getCredentials();
@@ -348,7 +351,16 @@ abstract class AbstractCore implements CoreInterface
         $phishingToken = $responseContent['phishingToken'];
         $sid           = $responseContent['sid'];
 
-        $this->setSessionData((string) $persona_id, $nucleus_id, $phishingToken, $sid, $dob, $accessToken, $tokenType, $expiresAt);
+        $this->setSessionData(
+            (string) $persona_id,
+            $nucleus_id,
+            $phishingToken,
+            $sid,
+            $dob,
+            $accessToken,
+            $tokenType,
+            $expiresAt
+        );
 
         $this->pin->sendEvent('login', 'success');
         $this->pin->sendEvent('page_view', 'Hub - Home');
@@ -377,7 +389,17 @@ abstract class AbstractCore implements CoreInterface
         string $token_type,
         DateTime $expiresAt
     ) : void {
-        $session = Session::create($persona_id, $nucleus_id, $phishingToken, $sid, $dob, $access_token, $token_type, $expiresAt);
+        $session = Session::create(
+            $persona_id,
+            $nucleus_id,
+            $phishingToken,
+            $sid,
+            $dob,
+            $access_token,
+            $token_type,
+            $expiresAt
+        );
+
         $this->getAccount()->setSession($session);
     }
 
@@ -1080,8 +1102,13 @@ abstract class AbstractCore implements CoreInterface
      * @param mixed[] $params
      * @param mixed[] $headers
      */
-    protected function request(string $method, string $url, $body = null, array $params = [], array $headers = []) : ClientCall
-    {
+    protected function request(
+        string $method,
+        string $url,
+        $body = null,
+        array $params = [],
+        array $headers = []
+    ) : ClientCall {
         if (strpos($url, 'http') === false) {
             $url = $this->getFifaApiUrl() . $url;
         }

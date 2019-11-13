@@ -84,12 +84,14 @@
             "@crc",
             "@cs-fix",
             "@cs-check",
-            "@phpstan"
+            "@phpstan",
+            "@phpunit"
         ],
         "check-build": [
             "@crc",
             "@cs-check",
-            "@phpstan"
+            "@phpstan",
+            "@phpunit"
         ],
         "phpstan": "./vendor/bin/phpstan analyse ./src",
         "crc": "./vendor/bin/composer-require-checker --config-file=./composer-require-checker.json",

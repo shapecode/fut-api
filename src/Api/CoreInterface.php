@@ -35,11 +35,9 @@ interface CoreInterface
     public const SKU             = 'FUT20WEB';
 
     /**
-     * @param mixed $code
-     *
      * @return mixed[]
      */
-    public function login($code = null) : array;
+    public function login(?string $code = null) : array;
 
     public function logout() : void;
 

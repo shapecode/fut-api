@@ -32,8 +32,16 @@ class Session implements SessionInterface
     /** @var DateTime|null */
     protected $expiresAt;
 
-    public function __construct(string $persona, string $nucleus, string $phishing, string $session, string $dob, string $accessToken, ?string $tokenType, ?DateTime $expiresAt = null)
-    {
+    public function __construct(
+        string $persona,
+        string $nucleus,
+        string $phishing,
+        string $session,
+        string $dob,
+        string $accessToken,
+        ?string $tokenType,
+        ?DateTime $expiresAt = null
+    ) {
         $this->persona     = $persona;
         $this->nucleus     = $nucleus;
         $this->phishing    = $phishing;

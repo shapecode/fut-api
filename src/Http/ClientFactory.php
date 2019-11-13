@@ -66,8 +66,10 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    protected function createAccountClient(AccountInterface $account, array $options = []) : GuzzleAdapter
-    {
+    protected function createAccountClient(
+        AccountInterface $account,
+        array $options = []
+    ) : GuzzleAdapter {
         $options['http_errors']     = false;
         $options['allow_redirects'] = true;
 
@@ -93,8 +95,12 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    protected function createRequest(string $method, string $uri, ?string $body = null, array $headers = []) : RequestInterface
-    {
+    protected function createRequest(
+        string $method,
+        string $uri,
+        ?string $body = null,
+        array $headers = []
+    ) : RequestInterface {
         $request = $this->requestFactory->createRequest($method, $uri);
 
         if ($body !== null) {
@@ -114,8 +120,13 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    public function request(AccountInterface $account, string $method, string $url, array $options = [], array $plugins = []) : ClientCall
-    {
+    public function request(
+        AccountInterface $account,
+        string $method,
+        string $url,
+        array $options = [],
+        array $plugins = []
+    ) : ClientCall {
         $headers = [];
 
         if (isset($options['headers'])) {

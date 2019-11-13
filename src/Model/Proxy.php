@@ -21,8 +21,13 @@ class Proxy implements ProxyInterface
     /** @var string|null */
     protected $password;
 
-    public function __construct(string $protocol, string $ip, string $port, ?string $username = null, ?string $password = null)
-    {
+    public function __construct(
+        string $protocol,
+        string $ip,
+        string $port,
+        ?string $username = null,
+        ?string $password = null
+    ) {
         $this->protocol = $protocol;
         $this->ip       = $ip;
         $this->port     = $port;

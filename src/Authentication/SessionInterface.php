@@ -6,9 +6,6 @@ namespace Shapecode\FUT\Client\Authentication;
 
 use DateTime;
 
-/**
- * Interface SessionInterface
- */
 interface SessionInterface
 {
     public function getPersona() : string;

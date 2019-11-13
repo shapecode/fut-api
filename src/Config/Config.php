@@ -16,6 +16,10 @@ use function random_int;
 
 class Config implements ConfigInterface
 {
+    // phpcs:disable Generic.Files.LineLength.TooLong
+    protected const USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36';
+    // phpcs:enable Generic.Files.LineLength.TooLong
+
     /** @var string */
     protected $futConfigUrl;
 
@@ -140,7 +144,7 @@ class Config implements ConfigInterface
 
         $defaults = array_merge($futConfig, [
             'logger'              => new NullLogger(),
-            'user_agent'          => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
+            'user_agent'          => self::USER_AGENT,
             'delay'               => true,
             'delay_min_time'      => 1000,
             'delay_max_time'      => 1500,
