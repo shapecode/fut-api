@@ -24,12 +24,13 @@ use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Shapecode\FUT\Client\Api\CoreInterface;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Config\ConfigInterface;
 use Shapecode\FUT\Client\Http\Plugin\ClientCallPlugin;
 use Symfony\Component\Stopwatch\Stopwatch;
-use function array_merge;
 use function count;
 
 class ClientFactory implements ClientFactoryInterface
@@ -43,16 +44,21 @@ class ClientFactory implements ClientFactoryInterface
     /** @var CookieJarBuilderInterface */
     protected $cookieJarBuilder;
 
+    /** @var LoggerInterface */
+    protected $logger;
+
     public const MAX_RETRIES = 4;
 
     public function __construct(
         ConfigInterface $config,
         ?RequestFactoryInterface $requestFactory = null,
-        ?CookieJarBuilderInterface $cookieJarBuilder = null
+        ?CookieJarBuilderInterface $cookieJarBuilder = null,
+        ?LoggerInterface $logger = null
     ) {
         $this->config           = $config;
         $this->requestFactory   = $requestFactory ?: Psr17FactoryDiscovery::findRequestFactory();
         $this->cookieJarBuilder = $cookieJarBuilder ?: new CookieJarBuilder();
+        $this->logger           = $logger ?: new NullLogger();
     }
 
     /**
@@ -78,8 +84,6 @@ class ClientFactory implements ClientFactoryInterface
         }
 
         $options['cookies'] = $this->cookieJarBuilder->createCookieJar($account);
-
-        $options = array_merge($this->getConfig()->getHttpClientOptions(), $options);
 
         $stack = HandlerStack::create(new CurlHandler());
         $stack->push(Middleware::retry($this->createRetryHandler()));
@@ -147,7 +151,7 @@ class ClientFactory implements ClientFactoryInterface
         }
 
         $plugins[] = new ContentLengthPlugin();
-        $plugins[] = new LoggerPlugin($this->getConfig()->getLogger());
+        $plugins[] = new LoggerPlugin($this->logger);
         $stopwatch = new Stopwatch();
         $plugins[] = new StopwatchPlugin($stopwatch);
         $plugins[] = new ClientCallPlugin($call);

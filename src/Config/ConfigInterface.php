@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Config;
 
-use Psr\Log\LoggerInterface;
-
-/**
- * Interface ConfigInterface
- */
 interface ConfigInterface
 {
     public function isDelay() : bool;
@@ -19,14 +14,12 @@ interface ConfigInterface
 
     public function getRandomDelayTime(?int $min = null, ?int $max = null) : int;
 
+    public function getUserAgent() : string;
+
     /**
      * @return mixed[]
      */
-    public function getHttpClientOptions() : array;
-
-    public function getLogger() : LoggerInterface;
-
-    public function getUserAgent() : string;
+    public function getOptions() : array;
 
     /**
      * @return mixed

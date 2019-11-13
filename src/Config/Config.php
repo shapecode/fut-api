@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Config;
 
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use const JSON_THROW_ON_ERROR;
 use function array_merge;
@@ -69,30 +67,17 @@ class Config implements ConfigInterface
         return $delayMS * 1000;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getHttpClientOptions() : array
-    {
-        return $this->getOption('httpClientOptions');
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getHttpClientPlugins() : array
-    {
-        return $this->getOption('httpClientPlugins');
-    }
-
-    public function getLogger() : LoggerInterface
-    {
-        return $this->getOption('logger');
-    }
-
     public function getUserAgent() : string
     {
         return $this->getOption('userAgent');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOptions() : array
+    {
+        return $this->options;
     }
 
     /**
@@ -125,18 +110,13 @@ class Config implements ConfigInterface
         }
 
         $defaults = array_merge($futConfig, [
-            'logger'            => new NullLogger(),
             'userAgent'         => self::USER_AGENT,
             'delay'             => true,
             'delayMinTime'      => 1000,
             'delayMaxTime'      => 1500,
-            'httpClientOptions' => [],
-            'httpClientPlugins' => [],
         ]);
 
         $resolver->setDefaults($defaults);
-
-        $resolver->setAllowedTypes('logger', [LoggerInterface::class]);
 
         return $resolver;
     }
