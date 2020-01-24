@@ -131,7 +131,7 @@ abstract class AbstractCore implements CoreInterface
                 'release_type'  => 'prod',
                 'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
 //                'redirect_uri'  => 'nucleus:rest',
-                'scope'         => 'basic.identity offline signin basic.entitlement',
+                //'scope'         => 'basic.identity offline signin basic.entitlement',
             ],
             'headers'  => $headers,
             'on_stats' => static function (TransferStats $stats) use (&$url) : void {
