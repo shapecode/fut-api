@@ -82,7 +82,7 @@ Optional parameters:
 - lev: ['bronze'/'silver'/gold'] Card level.
 - start: [int] Start page number.
 - type: ['fitness'/'player'/'?'] Card category.
-- assetId: [int] assetId.
+- maskedDefId: [int] Player id.
 - defId: [int] defId.
 - leag: [int] League id.
 - team: [int] Club id.
