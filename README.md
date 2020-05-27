@@ -44,11 +44,10 @@ Login parameters:
 - code: [string] email code for two-step verification (make sure to use string if your code starts with 0).
 
 ```php
-use FUTApi\Api\Core;
-use FUTApi\Exception\FutError;
-use FUTApi\Api\Authentication\Account;
-use FUTApi\Api\Authentication\Credentials;
-use FUTApi\Api\Authentication\Session;
+use FShapecode\FUT\Client\Api\Core;
+use Shapecode\FUT\Client\Authentication\Credentials;
+use Shapecode\FUT\Client\Authentication\Account;
+use Shapecode\FUT\Client\Authentication\Session;
 
 $credentials = new Credentials($email, $password, $platform);
 
@@ -64,8 +63,8 @@ $fut = new Core($account);
 try {
     $login = $fut->login($code);
     $session = $account->getSession();
-} catch(FutError $e) {
-    $reason = $e->getReason();
+} catch(Exception $e) {
+    $reason = $e->getMessage();
     die("We have an error logging in: ".$reason);
 }
 ```
@@ -76,24 +75,23 @@ After you have initiated your first session, you can then use the API wthout log
 ### Search
 
 Optional parameters:
-
-- min_price: [int] Minimal price.
-- max_price: [int] Maximum price.
-- min_buy: [int] Minimal buy now price.
-- max_buy: [int] Maximum buy now price.
-- level: ['bronze'/'silver'/gold'] Card level.
+- micr: [int] Minimal price.
+- macr: [int] Maximum price.
+- minb: [int] Minimal buy now price.
+- maxb: [int] Maximum buy now price.
+- lev: ['bronze'/'silver'/gold'] Card level.
 - start: [int] Start page number.
-- category: ['fitness'/'?'] Card category.
-- assetId: [int] assetId.
+- type: ['fitness'/'player'/'?'] Card category.
+- maskedDefId: [int] Player id.
 - defId: [int] defId.
-- league: [int] League id.
-- club: [int] Club id.
-- position: [int?/str?] Position.
+- leag: [int] League id.
+- team: [int] Club id.
+- pos: [str] Position. (e.g. "ST")
 - zone: ['attacker'/'?'] zone.
-- nationality: [int] Nation id.
+- nat: [int] Nation id.
 - rare: [boolean] True for searching special cards.
 - playStyle: [str?] playStyle.
-- page_size: [int] Amount of cards on single page (changing this might be risky).
+- num: [int] Amount of cards on single page (changing this might be risky).
 
 ```php
 $options = [];
