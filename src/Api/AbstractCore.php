@@ -276,7 +276,7 @@ abstract class AbstractCore implements CoreInterface
         $auth_code = $responseContent['code'];
 
         //personas
-        $headers['Nucleus-Access-Code'] = $auth_code;
+        $headers['Nucleus-Access-Code']  = $auth_code;
         $headers['Nucleus-Redirect-Url'] = 'nucleus:rest';
         try {
             $call            = $this->simpleRequest('GET', $this->getFifaApiUrl() . '/v2/user/accountinfo', [
