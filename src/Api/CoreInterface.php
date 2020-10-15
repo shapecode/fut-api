@@ -24,15 +24,15 @@ interface CoreInterface
         'Cache-Control'     => 'no-cache',
         'Connection'        => 'keep-alive',
         'DNT'               => '1',
-        'Origin'            => 'https://www.easports.com',
+        'Origin'            => 'https://www.ea.com',
         'Pragma'            => 'no-cache',
-        'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
+        'Referer'           => 'https://www.ea.com/fifa/ultimate-team/web-app/',
         'Sec-Fetch-Mode'    => 'cors',
         'Sec-Fetch-Site'    => 'cross-site',
     ];
     public const AUTH_URL        = 'utas.mob.v4.fut.ea.com:443';
-    public const CLIENT_ID       = 'FIFA-20-WEBCLIENT';
-    public const SKU             = 'FUT20WEB';
+    public const CLIENT_ID       = 'FIFA21_JS_WEB_APP';
+    public const SKU             = 'FUT21WEB';
 
     /**
      * @return mixed[]

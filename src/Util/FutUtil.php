@@ -9,11 +9,11 @@ use Shapecode\FUT\Client\Exception\FutException;
 class FutUtil
 {
     private const GAME_SKU = [
-        'pc'      => 'FFA20PCC',
-        'xbox'    => 'FFA20XBO',
-        'xbox360' => 'FFA20XBX',
-        'ps3'     => 'FFA20PS3',
-        'ps4'     => 'FFA20PS4',
+        'pc'      => 'FFA21PCC',
+        'xbox'    => 'FFA21XBO',
+        'xbox360' => 'FFA21XBX',
+        'ps3'     => 'FFA21PS3',
+        'ps4'     => 'FFA21PS4',
     ];
 
     private function __construct()
