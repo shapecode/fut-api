@@ -122,16 +122,16 @@ abstract class AbstractCore implements CoreInterface
 
         $call = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'query'    => [
+                'prompt'        => 'login',
+                'accessToken'   => 'null',
                 'client_id'     => self::CLIENT_ID,
                 'response_type' => 'token',
                 'display'       => 'web2/login',
                 'locale'        => 'en_US',
-                'prompt'        => 'login',
-                'accessToken'   => 'null',
                 'release_type'  => 'prod',
-                'redirect_uri'  => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
+                'redirect_uri'  => 'https://www.ea.com/fifa/ultimate-team/web-app/auth.html',
 //                'redirect_uri'  => 'nucleus:rest',
-                'scope'         => 'basic.identity offline signin basic.entitlement',
+                'scope'         => 'basic.identity offline signin basic.entitlement basic.persona',
             ],
             'headers'  => $headers,
             'on_stats' => static function (TransferStats $stats) use (&$url) : void {
@@ -139,7 +139,7 @@ abstract class AbstractCore implements CoreInterface
             },
         ]);
 
-        if ((string) $url !== 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html') {
+        if ((string) $url !== 'https://www.ea.com/fifa/ultimate-team/web-app/auth.html') {
             $headers['Referer'] = (string) $url;
             $call               = $this->simpleRequest('POST', (string) $url, [
                 'form_params' => [
@@ -231,9 +231,9 @@ abstract class AbstractCore implements CoreInterface
         $tokenType   = $matches['token_type'];
         $expiresAt   = new DateTime('+' . $matches['expires_in'] . ' seconds');
 
-        $this->simpleRequest('GET', 'https://www.easports.com/fifa/ultimate-team/web-app/');
+        $this->simpleRequest('GET', 'https://www.ea.com/fifa/ultimate-team/web-app/');
 
-        $headers['Referer']       = 'https://www.easports.com/fifa/ultimate-team/web-app/';
+        $headers['Referer']       = 'https://www.ea.com/fifa/ultimate-team/web-app/';
         $headers['Accept']        = 'application/json';
         $headers['Authorization'] = $tokenType . ' ' . $accessToken;
 
@@ -258,6 +258,28 @@ abstract class AbstractCore implements CoreInterface
             throw new ServerDownException($e->getResponse(), $e);
         }
 
+        unset($headers['Easw-Session-Data-Nucleus-Id']);
+        $headers['Origin'] = 'http://www.ea.com';
+
+        $call            = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
+            'headers' => $headers,
+            'query'   => [
+                'client_id'         => 'FOS-SERVER',
+                'redirect_uri'      => 'nucleus:rest',
+                'response_type'     => 'code',
+                'access_token'      => $accessToken,
+                'release_type'      => 'prod',
+                'client_sequence'   => 'shard2',
+            ],
+        ]);
+        $responseContent = json_decode($call->getContent(), true);
+
+        $auth_code = $responseContent['code'];
+
+        $headers['Nucleus-Access-Code'] = $auth_code;
+        $headers['Nucleus-Redirect-Url'] = 'nucleus:rest';
+        $headers['Easw-Session-Data-Nucleus-Id'] = $nucleus_id;
+
         //personas
         try {
             $call            = $this->simpleRequest('GET', $this->getFifaApiUrl() . '/user/accountinfo', [
@@ -265,7 +287,7 @@ abstract class AbstractCore implements CoreInterface
                 'query'   => [
                     'filterConsoleLogin'    => 'true',
                     'sku'                   => self::SKU,
-                    'returningUserGameYear' => '2019',
+                    'returningUserGameYear' => '2020',
                 ],
             ]);
             $responseContent = json_decode($call->getContent(), true);
@@ -293,16 +315,17 @@ abstract class AbstractCore implements CoreInterface
 
         //authorization
         unset($headers['Easw-Session-Data-Nucleus-Id']);
-        $headers['Origin'] = 'http://www.easports.com';
+        $headers['Origin'] = 'http://www.ea.com';
 
         $call            = $this->simpleRequest('GET', 'https://accounts.ea.com/connect/auth', [
             'headers' => $headers,
             'query'   => [
-                'client_id'     => 'FOS-SERVER',
-                'redirect_uri'  => 'nucleus:rest',
-                'response_type' => 'code',
-                'access_token'  => $accessToken,
-                'release_type'  => 'prod',
+                'client_id'         => 'FOS-SERVER',
+                'redirect_uri'      => 'nucleus:rest',
+                'response_type'     => 'code',
+                'access_token'      => $accessToken,
+                'release_type'      => 'prod',
+                'client_sequence'   => 'ut-auth',
             ],
         ]);
         $responseContent = json_decode($call->getContent(), true);
@@ -413,10 +436,10 @@ abstract class AbstractCore implements CoreInterface
 
         $this->request('GET', 'https://accounts.ea.com/connect/logout', null, [
             'client_id'    => self::CLIENT_ID,
-            'redirect_uri' => 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
+            'redirect_uri' => 'https://www.ea.com/fifa/ultimate-team/web-app/auth.html',
             'release_type' => 'prod',
         ]);
-        $this->request('GET', 'https://www.easports.com/signout', null, [
+        $this->request('GET', 'https://www.ea.com/signout', null, [
             'ct' => time(),
         ]);
         $this->request('GET', 'https://accounts.ea.com/connect/clearsid', null, [

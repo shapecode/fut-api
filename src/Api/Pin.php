@@ -144,10 +144,10 @@ class Pin
             'rel'     => 'prod',
             'sid'     => $session->getSession(),
             'taxv'    => '1.1',
-            'tid'     => 'FUT20WEB',
+            'tid'     => 'FUT21WEB',
             'tidt'    => 'easku',
             'ts_post' => $this->timestamp(),
-            'v'       => '20.1.0',
+            'v'       => '21.0.0',
         ], JSON_THROW_ON_ERROR);
 
         $headers = [
@@ -160,12 +160,12 @@ class Pin
             'Content-Type'      => 'application/json',
             'DNT'               => '1',
             'Host'              => 'pin-river.data.ea.com',
-            'Origin'            => 'https://www.easports.com',
+            'Origin'            => 'https://www.ea.com',
             'Pragma'            => 'no-cache',
-            'Referer'           => 'https://www.easports.com/fifa/ultimate-team/web-app/',
+            'Referer'           => 'https://www.ea.com/fifa/ultimate-team/web-app/',
             'Sec-Fetch-Mode'    => 'cors',
             'Sec-Fetch-Site'    => 'cross-site',
-            'x-ea-game-id'      => 'FUT20WEB',
+            'x-ea-game-id'      => 'FUT21WEB',
             'x-ea-game-id-type' => 'easku',
             'x-ea-taxv'         => '1.1',
         ];
