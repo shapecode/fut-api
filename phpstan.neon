@@ -6,7 +6,13 @@ includes:
     - vendor/phpstan/phpstan-phpunit/rules.neon
 
 parameters:
-	level: max
-	paths:
-		- src
-		- test
+    level: max
+    paths:
+        - src
+        - test
+
+    parallel:
+        maximumNumberOfProcesses: 4
+
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
