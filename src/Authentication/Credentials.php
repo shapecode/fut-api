@@ -33,6 +33,7 @@ class Credentials implements CredentialsInterface
     ) {
         Assert::email($email);
         Assert::notEmpty($password);
+        Assert::notEmpty($platform);
         Assert::notEmpty($locale);
         Assert::notEmpty($country);
         Assert::notEmpty($emulate);

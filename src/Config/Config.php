@@ -29,8 +29,10 @@ class Config implements ConfigInterface
     /**
      * @param mixed[] $options
      */
-    public function __construct(array $options = [], ?string $futConfigUrl = null)
-    {
+    public function __construct(
+        array $options = [],
+        ?string $futConfigUrl = null
+    ) {
         if ($futConfigUrl === null) {
             $futConfigUrl = 'https://www.ea.com/fifa/ultimate-team/web-app/config/config.json';
         }

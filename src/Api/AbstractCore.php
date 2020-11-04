@@ -8,8 +8,6 @@ use DateTime;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\TransferStats;
-use Http\Client\Common\Plugin\HeaderSetPlugin;
-use Http\Client\Common\Plugin\QueryDefaultsPlugin;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
@@ -88,8 +86,8 @@ abstract class AbstractCore implements CoreInterface
         ?ClientFactoryInterface $clientFactory = null
     ) {
         $this->account       = $account;
-        $this->config        = $config ?: new Config();
-        $this->clientFactory = $clientFactory ?: new ClientFactory($this->config);
+        $this->config        = $config ?? new Config();
+        $this->clientFactory = $clientFactory ?? new ClientFactory($this->config);
 
         $this->locale = new Locale('en_US');
         $this->mapper = new Mapper();
