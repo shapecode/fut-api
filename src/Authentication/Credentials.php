@@ -6,27 +6,22 @@ namespace Shapecode\FUT\Client\Authentication;
 
 use Shapecode\FUT\Client\Exception\FutException;
 use Webmozart\Assert\Assert;
+
 use function in_array;
 
 class Credentials implements CredentialsInterface
 {
-    /** @var string */
-    protected $email;
+    protected string $email;
 
-    /** @var string */
-    protected $password;
+    protected string $password;
 
-    /** @var string */
-    protected $platform;
+    protected string $platform;
 
-    /** @var string */
-    protected $emulate = 'web';
+    protected string $emulate = 'web';
 
-    /** @var string */
-    protected $locale = 'en_US';
+    protected string $locale = 'en_US';
 
-    /** @var string */
-    protected $country = 'US';
+    protected string $country = 'US';
 
     public function __construct(
         string $email,
@@ -51,37 +46,37 @@ class Credentials implements CredentialsInterface
         $this->setPlatform($platform);
     }
 
-    public function getEmail() : string
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function getPassword() : string
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function getPlatform() : string
+    public function getPlatform(): string
     {
         return $this->platform;
     }
 
-    public function getEmulate() : string
+    public function getEmulate(): string
     {
         return $this->emulate;
     }
 
-    public function getLocale() : string
+    public function getLocale(): string
     {
         return $this->locale;
     }
 
-    public function getCountry() : string
+    public function getCountry(): string
     {
         return $this->country;
     }
 
-    protected function setPlatform(string $platform) : void
+    protected function setPlatform(string $platform): void
     {
         if (! in_array($platform, self::VALID_PLATFORMS, true)) {
             throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)', [

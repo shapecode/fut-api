@@ -6,20 +6,20 @@ namespace Shapecode\FUT\Client\Config;
 
 interface ConfigInterface
 {
-    public function isDelay() : bool;
+    public function isDelay(): bool;
 
-    public function getDelayMinTime() : int;
+    public function getDelayMinTime(): int;
 
-    public function getDelayMaxTime() : int;
+    public function getDelayMaxTime(): int;
 
-    public function getRandomDelayTime(?int $min = null, ?int $max = null) : int;
+    public function getRandomDelayTime(?int $min = null, ?int $max = null): int;
 
-    public function getUserAgent() : string;
+    public function getUserAgent(): string;
 
     /**
      * @return mixed[]
      */
-    public function getOptions() : array;
+    public function getOptions(): array;
 
     /**
      * @return mixed
@@ -29,5 +29,5 @@ interface ConfigInterface
     /**
      * @param mixed $value
      */
-    public function setOption(string $name, $value) : void;
+    public function setOption(string $name, $value): void;
 }

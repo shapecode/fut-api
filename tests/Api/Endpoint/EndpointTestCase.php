@@ -17,11 +17,12 @@ use Shapecode\FUT\Client\Authentication\Session;
 use Shapecode\FUT\Client\Config\Config;
 use Shapecode\FUT\Client\Http\ClientCall;
 use Shapecode\FUT\Client\Http\ClientFactory;
+
 use function file_get_contents;
 
 abstract class EndpointTestCase extends TestCase
 {
-    protected function createCore(ClientFactory $factory) : Core
+    protected function createCore(ClientFactory $factory): Core
     {
         $date = Carbon::now('UTC');
         Carbon::setTestNow($date);
@@ -54,7 +55,7 @@ abstract class EndpointTestCase extends TestCase
         return $core;
     }
 
-    protected function createClientFactoryMock(string $filename) : ClientFactory
+    protected function createClientFactoryMock(string $filename): ClientFactory
     {
         $jsonData = file_get_contents(__DIR__ . '/../../../data/fixtures/' . $filename);
 

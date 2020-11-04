@@ -18,5 +18,5 @@ interface ClientFactoryInterface
         string $url,
         array $options = [],
         array $plugins = []
-    ) : ClientCall;
+    ): ClientCall;
 }

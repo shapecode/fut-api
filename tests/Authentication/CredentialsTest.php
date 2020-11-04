@@ -12,7 +12,7 @@ use Shapecode\FUT\Client\Tests\TestCase;
 
 class CredentialsTest extends TestCase
 {
-    public function testCredentialCreation() : void
+    public function testCredentialCreation(): void
     {
         new Credentials(
             'test@example.com',
@@ -23,7 +23,7 @@ class CredentialsTest extends TestCase
         $this->expectNotToPerformAssertions();
     }
 
-    public function testCredentialFailure() : void
+    public function testCredentialFailure(): void
     {
         $this->expectException(FutException::class);
         $this->expectExceptionMessage('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)');
@@ -35,7 +35,7 @@ class CredentialsTest extends TestCase
         );
     }
 
-    public function testCredentialEmail() : void
+    public function testCredentialEmail(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a value to be a valid e-mail address. Got "wrong_email"');
@@ -47,7 +47,7 @@ class CredentialsTest extends TestCase
         );
     }
 
-    public function testCredentialPassword() : void
+    public function testCredentialPassword(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a non-empty value. Got: ""');

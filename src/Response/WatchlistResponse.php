@@ -8,14 +8,12 @@ use Shapecode\FUT\Client\Items\TradeItem;
 
 class WatchlistResponse
 {
-    /** @var int|null */
-    private $credits;
+    private ?int $credits = null;
 
-    /** @var int|null */
-    private $total;
+    private ?int $total = null;
 
     /** @var TradeItem[] */
-    private $auctions = [];
+    private array $auctions = [];
 
     /**
      * @param TradeItem[] $auctions
@@ -27,7 +25,7 @@ class WatchlistResponse
         $this->total    = $total;
     }
 
-    public function getCredits() : ?int
+    public function getCredits(): ?int
     {
         return $this->credits;
     }
@@ -35,12 +33,12 @@ class WatchlistResponse
     /**
      * @return TradeItem[]
      */
-    public function getAuctions() : array
+    public function getAuctions(): array
     {
         return $this->auctions;
     }
 
-    public function getTotal() : ?int
+    public function getTotal(): ?int
     {
         return $this->total;
     }

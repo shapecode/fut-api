@@ -6,11 +6,9 @@ namespace Shapecode\FUT\Client\Items;
 
 class DuplicateItem
 {
-    /** @var int */
-    protected $itemId;
+    protected int $itemId;
 
-    /** @var int */
-    protected $duplicateItemId;
+    protected int $duplicateItemId;
 
     public function __construct(int $itemId, int $duplicateItemId)
     {
@@ -18,12 +16,12 @@ class DuplicateItem
         $this->duplicateItemId = $duplicateItemId;
     }
 
-    public function getItemId() : int
+    public function getItemId(): int
     {
         return $this->itemId;
     }
 
-    public function getDuplicateItemId() : int
+    public function getDuplicateItemId(): int
     {
         return $this->duplicateItemId;
     }

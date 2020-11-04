@@ -6,9 +6,6 @@ namespace Shapecode\FUT\Client\Api;
 
 use Shapecode\FUT\Client\Http\ClientCall;
 
-/**
- * Interface CoreInterface
- */
 interface CoreInterface
 {
     public const FUT_HOSTS       = [
@@ -38,9 +35,9 @@ interface CoreInterface
     /**
      * @return mixed[]
      */
-    public function login(?string $code = null) : array;
+    public function login(?string $code = null): array;
 
-    public function logout() : void;
+    public function logout(): void;
 
     /**
      * @return mixed
@@ -105,42 +102,42 @@ interface CoreInterface
      *
      * @return mixed[]
      */
-    public function players(array $params = []) : array;
+    public function players(array $params = []): array;
 
     /**
      * @param mixed[] $params
      *
      * @return mixed[]
      */
-    public function stadiums(array $params = []) : array;
+    public function stadiums(array $params = []): array;
 
     /**
      * @param mixed[] $params
      *
      * @return mixed[]
      */
-    public function kits(array $params = []) : array;
+    public function kits(array $params = []): array;
 
     /**
      * @param mixed[] $params
      *
      * @return mixed[]
      */
-    public function staffs(array $params = []) : array;
+    public function staffs(array $params = []): array;
 
     /**
      * @param mixed[] $params
      *
      * @return mixed[]
      */
-    public function badges(array $params = []) : array;
+    public function badges(array $params = []): array;
 
     /**
      * @param mixed[] $params
      *
      * @return mixed[]
      */
-    public function balls(array $params = []) : array;
+    public function balls(array $params = []): array;
 
     /**
      * @return mixed
@@ -296,12 +293,12 @@ interface CoreInterface
      */
     public function getCaptchaData();
 
-    public function validateCaptcha(string $token) : ClientCall;
+    public function validateCaptcha(string $token): ClientCall;
 
-    public function phishingQuestion() : ClientCall;
+    public function phishingQuestion(): ClientCall;
 
     /**
      * @param mixed $answer
      */
-    public function phishingValidate($answer) : ClientCall;
+    public function phishingValidate($answer): ClientCall;
 }

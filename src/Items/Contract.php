@@ -6,37 +6,37 @@ namespace Shapecode\FUT\Client\Items;
 
 class Contract extends Item
 {
-    public function getRating() : ?int
+    public function getRating(): ?int
     {
         return $this->get('rating');
     }
 
-    public function getAssetId() : ?int
+    public function getAssetId(): ?int
     {
         return $this->get('assetId');
     }
 
-    public function getCardAssetId() : ?int
+    public function getCardAssetId(): ?int
     {
         return $this->get('cardassetid');
     }
 
-    public function getWeightRare() : ?int
+    public function getWeightRare(): ?int
     {
         return $this->get('weightrare');
     }
 
-    public function getBronze() : ?int
+    public function getBronze(): ?int
     {
         return $this->get('bronze');
     }
 
-    public function getSilver() : ?int
+    public function getSilver(): ?int
     {
         return $this->get('silver');
     }
 
-    public function getGold() : ?int
+    public function getGold(): ?int
     {
         return $this->get('gold');
     }

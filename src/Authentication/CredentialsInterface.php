@@ -20,15 +20,15 @@ interface CredentialsInterface
         self::PLATFORM_PS4,
     ];
 
-    public function getEmail() : string;
+    public function getEmail(): string;
 
-    public function getPassword() : string;
+    public function getPassword(): string;
 
-    public function getPlatform() : string;
+    public function getPlatform(): string;
 
-    public function getEmulate() : string;
+    public function getEmulate(): string;
 
-    public function getLocale() : string;
+    public function getLocale(): string;
 
-    public function getCountry() : string;
+    public function getCountry(): string;
 }

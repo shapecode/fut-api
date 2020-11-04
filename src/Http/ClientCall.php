@@ -9,31 +9,29 @@ use Psr\Http\Message\ResponseInterface;
 
 class ClientCall
 {
-    /** @var RequestInterface */
-    protected $request;
+    protected RequestInterface $request;
 
-    /** @var ResponseInterface */
-    protected $response;
+    protected ResponseInterface $response;
 
     /** @var mixed */
     protected $contents;
 
-    public function getRequest() : RequestInterface
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }
 
-    public function setRequest(RequestInterface $request) : void
+    public function setRequest(RequestInterface $request): void
     {
         $this->request = $request;
     }
 
-    public function getResponse() : ResponseInterface
+    public function getResponse(): ResponseInterface
     {
         return $this->response;
     }
 
-    public function setResponse(ResponseInterface $response) : void
+    public function setResponse(ResponseInterface $response): void
     {
         $this->response = $response;
     }

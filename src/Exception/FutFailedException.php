@@ -17,7 +17,7 @@ abstract class FutFailedException extends FutResponseException
         parent::__construct($this->getErrorMessage(), $response, $this->getErrorReason(), $options, $previous);
     }
 
-    abstract protected function getErrorMessage() : string;
+    abstract protected function getErrorMessage(): string;
 
-    abstract protected function getErrorReason() : string;
+    abstract protected function getErrorReason(): string;
 }

@@ -9,11 +9,10 @@ use Symfony\Component\Translation\Translator;
 
 class Locale
 {
-    /** @var Translator */
-    protected $translator;
+    protected Translator $translator;
 
     /** @var mixed[] */
-    protected $value;
+    protected array $value;
 
     public function __construct(string $locale)
     {
@@ -29,7 +28,7 @@ class Locale
     /**
      * @param mixed $value
      */
-    public function get($value) : string
+    public function get($value): string
     {
         return $this->translator->trans($value);
     }

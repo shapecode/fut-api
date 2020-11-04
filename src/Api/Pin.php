@@ -9,25 +9,24 @@ use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Exception\PinErrorException;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
-use const JSON_THROW_ON_ERROR;
+
 use function json_decode;
 use function json_encode;
 use function mb_strlen;
 use function substr;
+
+use const JSON_THROW_ON_ERROR;
 
 class Pin
 {
     private const PIN_URL         = 'https://pin-river.data.ea.com/pinEvents';
     private const DATETIME_FORMAT = 'Y-m-d\TH:i:s.v\Z';
 
-    /** @var AccountInterface */
-    private $account;
+    private AccountInterface $account;
 
-    /** @var ClientFactoryInterface */
-    private $clientFactory;
+    private ClientFactoryInterface $clientFactory;
 
-    /** @var int */
-    private $s = 2;
+    private int $s = 2;
 
     public function __construct(AccountInterface $account, ClientFactoryInterface $clientFactory)
     {
@@ -40,9 +39,9 @@ class Pin
         ?string $pgid = null,
         ?string $status = null,
         ?string $source = null,
-        ?string $end_reason = null
-    ) : void {
-        $event = $this->event($en, $pgid, $status, $source, $end_reason);
+        ?string $endReason = null
+    ): void {
+        $event = $this->event($en, $pgid, $status, $source, $endReason);
         $this->send([$event]);
     }
 
@@ -54,8 +53,8 @@ class Pin
         ?string $pgid = null,
         ?string $status = null,
         ?string $source = null,
-        ?string $end_reason = null
-    ) : array {
+        ?string $endReason = null
+    ): array {
         $account = $this->account;
         $session = $account->getSession();
 
@@ -92,8 +91,8 @@ class Pin
             $data['source'] = $source;
         }
 
-        if ($end_reason !== null) {
-            $data['end_reason'] = $end_reason;
+        if ($endReason !== null) {
+            $data['end_reason'] = $endReason;
         }
 
         switch ($en) {
@@ -120,7 +119,7 @@ class Pin
     /**
      * @param mixed[] $events
      */
-    public function send(array $events) : bool
+    public function send(array $events): bool
     {
         $account  = $this->account;
         $session  = $account->getSession();
@@ -184,7 +183,7 @@ class Pin
         return true;
     }
 
-    private function timestamp() : string
+    private function timestamp(): string
     {
         return Carbon::now()->format(self::DATETIME_FORMAT);
     }

@@ -10,11 +10,12 @@ use Shapecode\FUT\Client\Authentication\Credentials;
 use Shapecode\FUT\Client\Exception\IncorrectCredentialsException;
 use Shapecode\FUT\Client\Exception\ProvideSecurityCodeException;
 use Shapecode\FUT\Client\Tests\TestCase;
+
 use function getenv;
 
 class CoreTest extends TestCase
 {
-    public function testLogin() : void
+    public function testLogin(): void
     {
         $credentials = new Credentials(
             getenv('EMAIL'),

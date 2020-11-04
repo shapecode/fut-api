@@ -10,10 +10,10 @@ use Throwable;
 class FutResponseException extends FutException
 {
     /** @var ?string */
-    protected $reason;
+    protected ?string $reason = null;
 
     /** @var ?ResponseInterface */
-    protected $response;
+    protected ?ResponseInterface $response = null;
 
     /**
      * @param mixed[] $options
@@ -37,12 +37,12 @@ class FutResponseException extends FutException
         $this->reason   = $reason;
     }
 
-    public function getReason() : ?string
+    public function getReason(): ?string
     {
         return $this->reason;
     }
 
-    public function getResponse() : ?ResponseInterface
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }

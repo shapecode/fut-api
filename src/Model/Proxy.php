@@ -6,20 +6,15 @@ namespace Shapecode\FUT\Client\Model;
 
 class Proxy implements ProxyInterface
 {
-    /** @var string */
-    protected $protocol;
+    protected string $protocol;
 
-    /** @var string */
-    protected $ip;
+    protected string $ip;
 
-    /** @var string */
-    protected $port;
+    protected string $port;
 
-    /** @var string|null */
-    protected $username;
+    protected ?string $username = null;
 
-    /** @var string|null */
-    protected $password;
+    protected ?string $password = null;
 
     public function __construct(
         string $protocol,
@@ -35,52 +30,52 @@ class Proxy implements ProxyInterface
         $this->password = $password;
     }
 
-    public function getProtocol() : string
+    public function getProtocol(): string
     {
         return $this->protocol;
     }
 
-    public function getIp() : string
+    public function getIp(): string
     {
         return $this->ip;
     }
 
-    public function setIp(string $ip) : void
+    public function setIp(string $ip): void
     {
         $this->ip = $ip;
     }
 
-    public function getPort() : string
+    public function getPort(): string
     {
         return $this->port;
     }
 
-    public function setPort(string $port) : void
+    public function setPort(string $port): void
     {
         $this->port = $port;
     }
 
-    public function getUsername() : ?string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
 
-    public function setUsername(?string $username) : void
+    public function setUsername(?string $username): void
     {
         $this->username = $username;
     }
 
-    public function getPassword() : ?string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(?string $password) : void
+    public function setPassword(?string $password): void
     {
         $this->password = $password;
     }
 
-    public function getProxyProtocol() : string
+    public function getProxyProtocol(): string
     {
         $auth = '';
 

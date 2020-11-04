@@ -6,27 +6,27 @@ namespace Shapecode\FUT\Client\Items;
 
 class Health extends Item
 {
-    public function getAssetId() : ?int
+    public function getAssetId(): ?int
     {
         return $this->get('assetId');
     }
 
-    public function getRating() : ?int
+    public function getRating(): ?int
     {
         return $this->get('rating');
     }
 
-    public function getCardAssetId() : ?int
+    public function getCardAssetId(): ?int
     {
         return $this->get('cardassetid');
     }
 
-    public function getWeightRare() : ?int
+    public function getWeightRare(): ?int
     {
         return $this->get('weightrare');
     }
 
-    public function getAmount() : ?int
+    public function getAmount(): ?int
     {
         return $this->get('amount');
     }

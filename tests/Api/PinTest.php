@@ -13,7 +13,7 @@ use Shapecode\FUT\Client\Http\ClientFactory;
 
 class PinTest extends TestCase
 {
-    public function testCreateEvent() : void
+    public function testCreateEvent(): void
     {
         $date = Carbon::create(2001, 5, 21, 12, 32, 15, 'UTC');
         Carbon::setTestNow($date);

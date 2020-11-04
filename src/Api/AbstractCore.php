@@ -47,9 +47,10 @@ use Shapecode\FUT\Client\Response\WatchlistResponse;
 use Shapecode\FUT\Client\Util\EAHasher;
 use Shapecode\FUT\Client\Util\FutUtil;
 use Throwable;
-use const JSON_THROW_ON_ERROR;
+
 use function array_pop;
 use function array_values;
+use function assert;
 use function implode;
 use function is_array;
 use function json_decode;
@@ -61,31 +62,25 @@ use function strtoupper;
 use function time;
 use function usleep;
 
+use const JSON_THROW_ON_ERROR;
+
 abstract class AbstractCore implements CoreInterface
 {
-    /** @var int */
-    protected $clientVersion = 1;
+    protected int $clientVersion = 1;
 
-    /** @var string */
-    protected $ultimateApiUrl;
+    protected string $ultimateApiUrl;
 
-    /** @var AccountInterface */
-    protected $account;
+    protected AccountInterface $account;
 
-    /** @var ConfigInterface */
-    protected $config;
+    protected ConfigInterface $config;
 
-    /** @var Locale */
-    protected $locale;
+    protected Locale $locale;
 
-    /** @var Mapper */
-    protected $mapper;
+    protected Mapper $mapper;
 
-    /** @var Pin */
-    protected $pin;
+    protected Pin $pin;
 
-    /** @var ClientFactoryInterface */
-    protected $clientFactory;
+    protected ClientFactoryInterface $clientFactory;
 
     public function __construct(
         AccountInterface $account,
@@ -101,7 +96,7 @@ abstract class AbstractCore implements CoreInterface
         $this->pin    = new Pin($this->getAccount(), $this->getClientFactory());
     }
 
-    public function getClientFactory() : ClientFactoryInterface
+    public function getClientFactory(): ClientFactoryInterface
     {
         return $this->clientFactory;
     }
@@ -109,14 +104,14 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function login(?string $code = null) : array
+    public function login(?string $code = null): array
     {
         $account     = $this->getAccount();
         $credentials = $account->getCredentials();
         $locale      = $this->locale;
 
-        /** @var UriInterface $url */
         $url = null;
+        assert($url instanceof UriInterface);
 
         $headers = [];
 
@@ -134,7 +129,7 @@ abstract class AbstractCore implements CoreInterface
                 'scope'         => 'basic.identity offline signin basic.entitlement basic.persona',
             ],
             'headers'  => $headers,
-            'on_stats' => static function (TransferStats $stats) use (&$url) : void {
+            'on_stats' => static function (TransferStats $stats) use (&$url): void {
                 $url = $stats->getEffectiveUri();
             },
         ]);
@@ -157,7 +152,7 @@ abstract class AbstractCore implements CoreInterface
                     '_eventId'           => 'submit',
                 ],
                 'headers'     => $headers,
-                'on_stats'    => static function (TransferStats $stats) use (&$url) : void {
+                'on_stats'    => static function (TransferStats $stats) use (&$url): void {
                     $url = $stats->getEffectiveUri();
                 },
             ]);
@@ -170,7 +165,7 @@ abstract class AbstractCore implements CoreInterface
             if (strpos($responseContent, $locale->get('login.redirect_uri')) !== false) {
                 $call            = $this->simpleRequest('GET', $url . '&_eventId=end', [
                     'headers'  => $headers,
-                    'on_stats' => static function (TransferStats $stats) use (&$url) : void {
+                    'on_stats' => static function (TransferStats $stats) use (&$url): void {
                         $url = $stats->getEffectiveUri();
                     },
                 ]);
@@ -184,7 +179,7 @@ abstract class AbstractCore implements CoreInterface
                         'codeType' => 'EMAIL',
                         '_eventId' => 'submit',
                     ],
-                    'on_stats'    => static function (TransferStats $stats) use (&$url) : void {
+                    'on_stats'    => static function (TransferStats $stats) use (&$url): void {
                         $url = $stats->getEffectiveUri();
                     },
                 ]);
@@ -205,7 +200,7 @@ abstract class AbstractCore implements CoreInterface
                         'trustThisDevice'  => 'on',
                         '_eventId'         => 'submit',
                     ],
-                    'on_stats'    => static function (TransferStats $stats) use (&$url) : void {
+                    'on_stats'    => static function (TransferStats $stats) use (&$url): void {
                         $url = $stats->getEffectiveUri();
                     },
                 ]);
@@ -242,12 +237,12 @@ abstract class AbstractCore implements CoreInterface
         ]);
         $responseContent = json_decode($call->getContent(), true, 512, JSON_THROW_ON_ERROR);
 
-        $nucleus_id = $responseContent['pid']['externalRefValue'];
-        $dob        = $responseContent['pid']['dob'];
+        $nucleusId = $responseContent['pid']['externalRefValue'];
+        $dob       = $responseContent['pid']['dob'];
 
         unset($headers['Authorization']);
 
-        $headers['Easw-Session-Data-Nucleus-Id'] = $nucleus_id;
+        $headers['Easw-Session-Data-Nucleus-Id'] = $nucleusId;
 
         //shards
         try {
@@ -274,11 +269,11 @@ abstract class AbstractCore implements CoreInterface
         ]);
         $responseContent = json_decode($call->getContent(), true);
 
-        $auth_code = $responseContent['code'];
+        $authCode = $responseContent['code'];
 
-        $headers['Nucleus-Access-Code'] = $auth_code;
-        $headers['Nucleus-Redirect-Url'] = 'nucleus:rest';
-        $headers['Easw-Session-Data-Nucleus-Id'] = $nucleus_id;
+        $headers['Nucleus-Access-Code']          = $authCode;
+        $headers['Nucleus-Redirect-Url']         = 'nucleus:rest';
+        $headers['Easw-Session-Data-Nucleus-Id'] = $nucleusId;
 
         //personas
         try {
@@ -301,10 +296,10 @@ abstract class AbstractCore implements CoreInterface
 
         $personasValues = array_values($responseContent['userAccountInfo']['personas']);
         $persona        = array_pop($personasValues);
-        $persona_id     = $persona['personaId'] ?? null;
+        $personaId      = $persona['personaId'] ?? null;
 
         //validate persona found.
-        if ($persona_id === null) {
+        if ($personaId === null) {
             throw new NoPersonaException($call->getResponse());
         }
 
@@ -330,7 +325,7 @@ abstract class AbstractCore implements CoreInterface
         ]);
         $responseContent = json_decode($call->getContent(), true);
 
-        $auth_code = $responseContent['code'];
+        $authCode = $responseContent['code'];
 
         $headers['Content-Type'] = 'application/json';
         $call                    = $this->simpleRequest('POST', $this->getFutAuthUrl(), [
@@ -339,13 +334,13 @@ abstract class AbstractCore implements CoreInterface
                 'isReadOnly'       => false,
                 'sku'              => self::SKU,
                 'clientVersion'    => $this->clientVersion,
-                'nucleusPersonaId' => $persona_id,
+                'nucleusPersonaId' => $personaId,
                 'gameSku'          => $this->getGameSku(),
                 'locale'           => 'en-US',
                 'method'           => 'authcode',
                 'priorityLevel'    => 4,
                 'identification'   => [
-                    'authCode'    => $auth_code,
+                    'authCode'    => $authCode,
                     'redirectUrl' => 'nucleus:rest',
                 ],
             ], JSON_THROW_ON_ERROR),
@@ -365,8 +360,10 @@ abstract class AbstractCore implements CoreInterface
                 case 'multiple session':
                 case 'max sessions':
                     throw new MaxSessionsException($call->getResponse());
+
                 case 'doLogin: doLogin failed':
                     throw new AuthFailedException($call->getResponse());
+
                 default:
                     throw new FutResponseException($responseContent['reason'], $call->getResponse());
             }
@@ -376,8 +373,8 @@ abstract class AbstractCore implements CoreInterface
         $sid           = $responseContent['sid'];
 
         $this->setSessionData(
-            (string) $persona_id,
-            $nucleus_id,
+            (string) $personaId,
+            $nucleusId,
             $phishingToken,
             $sid,
             $dob,
@@ -394,8 +391,8 @@ abstract class AbstractCore implements CoreInterface
             'email'          => $credentials->getEmail(),
             'access_token'   => $accessToken,
             'token_type'     => $tokenType,
-            'nucleus_id'     => $nucleus_id,
-            'persona_id'     => $persona_id,
+            'nucleus_id'     => $nucleusId,
+            'persona_id'     => $personaId,
             'phishing_token' => $phishingToken,
             'session_id'     => $sid,
             'dob'            => $dob,
@@ -404,33 +401,30 @@ abstract class AbstractCore implements CoreInterface
     }
 
     protected function setSessionData(
-        string $persona_id,
-        string $nucleus_id,
+        string $personaId,
+        string $nucleusId,
         string $phishingToken,
         string $sid,
         string $dob,
-        string $access_token,
-        string $token_type,
+        string $accessToken,
+        string $tokenType,
         DateTime $expiresAt
-    ) : void {
+    ): void {
         $session = Session::create(
-            $persona_id,
-            $nucleus_id,
+            $personaId,
+            $nucleusId,
             $phishingToken,
             $sid,
             $dob,
-            $access_token,
-            $token_type,
+            $accessToken,
+            $tokenType,
             $expiresAt
         );
 
         $this->getAccount()->setSession($session);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function logout() : void
+    public function logout(): void
     {
         $this->pin->sendEvent('page_view', 'Settings');
 
@@ -449,7 +443,7 @@ abstract class AbstractCore implements CoreInterface
         $this->resetSession();
     }
 
-    protected function resetSession() : void
+    protected function resetSession(): void
     {
         $this->getAccount()->resetSession();
     }
@@ -457,10 +451,10 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritDoc
      */
-    public function searchDefinition(int $asset_id, int $start = 0, int $count = 20)
+    public function searchDefinition(int $assetId, int $start = 0, int $count = 20)
     {
         $params = [
-            'defId' => FutUtil::getBaseId($asset_id),
+            'defId' => FutUtil::getBaseId($assetId),
             'start' => $start,
             'type'  => 'player',
             'count' => $count,
@@ -474,7 +468,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @param mixed[] $params
      */
-    public function search(array $params = [], int $pageSize = 20, int $start = 0) : MarketSearchResponse
+    public function search(array $params = [], int $pageSize = 20, int $start = 0): MarketSearchResponse
     {
         if ($start === 0) {
             $this->pin->sendEvent('page_view', 'Transfer Market Search');
@@ -508,7 +502,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function bid($tradeId, $price) : BidResponse
+    public function bid($tradeId, $price): BidResponse
     {
         $response = $this->request('PUT', '/trade/' . $tradeId . '/bid', [
             'bid' => $price,
@@ -554,7 +548,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function club(array $params = []) : array
+    public function club(array $params = []): array
     {
         if (! isset($params['sort'])) {
             $params['sort'] = 'desc';
@@ -604,6 +598,7 @@ abstract class AbstractCore implements CoreInterface
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
                 }
+
                 break;
             default:
                 $this->pin->sendEvent('page_view', 'Club - Club Items - List View');
@@ -611,6 +606,7 @@ abstract class AbstractCore implements CoreInterface
                 foreach ($itemData as $item) {
                     $result[] = $this->mapper->createItem($item);
                 }
+
                 break;
         }
 
@@ -622,7 +618,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function players(array $params = []) : array
+    public function players(array $params = []): array
     {
         $params['type'] = 'player';
 
@@ -634,7 +630,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function stadiums(array $params = []) : array
+    public function stadiums(array $params = []): array
     {
         $params['type'] = 'stadium';
 
@@ -646,7 +642,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function kits(array $params = []) : array
+    public function kits(array $params = []): array
     {
         $params['type'] = 'kit';
 
@@ -658,7 +654,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function staffs(array $params = []) : array
+    public function staffs(array $params = []): array
     {
         $params['type'] = 'staff';
 
@@ -670,7 +666,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function badges(array $params = []) : array
+    public function badges(array $params = []): array
     {
         $params['type'] = 'badge';
 
@@ -682,7 +678,7 @@ abstract class AbstractCore implements CoreInterface
      *
      * @return mixed[]
      */
-    public function balls(array $params = []) : array
+    public function balls(array $params = []): array
     {
         $params['type'] = 'ball';
 
@@ -736,7 +732,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function tradeStatus($tradeId) : TradeStatusResponse
+    public function tradeStatus($tradeId): TradeStatusResponse
     {
         $response = $this->request('GET', '/trade/status', null, [
             'tradeIds' => $tradeId,
@@ -747,10 +743,7 @@ abstract class AbstractCore implements CoreInterface
         return $this->mapper->createTradeStatusResponse($content);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function tradepile() : TradepileResponse
+    public function tradepile(): TradepileResponse
     {
         $response = $this->request('GET', '/tradepile');
 
@@ -761,10 +754,7 @@ abstract class AbstractCore implements CoreInterface
         return $this->mapper->createTradepileResponse($content);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function watchlist() : WatchlistResponse
+    public function watchlist(): WatchlistResponse
     {
         $response = $this->request('GET', '/watchlist');
 
@@ -775,10 +765,7 @@ abstract class AbstractCore implements CoreInterface
         return $this->mapper->createWatchlistResponse($content);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function unassigned() : UnassignedResponse
+    public function unassigned(): UnassignedResponse
     {
         $response = $this->request('GET', '/purchased/items');
 
@@ -794,7 +781,7 @@ abstract class AbstractCore implements CoreInterface
      * @param mixed $bid
      * @param mixed $bin
      */
-    public function sell($itemId, $bid, $bin, int $duration = 3600) : ?TradeItemInterface
+    public function sell($itemId, $bid, $bin, int $duration = 3600): ?TradeItemInterface
     {
         $options = [
             'itemData'    => [
@@ -1015,16 +1002,16 @@ abstract class AbstractCore implements CoreInterface
 
     /**
      * @param mixed $pile
-     * @param mixed $item_id
+     * @param mixed $itemId
      *
      * @return mixed[]
      */
-    protected function sendToPile($pile, $item_id = null) : array
+    protected function sendToPile($pile, $itemId = null): array
     {
         $response = $this->request('PUT', '/item', [
             'itemData' => [
                 [
-                    'id'   => $item_id,
+                    'id'   => $itemId,
                     'pile' => $pile,
                 ],
             ],
@@ -1045,17 +1032,14 @@ abstract class AbstractCore implements CoreInterface
         return $this->getResponseContent($response);
     }
 
-    public function validateCaptcha(string $token) : ClientCall
+    public function validateCaptcha(string $token): ClientCall
     {
         return $this->request('POST', '/captcha/fun/validate', [
             'funCaptchaToken' => $token,
         ]);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function phishingQuestion() : ClientCall
+    public function phishingQuestion(): ClientCall
     {
         return $this->request('POST', '/phishing/question');
     }
@@ -1063,7 +1047,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function phishingValidate($answer) : ClientCall
+    public function phishingValidate($answer): ClientCall
     {
         $hash = EAHasher::getInstance()->getHash($answer);
 
@@ -1074,27 +1058,27 @@ abstract class AbstractCore implements CoreInterface
         return $this->request('POST', '/phishing/validate', $params);
     }
 
-    protected function getAccount() : AccountInterface
+    protected function getAccount(): AccountInterface
     {
         return $this->account;
     }
 
-    protected function getPin() : Pin
+    protected function getPin(): Pin
     {
         return $this->pin;
     }
 
-    protected function getFifaApiUrl() : string
+    protected function getFifaApiUrl(): string
     {
         return $this->getFutApiUrl() . '/game/fifa20';
     }
 
-    protected function getFutAuthUrl() : string
+    protected function getFutAuthUrl(): string
     {
         return $this->getFutApiUrl() . '/auth?client=webcomp';
     }
 
-    protected function getFutApiUrl() : string
+    protected function getFutApiUrl(): string
     {
         if ($this->ultimateApiUrl === null) {
             $platform = $this->getAccount()->getCredentials()->getPlatform();
@@ -1107,12 +1091,12 @@ abstract class AbstractCore implements CoreInterface
         return $this->ultimateApiUrl;
     }
 
-    protected function getGameSku() : string
+    protected function getGameSku(): string
     {
         return FutUtil::getGameSku($this->getAccount()->getCredentials()->getPlatform());
     }
 
-    protected function sleep(?int $min = null, ?int $max = null) : void
+    protected function sleep(?int $min = null, ?int $max = null): void
     {
         usleep($this->getConfig()->getRandomDelayTime($min, $max));
     }
@@ -1121,7 +1105,7 @@ abstract class AbstractCore implements CoreInterface
      * @param mixed[] $options
      * @param mixed[] $plugins
      */
-    protected function simpleRequest(string $method, string $url, array $options = [], array $plugins = []) : ClientCall
+    protected function simpleRequest(string $method, string $url, array $options = [], array $plugins = []): ClientCall
     {
         return $this->getClientFactory()->request($this->getAccount(), $method, $url, $options, $plugins);
     }
@@ -1137,7 +1121,7 @@ abstract class AbstractCore implements CoreInterface
         $body = null,
         array $params = [],
         array $headers = []
-    ) : ClientCall {
+    ): ClientCall {
         if (strpos($url, 'http') === false) {
             $url = $this->getFifaApiUrl() . $url;
         }
@@ -1215,7 +1199,7 @@ abstract class AbstractCore implements CoreInterface
      * @throws ToManyRequestsException
      * @throws TransferMarketDisabledException
      */
-    protected function handleInvalidResponse(ResponseInterface $response) : void
+    protected function handleInvalidResponse(ResponseInterface $response): void
     {
         if ($response->getStatusCode() === 200) {
             return;
@@ -1260,12 +1244,12 @@ abstract class AbstractCore implements CoreInterface
         }
     }
 
-    protected function captchaReceived() : void
+    protected function captchaReceived(): void
     {
         // nothing to do in default
     }
 
-    protected function getConfig() : ConfigInterface
+    protected function getConfig(): ConfigInterface
     {
         return $this->config;
     }
@@ -1273,7 +1257,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @param mixed $value
      */
-    public function setConfig(string $name, $value) : void
+    public function setConfig(string $name, $value): void
     {
         $this->config->setOption($name, $value);
     }

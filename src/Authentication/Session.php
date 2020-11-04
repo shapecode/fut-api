@@ -8,29 +8,21 @@ use DateTime;
 
 class Session implements SessionInterface
 {
-    /** @var string */
-    protected $persona;
+    protected string $persona;
 
-    /** @var string */
-    protected $nucleus;
+    protected string $nucleus;
 
-    /** @var string */
-    protected $phishing;
+    protected string $phishing;
 
-    /** @var string */
-    protected $session;
+    protected string $session;
 
-    /** @var string */
-    protected $dob;
+    protected string $dob;
 
-    /** @var string */
-    protected $accessToken;
+    protected string $accessToken;
 
-    /** @var string|null */
-    protected $tokenType;
+    protected ?string $tokenType = null;
 
-    /** @var DateTime|null */
-    protected $expiresAt;
+    protected ?DateTime $expiresAt = null;
 
     public function __construct(
         string $persona,
@@ -61,46 +53,46 @@ class Session implements SessionInterface
         string $accessToken,
         ?string $tokenType = null,
         ?DateTime $expiresAt = null
-    ) : Session {
+    ): Session {
         return new self($persona, $nucleus, $phishing, $session, $dob, $accessToken, $tokenType, $expiresAt);
     }
 
-    public function getPersona() : string
+    public function getPersona(): string
     {
         return $this->persona;
     }
 
-    public function getNucleus() : string
+    public function getNucleus(): string
     {
         return $this->nucleus;
     }
 
-    public function getPhishing() : string
+    public function getPhishing(): string
     {
         return $this->phishing;
     }
 
-    public function getSession() : string
+    public function getSession(): string
     {
         return $this->session;
     }
 
-    public function getDob() : string
+    public function getDob(): string
     {
         return $this->dob;
     }
 
-    public function getAccessToken() : string
+    public function getAccessToken(): string
     {
         return $this->accessToken;
     }
 
-    public function getTokenType() : ?string
+    public function getTokenType(): ?string
     {
         return $this->tokenType;
     }
 
-    public function getExpiresAt() : ?DateTime
+    public function getExpiresAt(): ?DateTime
     {
         return $this->expiresAt;
     }

@@ -10,7 +10,7 @@ use Throwable;
 class FutException extends Exception
 {
     /** @var mixed[] */
-    protected $options;
+    protected array $options;
 
     /**
      * @param mixed[] $options
@@ -25,7 +25,7 @@ class FutException extends Exception
     /**
      * @return mixed[]
      */
-    public function getOptions() : array
+    public function getOptions(): array
     {
         return $this->options;
     }

@@ -8,19 +8,19 @@ use DateTime;
 
 interface SessionInterface
 {
-    public function getPersona() : string;
+    public function getPersona(): string;
 
-    public function getNucleus() : string;
+    public function getNucleus(): string;
 
-    public function getPhishing() : string;
+    public function getPhishing(): string;
 
-    public function getSession() : string;
+    public function getSession(): string;
 
-    public function getDob() : string;
+    public function getDob(): string;
 
-    public function getAccessToken() : string;
+    public function getAccessToken(): string;
 
-    public function getTokenType() : ?string;
+    public function getTokenType(): ?string;
 
-    public function getExpiresAt() : ?DateTime;
+    public function getExpiresAt(): ?DateTime;
 }

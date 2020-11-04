@@ -13,15 +13,14 @@ use Shapecode\FUT\Client\Http\ClientCall;
 
 class ClientCallPlugin implements Plugin
 {
-    /** @var ClientCall */
-    protected $call;
+    protected ClientCall $call;
 
     public function __construct(ClientCall $call)
     {
         $this->call = $call;
     }
 
-    public function handleRequest(RequestInterface $request, callable $next, callable $first) : Promise
+    public function handleRequest(RequestInterface $request, callable $next, callable $first): Promise
     {
         $this->call->setRequest($request);
 
@@ -29,7 +28,7 @@ class ClientCallPlugin implements Plugin
             $this->call->setResponse($response);
 
             return $response;
-        }, function (Exception $exception) : void {
+        }, function (Exception $exception): void {
             if ($exception instanceof Exception\HttpException) {
                 $this->call->setResponse($exception->getResponse());
             }

@@ -10,10 +10,10 @@ use Shapecode\FUT\Client\Items\ItemInterface;
 class UnassignedResponse
 {
     /** @var ItemInterface[] */
-    private $items;
+    private array $items;
 
     /** @var DuplicateItem[] */
-    private $duplicateItemIdList;
+    private array $duplicateItemIdList;
 
     /**
      * @param ItemInterface[] $items
@@ -28,7 +28,7 @@ class UnassignedResponse
     /**
      * @return ItemInterface[]
      */
-    public function getItems() : array
+    public function getItems(): array
     {
         return $this->items;
     }
@@ -36,7 +36,7 @@ class UnassignedResponse
     /**
      * @return DuplicateItem[]
      */
-    public function getDuplicateItemIdList() : array
+    public function getDuplicateItemIdList(): array
     {
         return $this->duplicateItemIdList;
     }

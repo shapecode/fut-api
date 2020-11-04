@@ -33,27 +33,22 @@ use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Config\ConfigInterface;
 use Shapecode\FUT\Client\Http\Plugin\ClientCallPlugin;
 use Symfony\Component\Stopwatch\Stopwatch;
+
 use function count;
 
 class ClientFactory implements ClientFactoryInterface
 {
-    /** @var RequestFactoryInterface */
-    protected $requestFactory;
+    protected RequestFactoryInterface $requestFactory;
 
-    /** @var StreamFactoryInterface */
-    protected $streamFactory;
+    protected StreamFactoryInterface $streamFactory;
 
-    /** @var UriFactoryInterface */
-    protected $urlFactory;
+    protected UriFactoryInterface $urlFactory;
 
-    /** @var ConfigInterface */
-    protected $config;
+    protected ConfigInterface $config;
 
-    /** @var CookieJarBuilderInterface */
-    protected $cookieJarBuilder;
+    protected CookieJarBuilderInterface $cookieJarBuilder;
 
-    /** @var LoggerInterface */
-    protected $logger;
+    protected LoggerInterface $logger;
 
     public const MAX_RETRIES = 4;
 
@@ -83,7 +78,7 @@ class ClientFactory implements ClientFactoryInterface
         string $url,
         array $options = [],
         array $plugins = []
-    ) : ClientCall {
+    ): ClientCall {
         $headers = [];
 
         if (isset($options['headers'])) {
@@ -123,7 +118,7 @@ class ClientFactory implements ClientFactoryInterface
     /**
      * @inheritdoc
      */
-    protected function createPluginClient(HttpClient $client, array $plugins = []) : PluginClient
+    protected function createPluginClient(HttpClient $client, array $plugins = []): PluginClient
     {
         return new PluginClient($client, $plugins);
     }
@@ -134,7 +129,7 @@ class ClientFactory implements ClientFactoryInterface
     protected function createAccountClient(
         AccountInterface $account,
         array $options = []
-    ) : GuzzleAdapter {
+    ): GuzzleAdapter {
         $options['http_errors']     = false;
         $options['allow_redirects'] = true;
 
@@ -163,7 +158,7 @@ class ClientFactory implements ClientFactoryInterface
         string $uri,
         ?string $body = null,
         array $headers = []
-    ) : RequestInterface {
+    ): RequestInterface {
         $url     = $this->urlFactory->createUri($uri);
         $request = $this->requestFactory->createRequest($method, $url);
 
@@ -181,12 +176,12 @@ class ClientFactory implements ClientFactoryInterface
         return $request;
     }
 
-    protected function getConfig() : ConfigInterface
+    protected function getConfig(): ConfigInterface
     {
         return $this->config;
     }
 
-    protected function createRetryHandler() : Closure
+    protected function createRetryHandler(): Closure
     {
         return static function (
             $retries,
@@ -198,12 +193,12 @@ class ClientFactory implements ClientFactoryInterface
         };
     }
 
-    protected function isServerError(?Psr7Response $response = null) : bool
+    protected function isServerError(?Psr7Response $response = null): bool
     {
         return $response !== null && $response->getStatusCode() >= 500;
     }
 
-    protected function isConnectError(?RequestException $exception = null) : bool
+    protected function isConnectError(?RequestException $exception = null): bool
     {
         return $exception instanceof ConnectException;
     }

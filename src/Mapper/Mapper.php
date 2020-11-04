@@ -24,7 +24,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createTransferMarketSearch(array $data) : MarketSearchResponse
+    public function createTransferMarketSearch(array $data): MarketSearchResponse
     {
         $as = $data['auctionInfo'] ?? [];
         $bs = $data['bidTokens'] ?? [];
@@ -46,7 +46,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createBidResult(array $data) : BidResponse
+    public function createBidResult(array $data): BidResponse
     {
         $as      = $data['auctionInfo'] ?? [];
         $credits = $data['credits'] ?? null;
@@ -63,7 +63,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createUnassignedResponse(array $data) : UnassignedResponse
+    public function createUnassignedResponse(array $data): UnassignedResponse
     {
         $itemData            = $data['itemData'] ?? [];
         $duplicateItemIdList = $data['duplicateItemIdList'] ?? [];
@@ -85,7 +85,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createWatchlistResponse(array $data) : WatchlistResponse
+    public function createWatchlistResponse(array $data): WatchlistResponse
     {
         $credits = $data['credits'] ?? null;
         $total   = $data['total'] ?? null;
@@ -103,7 +103,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createTradepileResponse(array $data) : TradepileResponse
+    public function createTradepileResponse(array $data): TradepileResponse
     {
         $credits = $data['credits'] ?? null;
         $as      = $data['auctionInfo'] ?? [];
@@ -122,7 +122,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createTradeStatusResponse(array $data) : TradeStatusResponse
+    public function createTradeStatusResponse(array $data): TradeStatusResponse
     {
         $credits = $data['credits'] ?? null;
         $as      = $data['auctionInfo'] ?? [];
@@ -147,7 +147,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createTradeItem(array $data) : TradeItem
+    public function createTradeItem(array $data): TradeItem
     {
         $item = $this->createItem($data['itemData']);
 
@@ -157,7 +157,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createCurrencyValue(array $data) : CurrencyValue
+    public function createCurrencyValue(array $data): CurrencyValue
     {
         return new CurrencyValue($data);
     }
@@ -165,7 +165,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createItem(array $data) : Item
+    public function createItem(array $data): Item
     {
         $itemType = $data['itemType'] ?? null;
 
@@ -191,7 +191,7 @@ class Mapper
     /**
      * @param mixed[] $data
      */
-    public function createDuplicateItem(array $data) : DuplicateItem
+    public function createDuplicateItem(array $data): DuplicateItem
     {
         return new DuplicateItem($data['itemId'], $data['duplicateItemId']);
     }

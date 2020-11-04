@@ -21,7 +21,7 @@ class FutUtil
         // object not allowed
     }
 
-    public static function getBaseId(int $assetId) : int
+    public static function getBaseId(int $assetId): int
     {
         $version  = 0;
         $assetId += 0xC4000000;
@@ -42,7 +42,7 @@ class FutUtil
         return $assetId;
     }
 
-    public static function getGameSku(string $platform) : string
+    public static function getGameSku(string $platform): string
     {
         if (! isset(self::GAME_SKU[$platform])) {
             throw new FutException('Wrong platform. (Valid ones are pc/xbox/xbox360/ps3/ps4)');

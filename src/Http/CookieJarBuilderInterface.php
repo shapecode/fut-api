@@ -9,5 +9,5 @@ use Shapecode\FUT\Client\Authentication\AccountInterface;
 
 interface CookieJarBuilderInterface
 {
-    public function createCookieJar(AccountInterface $account) : CookieJarInterface;
+    public function createCookieJar(AccountInterface $account): CookieJarInterface;
 }

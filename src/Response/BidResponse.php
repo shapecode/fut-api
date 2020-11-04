@@ -6,15 +6,15 @@ namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
 use Shapecode\FUT\Client\Items\TradeItemInterface;
+
 use function count;
 
 class BidResponse
 {
-    /** @var int|null */
-    private $credits;
+    private ?int $credits = null;
 
     /** @var TradeItem[] */
-    private $auctions = [];
+    private array $auctions = [];
 
     /**
      * @param TradeItem[] $auctions
@@ -28,22 +28,22 @@ class BidResponse
     /**
      * @return TradeItem[]
      */
-    public function getAuctions() : array
+    public function getAuctions(): array
     {
         return $this->auctions;
     }
 
-    public function hasAuctions() : bool
+    public function hasAuctions(): bool
     {
         return count($this->auctions) > 0;
     }
 
-    public function hasAuction(int $index) : bool
+    public function hasAuction(int $index): bool
     {
         return isset($this->auctions[$index]);
     }
 
-    public function getAuction(int $index) : ?TradeItemInterface
+    public function getAuction(int $index): ?TradeItemInterface
     {
         if (! $this->hasAuction($index)) {
             return null;
@@ -52,7 +52,7 @@ class BidResponse
         return $this->auctions[$index];
     }
 
-    public function getCredits() : ?int
+    public function getCredits(): ?int
     {
         return $this->credits;
     }

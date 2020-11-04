@@ -8,7 +8,7 @@ use Shapecode\FUT\Client\Items\TradeItem;
 
 class TransfermarketEndpointTest extends EndpointTestCase
 {
-    public function testSearch() : void
+    public function testSearch(): void
     {
         $factory = $this->createClientFactoryMock('transfermarekt.response.json');
         $core    = $this->createCore($factory);

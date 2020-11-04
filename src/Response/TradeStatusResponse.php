@@ -6,22 +6,22 @@ namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\CurrencyValue;
 use Shapecode\FUT\Client\Items\TradeItemInterface;
+
 use function array_key_exists;
 use function count;
 
 class TradeStatusResponse
 {
-    /** @var int|null */
-    private $credits;
+    private ?int $credits = null;
 
     /** @var TradeItemInterface[] */
-    private $auctions;
+    private array $auctions;
 
     /** @var mixed[] */
-    private $bidTokens;
+    private array $bidTokens;
 
     /** @var CurrencyValue[] */
-    private $currencies;
+    private array $currencies;
 
     /**
      * @param TradeItemInterface[] $auctions
@@ -36,7 +36,7 @@ class TradeStatusResponse
         $this->currencies = $currencies;
     }
 
-    public function getCredits() : ?int
+    public function getCredits(): ?int
     {
         return $this->credits;
     }
@@ -44,17 +44,17 @@ class TradeStatusResponse
     /**
      * @return TradeItemInterface[]
      */
-    public function getAuctions() : array
+    public function getAuctions(): array
     {
         return $this->auctions;
     }
 
-    public function hasAuctions() : bool
+    public function hasAuctions(): bool
     {
         return count($this->auctions) > 0;
     }
 
-    public function getAuction(int $index) : ?TradeItemInterface
+    public function getAuction(int $index): ?TradeItemInterface
     {
         if (! $this->hasAuction($index)) {
             return null;
@@ -63,7 +63,7 @@ class TradeStatusResponse
         return $this->auctions[$index];
     }
 
-    public function hasAuction(int $index) : bool
+    public function hasAuction(int $index): bool
     {
         return array_key_exists($index, $this->auctions);
     }
@@ -71,7 +71,7 @@ class TradeStatusResponse
     /**
      * @return mixed[]
      */
-    public function getBidTokens() : array
+    public function getBidTokens(): array
     {
         return $this->bidTokens;
     }
@@ -79,7 +79,7 @@ class TradeStatusResponse
     /**
      * @return CurrencyValue[]
      */
-    public function getCurrencies() : array
+    public function getCurrencies(): array
     {
         return $this->currencies;
     }

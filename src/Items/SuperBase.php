@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Items;
 
 use ArrayAccess;
+
 use function array_key_exists;
 
 abstract class SuperBase implements ArrayAccess
 {
     /** @var mixed[] */
-    protected $data;
+    protected array $data;
 
     /**
      * @param mixed[] $data
@@ -23,7 +24,7 @@ abstract class SuperBase implements ArrayAccess
     /**
      * @return mixed[]
      */
-    public function getArray() : array
+    public function getArray(): array
     {
         return $this->data;
     }
@@ -41,7 +42,7 @@ abstract class SuperBase implements ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetExists($offset) : bool
+    public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]) || array_key_exists($offset, $this->data);
     }
@@ -60,7 +61,7 @@ abstract class SuperBase implements ArrayAccess
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value) : void
+    public function offsetSet($offset, $value): void
     {
         $this->data[$offset] = $value;
     }
@@ -68,7 +69,7 @@ abstract class SuperBase implements ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset) : void
+    public function offsetUnset($offset): void
     {
         if (! $this->offsetExists($offset)) {
             return;

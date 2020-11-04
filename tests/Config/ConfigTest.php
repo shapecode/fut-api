@@ -9,7 +9,7 @@ use Shapecode\FUT\Client\Config\Config;
 
 class ConfigTest extends TestCase
 {
-    public function testCreation() : void
+    public function testCreation(): void
     {
         $config = new Config();
 

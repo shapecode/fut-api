@@ -8,14 +8,13 @@ use Shapecode\FUT\Client\Items\TradeItem;
 
 class TradepileResponse
 {
-    /** @var int|null */
-    private $credits;
+    private ?int $credits = null;
 
     /** @var TradeItem[] */
-    private $auctions = [];
+    private array $auctions = [];
 
     /** @var mixed[]  */
-    private $bidTokens = [];
+    private array $bidTokens = [];
 
     /**
      * @param TradeItem[] $auctions
@@ -28,7 +27,7 @@ class TradepileResponse
         $this->bidTokens = $bidTokens;
     }
 
-    public function getCredits() : ?int
+    public function getCredits(): ?int
     {
         return $this->credits;
     }
@@ -36,7 +35,7 @@ class TradepileResponse
     /**
      * @return TradeItem[]
      */
-    public function getAuctions() : array
+    public function getAuctions(): array
     {
         return $this->auctions;
     }
@@ -44,7 +43,7 @@ class TradepileResponse
     /**
      * @return mixed[]
      */
-    public function getBidTokens() : array
+    public function getBidTokens(): array
     {
         return $this->bidTokens;
     }

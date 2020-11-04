@@ -9,17 +9,13 @@ use Shapecode\FUT\Client\Model\ProxyInterface;
 
 class Account implements AccountInterface
 {
-    /** @var CredentialsInterface */
-    protected $credentials;
+    protected CredentialsInterface $credentials;
 
-    /** @var SessionInterface|null */
-    protected $session;
+    protected ?SessionInterface $session = null;
 
-    /** @var ProxyInterface|null */
-    protected $proxy;
+    protected ?ProxyInterface $proxy = null;
 
-    /** @var ClientInterface */
-    protected $client;
+    protected ClientInterface $client;
 
     public function __construct(
         CredentialsInterface $credentials,
@@ -31,27 +27,27 @@ class Account implements AccountInterface
         $this->session     = $session;
     }
 
-    public function getCredentials() : CredentialsInterface
+    public function getCredentials(): CredentialsInterface
     {
         return $this->credentials;
     }
 
-    public function getSession() : ?SessionInterface
+    public function getSession(): ?SessionInterface
     {
         return $this->session;
     }
 
-    public function setSession(SessionInterface $session) : void
+    public function setSession(SessionInterface $session): void
     {
         $this->session = $session;
     }
 
-    public function resetSession() : void
+    public function resetSession(): void
     {
         $this->session = null;
     }
 
-    public function getProxy() : ?ProxyInterface
+    public function getProxy(): ?ProxyInterface
     {
         return $this->proxy;
     }

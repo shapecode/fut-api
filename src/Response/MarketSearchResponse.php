@@ -6,15 +6,16 @@ namespace Shapecode\FUT\Client\Response;
 
 use Shapecode\FUT\Client\Items\TradeItem;
 use Webmozart\Assert\Assert;
+
 use function count;
 
 class MarketSearchResponse extends AbstractResponse
 {
     /** @var TradeItem[] */
-    private $auctions = [];
+    private array $auctions = [];
 
     /** @var mixed[] */
-    private $bidTokens = [];
+    private array $bidTokens = [];
 
     /**
      * @param mixed[]     $rawBody
@@ -37,12 +38,12 @@ class MarketSearchResponse extends AbstractResponse
     /**
      * @return TradeItem[]
      */
-    public function getAuctions() : array
+    public function getAuctions(): array
     {
         return $this->auctions;
     }
 
-    public function hasAuctions() : bool
+    public function hasAuctions(): bool
     {
         return count($this->auctions) > 0;
     }
@@ -50,7 +51,7 @@ class MarketSearchResponse extends AbstractResponse
     /**
      * @return mixed[]
      */
-    public function getBidTokens() : array
+    public function getBidTokens(): array
     {
         return $this->bidTokens;
     }
