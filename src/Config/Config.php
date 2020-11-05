@@ -10,7 +10,6 @@ use function array_merge;
 use function file_get_contents;
 use function is_array;
 use function json_decode;
-use function random_int;
 
 use const JSON_THROW_ON_ERROR;
 
@@ -39,36 +38,6 @@ class Config implements ConfigInterface
 
         $this->futConfigUrl = $futConfigUrl;
         $this->resolveOptions($options);
-    }
-
-    public function isDelay(): bool
-    {
-        return $this->getOption('delay');
-    }
-
-    public function getDelayMinTime(): int
-    {
-        return $this->getOption('delayMinTime');
-    }
-
-    public function getDelayMaxTime(): int
-    {
-        return $this->getOption('delayMaxTime');
-    }
-
-    public function getRandomDelayTime(?int $min = null, ?int $max = null): int
-    {
-        if ($min === null) {
-            $min = $this->getDelayMinTime();
-        }
-
-        if ($max === null) {
-            $max = $this->getDelayMaxTime();
-        }
-
-        $delayMS = random_int($min, $max);
-
-        return $delayMS * 1000;
     }
 
     public function getUserAgent(): string
@@ -115,9 +84,6 @@ class Config implements ConfigInterface
 
         $defaults = array_merge($futConfig, [
             'userAgent'         => self::USER_AGENT,
-            'delay'             => true,
-            'delayMinTime'      => 1000,
-            'delayMaxTime'      => 1500,
         ]);
 
         $resolver->setDefaults($defaults);

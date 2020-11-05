@@ -9,7 +9,7 @@ parameters:
     level: max
     paths:
         - src
-        - test
+        - tests
 
     parallel:
         maximumNumberOfProcesses: 4

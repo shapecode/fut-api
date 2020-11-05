@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Shapecode\FUT\Client\Api;
 
-use Shapecode\FUT\Client\Http\ClientCall;
+use Psr\Http\Message\ResponseInterface;
 
 interface CoreInterface
 {
@@ -293,12 +293,12 @@ interface CoreInterface
      */
     public function getCaptchaData();
 
-    public function validateCaptcha(string $token): ClientCall;
+    public function validateCaptcha(string $token): ResponseInterface;
 
-    public function phishingQuestion(): ClientCall;
+    public function phishingQuestion(): ResponseInterface;
 
     /**
      * @param mixed $answer
      */
-    public function phishingValidate($answer): ClientCall;
+    public function phishingValidate($answer): ResponseInterface;
 }

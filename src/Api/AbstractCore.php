@@ -5,16 +5,13 @@ declare(strict_types=1);
 namespace Shapecode\FUT\Client\Api;
 
 use DateTime;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\TransferStats;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
 use Shapecode\FUT\Client\Authentication\AccountInterface;
 use Shapecode\FUT\Client\Authentication\Session;
-use Shapecode\FUT\Client\Config\Config;
-use Shapecode\FUT\Client\Config\ConfigInterface;
 use Shapecode\FUT\Client\Exception\AuthFailedException;
 use Shapecode\FUT\Client\Exception\CaptchaException;
 use Shapecode\FUT\Client\Exception\FutResponseException;
@@ -30,8 +27,6 @@ use Shapecode\FUT\Client\Exception\TemporaryBanException;
 use Shapecode\FUT\Client\Exception\ToManyRequestsException;
 use Shapecode\FUT\Client\Exception\TransferMarketDisabledException;
 use Shapecode\FUT\Client\Exception\UserExpiredException;
-use Shapecode\FUT\Client\Http\ClientCall;
-use Shapecode\FUT\Client\Http\ClientFactory;
 use Shapecode\FUT\Client\Http\ClientFactoryInterface;
 use Shapecode\FUT\Client\Items\TradeItemInterface;
 use Shapecode\FUT\Client\Locale\Locale;
@@ -54,6 +49,7 @@ use function is_array;
 use function json_decode;
 use function json_encode;
 use function parse_str;
+use function random_int;
 use function str_replace;
 use function strpos;
 use function strtoupper;
@@ -70,8 +66,6 @@ abstract class AbstractCore implements CoreInterface
 
     protected AccountInterface $account;
 
-    protected ConfigInterface $config;
-
     protected Locale $locale;
 
     protected Mapper $mapper;
@@ -82,16 +76,14 @@ abstract class AbstractCore implements CoreInterface
 
     public function __construct(
         AccountInterface $account,
-        ?ConfigInterface $config = null,
-        ?ClientFactoryInterface $clientFactory = null
+        ClientFactoryInterface $clientFactory
     ) {
         $this->account       = $account;
-        $this->config        = $config ?? new Config();
-        $this->clientFactory = $clientFactory ?? new ClientFactory($this->config);
+        $this->clientFactory = $clientFactory;
 
         $this->locale = new Locale('en_US');
         $this->mapper = new Mapper();
-        $this->pin    = new Pin($this->getAccount(), $this->getClientFactory());
+        $this->pin    = new Pin($account, $clientFactory);
     }
 
     public function getClientFactory(): ClientFactoryInterface
@@ -104,7 +96,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function login(?string $code = null): array
     {
-        $account     = $this->getAccount();
+        $account     = $this->account;
         $credentials = $account->getCredentials();
         $locale      = $this->locale;
 
@@ -247,8 +239,8 @@ abstract class AbstractCore implements CoreInterface
             $this->simpleRequest('GET', 'https://' . self::AUTH_URL . '/ut/shards/v2', [
                 'headers' => $headers,
             ]);
-        } catch (RequestException $e) {
-            throw new ServerDownException($e->getResponse(), $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new ServerDownException(null, $e);
         }
 
         unset($headers['Easw-Session-Data-Nucleus-Id']);
@@ -284,8 +276,8 @@ abstract class AbstractCore implements CoreInterface
                 ],
             ]);
             $responseContent = json_decode($call->getContent(), true);
-        } catch (ConnectException $e) {
-            throw new ServerDownException($e->getResponse(), $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new ServerDownException(null, $e);
         }
 
         if (! isset($responseContent['userAccountInfo']['personas'])) {
@@ -419,7 +411,7 @@ abstract class AbstractCore implements CoreInterface
             $expiresAt
         );
 
-        $this->getAccount()->setSession($session);
+        $this->account->setSession($session);
     }
 
     public function logout(): void
@@ -443,7 +435,7 @@ abstract class AbstractCore implements CoreInterface
 
     protected function resetSession(): void
     {
-        $this->getAccount()->resetSession();
+        $this->account->resetSession();
     }
 
     /**
@@ -712,7 +704,7 @@ abstract class AbstractCore implements CoreInterface
      */
     public function squad(int $squadId = 0)
     {
-        $session = $this->getAccount()->getSession();
+        $session = $this->account->getSession();
         if ($session === null) {
             throw new RuntimeException('session has to be set');
         }
@@ -1030,14 +1022,14 @@ abstract class AbstractCore implements CoreInterface
         return $this->getResponseContent($response);
     }
 
-    public function validateCaptcha(string $token): ClientCall
+    public function validateCaptcha(string $token): ResponseInterface
     {
         return $this->request('POST', '/captcha/fun/validate', [
             'funCaptchaToken' => $token,
         ]);
     }
 
-    public function phishingQuestion(): ClientCall
+    public function phishingQuestion(): ResponseInterface
     {
         return $this->request('POST', '/phishing/question');
     }
@@ -1045,7 +1037,7 @@ abstract class AbstractCore implements CoreInterface
     /**
      * @inheritdoc
      */
-    public function phishingValidate($answer): ClientCall
+    public function phishingValidate($answer): ResponseInterface
     {
         $hash = EAHasher::getInstance()->getHash($answer);
 
@@ -1054,16 +1046,6 @@ abstract class AbstractCore implements CoreInterface
         ];
 
         return $this->request('POST', '/phishing/validate', $params);
-    }
-
-    protected function getAccount(): AccountInterface
-    {
-        return $this->account;
-    }
-
-    protected function getPin(): Pin
-    {
-        return $this->pin;
     }
 
     protected function getFifaApiUrl(): string
@@ -1079,7 +1061,7 @@ abstract class AbstractCore implements CoreInterface
     protected function getFutApiUrl(): string
     {
         if ($this->ultimateApiUrl === null) {
-            $platform = $this->getAccount()->getCredentials()->getPlatform();
+            $platform = $this->account->getCredentials()->getPlatform();
 
             $host = self::FUT_HOSTS[$platform];
 
@@ -1091,21 +1073,25 @@ abstract class AbstractCore implements CoreInterface
 
     protected function getGameSku(): string
     {
-        return FutUtil::getGameSku($this->getAccount()->getCredentials()->getPlatform());
+        return FutUtil::getGameSku($this->account->getCredentials()->getPlatform());
     }
 
     protected function sleep(?int $min = null, ?int $max = null): void
     {
-        usleep($this->getConfig()->getRandomDelayTime($min, $max));
+        usleep(random_int($min, $max));
     }
 
     /**
-     * @param mixed[] $options
-     * @param mixed[] $plugins
+     * @param mixed[] $headers
      */
-    protected function simpleRequest(string $method, string $url, array $options = [], array $plugins = []): ClientCall
-    {
-        return $this->getClientFactory()->request($this->getAccount(), $method, $url, $options, $plugins);
+    protected function simpleRequest(
+        string $method,
+        string $url,
+        array $params,
+        string $body,
+        array $headers = []
+    ): ResponseInterface {
+        return $this->clientFactory->request($this->account, $method, $url, $params, $body, $headers);
     }
 
     /**
@@ -1119,18 +1105,14 @@ abstract class AbstractCore implements CoreInterface
         $body = null,
         array $params = [],
         array $headers = []
-    ): ClientCall {
+    ): ResponseInterface {
         if (strpos($url, 'http') === false) {
             $url = $this->getFifaApiUrl() . $url;
         }
 
-        if ($this->getConfig()->isDelay() === true) {
-            $this->sleep();
-        }
-
         $method = strtoupper($method);
 
-        $account = $this->getAccount();
+        $account = $this->account;
         $session = $account->getSession();
 
         if ($session === null) {
@@ -1141,41 +1123,25 @@ abstract class AbstractCore implements CoreInterface
             $params['_'] = time();
         }
 
-        $options = [
-            'headers' => $headers,
-        ];
+        $headers['X-UT-SID'] = $session->getSession();
+        $headers['Host']     = self::FUT_HOSTS[$account->getCredentials()->getPlatform()];
+//        $headers['Easw-Session-Data-Nucleus-Id'] = $session->getNucleus();
+//        $headers['X-UT-PHISHING-TOKEN'] = $session->getPhishing();
 
-        $plugins   = [];
-        $plugins[] = new HeaderSetPlugin($headers);
-        $plugins[] = new HeaderSetPlugin([
-            'X-UT-SID' => $session->getSession(),
-            'Host'     => self::FUT_HOSTS[$account->getCredentials()->getPlatform()],
-//            'Easw-Session-Data-Nucleus-Id' => $session->getNucleus(),
-//            'X-UT-PHISHING-TOKEN'          => $session->getPhishing(),
-        ]);
-        $plugins[] = new QueryDefaultsPlugin($params);
-
-        if ($body !== null) {
-            if (is_array($body)) {
-                $body = json_encode($body, JSON_THROW_ON_ERROR);
-            }
-
-            $options['body'] = $body;
+        if ($body !== null && is_array($body)) {
+            $body = json_encode($body, JSON_THROW_ON_ERROR);
         }
 
-        $call = $this->simpleRequest($method, $url, $options, $plugins);
+        $response = $this->simpleRequest($method, $url, $params, $body, $headers);
 
-        $this->handleInvalidResponse($call->getResponse());
+        $this->handleInvalidResponse($response);
 
-        return $call;
+        return $response;
     }
 
-    /**
-     * @return mixed|string
-     */
-    protected function getResponseContent(ClientCall $call)
+    protected function getResponseContent(ResponseInterface $response): ?string
     {
-        $content = $call->getContent();
+        $content = $response->getBody()->__toString();
 
         if ($content !== '') {
             try {
@@ -1217,7 +1183,6 @@ abstract class AbstractCore implements CoreInterface
 
             // captcha
             case 458:
-                $this->captchaReceived();
                 $this->pin->sendEvent('error');
 
                 throw new CaptchaException($response);
@@ -1240,23 +1205,5 @@ abstract class AbstractCore implements CoreInterface
             case 500:
                 throw new ServerDownException($response);
         }
-    }
-
-    protected function captchaReceived(): void
-    {
-        // nothing to do in default
-    }
-
-    protected function getConfig(): ConfigInterface
-    {
-        return $this->config;
-    }
-
-    /**
-     * @param mixed $value
-     */
-    public function setConfig(string $name, $value): void
-    {
-        $this->config->setOption($name, $value);
     }
 }
